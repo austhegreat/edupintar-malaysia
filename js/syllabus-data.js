@@ -16,113 +16,470 @@ const SYLLABUS_DATA = {
       { id: "t6", name: "Tahun 6", badge: "Tahap 2 (UASA)", isFeatured: true }
     ],
     subjects: {
-      "t4": [
+      "t1": [
         {
-          id: "t4-sains",
-          name: "Sains",
-          code: "SN-T4",
-          icon: "🫁",
-          color: "from-emerald-500 to-teal-600",
-          theme: "emerald",
-          hasDlp: true,
-          chaptersCount: 10,
-          description: "Meneroka organ pernafasan, perkumuhan manusia, dan kemandirian tumbuhan.",
-          chapters: [
+          "id": "t1-bm",
+          "name": "Bahasa Melayu",
+          "code": "BM-T1",
+          "icon": "📚",
+          "color": "from-amber-500 to-orange-600",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 8,
+          "description": "Membaca suku kata, mengenal huruf vokal dan konsonan, tatabahasa asas dan perbualan harian.",
+          "chapters": [
             {
-              id: "t4-sn-c2",
-              number: "Unit 2",
-              title: "Manusia: Pernafasan & Perkumuhan",
-              summary: "Memahami laluan udara semasa menarik dan menghembus nafas serta organ perkumuhan dan penyahtinjaan.",
-              xpReward: 140,
-              badgeReward: "Wira Sains Cilik",
-              notes: {
-                title: "Unit 2: Pernafasan dan Perkumuhan Manusia",
-                readTime: "6 minit",
-                dlpAvailable: true,
-                sections: [
+              "id": "t1-bm-c1",
+              "number": "Unit 1",
+              "title": "Keluarga Penyayang (Kata Nama Am)",
+              "summary": "Mengenal kata nama am bagi manusia, haiwan, benda dan tempat di sekeliling rumah.",
+              "xpReward": 100,
+              "badgeReward": "Bintang Cilik BM",
+              "notes": {
+                "title": "Unit 1: Mari Kenali Kata Nama Am",
+                "readTime": "4 minit",
+                "dlpAvailable": false,
+                "sections": [
                   {
-                    heading: "1. Organ Pernafasan Manusia & Laluan Udara",
-                    content: "Manusia bernafas menggunakan <strong>peparu</strong> untuk menyedut oksigen dan membebaskan karbon dioksida.",
-                    bulletPoints: [
-                      "<strong>Laluan Udara Menarik Nafas:</strong> Hidung ➔ Trakea ➔ Peparu (Dada naik dan mengembang).",
-                      "<strong>Laluan Udara Menghembus Nafas:</strong> Peparu ➔ Trakea ➔ Hidung (Dada turun dan mengempis).",
-                      "<strong>Kadar Pernafasan:</strong> Bilangan pergerakan dada naik dan turun dalam satu minit. Lebih cergas aktiviti, lebih tinggi kadar pernafasan!"
+                    "heading": "Maksud Kata Nama Am",
+                    "content": "Kata Nama Am ialah perkataan yang digunakan untuk menyebut nama <strong>manusia</strong>, <strong>haiwan</strong>, <strong>benda</strong>, dan <strong>tempat</strong> secara umum. Dieja dengan huruf kecil kecuali pada permulaan ayat.",
+                    "bulletPoints": [
+                      "<strong>Manusia:</strong> ibu, bapa, adik, guru, polis",
+                      "<strong>Haiwan:</strong> kucing, burung, arnab, ikan",
+                      "<strong>Benda:</strong> buku, pensel, meja, baju",
+                      "<strong>Tempat:</strong> rumah, sekolah, taman, padang"
                     ],
-                    mnemonic: "💡 <strong>Formula Ingat:</strong> Tarik Nafas = H-T-P (Hidung ➔ Trakea ➔ Peparu). Hembus Nafas = P-T-H (Peparu ➔ Trakea ➔ Hidung)!"
-                  },
-                  {
-                    heading: "2. Perkumuhan & Penyahtinjaan",
-                    content: "Tubuh kita menyingkirkan bahan buangan toksik untuk kekal sihat.",
-                    bulletPoints: [
-                      "<strong>Peparu:</strong> Menyingkirkan karbon dioksida dan wap air melalui hembusan nafas.",
-                      "<strong>Ginjal (Buah Pinggang):</strong> Menyingkirkan air kencing (urea, garam mineral, air).",
-                      "<strong>Kulit:</strong> Menyingkirkan peluh melalui liang peluh.",
-                      "<strong>Penyahtinjaan:</strong> Penyingkiran tinja (sisa makanan yang tidak tercerna) melalui dubur."
-                    ],
-                    examTip: "⭐ <strong>Tip UASA:</strong> Jangan keliru antara <em>perkumuhan</em> (penyingkiran bahan toksik daripada sel tubuh) dan <em>penyahtinjaan</em> (penyingkiran tinja melalui dubur)!"
+                    "mnemonic": "💡 <strong>Formula Ingat:</strong> M-H-B-T (Manusia, Haiwan, Benda, Tempat)!"
                   }
                 ]
               },
-              video: {
-                title: "Sains Tahun 4: Laluan Udara & Organ Perkumuhan",
-                duration: "7:45 minit",
-                presenter: "Cikgu Farah (Guru Sains Inovatif)",
-                embedUrl: "https://www.youtube.com/embed/f9ONXd_-anM",
-                highlights: [
-                  "0:30 - Laluan Udara Menarik & Menghembus Nafas",
-                  "2:40 - Eksperimen Kadar Pernafasan",
-                  "5:15 - 3 Organ Perkumuhan Utama"
-                ]
-              },
-              worksheet: {
-                title: "Lembaran Latihan UASA Sains Tahun 4 (Unit 2)",
-                pages: 2,
-                itemsCount: 8,
-                fileType: "PDF Interaktif",
-                downloadUrl: "#",
-                previewItems: [
-                  "Menyusun urutan laluan udara menarik nafas",
-                  "Memadankan organ dengan hasil perkumuhan",
-                  "Soalan situasi kadar pernafasan selepas berlari"
-                ]
-              },
-              quiz: {
-                id: "quiz-t4-sn-c2",
-                title: "Kuiz Interaktif: Pernafasan & Perkumuhan Manusia",
-                timeLimitMinutes: 8,
-                passingScore: 60,
-                xpPoints: 100,
-                questions: [
+              "quiz": {
+                "id": "quiz-t1-bm-c1",
+                "title": "Kuiz Padanan Kata Nama Am",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
                   {
-                    id: 1,
-                    question: "Apakah laluan udara yang betul semasa manusia menarik nafas?",
-                    options: [
-                      "Hidung ➔ Trakea ➔ Peparu",
-                      "Peparu ➔ Trakea ➔ Hidung",
-                      "Hidung ➔ Peparu ➔ Jantung",
-                      "Mulut ➔ Perut ➔ Peparu"
+                    "id": 1,
+                    "question": "Antara berikut, perkataan manakah merupakan Kata Nama Am bagi haiwan?",
+                    "options": [
+                      "kerusi",
+                      "kucing",
+                      "sekolah",
+                      "cikgu"
                     ],
-                    correctIndex: 0,
-                    explanation: "Semasa menarik nafas, udara kaya oksigen masuk melalui hidung, menuruni trakea dan memenuhi peparu."
+                    "correctIndex": 1,
+                    "explanation": "Kucing ialah kata nama am yang merujuk kepada haiwan peliharaan."
                   },
                   {
-                    id: 2,
-                    question: "Organ manakah yang bertanggungjawab menyingkirkan peluh?",
-                    options: ["Peparu", "Kulit", "Ginjal", "Hati"],
-                    correctIndex: 1,
-                    explanation: "Kulit menyingkirkan peluh yang mengandungi air, urea dan garam mineral melalui liang peluh."
+                    "id": 2,
+                    "question": "Pilih perkataan yang tergolong dalam Kata Nama Am bagi tempat:",
+                    "options": [
+                      "padang",
+                      "kasut",
+                      "adik",
+                      "buku"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Padang merujuk kepada tempat lapang untuk bersukan dan beriadah."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "t1-bm-c2",
+              "number": "Unit 2",
+              "title": "Masyarakat Muhibah",
+              "summary": "Bertegur sapa dengan jiran tetangga dan rakan pelbagai kaum.",
+              "xpReward": 100,
+              "chaptersCount": 6,
+              "notes": null,
+              "quiz": null
+            },
+            {
+              "id": "t1-bm-c3",
+              "number": "Unit 3",
+              "title": "Pentingkan Kebersihan dan Kesihatan",
+              "summary": "Amalan membasuh tangan dan menggosok gigi setiap hari.",
+              "xpReward": 100,
+              "chaptersCount": 6,
+              "notes": null,
+              "quiz": null
+            }
+          ]
+        },
+        {
+          "id": "t1-bi",
+          "name": "English",
+          "code": "BI-T1",
+          "icon": "🌍",
+          "color": "from-sky-500 to-cyan-600",
+          "theme": "sky",
+          "hasDlp": false,
+          "chaptersCount": 10,
+          "description": "Phonics, alphabet sounds, greetings, colours, classroom objects, and simple self-introductions.",
+          "chapters": [
+            {
+              "id": "t1-bi-c2",
+              "number": "Unit 2",
+              "title": "At School (Classroom Objects)",
+              "summary": "Learn the names of stationery and objects in the classroom: pen, pencil, rubber, ruler, book, desk.",
+              "xpReward": 100,
+              "badgeReward": "Junior Scholar",
+              "notes": {
+                "title": "Unit 2: My Classroom Stationery",
+                "readTime": "4 minutes",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Things in My Pencil Case",
+                    "content": "Let us learn the things we use in school every day!",
+                    "bulletPoints": [
+                      "<strong>Pen:</strong> used for writing in ink.",
+                      "<strong>Pencil:</strong> used for drawing and writing.",
+                      "<strong>Ruler:</strong> used for drawing straight lines.",
+                      "<strong>Rubber / Eraser:</strong> used for cleaning mistakes.",
+                      "<strong>Desk & Chair:</strong> where we sit and study."
+                    ],
+                    "mnemonic": "💡 <strong>Tip:</strong> We say 'a pen', 'a pencil', 'a ruler' but 'an eraser' because it starts with a vowel sound (e)!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t1-bi-c2",
+                "title": "Quick Quiz: Classroom Objects",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "What object do you use to draw straight lines?",
+                    "options": [
+                      "Rubber",
+                      "Ruler",
+                      "Bag",
+                      "Crayon"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "A ruler has straight edges and measurements used for drawing straight lines."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "t1-bi-c1",
+              "number": "Unit 1",
+              "title": "Friends & Greetings",
+              "summary": "Saying Hello, Good morning, and What's your name?",
+              "xpReward": 100,
+              "notes": null,
+              "quiz": null
+            },
+            {
+              "id": "t1-bi-c3",
+              "number": "Unit 3",
+              "title": "Let's Play (Toys & Colours)",
+              "summary": "Ball, kite, doll, monster, bike, train, car.",
+              "xpReward": 100,
+              "notes": null,
+              "quiz": null
+            }
+          ]
+        },
+        {
+          "id": "t1-mt",
+          "name": "Matematik (DLP)",
+          "code": "MT-T1",
+          "icon": "📐",
+          "color": "from-blue-500 to-indigo-600",
+          "theme": "blue",
+          "hasDlp": true,
+          "chaptersCount": 8,
+          "description": "Nombor bulat hingga 100, tambah dan tolak asas, pecahan asas, wang hingga RM10, dan bentuk geometri.",
+          "chapters": [
+            {
+              "id": "t1-mt-c1",
+              "number": "Unit 1",
+              "title": "Nombor Hingga 100 & Nilai Tempat",
+              "summary": "Membilang, membanding, menulis nombor dalam angka & perkataan, serta memahami nilai tempat Sa dan Puluh.",
+              "xpReward": 110,
+              "badgeReward": "Kalkulator Cilik",
+              "notes": {
+                "title": "Unit 1: Nombor Hingga 100 & Nilai Tempat (Sa dan Puluh)",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Nilai Tempat: Puluh dan Sa",
+                    "content": "Setiap nombor dua digit terdiri daripada rumah <strong>Puluh</strong> dan rumah <strong>Sa</strong>.",
+                    "bulletPoints": [
+                      "Contoh nombor: <strong>47</strong>",
+                      "Digit 4 berada di rumah <strong>Puluh</strong>, nilainya <strong>40</strong>.",
+                      "Digit 7 berada di rumah <strong>Sa</strong>, nilainya <strong>7</strong>."
+                    ],
+                    "mnemonic": "💡 <strong>Tip Ingat:</strong> Rumah Puluh di sebelah kiri, rumah Sa di sebelah kanan!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t1-mt-c1",
+                "title": "Kuiz Nilai Tempat Sa & Puluh",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Dalam nombor 58, apakah nilai tempat bagi digit 5?",
+                    "options": [
+                      "Sa",
+                      "Puluh",
+                      "Ratus",
+                      "Ribu"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Digit 5 berada di sebelah kiri nombor 2 digit, maka nilai tempatnya ialah Puluh (50)."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "t1-mt-c2",
+              "number": "Unit 2",
+              "title": "Tambah dan Tolak Asas",
+              "summary": "Operasi tambah dalam lingkungan 100 dan tolak mudah.",
+              "xpReward": 100,
+              "notes": null,
+              "quiz": null
+            },
+            {
+              "id": "t1-mt-c3",
+              "number": "Unit 3",
+              "title": "Pecahan Asas (Perdua & Perempat)",
+              "summary": "Mengenal konsep satu perdua (separuh) dan satu perempat (suku).",
+              "xpReward": 100,
+              "notes": null,
+              "quiz": null
+            },
+            {
+              "id": "t1-mt-c4",
+              "number": "Unit 4",
+              "title": "Wang Hingga RM10",
+              "summary": "Mengenal duit syiling 5 sen, 10 sen, 20 sen, 50 sen dan wang kertas RM1, RM5.",
+              "xpReward": 100,
+              "notes": null,
+              "quiz": null
+            }
+          ]
+        },
+        {
+          "id": "t1-sn",
+          "name": "Sains (DLP)",
+          "code": "SN-T1",
+          "icon": "🔬",
+          "color": "from-emerald-500 to-teal-600",
+          "theme": "emerald",
+          "hasDlp": true,
+          "chaptersCount": 10,
+          "description": "5 deria manusia, bahagian tubuh haiwan, bahagian tumbuhan, tarikan magnet, dan asas binaan.",
+          "chapters": [
+            {
+              "id": "t1-sn-c4",
+              "number": "Unit 4",
+              "title": "Deria Manusia (5 Organ Deria)",
+              "summary": "Mengenal organ deria penglihatan (mata), pendengaran (telinga), bau (hidung), rasa (lidah), dan sentuhan (kulit).",
+              "xpReward": 120,
+              "badgeReward": "Peneroka Sains Cilik",
+              "notes": {
+                "title": "Unit 4: 5 Deria Hebat Manusia",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "5 Organ Deria dan Fungsinya",
+                    "content": "Manusia menggunakan organ deria untuk mengesan perubahan di sekeliling kita.",
+                    "bulletPoints": [
+                      "👀 <strong>Mata:</strong> Deria Penglihatan (melihat warna, saiz, dan bentuk)",
+                      "👂 <strong>Telinga:</strong> Deria Pendengaran (mendengar bunyi lembut dan kuat)",
+                      "👃 <strong>Hidung:</strong> Deria Bau (menghidu bau wangi dan busuk)",
+                      "👅 <strong>Lidah:</strong> Deria Rasa (manis, masin, masam, pahit)",
+                      "✋ <strong>Kulit:</strong> Deria Sentuhan (merasa panas, sejuk, kasar, licin, keras, lembut)"
+                    ],
+                    "mnemonic": "💡 <strong>Formula 5 Deria:</strong> Mata tengok, Telinga dengar, Hidung hidu, Lidah rasa, Kulit sentuh!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t1-sn-c4",
+                "title": "Kuiz 5 Deria Manusia",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Organ manakah yang kita gunakan untuk merasa ais krim manis?",
+                    "options": [
+                      "Telinga",
+                      "Lidah",
+                      "Hidung",
+                      "Mata"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Lidah mengandungi tunas rasa untuk mengesan rasa manis, masin, masam, dan pahit."
                   },
                   {
-                    id: 3,
-                    question: "Mengapakah kadar pernafasan seseorang meningkat selepas berlari 100 meter?",
-                    options: [
-                      "Kerana tubuh memerlukan lebih banyak gas karbon dioksida",
-                      "Kerana tubuh memerlukan lebih banyak oksigen dengan segera untuk menjana tenaga",
-                      "Kerana otot kaki menjadi lebih panjang",
-                      "Kerana suhu badan menurun"
+                    "id": 2,
+                    "question": "Deria sentuhan dikesan oleh organ...",
+                    "options": [
+                      "Kulit",
+                      "Rambut",
+                      "Kuku",
+                      "Gigi"
                     ],
-                    correctIndex: 1,
-                    explanation: "Aktiviti cergas memerlukan lebih banyak tenaga, maka sel badan memerlukan lebih banyak bekalan oksigen menyebabkan dada bernafas lebih laju."
+                    "correctIndex": 0,
+                    "explanation": "Kulit mempunyai reseptor deria sentuhan untuk mengesan suhu, tekanan, dan tekstur permukaan."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "t1-sn-c5",
+              "number": "Unit 5",
+              "title": "Haiwan (Bahagian Tubuh)",
+              "summary": "Paruh, sayap, sisik, bulu pelepah, cengkerang, ekor, tanduk.",
+              "xpReward": 100,
+              "notes": null,
+              "quiz": null
+            },
+            {
+              "id": "t1-sn-c7",
+              "number": "Unit 7",
+              "title": "Magnet",
+              "summary": "Bentuk magnet, kutub utara dan selatan, bahan magnet dan bukan magnet.",
+              "xpReward": 100,
+              "notes": null,
+              "quiz": null
+            }
+          ]
+        },
+        {
+          "id": "t1-pi",
+          "name": "Pendidikan Islam",
+          "code": "PI-T1",
+          "icon": "🕌",
+          "color": "from-teal-600 to-emerald-700",
+          "theme": "teal",
+          "hasDlp": false,
+          "chaptersCount": 6,
+          "description": "Asas huruf Hijaiyyah, 6 Rukun Iman, bersuci daripada hadas (istinjak), adab makan dan minum.",
+          "chapters": [
+            {
+              "id": "t1-pi-c2",
+              "number": "Unit 2",
+              "title": "Akidah: 6 Rukun Iman",
+              "summary": "Mengenal dan menghafal 6 Rukun Iman: Allah, Malaikat, Kitab, Rasul, Hari Kiamat, Qada' & Qadar.",
+              "xpReward": 100,
+              "badgeReward": "Anak Soleh",
+              "notes": {
+                "title": "Unit 2: Enam Rukun Iman Asas",
+                "readTime": "4 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Senarai 6 Rukun Iman",
+                    "content": "Setiap orang Islam wajib percaya dan yakin dengan 6 rukun iman:",
+                    "bulletPoints": [
+                      "1. Beriman kepada <strong>Allah SWT</strong>",
+                      "2. Beriman kepada <strong>Malaikat</strong>",
+                      "3. Beriman kepada <strong>Kitab-kitab Allah</strong>",
+                      "4. Beriman kepada <strong>Rasul-rasul Allah</strong>",
+                      "5. Beriman kepada <strong>Hari Kiamat</strong>",
+                      "6. Beriman kepada <strong>Qada' dan Qadar</strong>"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t1-pi-c2",
+                "title": "Ujian Hafalan Rukun Iman",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Rukun Iman yang pertama ialah beriman kepada...",
+                    "options": [
+                      "Malaikat",
+                      "Allah SWT",
+                      "Kitab",
+                      "Hari Akhirat"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Rukun Iman yang pertama dan terpenting ialah beriman serta yakin kepada keesaan Allah SWT."
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "t2": [
+        {
+          "id": "t2-bm",
+          "name": "Bahasa Melayu",
+          "code": "BM-T2",
+          "icon": "📚",
+          "color": "from-amber-500 to-orange-600",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 8,
+          "description": "Kata Kerja Transitif & Tak Transitif, Imbuhan Awalan 'meN-', Kata Hubung, dan Membina Perenggan.",
+          "chapters": [
+            {
+              "id": "t2-bm-c2",
+              "number": "Unit 2",
+              "title": "Amalan Bersih & Sihat (Kata Kerja & Imbuhan)",
+              "summary": "Memahami kata kerja aktif transitif dan penggunaan imbuhan meN- dalam aktiviti harian.",
+              "xpReward": 110,
+              "badgeReward": "Bintang BM Tahun 2",
+              "notes": {
+                "title": "Unit 2: Kata Kerja Aktif Transitif & Imbuhan Awalan",
+                "readTime": "5 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Kata Kerja Aktif Transitif",
+                    "content": "Kata kerja aktif transitif ialah kata kerja yang mesti diikuti oleh <strong>objek</strong> (kata nama) untuk melengkapkan maksud ayat.",
+                    "bulletPoints": [
+                      "Contoh: Ali <em>membasuh</em> <u>tangan</u>. (tangan ialah objek)",
+                      "Contoh: Ibu <em>memotong</em> <u>buah</u>. (buah ialah objek)",
+                      "Contoh: Kakak <em>menyapu</em> <u>sampah</u>. (sampah ialah objek)"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t2-bm-c2",
+                "title": "Kuiz Kata Kerja Transitif",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Pilih ayat yang menggunakan kata kerja aktif transitif dengan betul:",
+                    "options": [
+                      "Adik tidur di bilik.",
+                      "Ahmad membaca buku cerita.",
+                      "Burung terbang tinggi.",
+                      "Bapa tersenyum gembira."
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "'Membaca' ialah kata kerja transitif yang memerlukan objek 'buku cerita'."
                   }
                 ]
               }
@@ -130,176 +487,999 @@ const SYLLABUS_DATA = {
           ]
         },
         {
-          id: "t4-mt",
-          name: "Matematik",
-          code: "MT-T4",
-          icon: "📐",
-          color: "from-blue-500 to-indigo-600",
-          theme: "blue",
-          hasDlp: true,
-          chaptersCount: 8,
-          description: "Nombor hingga 100 000, operasi asas, pecahan dan perpuluhan.",
-          chapters: []
+          "id": "t2-bi",
+          "name": "English",
+          "code": "BI-T2",
+          "icon": "🌍",
+          "color": "from-sky-500 to-cyan-600",
+          "theme": "sky",
+          "hasDlp": false,
+          "chaptersCount": 10,
+          "description": "Free Time & routines, rooms in a house, clothes & weather, abilities with can/can't.",
+          "chapters": [
+            {
+              "id": "t2-bi-c5",
+              "number": "Unit 5",
+              "title": "Free Time & Days of the Week",
+              "summary": "Monday to Sunday, favourite activities, and using 'On Mondays I play football'.",
+              "xpReward": 110,
+              "badgeReward": "English Star",
+              "notes": {
+                "title": "Unit 5: Days of the Week & Routine",
+                "readTime": "4 minutes",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "The 7 Days of the Week",
+                    "content": "Remember to always capitalise the first letter of days!",
+                    "bulletPoints": [
+                      "Monday, Tuesday, Wednesday, Thursday, Friday (Weekdays)",
+                      "Saturday, Sunday (Weekend)",
+                      "Sentence Pattern: <em>On Tuesdays, I go swimming.</em>"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t2-bi-c5",
+                "title": "Quiz: Days and Routines",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Which day comes right after Wednesday?",
+                    "options": [
+                      "Tuesday",
+                      "Thursday",
+                      "Friday",
+                      "Sunday"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Thursday follows Wednesday in the calendar."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t2-mt",
+          "name": "Matematik (DLP)",
+          "code": "MT-T2",
+          "icon": "📐",
+          "color": "from-blue-500 to-indigo-600",
+          "theme": "blue",
+          "hasDlp": true,
+          "chaptersCount": 8,
+          "description": "Nombor hingga 1000, operasi tambah, tolak, darab (sifir 2 hingga 10), bahagi dan wang hingga RM100.",
+          "chapters": [
+            {
+              "id": "t2-mt-c3",
+              "number": "Unit 3",
+              "title": "Asas Darab & Penguasaan Sifir",
+              "summary": "Memahami konsep darab sebagai penambahan berulang dan menguasai sifir 2, 3, 4, 5, dan 10.",
+              "xpReward": 120,
+              "badgeReward": "Jaguh Sifir",
+              "notes": {
+                "title": "Unit 3: Konsep Darab & Penambahan Berulang",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Darab ialah Penambahan Berulang",
+                    "content": "Darab bermaksud kumpulan objek yang sama bilangannya dicampurkan berulang kali.",
+                    "bulletPoints": [
+                      "Contoh: 3 kumpulan, setiap kumpulan ada 4 biji epal.",
+                      "Penambahan berulang: 4 + 4 + 4 = 12",
+                      "Ayat matematik darab: 3 × 4 = 12"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t2-mt-c3",
+                "title": "Cabaran Sifir Pantas",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 90,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Berapakah hasil darab bagi 4 × 5?",
+                    "options": [
+                      "15",
+                      "20",
+                      "25",
+                      "9"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "4 × 5 bermaksud 4 kumpulan 5 (5 + 5 + 5 + 5 = 20)."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t2-sn",
+          "name": "Sains (DLP)",
+          "code": "SN-T2",
+          "icon": "🔬",
+          "color": "from-emerald-500 to-teal-600",
+          "theme": "emerald",
+          "hasDlp": true,
+          "chaptersCount": 10,
+          "description": "Tumbesaran manusia, kitar hidup haiwan, keperluan asas biji benih, litar elektrik dan campuran.",
+          "chapters": [
+            {
+              "id": "t2-sn-c4",
+              "number": "Unit 4",
+              "title": "Kitar Hidup Haiwan (Metamorfosis)",
+              "summary": "Mengkaji kitar hidup haiwan seperti katak (telur, berudu, anak katak, katak dewasa) dan rama-rama.",
+              "xpReward": 120,
+              "badgeReward": "Pemerhati Alam",
+              "notes": {
+                "title": "Unit 4: Kitar Hidup Katak & Rama-rama",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Kitar Hidup Katak",
+                    "content": "Katak mengalami perubahan bentuk fizikal yang ketara semasa membesar.",
+                    "bulletPoints": [
+                      "1. <strong>Telur:</strong> bertelur dalam air dalam rumpun berlendir.",
+                      "2. <strong>Berudu:</strong> bernafas dengan insang dan berenang menggunakan ekor.",
+                      "3. <strong>Anak Katak:</strong> mula tumbuh kaki belakang dan kaki hadapan.",
+                      "4. <strong>Katak Dewasa:</strong> ekor hilang, bernafas menggunakan peparu dan kulit lembap di darat."
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t2-sn-c4",
+                "title": "Kuiz Kitar Hidup Haiwan",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Apakah peringkat selepas telur dalam kitar hidup seekor katak?",
+                    "options": [
+                      "Anak katak",
+                      "Berudu",
+                      "Katak dewasa",
+                      "Kompang"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Telur katak menetas menjadi berudu yang hidup di dalam air."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t2-pi",
+          "name": "Pendidikan Islam",
+          "code": "PI-T2",
+          "icon": "🕌",
+          "color": "from-teal-600 to-emerald-700",
+          "theme": "teal",
+          "hasDlp": false,
+          "chaptersCount": 6,
+          "description": "Asmaul Husna, tatacara wuduk yang sempurna, doa harian dan Sirah Nabi Muhammad.",
+          "chapters": []
+        }
+      ],
+      "t3": [
+        {
+          "id": "t3-bm",
+          "name": "Bahasa Melayu",
+          "code": "BM-T3",
+          "icon": "📚",
+          "color": "from-amber-500 to-orange-600",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 8,
+          "description": "Kata Hubung, Kata Sendi Nama, Kata Ganda, Peribahasa Asas dan Karangan Pendek.",
+          "chapters": [
+            {
+              "id": "t3-bm-c3",
+              "number": "Unit 3",
+              "title": "Keselamatan Jalan Raya (Kata Sendi Nama)",
+              "summary": "Memahami penggunaan kata sendi nama: di, ke, dari, daripada, pada, kepada, untuk.",
+              "xpReward": 120,
+              "badgeReward": "Pakar Tatabahasa T3",
+              "notes": {
+                "title": "Unit 3: Perbezaan 'Dari' dan 'Daripada'",
+                "readTime": "5 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Formula Mengingat 'DARI' (A-T-M)",
+                    "content": "Kata sendi nama <strong>DARI</strong> hanya digunakan untuk tiga perkara iaitu:",
+                    "bulletPoints": [
+                      "<strong>A:</strong> Arah (contoh: dari barat, dari atas)",
+                      "<strong>T:</strong> Tempat (contoh: dari sekolah, dari Kuala Lumpur)",
+                      "<strong>M:</strong> Masa / Waktu (contoh: dari pagi hingga petang, dari semalam)"
+                    ],
+                    "mnemonic": "💡 <strong>Formula ATM:</strong> Dari = Arah, Tempat, Masa. Selain ATM, gunakan 'DARIPADA' (orang, sumber bahan, perbandingan)!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t3-bm-c3",
+                "title": "Kuiz Dari vs Daripada",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 90,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Meja belajar itu diperbuat ______ kayu jati yang bermutu tinggi.",
+                    "options": [
+                      "dari",
+                      "daripada",
+                      "kepada",
+                      "pada"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Gunakan 'daripada' kerana ia menyatakan sumber bahan asal pembuatan meja."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t3-bi",
+          "name": "English",
+          "code": "BI-T3",
+          "icon": "🌍",
+          "color": "from-sky-500 to-cyan-600",
+          "theme": "sky",
+          "hasDlp": false,
+          "chaptersCount": 10,
+          "description": "Welcome routines, telling time, present continuous tense, year in year out, and jobs.",
+          "chapters": [
+            {
+              "id": "t3-bi-c2",
+              "number": "Module 2",
+              "title": "Everyday (Telling Time & Routines)",
+              "summary": "O'clock, half past, quarter past, quarter to, and daily routine descriptions.",
+              "xpReward": 110,
+              "badgeReward": "Grammar Whiz",
+              "notes": {
+                "title": "Module 2: Telling Time in English",
+                "readTime": "5 minutes",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "How to Tell the Time",
+                    "content": "Learn how to read analog clock faces:",
+                    "bulletPoints": [
+                      "8:00 = It is eight o'clock.",
+                      "8:15 = It is quarter past eight.",
+                      "8:30 = It is half past eight.",
+                      "8:45 = It is quarter to nine."
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t3-bi-c2",
+                "title": "Quiz: Telling Time",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "What time is 7:30 in English?",
+                    "options": [
+                      "Seven o'clock",
+                      "Half past seven",
+                      "Quarter past seven",
+                      "Quarter to seven"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "30 minutes past the hour is expressed as 'half past seven'."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t3-mt",
+          "name": "Matematik (DLP)",
+          "code": "MT-T3",
+          "icon": "📐",
+          "color": "from-blue-500 to-indigo-600",
+          "theme": "blue",
+          "hasDlp": true,
+          "chaptersCount": 8,
+          "description": "Nombor hingga 10 000, pecahan wajar dan tak wajar, perpuluhan, wang hingga RM10 000 dan masa.",
+          "chapters": [
+            {
+              "id": "t3-mt-c3",
+              "number": "Unit 3",
+              "title": "Pecahan Wajar & Permudah Pecahan",
+              "summary": "Mengenal pengangka dan penyebut, pecahan wajar, dan mempermudah pecahan kepada bentuk termudah.",
+              "xpReward": 120,
+              "badgeReward": "Pakar Pecahan T3",
+              "notes": {
+                "title": "Unit 3: Mempermudah Pecahan Wajar",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Anatomi Pecahan",
+                    "content": "Pecahan ditulis sebagai <code>a / b</code> di mana:",
+                    "bulletPoints": [
+                      "Nombor di atas = <strong>Pengangka</strong> (bahagian yang diambil)",
+                      "Nombor di bawah = <strong>Penyebut</strong> (jumlah semua bahagian)",
+                      "Permudahkan pecahan dengan membahagi pengangka dan penyebut dengan faktor sepunya terbesar!"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t3-mt-c3",
+                "title": "Kuiz Permudah Pecahan",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Permudahkan pecahan 4/8 kepada bentuk termudah:",
+                    "options": [
+                      "1/4",
+                      "1/2",
+                      "2/3",
+                      "4/8"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Bahagikan 4 dan 8 dengan 4: 4÷4 = 1, 8÷4 = 2. Bentuk termudah ialah 1/2."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t3-sn",
+          "name": "Sains (DLP)",
+          "code": "SN-T3",
+          "icon": "🔬",
+          "color": "from-emerald-500 to-teal-600",
+          "theme": "emerald",
+          "hasDlp": true,
+          "chaptersCount": 10,
+          "description": "Gigi manusia, tabiat makan haiwan, pembiakan tumbuhan, ketumpatan, asid & alkali, dan sistem suria.",
+          "chapters": [
+            {
+              "id": "t3-sn-c3",
+              "number": "Unit 3",
+              "title": "Manusia: Gigi Susu vs Gigi Kekal",
+              "summary": "Struktur gigi manusia (enamel, dentin, saraf, salur darah) dan 3 jenis gigi (kacip, taring, geraham).",
+              "xpReward": 130,
+              "badgeReward": "Wira Kesihatan Gigi",
+              "notes": {
+                "title": "Unit 3: Jenis Gigi dan Fungsinya",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "3 Jenis Gigi Manusia",
+                    "content": "Setiap jenis gigi mempunyai bentuk dan peranan khusus:",
+                    "bulletPoints": [
+                      "1. <strong>Gigi Kacip (Incisor):</strong> berbentuk pipih, berfungsi <em>memotong makanan</em>.",
+                      "2. <strong>Gigi Taring (Canine):</strong> berbentuk tajam, berfungsi <em>mengoyak makanan</em>.",
+                      "3. <strong>Gigi Geraham (Molar):</strong> permukaan lebar rata, berfungsi <em>melumatkan dan mengisar makanan</em>."
+                    ],
+                    "mnemonic": "💡 <strong>Formula K-T-G:</strong> <u>K</u>acip potong, <u>T</u>aring koyak, <u>G</u>eraham lumat!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t3-sn-c3",
+                "title": "Kuiz Jenis & Fungsi Gigi",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Gigi yang tajam dan berfungsi mengoyak daging ialah...",
+                    "options": [
+                      "Gigi Kacip",
+                      "Gigi Taring",
+                      "Gigi Geraham",
+                      "Gigi Susu"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Gigi taring mempunyai hujung yang runcing tajam untuk mengoyakkan makanan."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t3-pi",
+          "name": "Pendidikan Islam",
+          "code": "PI-T3",
+          "icon": "🕌",
+          "color": "from-teal-600 to-emerald-700",
+          "theme": "teal",
+          "hasDlp": false,
+          "chaptersCount": 6,
+          "description": "Kitab-kitab suci, solat fardu 5 waktu, rukun solat 13 perkara, dan adab berjiran.",
+          "chapters": []
+        }
+      ],
+      "t4": [
+        {
+          "id": "t4-bm",
+          "name": "Bahasa Melayu",
+          "code": "BM-T4",
+          "icon": "📚",
+          "color": "from-amber-500 to-orange-600",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 8,
+          "description": "Tatabahasa UASA, Penjodoh Bilangan, Peribahasa, Pemahaman Petikan dan Bina Ulasan.",
+          "chapters": [
+            {
+              "id": "t4-bm-c1",
+              "number": "Unit 1",
+              "title": "Hidup Sepakat Membawa Berkat (Penjodoh Bilangan)",
+              "summary": "Menguasai penjodoh bilangan lazim seperti utas, bentuk, bilah, keping, laras, pucuk dan carik.",
+              "xpReward": 130,
+              "badgeReward": "Pakar Bahasa UASA",
+              "notes": {
+                "title": "Unit 1: Penjodoh Bilangan Lazim Peperiksaan UASA",
+                "readTime": "6 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Penjodoh Bilangan Penting",
+                    "content": "Penjodoh bilangan digunakan bersama kata bilangan untuk menentukan benda:",
+                    "bulletPoints": [
+                      "<strong>Bilah:</strong> untuk benda tajam (pisau, keris, parang, gunting)",
+                      "<strong>Pucuk:</strong> untuk surat dan senjata api (sepucuk surat, sepucuk pistol)",
+                      "<strong>Utas:</strong> untuk benda panjang yang boleh digulung (seutas jam tangan, seutas tali, seutas rantai)",
+                      "<strong>Keping:</strong> untuk benda nipis dan leper (sekeping roti, sekeping gambar, sekeping papan)"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t4-bm-c1",
+                "title": "Kuiz Penjodoh Bilangan UASA",
+                "timeLimitMinutes": 6,
+                "passingScore": 60,
+                "xpPoints": 90,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Pahlawan Melaka itu menyelitkan se______ keris berlok tujuh di pinggangnya.",
+                    "options": [
+                      "pucuk",
+                      "bilah",
+                      "keping",
+                      "batang"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Keris ialah senjata tajam, maka penjodoh bilangannya ialah 'bilah'."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t4-bi",
+          "name": "English (CEFR)",
+          "code": "BI-T4",
+          "icon": "🌍",
+          "color": "from-sky-500 to-cyan-600",
+          "theme": "sky",
+          "hasDlp": false,
+          "chaptersCount": 10,
+          "description": "Where Are You From, My Week, In the Past (Simple Past Tense), Celebrations, and Helping Out.",
+          "chapters": [
+            {
+              "id": "t4-bi-c3",
+              "number": "Unit 3",
+              "title": "In the Past (Past Simple Tense)",
+              "summary": "Regular verbs (-ed) and irregular past verbs (went, saw, ate, had, did, bought).",
+              "xpReward": 130,
+              "badgeReward": "Grammar Master T4",
+              "notes": {
+                "title": "Unit 3: Past Simple Tense - Regular vs Irregular",
+                "readTime": "6 minutes",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Regular vs Irregular Past Verbs",
+                    "content": "When talking about completed actions in the past (yesterday, last week, two days ago):",
+                    "bulletPoints": [
+                      "<strong>Regular (-ed):</strong> play ➔ played, watch ➔ watched, walk ➔ walked",
+                      "<strong>Irregular (change spelling):</strong> go ➔ went, see ➔ saw, eat ➔ ate, buy ➔ bought, drink ➔ drank"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t4-bi-c3",
+                "title": "Quiz: Past Simple Verbs",
+                "timeLimitMinutes": 6,
+                "passingScore": 60,
+                "xpPoints": 90,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Yesterday, Sarah and her mother ______ delicious nasi lemak at the night market.",
+                    "options": [
+                      "eat",
+                      "eats",
+                      "ate",
+                      "eating"
+                    ],
+                    "correctIndex": 2,
+                    "explanation": "Yesterday indicates past tense; the past form of 'eat' is 'ate'."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t4-mt",
+          "name": "Matematik (DLP)",
+          "code": "MT-T4",
+          "icon": "📐",
+          "color": "from-blue-500 to-indigo-600",
+          "theme": "blue",
+          "hasDlp": true,
+          "chaptersCount": 8,
+          "description": "Nombor hingga 100 000, operasi asas & bergabung, pecahan tak wajar & nombor bercampur, wang hingga RM100 000.",
+          "chapters": [
+            {
+              "id": "t4-mt-c1",
+              "number": "Unit 1",
+              "title": "Nombor Bulat Hingga 100 000 & Pembundaran",
+              "summary": "Nilai tempat puluh ribu, cerakin nombor mengikut nilai digit, dan peraturan pembundaran.",
+              "xpReward": 130,
+              "badgeReward": "Kalkulator Cekap",
+              "notes": {
+                "title": "Unit 1: Pembundaran Nombor Hingga Puluh Ribu Terdekat",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Peraturan Pembundaran",
+                    "content": "Langkah-langkah membundar nombor:",
+                    "bulletPoints": [
+                      "1. Gariskan digit pada nilai tempat yang hendak dibundarkan.",
+                      "2. Lihat digit di sebelah kanannya (jiran sebelah).",
+                      "3. Jika jiran <strong>0, 1, 2, 3, 4</strong> ➔ Digit yang digaris kekal sama.",
+                      "4. Jika jiran <strong>5, 6, 7, 8, 9</strong> ➔ Tambah 1 pada digit yang digaris.",
+                      "5. Semua digit di sebelah kanan menjadi sifar (0)."
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t4-mt-c1",
+                "title": "Kuiz Pembundaran Nombor",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Bundarkan 47 628 kepada ribu yang terdekat:",
+                    "options": [
+                      "47 000",
+                      "48 000",
+                      "47 600",
+                      "50 000"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Digit ribu ialah 7. Digit ratus di kanannya ialah 6 (≥5), maka tambah 1 pada 7 menjadi 48 000."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t4-sains",
+          "name": "Sains (DLP)",
+          "code": "SN-T4",
+          "icon": "🫁",
+          "color": "from-emerald-500 to-teal-600",
+          "theme": "emerald",
+          "hasDlp": true,
+          "chaptersCount": 10,
+          "description": "Organ pernafasan, perkumuhan manusia, organ pernafasan haiwan, fotosintesis tumbuhan, sifat cahaya dan mesin.",
+          "chapters": [
+            {
+              "id": "t4-sn-c2",
+              "number": "Unit 2",
+              "title": "Manusia: Pernafasan & Perkumuhan",
+              "summary": "Memahami laluan udara semasa menarik dan menghembus nafas serta organ perkumuhan dan penyahtinjaan.",
+              "xpReward": 140,
+              "badgeReward": "Wira Sains Cilik",
+              "notes": {
+                "title": "Unit 2: Pernafasan dan Perkumuhan Manusia",
+                "readTime": "6 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "1. Organ Pernafasan Manusia & Laluan Udara",
+                    "content": "Manusia bernafas menggunakan <strong>peparu</strong> untuk menyedut oksigen dan membebaskan karbon dioksida.",
+                    "bulletPoints": [
+                      "<strong>Laluan Udara Menarik Nafas:</strong> Hidung ➔ Trakea ➔ Peparu (Dada naik dan mengembang).",
+                      "<strong>Laluan Udara Menghembus Nafas:</strong> Peparu ➔ Trakea ➔ Hidung (Dada turun dan mengempis).",
+                      "<strong>Kadar Pernafasan:</strong> Bilangan pergerakan dada naik dan turun dalam satu minit. Lebih cergas aktiviti, lebih tinggi kadar pernafasan!"
+                    ],
+                    "mnemonic": "💡 <strong>Formula Ingat:</strong> Tarik Nafas = H-T-P (Hidung ➔ Trakea ➔ Peparu). Hembus Nafas = P-T-H (Peparu ➔ Trakea ➔ Hidung)!"
+                  },
+                  {
+                    "heading": "2. Perkumuhan & Penyahtinjaan",
+                    "content": "Tubuh kita menyingkirkan bahan buangan toksik untuk kekal sihat.",
+                    "bulletPoints": [
+                      "<strong>Peparu:</strong> Menyingkirkan karbon dioksida dan wap air melalui hembusan nafas.",
+                      "<strong>Ginjal (Buah Pinggang):</strong> Menyingkirkan air kencing (urea, garam mineral, air).",
+                      "<strong>Kulit:</strong> Menyingkirkan peluh melalui liang peluh.",
+                      "<strong>Penyahtinjaan:</strong> Penyingkiran tinja (sisa makanan yang tidak tercerna) melalui dubur."
+                    ],
+                    "examTip": "⭐ <strong>Tip UASA:</strong> Jangan keliru antara <em>perkumuhan</em> (penyingkiran bahan toksik daripada sel tubuh) dan <em>penyahtinjaan</em> (penyingkiran tinja melalui dubur)!"
+                  }
+                ]
+              },
+              "video": {
+                "title": "Sains Tahun 4: Laluan Udara & Organ Perkumuhan",
+                "duration": "7:45 minit",
+                "presenter": "Cikgu Farah (Guru Sains Inovatif)",
+                "embedUrl": "https://www.youtube.com/embed/f9ONXd_-anM",
+                "highlights": [
+                  "0:30 - Laluan Udara Menarik & Menghembus Nafas",
+                  "2:40 - Eksperimen Kadar Pernafasan",
+                  "5:15 - 3 Organ Perkumuhan Utama"
+                ]
+              },
+              "worksheet": {
+                "title": "Lembaran Latihan UASA Sains Tahun 4 (Unit 2)",
+                "pages": 2,
+                "itemsCount": 8,
+                "fileType": "PDF Interaktif",
+                "downloadUrl": "#",
+                "previewItems": [
+                  "Menyusun urutan laluan udara menarik nafas",
+                  "Memadankan organ dengan hasil perkumuhan",
+                  "Soalan situasi kadar pernafasan selepas berlari"
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t4-sn-c2",
+                "title": "Kuiz Interaktif: Pernafasan & Perkumuhan Manusia",
+                "timeLimitMinutes": 8,
+                "passingScore": 60,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Apakah laluan udara yang betul semasa manusia menarik nafas?",
+                    "options": [
+                      "Hidung ➔ Trakea ➔ Peparu",
+                      "Peparu ➔ Trakea ➔ Hidung",
+                      "Hidung ➔ Peparu ➔ Jantung",
+                      "Mulut ➔ Perut ➔ Peparu"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Semasa menarik nafas, udara kaya oksigen masuk melalui hidung, menuruni trakea dan memenuhi peparu."
+                  },
+                  {
+                    "id": 2,
+                    "question": "Organ manakah yang bertanggungjawab menyingkirkan peluh?",
+                    "options": [
+                      "Peparu",
+                      "Kulit",
+                      "Ginjal",
+                      "Hati"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Kulit menyingkirkan peluh yang mengandungi air, urea dan garam mineral melalui liang peluh."
+                  },
+                  {
+                    "id": 3,
+                    "question": "Mengapakah kadar pernafasan seseorang meningkat selepas berlari 100 meter?",
+                    "options": [
+                      "Kerana tubuh memerlukan lebih banyak gas karbon dioksida",
+                      "Kerana tubuh memerlukan lebih banyak oksigen dengan segera untuk menjana tenaga",
+                      "Kerana otot kaki menjadi lebih panjang",
+                      "Kerana suhu badan menurun"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Aktiviti cergas memerlukan lebih banyak tenaga, maka sel badan memerlukan lebih banyak bekalan oksigen menyebabkan dada bernafas lebih laju."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t4-sej",
+          "name": "Sejarah",
+          "code": "SEJ-T4",
+          "icon": "🏛️",
+          "color": "from-red-500 to-rose-600",
+          "theme": "rose",
+          "hasDlp": false,
+          "chaptersCount": 8,
+          "description": "Pengenalan ilmu sejarah, Zaman Air Batu, Zaman Prasejarah, Kerajaan Melayu Awal, dan Tokoh Kesultanan Melaka.",
+          "chapters": [
+            {
+              "id": "t4-sej-c5",
+              "number": "Unit 5",
+              "title": "Zaman Air Batu & Pentas Sunda",
+              "summary": "Mengenal Zaman Glasier, pencairan air batu, kenaikan paras air laut dan pembentukan Pentas Sunda di Asia Tenggara.",
+              "xpReward": 140,
+              "badgeReward": "Penyelidik Sejarah Cilik",
+              "notes": {
+                "title": "Unit 5: Zaman Air Batu Akhir & Kesannya",
+                "readTime": "6 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Kesan Pencairan Air Batu di Asia Tenggara",
+                    "content": "Suhu bumi meningkat menyebabkan bongkah ais mencair dan paras air laut meningkat.",
+                    "bulletPoints": [
+                      "Pentas Sunda ditenggelami air laut membentuk gugusan pulau dan semenanjung.",
+                      "Sungai dan tasik terbentuk di kawasan tanah pamah.",
+                      "Haiwan Zaman Air Batu seperti Mammoth pupus kerana cuaca semakin panas."
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t4-sej-c5",
+                "title": "Kuiz Zaman Air Batu",
+                "timeLimitMinutes": 6,
+                "passingScore": 60,
+                "xpPoints": 90,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Apakah kesan utama peningkatan suhu bumi pada Zaman Air Batu Akhir?",
+                    "options": [
+                      "Air laut membeku menjadi daratan",
+                      "Pencairan ais yang menenggelamkan Pentas Sunda",
+                      "Bumi menjadi semakin gelap",
+                      "Gunung berapi meletus serentak"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Kenaikan suhu mencairkan ais glasier, menaikkan paras air laut dan menenggelamkan tanah rendah Pentas Sunda."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t4-rbt",
+          "name": "Reka Bentuk & Teknologi",
+          "code": "RBT-T4",
+          "icon": "🛠️",
+          "color": "from-amber-600 to-orange-700",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 5,
+          "description": "Keselamatan bengkel, pengenalan reka bentuk, algoritma, pseudokod, carta alir dan Scratch pengaturcaraan.",
+          "chapters": [
+            {
+              "id": "t4-rbt-c3",
+              "number": "Unit 3",
+              "title": "Asas Pengaturcaraan Komputer (Scratch)",
+              "summary": "Memahami algoritma, pseudokod, carta alir dan membina blok kod animasi interaktif menggunakan Scratch.",
+              "xpReward": 130,
+              "badgeReward": "Pengaturcara Cilik",
+              "notes": {
+                "title": "Unit 3: Algoritma, Pseudokod dan Carta Alir",
+                "readTime": "6 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Algoritma vs Pseudokod vs Carta Alir",
+                    "content": "Tiga cara utama merancang langkah penyelesaian masalah dalam pengaturcaraan:",
+                    "bulletPoints": [
+                      "<strong>Algoritma:</strong> Langkah-langkah penyelesaian masalah dalam bahasa harian.",
+                      "<strong>Pseudokod:</strong> Urutan arahan menggunakan ayat ringkas dan huruf besar (contoh: MULA, MASUKKAN, PAPAR, TAMAT).",
+                      "<strong>Carta Alir:</strong> Gambaran grafik menggunakan simbol geometri (Bujur = Mula/Tamat, Segi Empat = Proses, Berlian = Pilihan/Syarat)."
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t4-rbt-c3",
+                "title": "Kuiz Simbol Carta Alir",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Simbol bentuk bujur (terminal) dalam carta alir mewakili...",
+                    "options": [
+                      "Proses kerja",
+                      "Mula atau Tamat",
+                      "Syarat membuat keputusan",
+                      "Input data"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Simbol bujur digunakan untuk menandakan titik Mula dan Tamat dalam sesebuah carta alir."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t4-pi",
+          "name": "Pendidikan Islam",
+          "code": "PI-T4",
+          "icon": "🕌",
+          "color": "from-teal-600 to-emerald-700",
+          "theme": "teal",
+          "hasDlp": false,
+          "chaptersCount": 6,
+          "description": "Beriman kepada Rasul, tayamum, solat berjemaah, dan sirah dakwah Nabi Muhammad di Makkah.",
+          "chapters": []
         }
       ],
       "t5": [
         {
-          id: "t5-sains",
-          name: "Sains",
-          code: "SN-T5",
-          icon: "🔬",
-          color: "from-emerald-500 to-teal-600",
-          theme: "emerald",
-          hasDlp: true,
-          chaptersCount: 10,
-          description: "Meneroka sains hayat, sains fizikal, bahan dan teknologi.",
-          chapters: [
+          "id": "t5-sains",
+          "name": "Sains (DLP)",
+          "code": "SN-T5",
+          "icon": "🔬",
+          "color": "from-emerald-500 to-teal-600",
+          "theme": "emerald",
+          "hasDlp": true,
+          "chaptersCount": 10,
+          "description": "Sistem peredaran darah, sistem rangka, kemandirian haiwan & tumbuhan, elektrik bersiri/selari, haba dan jirim.",
+          "chapters": [
             {
-              id: "t5-sn-c2",
-              number: "Unit 2",
-              title: "Manusia: Sistem Peredaran Darah & Sistem Rangka",
-              summary: "Memahami struktur rangka utama manusia dan bagaimana jantung mengepam darah beroksigen ke seluruh tubuh.",
-              xpReward: 150,
-              badgeReward: "Wira Sains Cilik",
-              notes: {
-                title: "Unit 2: Sistem Manusia (Rangka & Peredaran Darah)",
-                readTime: "7 minit",
-                dlpAvailable: true,
-                sections: [
+              "id": "t5-sn-c2",
+              "number": "Unit 2",
+              "title": "Manusia: Sistem Peredaran Darah & Sistem Rangka",
+              "summary": "Memahami struktur rangka utama manusia dan bagaimana jantung mengepam darah beroksigen ke seluruh tubuh.",
+              "xpReward": 150,
+              "badgeReward": "Wira Sains Cilik",
+              "notes": {
+                "title": "Unit 2: Sistem Manusia (Rangka & Peredaran Darah)",
+                "readTime": "7 minit",
+                "dlpAvailable": true,
+                "sections": [
                   {
-                    heading: "1. Sistem Rangka Manusia dan Fungsinya",
-                    content: "Tubuh manusia disokong oleh sistem rangka. Tanpa rangka, kita akan lembik seperti obor-obor!",
-                    bulletPoints: [
+                    "heading": "1. Sistem Rangka Manusia dan Fungsinya",
+                    "content": "Tubuh manusia disokong oleh sistem rangka. Tanpa rangka, kita akan lembik seperti obor-obor!",
+                    "bulletPoints": [
                       "<strong>Tengkorak (Cranium):</strong> Melindungi otak kita daripada kecederaan.",
                       "<strong>Tulang Belakang:</strong> Menyokong tubuh dan membolehkan kita berdiri tegak dan membongkok.",
                       "<strong>Tulang Rusuk:</strong> Membentuk sangkar rusuk untuk melindungi organ utama seperti jantung dan paru-paru.",
                       "<strong>Tulang Tangan dan Kaki:</strong> Berfungsi sebagai sokongan dan membolehkan pergerakan harian."
                     ],
-                    mnemonic: "💡 <strong>Akronim Ingat Rangka (T-B-R-T):</strong> <u>T</u>engkorak lindung otak, <u>B</u>elakang tegak, <u>R</u>usuk lindung jantung, <u>T</u>angan-kaki gerak pantas!"
+                    "mnemonic": "💡 <strong>Akronim Ingat Rangka (T-B-R-T):</strong> <u>T</u>engkorak lindung otak, <u>B</u>elakang tegak, <u>R</u>usuk lindung jantung, <u>T</u>angan-kaki gerak pantas!"
                   },
                   {
-                    heading: "2. Sistem Peredaran Darah Manusia",
-                    content: "Sistem peredaran darah terdiri daripada tiga bahagian utama iaitu <strong>Jantung</strong>, <strong>Salur Darah</strong>, dan <strong>Darah</strong>.",
-                    bulletPoints: [
+                    "heading": "2. Sistem Peredaran Darah Manusia",
+                    "content": "Sistem peredaran darah terdiri daripada tiga bahagian utama iaitu <strong>Jantung</strong>, <strong>Salur Darah</strong>, dan <strong>Darah</strong>.",
+                    "bulletPoints": [
                       "<strong>Jantung:</strong> Berfungsi mengepam darah ke seluruh tubuh dan ke peparu. Jantung manusia ada 4 ruang.",
                       "<strong>Salur Darah:</strong> Tiub pengangkutan darah. Terbahagi kepada <em>Arteri</em> (bawa darah keluar dari jantung) dan <em>Vena</em> (bawa darah kembali ke jantung).",
                       "<strong>Darah Beroksigen:</strong> Kaya dengan oksigen, berwarna merah cerah, dipam dari peparu ke jantung lalu ke seluruh tubuh.",
                       "<strong>Darah Kurang Oksigen:</strong> Kaya dengan karbon dioksida, dipam dari seluruh tubuh ke peparu untuk disingkirkan."
                     ],
-                    examTip: "⭐ <strong>Tip UASA:</strong> Soalan format UASA Bahagian B sering menyoal laluan peredaran darah: <em>Tubuh manusia ➔ Peparu ➔ Jantung ➔ Seluruh tubuh</em>. Pastikan faham perbezaan darah beroksigen dan kurang oksigen!"
+                    "examTip": "⭐ <strong>Tip UASA:</strong> Soalan format UASA Bahagian B sering menyoal laluan peredaran darah: <em>Tubuh manusia ➔ Peparu ➔ Jantung ➔ Seluruh tubuh</em>. Pastikan faham perbezaan darah beroksigen dan kurang oksigen!"
                   }
                 ]
               },
-              video: {
-                title: "Animasi 3D: Laluan Peredaran Darah Manusia",
-                duration: "8:25 minit",
-                presenter: "Cikgu Farah (Guru Sains Inovatif)",
-                embedUrl: "https://www.youtube.com/embed/f9ONXd_-anM",
-                highlights: [
+              "video": {
+                "title": "Animasi 3D: Laluan Peredaran Darah Manusia",
+                "duration": "8:25 minit",
+                "presenter": "Cikgu Farah (Guru Sains Inovatif)",
+                "embedUrl": "https://www.youtube.com/embed/f9ONXd_-anM",
+                "highlights": [
                   "0:30 - Pengenalan Fungsi Jantung 4 Ruang",
                   "2:15 - Arteri vs Vena: Apa Bezanya?",
                   "5:10 - Laluan Darah Beroksigen ke Otak dan Otot",
                   "7:00 - Soalan Latihan UASA Klon"
                 ]
               },
-              worksheet: {
-                title: "Lembaran Latihan UASA Sains Tahun 5 (Unit 2)",
-                pages: 2,
-                itemsCount: 10,
-                fileType: "PDF Interaktif",
-                downloadUrl: "#",
-                previewItems: [
+              "worksheet": {
+                "title": "Lembaran Latihan UASA Sains Tahun 5 (Unit 2)",
+                "pages": 2,
+                "itemsCount": 10,
+                "fileType": "PDF Interaktif",
+                "downloadUrl": "#",
+                "previewItems": [
                   "Melabel rajah rangka manusia (Tengkorak, Rusuk, Tulang Belakang)",
                   "Melukis anak panah laluan peredaran darah manusia",
                   "Soalan situasi KBAT: Kesan jika salur darah tersumbat oleh kolesterol"
                 ]
               },
-              quiz: {
-                id: "quiz-t5-sn-c2",
-                title: "Kuiz Interaktif: Sistem Rangka & Darah Manusia",
-                timeLimitMinutes: 10,
-                passingScore: 60,
-                xpPoints: 120,
-                questions: [
+              "quiz": {
+                "id": "quiz-t5-sn-c2",
+                "title": "Kuiz Interaktif: Sistem Rangka & Darah Manusia",
+                "timeLimitMinutes": 10,
+                "passingScore": 60,
+                "xpPoints": 120,
+                "questions": [
                   {
-                    id: 1,
-                    question: "Apakah fungsi utama tulang rusuk pada tubuh manusia?",
-                    options: [
+                    "id": 1,
+                    "question": "Apakah fungsi utama tulang rusuk pada tubuh manusia?",
+                    "options": [
                       "Melindungi otak daripada hentakan",
                       "Melindungi organ dalaman seperti peparu dan jantung",
                       "Membantu tubuh berdiri tegak",
                       "Menghasilkan cecair hempedu"
                     ],
-                    correctIndex: 1,
-                    explanation: "Tulang rusuk membentuk sangkar rusuk yang berfungsi melindungi organ lembut di rongga dada iaitu peparu dan jantung."
+                    "correctIndex": 1,
+                    "explanation": "Tulang rusuk membentuk sangkar rusuk yang berfungsi melindungi organ lembut di rongga dada iaitu peparu dan jantung."
                   },
                   {
-                    id: 2,
-                    question: "Organ manakah yang bertanggungjawab mengepam darah ke seluruh tubuh?",
-                    options: [
+                    "id": 2,
+                    "question": "Organ manakah yang bertanggungjawab mengepam darah ke seluruh tubuh?",
+                    "options": [
                       "Peparu",
                       "Buah Pinggang",
                       "Jantung",
                       "Hati"
                     ],
-                    correctIndex: 2,
-                    explanation: "Jantung bertindak seperti pam berotot yang mengepam darah beroksigen dan darah kurang oksigen ke seluruh sistem peredaran darah."
+                    "correctIndex": 2,
+                    "explanation": "Jantung bertindak seperti pam berotot yang mengepam darah beroksigen dan darah kurang oksigen ke seluruh sistem peredaran darah."
                   },
                   {
-                    id: 3,
-                    question: "Darah yang bergerak dari peparu ke jantung adalah darah yang kaya dengan...",
-                    options: [
+                    "id": 3,
+                    "question": "Darah yang bergerak dari peparu ke jantung adalah darah yang kaya dengan...",
+                    "options": [
                       "Gas Karbon Dioksida",
                       "Gas Oksigen",
                       "Gas Nitrogen",
                       "Bahan Kumuh Toksik"
                     ],
-                    correctIndex: 1,
-                    explanation: "Di peparu berlaku pertukaran gas. Darah menyerap gas oksigen dan menyingkirkan karbon dioksida sebelum dipam ke jantung untuk disebarkan ke tubuh."
-                  },
-                  {
-                    id: 4,
-                    question: "Apakah yang akan berlaku jika sendi pada siku tangan kita tidak wujud?",
-                    options: [
-                      "Tangan tidak dapat membengkok atau digerakkan dengan fleksibel",
-                      "Jantung tidak dapat mengepam darah",
-                      "Kulit tangan menjadi kering",
-                      "Tulang rusuk akan retak"
-                    ],
-                    correctIndex: 0,
-                    explanation: "Sendi ialah tempat pertemuan antara dua atau lebih tulang yang membolehkan pergerakan dan kebolehlenturan anggota badan."
-                  },
-                  {
-                    id: 5,
-                    question: "Antara amalan berikut, yang manakah menjaga kesihatan sistem peredaran darah kita?",
-                    options: [
-                      "Banyak memakan makanan segera berminyak",
-                      "Bersenam secara berkala dan makan sayur-sayuran",
-                      "Tidur kurang daripada 4 jam sehari",
-                      "Minum air manis berkarbonat setiap hari"
-                    ],
-                    correctIndex: 1,
-                    explanation: "Senaman kardiovaskular dan diet seimbang menguatkan otot jantung dan menghalang pengumpulan plak lemak dalam salur darah."
+                    "correctIndex": 1,
+                    "explanation": "Di peparu berlaku pertukaran gas. Darah menyerap gas oksigen dan menyingkirkan karbon dioksida sebelum dipam ke jantung untuk disebarkan ke tubuh."
                   }
                 ]
               }
             },
             {
-              id: "t5-sn-c3",
-              number: "Unit 3",
-              title: "Haiwan: Kemandirian Spesies Haiwan",
-              summary: "Cara haiwan memastikan kelangsungan spesies mereka melalui adaptasi ciri khas dan tingkah laku khas.",
-              xpReward: 120,
-              badgeReward: "Sahabat Alam",
-              notes: {
-                title: "Unit 3: Kemandirian Spesies Haiwan",
-                readTime: "5 minit",
-                dlpAvailable: true,
-                sections: [
+              "id": "t5-sn-c3",
+              "number": "Unit 3",
+              "title": "Haiwan: Kemandirian Spesies Haiwan",
+              "summary": "Cara haiwan memastikan kelangsungan spesies mereka melalui adaptasi ciri khas dan tingkah laku khas.",
+              "xpReward": 120,
+              "badgeReward": "Sahabat Alam",
+              "notes": {
+                "title": "Unit 3: Kemandirian Spesies Haiwan",
+                "readTime": "5 minit",
+                "dlpAvailable": true,
+                "sections": [
                   {
-                    heading: "Ciri Khas Haiwan Melindungi Diri daripada Musuh",
-                    content: "Haiwan dianugerahkan ciri khas seperti duri tajam (landak), cangkerang keras (penyu), sengat berbisa (kala jengking), dan penyamaran (sesumpah).",
-                    bulletPoints: [
+                    "heading": "Ciri Khas Haiwan Melindungi Diri daripada Musuh",
+                    "content": "Haiwan dianugerahkan ciri khas seperti duri tajam (landak), cangkerang keras (penyu), sengat berbisa (kala jengking), dan penyamaran (sesumpah).",
+                    "bulletPoints": [
                       "<strong>Duri Tajam:</strong> Landak dan ikan buntal",
                       "<strong>Bercangkerang:</strong> Kura-kura dan ketam",
                       "<strong>Sengat Berbisa:</strong> Tebuan dan ular",
@@ -308,19 +1488,24 @@ const SYLLABUS_DATA = {
                   }
                 ]
               },
-              quiz: {
-                id: "quiz-t5-sn-c3",
-                title: "Kuiz Pantas: Kemandirian Haiwan",
-                timeLimitMinutes: 5,
-                passingScore: 60,
-                xpPoints: 80,
-                questions: [
+              "quiz": {
+                "id": "quiz-t5-sn-c3",
+                "title": "Kuiz Pantas: Kemandirian Haiwan",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
                   {
-                    id: 1,
-                    question: "Haiwan manakah melindungi diri dengan cara menyemburkan dakwat hitam?",
-                    options: ["Sotong", "Kura-kura", "Ikan buntal", "Landak"],
-                    correctIndex: 0,
-                    explanation: "Sotong menyemburkan cecair gelap untuk mengelirukan pemangsa semasa melarikan diri."
+                    "id": 1,
+                    "question": "Haiwan manakah melindungi diri dengan cara menyemburkan dakwat hitam?",
+                    "options": [
+                      "Sotong",
+                      "Kura-kura",
+                      "Ikan buntal",
+                      "Landak"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Sotong menyemburkan cecair gelap untuk mengelirukan pemangsa semasa melarikan diri."
                   }
                 ]
               }
@@ -328,32 +1513,32 @@ const SYLLABUS_DATA = {
           ]
         },
         {
-          id: "t5-mt",
-          name: "Matematik",
-          code: "MT-T5",
-          icon: "📐",
-          color: "from-blue-500 to-indigo-600",
-          theme: "blue",
-          hasDlp: true,
-          chaptersCount: 8,
-          description: "Nombor bulat sehingga 1 000 000, pecahan, wang, dan ukuran geometri.",
-          chapters: [
+          "id": "t5-mt",
+          "name": "Matematik (DLP)",
+          "code": "MT-T5",
+          "icon": "📐",
+          "color": "from-blue-500 to-indigo-600",
+          "theme": "blue",
+          "hasDlp": true,
+          "chaptersCount": 8,
+          "description": "Nombor hingga 1 000 000, pecahan, wang (faedah mudah & kompaun), masa, dan ukuran geometri.",
+          "chapters": [
             {
-              id: "t5-mt-c1",
-              number: "Unit 1",
-              title: "Nombor Hingga 1 000 000 (Satu Juta)",
-              summary: "Membaca, menulis, membanding dan membundar nombor hingga 1 000 000.",
-              xpReward: 100,
-              badgeReward: "Pakar Nombor",
-              notes: {
-                title: "Unit 1: Nombor dan Operasi Hingga 1 Juta",
-                readTime: "6 minit",
-                dlpAvailable: true,
-                sections: [
+              "id": "t5-mt-c1",
+              "number": "Unit 1",
+              "title": "Nombor Hingga 1 000 000 (Satu Juta)",
+              "summary": "Membaca, menulis, membanding dan membundar nombor hingga 1 000 000.",
+              "xpReward": 100,
+              "badgeReward": "Pakar Nombor",
+              "notes": {
+                "title": "Unit 1: Nombor dan Operasi Hingga 1 Juta",
+                "readTime": "6 minit",
+                "dlpAvailable": true,
+                "sections": [
                   {
-                    heading: "Nilai Tempat dan Nilai Digit",
-                    content: "Pastikan faham perbezaan Nilai Tempat (perkataan e.g. Ratus Ribu) dan Nilai Digit (nombor e.g. 500 000).",
-                    bulletPoints: [
+                    "heading": "Nilai Tempat dan Nilai Digit",
+                    "content": "Pastikan faham perbezaan Nilai Tempat (perkataan e.g. Ratus Ribu) dan Nilai Digit (nombor e.g. 500 000).",
+                    "bulletPoints": [
                       "Contoh Nombor: 742 819",
                       "Nilai tempat bagi digit 4 = Puluh Ribu",
                       "Nilai digit bagi digit 4 = 40 000"
@@ -361,19 +1546,24 @@ const SYLLABUS_DATA = {
                   }
                 ]
               },
-              quiz: {
-                id: "quiz-t5-mt-c1",
-                title: "Latihan Pantas Nilai Tempat",
-                timeLimitMinutes: 5,
-                passingScore: 60,
-                xpPoints: 80,
-                questions: [
+              "quiz": {
+                "id": "quiz-t5-mt-c1",
+                "title": "Latihan Pantas Nilai Tempat",
+                "timeLimitMinutes": 5,
+                "passingScore": 60,
+                "xpPoints": 80,
+                "questions": [
                   {
-                    id: 1,
-                    question: "Apakah nilai digit bagi 6 dalam nombor 562 301?",
-                    options: ["600", "6 000", "60 000", "600 000"],
-                    correctIndex: 2,
-                    explanation: "Digit 6 berada pada nilai tempat puluh ribu, jadi nilai digitnya ialah 60 000."
+                    "id": 1,
+                    "question": "Apakah nilai digit bagi 6 dalam nombor 562 301?",
+                    "options": [
+                      "600",
+                      "6 000",
+                      "60 000",
+                      "600 000"
+                    ],
+                    "correctIndex": 2,
+                    "explanation": "Digit 6 berada pada nilai tempat puluh ribu, jadi nilai digitnya ialah 60 000."
                   }
                 ]
               }
@@ -381,90 +1571,213 @@ const SYLLABUS_DATA = {
           ]
         },
         {
-          id: "t5-bm",
-          name: "Bahasa Melayu",
-          code: "BM-T5",
-          icon: "📚",
-          color: "from-amber-500 to-orange-600",
-          theme: "amber",
-          hasDlp: false,
-          chaptersCount: 8,
-          description: "Tatabahasa, pemahaman petikan, peribahasa dan karangan berformat UASA.",
-          chapters: []
+          "id": "t5-bm",
+          "name": "Bahasa Melayu",
+          "code": "BM-T5",
+          "icon": "📚",
+          "color": "from-amber-500 to-orange-600",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 8,
+          "description": "Tatabahasa UASA, ayat majmuk, peribahasa, membina ulasan dan karangan berformat.",
+          "chapters": []
         },
         {
-          id: "t5-bi",
-          name: "English",
-          code: "BI-T5",
-          icon: "🌍",
-          color: "from-sky-500 to-cyan-600",
-          theme: "sky",
-          hasDlp: false,
-          chaptersCount: 10,
-          description: "Grammar, Reading Comprehension, Vocabulary, and Writing essays.",
-          chapters: []
+          "id": "t5-bi",
+          "name": "English (CEFR)",
+          "code": "BI-T5",
+          "icon": "🌍",
+          "color": "from-sky-500 to-cyan-600",
+          "theme": "sky",
+          "hasDlp": false,
+          "chaptersCount": 10,
+          "description": "Towns and cities, comparative and superlative adjectives, wild life, and learning world.",
+          "chapters": []
         },
         {
-          id: "t5-sej",
-          name: "Sejarah",
-          code: "SEJ-T5",
-          icon: "🏛️",
-          color: "from-red-500 to-rose-600",
-          theme: "rose",
-          hasDlp: false,
-          chaptersCount: 6,
-          description: "Warisan kedaulatan negara, perjuangan tokoh kemerdekaan, dan lambang kebangsaan.",
-          chapters: []
+          "id": "t5-sej",
+          "name": "Sejarah",
+          "code": "SEJ-T5",
+          "icon": "🏛️",
+          "color": "from-red-500 to-rose-600",
+          "theme": "rose",
+          "hasDlp": false,
+          "chaptersCount": 7,
+          "description": "Institusi Raja, Agama Islam, Bahasa Melayu, Penentangan Penjajah, dan Tokoh Kemerdekaan 1957.",
+          "chapters": [
+            {
+              "id": "t5-sej-c4",
+              "number": "Unit 4",
+              "title": "Tokoh Pejuang Menentang Penjajah",
+              "summary": "Mengkaji perjuangan pahlawan tanah air: Dol Said, Rentap, Mat Salleh, Tok Janggut, Tok Gajah dan Dato' Bahaman.",
+              "xpReward": 150,
+              "badgeReward": "Pahlawan Patriotik",
+              "notes": {
+                "title": "Unit 4: Pejuang Kedaulatan Tanah Air",
+                "readTime": "7 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Tokoh dan Negeri Perjuangan",
+                    "content": "Pahlawan tempatan bangkit menentang British kerana campur tangan, kehilangan kuasa, dan cukai membebankan:",
+                    "bulletPoints": [
+                      "<strong>Dol Said:</strong> Menentang British di Naning kerana enggan membayar cukai hasil satu persepuluh.",
+                      "<strong>Rentap:</strong> Pahlawan Iban di Bukit Sadok, Sarawak dengan laungan 'Agi Idup Agi Ngelaban'.",
+                      "<strong>Mat Salleh:</strong> Menentang Kompeni Berpiagam Borneo Utara (SBUB) di Tambunan, Sabah.",
+                      "<strong>Tok Janggut:</strong> Menentang cukai British di Pasir Puteh, Kelantan."
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t5-sej-c4",
+                "title": "Kuiz Tokoh Pejuang Tempatan",
+                "timeLimitMinutes": 6,
+                "passingScore": 60,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Pahlawan manakah yang terkenal dengan laungan keramat 'Agi Idup, Agi Ngelaban' di Sarawak?",
+                    "options": [
+                      "Rentap",
+                      "Dol Said",
+                      "Mat Salleh",
+                      "Tok Janggut"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Rentap (Libau) ialah pahlawan Iban yang gagah mempertahankan kubu Bukit Sadok di Sarawak."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t5-rbt",
+          "name": "Reka Bentuk & Teknologi",
+          "code": "RBT-T5",
+          "icon": "🛠️",
+          "color": "from-amber-600 to-orange-700",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 5,
+          "description": "Teknologi rumah tangga, tenaga boleh baharu (solar), dan pengaturcaraan papan Micro:bit.",
+          "chapters": []
+        },
+        {
+          "id": "t5-pi",
+          "name": "Pendidikan Islam",
+          "code": "PI-T5",
+          "icon": "🕌",
+          "color": "from-teal-600 to-emerald-700",
+          "theme": "teal",
+          "hasDlp": false,
+          "chaptersCount": 6,
+          "description": "Hari Kiamat, Solat Jumaat, Solat Sunat Aidilfitri/Aidiladha, dan Perjanjian Hudaibiyah.",
+          "chapters": []
         }
       ],
       "t6": [
         {
-          id: "t6-mt",
-          name: "Matematik",
-          code: "MT-T6",
-          icon: "🧮",
-          color: "from-blue-600 to-cyan-600",
-          theme: "blue",
-          hasDlp: true,
-          chaptersCount: 8,
-          description: "Pecahan, perpuluhan, peratus, wang dan penyelesaian masalah berayat.",
-          chapters: [
+          "id": "t6-mt",
+          "name": "Matematik (DLP)",
+          "code": "MT-T6",
+          "icon": "🧮",
+          "color": "from-blue-600 to-cyan-600",
+          "theme": "blue",
+          "hasDlp": true,
+          "chaptersCount": 8,
+          "description": "Nombor hingga 10 000 000 (juta & pecahan juta), pecahan & peratus, wang (untung, rugi, diskaun, invois, aset), dan koordinat.",
+          "chapters": [
             {
-              id: "t6-mt-c2",
-              number: "Unit 2",
-              title: "Pecahan, Perpuluhan & Peratus",
-              summary: "Operasi gabungan pecahan, penukaran nombor bercampur dan pengiraan peratusan untung/rugi.",
-              xpReward: 140,
-              badgeReward: "Kalkulator Kilat",
-              notes: {
-                title: "Unit 2: Pecahan dan Peratusan Mudah Faham",
-                readTime: "6 minit",
-                dlpAvailable: true,
-                sections: [
+              "id": "t6-mt-c2",
+              "number": "Unit 2",
+              "title": "Pecahan, Perpuluhan & Peratus",
+              "summary": "Operasi gabungan pecahan, penukaran nombor bercampur dan pengiraan peratusan untung/rugi.",
+              "xpReward": 140,
+              "badgeReward": "Kalkulator Kilat",
+              "notes": {
+                "title": "Unit 2: Pecahan dan Peratusan Mudah Faham",
+                "readTime": "6 minit",
+                "dlpAvailable": true,
+                "sections": [
                   {
-                    heading: "Operasi Darab Pecahan",
-                    content: "Untuk mendarab pecahan, darabkan pengangka dengan pengangka, dan penyebut dengan penyebut.",
-                    bulletPoints: [
+                    "heading": "Operasi Darab Pecahan",
+                    "content": "Untuk mendarab pecahan, darabkan pengangka dengan pengangka, dan penyebut dengan penyebut.",
+                    "bulletPoints": [
                       "Formula: (a/b) × (c/d) = (a × c) / (b × d)",
                       "Pastikan pecahan akhir dipermudahkan kepada bentuk termudah!"
                     ],
-                    mnemonic: "💡 Ingat: 'Atas darab Atas, Bawah darab Bawah, permudah jangan lupa!'"
+                    "mnemonic": "💡 Ingat: 'Atas darab Atas, Bawah darab Bawah, permudah jangan lupa!'"
                   }
                 ]
               },
-              quiz: {
-                id: "quiz-t6-mt-c2",
-                title: "Kuiz Cabaran Pecahan & Peratus",
-                timeLimitMinutes: 8,
-                passingScore: 60,
-                xpPoints: 100,
-                questions: [
+              "quiz": {
+                "id": "quiz-t6-mt-c2",
+                "title": "Kuiz Cabaran Pecahan & Peratus",
+                "timeLimitMinutes": 8,
+                "passingScore": 60,
+                "xpPoints": 100,
+                "questions": [
                   {
-                    id: 1,
-                    question: "Berapakah 25% daripada RM 240?",
-                    options: ["RM 48", "RM 60", "RM 80", "RM 50"],
-                    correctIndex: 1,
-                    explanation: "25% = 1/4. Jadi 1/4 × RM 240 = RM 60."
+                    "id": 1,
+                    "question": "Berapakah 25% daripada RM 240?",
+                    "options": [
+                      "RM 48",
+                      "RM 60",
+                      "RM 80",
+                      "RM 50"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "25% = 1/4. Jadi 1/4 × RM 240 = RM 60."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "t6-mt-c3",
+              "number": "Unit 3",
+              "title": "Wang & Celik Kewangan (Untung, Rugi & Diskaun)",
+              "summary": "Formula harga kos, harga jual, untung, rugi, peratusan diskaun, invois, bil, dan aset/liabiliti.",
+              "xpReward": 150,
+              "badgeReward": "Jutawan Matematik",
+              "notes": {
+                "title": "Unit 3: Formula Celik Kewangan UASA",
+                "readTime": "6 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "Formula Untung & Rugi",
+                    "content": "Memahami hubungan Harga Kos (harga beli/modal) dan Harga Jual:",
+                    "bulletPoints": [
+                      "<strong>Untung:</strong> Harga Jual - Harga Kos (apabila harga jual > harga kos)",
+                      "<strong>Rugi:</strong> Harga Kos - Harga Jual (apabila harga kos > harga jual)",
+                      "<strong>Diskaun:</strong> Potongan harga daripada harga asal",
+                      "<strong>Aset:</strong> Harta yang dimiliki (wang simpanan, rumah, tanah)",
+                      "<strong>Liabiliti:</strong> Tanggungan atau hutang (pinjaman bank, hutang kad kredit)"
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t6-mt-c3",
+                "title": "Kuiz Kewangan UASA",
+                "timeLimitMinutes": 6,
+                "passingScore": 60,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Peniaga membeli beg dengan modal RM 40 dan menjualnya pada harga RM 65. Berapakah untung yang diperoleh?",
+                    "options": [
+                      "RM 15",
+                      "RM 20",
+                      "RM 25",
+                      "RM 105"
+                    ],
+                    "correctIndex": 2,
+                    "explanation": "Untung = Harga Jual - Harga Kos = RM 65 - RM 40 = RM 25."
                   }
                 ]
               }
@@ -472,16 +1785,193 @@ const SYLLABUS_DATA = {
           ]
         },
         {
-          id: "t6-sn",
-          name: "Sains",
-          code: "SN-T6",
-          icon: "🚀",
-          color: "from-emerald-500 to-teal-600",
-          theme: "emerald",
-          hasDlp: true,
-          chaptersCount: 10,
-          description: "Mikroorganisma, interaksi antara hidupan, daya dan mesin.",
-          chapters: []
+          "id": "t6-sn",
+          "name": "Sains (DLP)",
+          "code": "SN-T6",
+          "icon": "🚀",
+          "color": "from-emerald-500 to-teal-600",
+          "theme": "emerald",
+          "hasDlp": true,
+          "chaptersCount": 10,
+          "description": "Mikroorganisma, interaksi antara hidupan (simbiosis), pemuliharaan, daya geseran, kelajuan, dan pengawetan makanan.",
+          "chapters": [
+            {
+              "id": "t6-sn-c2",
+              "number": "Unit 2",
+              "title": "Mikroorganisma: Hidupan Seni Misteri",
+              "summary": "5 kumpulan mikroorganisma (Fungi, Protozoa, Alga, Bakteria, Virus), proses hidup dan kegunaannya.",
+              "xpReward": 150,
+              "badgeReward": "Pakar Mikrobiologi Cilik",
+              "notes": {
+                "title": "Unit 2: 5 Kumpulan Mikroorganisma & Proses Hidup",
+                "readTime": "7 minit",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "5 Kumpulan Mikroorganisma",
+                    "content": "Mikroorganisma ialah hidupan seni yang tidak dapat dilihat dengan mata kasar kecuali menggunakan mikroskop:",
+                    "bulletPoints": [
+                      "1. <strong>Fungi:</strong> kulapuk, yis, penicillium (boleh dilihat sesetengahnya)",
+                      "2. <strong>Protozoa:</strong> hidup dalam air (paramecium, amoeba)",
+                      "3. <strong>Alga:</strong> mempunyai klorofil untuk fotosintesis (spirogyra, chlamydomonas)",
+                      "4. <strong>Bakteria:</strong> wujud dalam pelbagai bentuk (salmonella, e. coli)",
+                      "5. <strong>Virus:</strong> paling seni daripada semua mikroorganisma (HIV, influenza, coronavirus)"
+                    ],
+                    "mnemonic": "💡 <strong>Formula Ingat (F-P-A-B-V):</strong> <u>F</u>ungi, <u>P</u>rotozoa, <u>A</u>lga, <u>B</u>akteria, <u>V</u>irus!"
+                  },
+                  {
+                    "heading": "Proses Hidup Mikroorganisma",
+                    "content": "Mikroorganisma ialah benda hidup kerana:",
+                    "bulletPoints": [
+                      "• <strong>Bernafas:</strong> Membebaskan gas karbon dioksida (contoh: doh roti naik apabila ditambah yis).",
+                      "• <strong>Bergerak:</strong> Mempunyai silia atau flagelum untuk berenang.",
+                      "• <strong>Bertumbuh:</strong> Membiak dan membesar (contoh: kulapuk roti bertambah luas selepas beberapa hari)."
+                    ]
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t6-sn-c2",
+                "title": "Kuiz Mikroorganisma UASA",
+                "timeLimitMinutes": 8,
+                "passingScore": 60,
+                "xpPoints": 110,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Mikroorganisma manakah yang paling seni dan hanya boleh dilihat menggunakan mikroskop elektron?",
+                    "options": [
+                      "Virus",
+                      "Bakteria",
+                      "Fungi",
+                      "Alga"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Virus ialah mikroorganisma yang paling seni dan paling ringkas binaannya."
+                  },
+                  {
+                    "id": 2,
+                    "question": "Mengapakah doh roti mengembang dan naik selepas diadun dengan yis dan dibiarkan selama 30 minit?",
+                    "options": [
+                      "Kerana yis mencair dalam tepung",
+                      "Kerana yis bernafas dan membebaskan gas karbon dioksida",
+                      "Kerana yis menyerap semua air dalam doh",
+                      "Kerana yis mengeluarkan haba yang sangat panas"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Semasa proses penapaian, yis bernafas dan membebaskan gas karbon dioksida yang terperangkap dalam doh menyebabkannya naik."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t6-bm",
+          "name": "Bahasa Melayu",
+          "code": "BM-T6",
+          "icon": "📚",
+          "color": "from-amber-500 to-orange-600",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 8,
+          "description": "Format UASA Bahagian A, B dan C, Karangan Respons Terbuka, Peribahasa dan Tatabahasa Lanjutan.",
+          "chapters": []
+        },
+        {
+          "id": "t6-bi",
+          "name": "English (CEFR)",
+          "code": "BI-T6",
+          "icon": "🌍",
+          "color": "from-sky-500 to-cyan-600",
+          "theme": "sky",
+          "hasDlp": false,
+          "chaptersCount": 10,
+          "description": "It's An Emergency (Past continuous tense), Life in the Past, Adventure Time, and Cool Jobs.",
+          "chapters": []
+        },
+        {
+          "id": "t6-sej",
+          "name": "Sejarah",
+          "code": "SEJ-T6",
+          "icon": "🏛️",
+          "color": "from-red-500 to-rose-600",
+          "theme": "rose",
+          "hasDlp": false,
+          "chaptersCount": 7,
+          "description": "Pembentukan Malaysia 1963, 13 Negeri & 3 Wilayah Persekutuan, Rukun Negara, dan Pemimpin Perdana Menteri Malaysia.",
+          "chapters": [
+            {
+              "id": "t6-sej-c1",
+              "number": "Unit 1",
+              "title": "Pembentukan Malaysia 1963",
+              "summary": "Gagasan penyatuan Persekutuan Tanah Melayu, Singapura, Sarawak, dan Sabah pada 16 September 1963.",
+              "xpReward": 160,
+              "badgeReward": "Pencinta Sejarah Malaysia",
+              "notes": {
+                "title": "Unit 1: Sejarah Pembentukan Malaysia 16 September 1963",
+                "readTime": "7 minit",
+                "dlpAvailable": false,
+                "sections": [
+                  {
+                    "heading": "Latar Belakang Gagasan Malaysia",
+                    "content": "Tunku Abdul Rahman Putra Al-Haj mencadangkan pembentukan Malaysia pada 27 Mei 1961:",
+                    "bulletPoints": [
+                      "<strong>Matlamat Pembentukan:</strong> Menjamin keselamatan daripada ancaman komunis, mempercepat kemerdekaan Sarawak dan Sabah, serta mengimbangi populasi penduduk.",
+                      "<strong>Suruhanjaya Cobbold (1962):</strong> Ditubuhkan untuk meninjau pandangan rakyat Sarawak dan Sabah.",
+                      "<strong>Pengisytiharan Malaysia:</strong> Diisytiharkan secara rasmi pada <strong>16 September 1963</strong>."
+                    ],
+                    "mnemonic": "💡 <strong>Ingat Tarikh Keramat:</strong> 31 Ogos 1957 = Hari Kemerdekaan Tanah Melayu, 16 September 1963 = Hari Malaysia!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "quiz-t6-sej-c1",
+                "title": "Kuiz Hari Pembentukan Malaysia",
+                "timeLimitMinutes": 6,
+                "passingScore": 60,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "id": 1,
+                    "question": "Bilakah Malaysia diisytiharkan secara rasmi?",
+                    "options": [
+                      "31 Ogos 1957",
+                      "16 September 1963",
+                      "27 Mei 1961",
+                      "13 Mei 1969"
+                    ],
+                    "correctIndex": 1,
+                    "explanation": "Hari Malaysia disambut pada 16 September setiap tahun sempena pembentukan Persekutuan Malaysia pada tahun 1963."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "t6-rbt",
+          "name": "Reka Bentuk & Teknologi",
+          "code": "RBT-T6",
+          "icon": "🛠️",
+          "color": "from-amber-600 to-orange-700",
+          "theme": "amber",
+          "hasDlp": false,
+          "chaptersCount": 5,
+          "description": "Aplikasi elektromekanikal, asas robotik & sensor penderia, dan seni reka bentuk makanan (plating).",
+          "chapters": []
+        },
+        {
+          "id": "t6-pi",
+          "name": "Pendidikan Islam",
+          "code": "PI-T6",
+          "icon": "🕌",
+          "color": "from-teal-600 to-emerald-700",
+          "theme": "teal",
+          "hasDlp": false,
+          "chaptersCount": 6,
+          "description": "Beriman kepada Qada' dan Qadar, fardu kifayah pengurusan jenazah, ibadah zakat, dan Sirah Haji Wada'.",
+          "chapters": []
         }
       ]
     }
