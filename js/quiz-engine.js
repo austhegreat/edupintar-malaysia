@@ -158,11 +158,13 @@ class QuizEngine {
   }
 
   selectAnswer(optionIdx) {
+    if (window.eduAudio) window.eduAudio.playClick();
     this.userAnswers[this.currentQuestionIdx] = optionIdx;
     this.renderQuizContainer();
   }
 
   prevQuestion() {
+    if (window.eduAudio) window.eduAudio.playClick();
     if (this.currentQuestionIdx > 0) {
       this.currentQuestionIdx--;
       this.renderQuizContainer();
@@ -170,6 +172,7 @@ class QuizEngine {
   }
 
   nextQuestion() {
+    if (window.eduAudio) window.eduAudio.playClick();
     if (this.currentQuestionIdx < this.currentQuiz.questions.length - 1) {
       this.currentQuestionIdx++;
       this.renderQuizContainer();
@@ -193,6 +196,14 @@ class QuizEngine {
 
     const isSpM = this.currentQuiz.id.includes("f4") || this.currentQuiz.id.includes("f5");
     const isPrimaryScience = this.currentQuiz.id.includes("sn-c2");
+
+    if (window.eduAudio) {
+      if (scorePercentage >= 60) {
+        window.eduAudio.playFanfare();
+      } else {
+        window.eduAudio.playXpGain();
+      }
+    }
 
     // Award XP and achievements in Gamification Engine
     window.gamification.recordQuizResult(

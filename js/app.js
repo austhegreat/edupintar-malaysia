@@ -237,40 +237,168 @@ class EduPintarApp {
       const hasChapters = subj.chapters && subj.chapters.length > 0;
       return `
         <div 
-          onclick="window.app.setSubject('${subj.id}')"
-          class="group cursor-pointer p-4 rounded-3xl border-2 transition-all duration-200 ${
+          onclick="window.app.enterSubjectArena('${subj.id}')"
+          class="card-3d-tilt group cursor-pointer p-5 rounded-3xl border transition-all duration-300 relative overflow-hidden ${
             isSelected 
-              ? 'border-indigo-600 bg-indigo-50/50 shadow-md ring-2 ring-indigo-500/20' 
-              : 'border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm'
+              ? 'border-indigo-500 bg-slate-900/95 shadow-xl shadow-indigo-500/20 ring-2 ring-indigo-500/30' 
+              : 'border-slate-800 bg-slate-900/80 hover:border-indigo-500/60 hover:bg-slate-900 hover:shadow-lg'
           }"
         >
           <div class="flex items-start justify-between">
-            <span class="text-3xl p-2.5 rounded-2xl bg-slate-50 border border-slate-100">${subj.icon}</span>
+            <span class="text-3xl p-3 rounded-2xl bg-slate-800/90 border border-slate-700/80 transform group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-inner">${subj.icon}</span>
             <div class="flex items-center gap-1.5">
               ${subj.hasDlp ? `
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-100 text-cyan-800 border border-cyan-200">
+                <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800">
                   DLP
                 </span>
               ` : ''}
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
                 ${subj.code}
               </span>
             </div>
           </div>
 
-          <h4 class="font-extrabold text-base text-slate-900 mt-3 group-hover:text-indigo-600 transition-colors">
+          <h4 class="font-black text-base text-white mt-3.5 group-hover:text-indigo-400 transition-colors">
             ${subj.name}
           </h4>
-          <p class="text-xs text-slate-500 line-clamp-2 mt-1 leading-relaxed">
+          <p class="text-xs text-slate-400 line-clamp-2 mt-1 leading-relaxed">
             ${subj.description}
           </p>
 
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="font-semibold ${hasChapters ? 'text-emerald-600' : 'text-slate-400'}">
-              ${hasChapters ? `● ${subj.chapters.length} Bab Interaktif` : 'Dalam Pembinaan'}
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="font-bold ${hasChapters ? 'text-emerald-400' : 'text-slate-500'}">
+              ${hasChapters ? `● ${subj.chapters.length} Bab Interaktif` : 'Silibus Lengkap'}
             </span>
-            <span class="text-indigo-600 font-bold group-hover:translate-x-1 transition-transform">
-              Buka →
+            <span class="text-indigo-400 font-bold group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
+              Masuk Arena →
+            </span>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    if (window.edu3D) {
+      setTimeout(() => window.edu3D.setupCard3DTilt(), 50);
+    }
+  }
+
+  enterSubjectArena(subjectId) {
+    if (window.eduAudio) window.eduAudio.playClick();
+    this.currentSubjectId = subjectId;
+    const subj = this.getCurrentSubject();
+    if (!subj) return;
+
+    if (subj.chapters && subj.chapters.length > 0) {
+      this.currentChapterId = subj.chapters[0].id;
+    } else {
+      this.currentChapterId = null;
+    }
+
+    // Hide Main Lobby, Show Subject Arena
+    document.getElementById("mainLobbyView")?.classList.add("hidden");
+    const arenaEl = document.getElementById("subjectArenaView");
+    if (arenaEl) {
+      arenaEl.classList.remove("hidden");
+      arenaEl.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Update Arena Header
+    const iconEl = document.getElementById("arenaSubjectIcon");
+    if (iconEl) iconEl.textContent = subj.icon;
+
+    const titleEl = document.getElementById("arenaSubjectTitle");
+    if (titleEl) titleEl.textContent = subj.name;
+
+    const codeEl = document.getElementById("arenaSubjectCode");
+    if (codeEl) codeEl.textContent = subj.code;
+
+    const gradeObj = SYLLABUS_DATA[this.currentLevel].grades.find(g => g.id === this.currentGradeId);
+    const gradeEl = document.getElementById("arenaSubjectGrade");
+    if (gradeEl) {
+      gradeEl.textContent = `${gradeObj ? gradeObj.name : ''} • ${SYLLABUS_DATA[this.currentLevel].name}`;
+    }
+
+    const countEl = document.getElementById("arenaChaptersCount");
+    if (countEl) {
+      countEl.textContent = `${subj.chapters ? subj.chapters.length : 0} Bab Tersedia`;
+    }
+
+    // Initialize 3D Lab with subject-appropriate model
+    if (window.edu3D) {
+      const lowerName = subj.name.toLowerCase();
+      if (lowerName.includes("sains") || lowerName.includes("kimia") || lowerName.includes("fizik")) {
+        window.edu3D.buildLabModel("atom");
+      } else if (lowerName.includes("matematik")) {
+        window.edu3D.buildLabModel("geometry");
+      } else {
+        window.edu3D.buildLabModel("compass");
+      }
+      setTimeout(() => {
+        window.edu3D.initSubjectLabCanvas("lab3dContainer");
+      }, 50);
+    }
+
+    this.renderArenaQuestRoadmap();
+    this.renderChapterDetail();
+    if (window.edu3D) window.edu3D.setupCard3DTilt();
+  }
+
+  exitSubjectArena() {
+    if (window.eduAudio) window.eduAudio.playClick();
+    document.getElementById("subjectArenaView")?.classList.add("hidden");
+    document.getElementById("mainLobbyView")?.classList.remove("hidden");
+    document.getElementById("gradePillsContainer")?.scrollIntoView({ behavior: "smooth" });
+    if (window.edu3D) window.edu3D.setupCard3DTilt();
+  }
+
+  renderArenaQuestRoadmap() {
+    const container = document.getElementById("arenaQuestRoadmapContainer");
+    if (!container) return;
+
+    const subj = this.getCurrentSubject();
+    if (!subj || !subj.chapters || subj.chapters.length === 0) {
+      container.innerHTML = `
+        <div class="py-4 text-slate-400 text-xs">Semua topik sukatan KPM bagi subjek ini sedia untuk diterokai.</div>
+      `;
+      return;
+    }
+
+    const profile = window.gamification.profile;
+
+    container.innerHTML = subj.chapters.map((ch, idx) => {
+      const isActive = ch.id === this.currentChapterId;
+      const isCompleted = profile.completedNotes.includes(ch.id);
+
+      return `
+        <div 
+          onclick="window.app.setChapter('${ch.id}')"
+          class="quest-node shrink-0 cursor-pointer p-4 rounded-2xl border-2 transition-all min-w-[200px] max-w-[240px] card-3d-tilt ${
+            isActive 
+              ? 'border-indigo-500 bg-indigo-950/70 shadow-lg shadow-indigo-500/30 ring-2 ring-indigo-400/40' 
+              : isCompleted 
+                ? 'border-emerald-500/50 bg-slate-900/80 hover:border-emerald-400' 
+                : 'border-slate-800 bg-slate-900/60 hover:border-slate-700'
+          }"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-black uppercase px-2 py-0.5 rounded-lg ${
+              isActive ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400'
+            }">
+              ${ch.number}
+            </span>
+            <span class="text-xs">
+              ${isCompleted ? '⭐ Selesai' : '🎯 Aktif'}
+            </span>
+          </div>
+
+          <h5 class="text-xs font-bold text-white line-clamp-2 leading-snug">
+            ${ch.title}
+          </h5>
+
+          <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px]">
+            <span class="text-amber-400 font-bold">+${ch.xpReward} XP</span>
+            <span class="${isActive ? 'text-indigo-300 font-bold' : 'text-slate-500'}">
+              ${isActive ? 'Sedang Dibuka' : 'Buka Bab →'}
             </span>
           </div>
         </div>
@@ -279,18 +407,7 @@ class EduPintarApp {
   }
 
   setSubject(subjectId) {
-    this.currentSubjectId = subjectId;
-    const subjects = SYLLABUS_DATA[this.currentLevel].subjects[this.currentGradeId] || [];
-    const found = subjects.find(s => s.id === subjectId);
-
-    if (found && found.chapters && found.chapters.length > 0) {
-      this.currentChapterId = found.chapters[0].id;
-    } else {
-      this.currentChapterId = null;
-    }
-
-    this.renderSubjectsGrid();
-    this.renderChapterDetail();
+    this.enterSubjectArena(subjectId);
   }
 
   getCurrentSubject() {
@@ -495,6 +612,107 @@ class EduPintarApp {
           </button>
         </div>
 
+        <!-- 3D Interactive Flippable Flashcards Deck -->
+        <div class="p-5 rounded-3xl bg-slate-900 border border-indigo-500/30 shadow-xl">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h4 class="text-sm font-black text-white flex items-center gap-2">
+                <span>🃏</span> Kad Imbasan 3D Interaktif
+              </h4>
+              <p class="text-[11px] text-slate-400">Klik kad untuk memusingkannya 180° dalam 3D</p>
+            </div>
+            <span class="text-[11px] font-bold text-amber-300 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full">
+              🔄 3D Flip Card FX
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Flashcard 1 -->
+            <div class="flip-card h-48" onclick="window.app.flipCard(this)">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-gradient-to-br from-indigo-950 to-slate-900 border border-indigo-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg">
+                  <div class="flex justify-between items-center text-xs font-bold text-indigo-300">
+                    <span>KAD 1</span>
+                    <span>🔄 Klik Pusing</span>
+                  </div>
+                  <div>
+                    <span class="text-2xl mb-1 block">💡</span>
+                    <h5 class="text-sm font-black text-white line-clamp-2">${notes.sections[0] ? notes.sections[0].heading : 'Konsep Kunci'}</h5>
+                    <p class="text-[11px] text-indigo-200 mt-1">Apakah fakta asas yang mesti anda ketahui?</p>
+                  </div>
+                  <span class="text-[10px] text-indigo-400 font-bold uppercase">EduPintar 3D Flashcard</span>
+                </div>
+                <div class="flip-card-back bg-gradient-to-br from-indigo-900 to-purple-950 border border-purple-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg text-white">
+                  <div class="flex justify-between items-center text-xs font-bold text-purple-300">
+                    <span>JAWAPAN KAD 1</span>
+                    <span>✓ Hafal</span>
+                  </div>
+                  <div class="text-xs leading-relaxed text-slate-200 overflow-y-auto max-h-24">
+                    ${notes.sections[0] ? notes.sections[0].content : 'Kuasai konsep utama bab ini.'}
+                  </div>
+                  <span class="text-[10px] text-purple-400 font-bold">Syabas! Teruskan kad seterusnya</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flashcard 2 -->
+            <div class="flip-card h-48" onclick="window.app.flipCard(this)">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-gradient-to-br from-amber-950 to-slate-900 border border-amber-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg">
+                  <div class="flex justify-between items-center text-xs font-bold text-amber-300">
+                    <span>KAD 2</span>
+                    <span>🔄 Klik Pusing</span>
+                  </div>
+                  <div>
+                    <span class="text-2xl mb-1 block">🧠</span>
+                    <h5 class="text-sm font-black text-white">Akronim & Formula Ingat</h5>
+                    <p class="text-[11px] text-amber-200 mt-1">Teknik memori pantas untuk peperiksaan.</p>
+                  </div>
+                  <span class="text-[10px] text-amber-400 font-bold uppercase">Formula Pintar</span>
+                </div>
+                <div class="flip-card-back bg-gradient-to-br from-amber-900 to-orange-950 border border-amber-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg text-white">
+                  <div class="flex justify-between items-center text-xs font-bold text-amber-300">
+                    <span>FORMULA RAHSIA</span>
+                    <span>✓ Kuasai</span>
+                  </div>
+                  <div class="text-xs leading-relaxed text-amber-100 overflow-y-auto max-h-24">
+                    ${notes.sections[0] && notes.sections[0].mnemonic ? notes.sections[0].mnemonic : (notes.sections[1] && notes.sections[1].mnemonic ? notes.sections[1].mnemonic : 'Gunakan formula kata kunci awal untuk mengukuhkan ingatan!')}
+                  </div>
+                  <span class="text-[10px] text-amber-300 font-bold">Skor Tinggi Menanti Anda!</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Flashcard 3 -->
+            <div class="flip-card h-48" onclick="window.app.flipCard(this)">
+              <div class="flip-card-inner">
+                <div class="flip-card-front bg-gradient-to-br from-emerald-950 to-slate-900 border border-emerald-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg">
+                  <div class="flex justify-between items-center text-xs font-bold text-emerald-300">
+                    <span>KAD 3</span>
+                    <span>🔄 Klik Pusing</span>
+                  </div>
+                  <div>
+                    <span class="text-2xl mb-1 block">⭐</span>
+                    <h5 class="text-sm font-black text-white">Tip Soalan Peperiksaan</h5>
+                    <p class="text-[11px] text-emerald-200 mt-1">Perangkap soalan dan teknik markah penuh.</p>
+                  </div>
+                  <span class="text-[10px] text-emerald-400 font-bold uppercase">Skema UASA / SPM</span>
+                </div>
+                <div class="flip-card-back bg-gradient-to-br from-emerald-900 to-teal-950 border border-emerald-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg text-white">
+                  <div class="flex justify-between items-center text-xs font-bold text-emerald-300">
+                    <span>SKEMA JAWAPAN</span>
+                    <span>✓ Skor A</span>
+                  </div>
+                  <div class="text-xs leading-relaxed text-emerald-100 overflow-y-auto max-h-24">
+                    ${notes.sections[1] && notes.sections[1].examTip ? notes.sections[1].examTip : (notes.sections[0] && notes.sections[0].examTip ? notes.sections[0].examTip : 'Tulis kata kunci lengkap mengikut skema pemarkahan rasmi!')}
+                  </div>
+                  <span class="text-[10px] text-emerald-300 font-bold">A+ Dalam Genggaman!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Note Sections -->
         ${notes.sections.map(sec => `
           <div class="bg-slate-50/60 p-5 sm:p-6 rounded-2xl border border-slate-200/80">
@@ -534,7 +752,7 @@ class EduPintarApp {
           </p>
           <button 
             onclick="window.app.completeNote('${chapter.id}')"
-            class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white font-bold text-sm rounded-xl shadow-md shadow-emerald-200 transition-all flex items-center justify-center gap-2"
+            class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white font-bold text-sm rounded-xl shadow-md shadow-emerald-200 transition-all flex items-center justify-center gap-2 card-3d-tilt"
           >
             <span>✓</span> Tandakan Selesai Baca (+50 XP)
           </button>
@@ -543,12 +761,19 @@ class EduPintarApp {
     `;
   }
 
+  flipCard(cardEl) {
+    if (window.eduAudio) window.eduAudio.playCardFlip();
+    cardEl.classList.toggle("flipped");
+  }
+
   completeNote(chapterId) {
     const success = window.gamification.markNoteAsRead(chapterId, 50);
+    if (window.eduAudio) window.eduAudio.playXpGain();
     if (!success) {
       window.gamification.showXpToast(10, "Ulang kaji semula nota!");
     }
     this.renderChapterDetail();
+    this.renderArenaQuestRoadmap();
   }
 
   renderVideoTab(chapter) {
@@ -961,11 +1186,7 @@ class EduPintarApp {
 
     this.renderLevelSelector();
     this.renderGradePills();
-    this.renderSubjectsGrid();
-    this.renderChapterDetail();
-
-    // Scroll down to chapter detail
-    document.getElementById("chapterDetailContainer")?.scrollIntoView({ behavior: "smooth" });
+    this.enterSubjectArena(subjectId);
   }
 }
 
