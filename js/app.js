@@ -6,26 +6,107 @@
 class EduPintarApp {
   constructor() {
     this.currentLevel = "secondary"; // 'primary' or 'secondary'
-    this.currentGradeId = "f4";      // default to Tingkatan 4 SPM
-    this.currentSubjectId = "f4-sej"; // default to Sejarah SPM
-    this.currentChapterId = "f4-sej-c2"; // default to Bab 2 Kebangkitan Nasionalisme
-    this.activeContentTab = "notes"; // 'notes', 'video', 'quiz', 'worksheet'
+    this.currentGradeId = "f5";      // default to Tingkatan 5 SPM
+    this.currentSubjectId = "f5-mt"; // default to Matematik SPM
+    this.currentChapterId = "f5-mt-c1"; // default to Bab 1 Ubahan
+    this.activeContentTab = "notes"; // 'notes', 'video', 'quiz', 'game', 'worksheet'
+    this.currentLanguage = "bm";     // 'bm' or 'en'
     this.searchQuery = "";
+    this.savedSession = this.loadSessionState();
 
     this.init();
   }
 
   init() {
+    // Restore saved session if available
+    if (this.savedSession) {
+      if (this.savedSession.level) this.currentLevel = this.savedSession.level;
+      if (this.savedSession.gradeId) this.currentGradeId = this.savedSession.gradeId;
+      if (this.savedSession.subjectId) this.currentSubjectId = this.savedSession.subjectId;
+      if (this.savedSession.chapterId) this.currentChapterId = this.savedSession.chapterId;
+      if (this.savedSession.activeTab) this.activeContentTab = this.savedSession.activeTab;
+      if (this.savedSession.language) this.currentLanguage = this.savedSession.language;
+    }
+
     this.setupEventListeners();
     this.updateHeaderProfile();
+    this.updateLanguageUi();
     this.renderLevelSelector();
     this.renderGradePills();
     this.renderSubjectsGrid();
-    this.renderChapterDetail();
     this.renderStatsBanner();
+
+    // If student was inside Subject Arena, restore them directly into Arena!
+    if (this.savedSession && this.savedSession.view === "arena" && this.currentSubjectId) {
+      this.enterSubjectArena(this.currentSubjectId, false);
+      if (this.savedSession.activeTab) {
+        this.setContentTab(this.savedSession.activeTab);
+      }
+    } else {
+      this.renderChapterDetail();
+    }
+  }
+
+  saveSessionState() {
+    try {
+      const isArena = !document.getElementById("subjectArenaView")?.classList.contains("hidden");
+      const state = {
+        level: this.currentLevel,
+        gradeId: this.currentGradeId,
+        subjectId: this.currentSubjectId,
+        chapterId: this.currentChapterId,
+        activeTab: this.activeContentTab,
+        view: isArena ? "arena" : "lobby",
+        language: this.currentLanguage || "bm",
+        timestamp: Date.now()
+      };
+      localStorage.setItem("edupintar_saved_session", JSON.stringify(state));
+    } catch (e) {
+      // Storage fallback
+    }
+  }
+
+  loadSessionState() {
+    try {
+      const saved = localStorage.getItem("edupintar_saved_session");
+      if (saved) return JSON.parse(saved);
+    } catch (e) {
+      // Storage fallback
+    }
+    return null;
+  }
+
+  toggleLanguage() {
+    this.setLanguage(this.currentLanguage === "bm" ? "en" : "bm");
+  }
+
+  setLanguage(lang) {
+    if (window.eduAudio) window.eduAudio.playClick();
+    this.currentLanguage = lang;
+    this.updateLanguageUi();
+    this.renderGradePills();
+    this.renderSubjectsGrid();
+    this.renderArenaQuestRoadmap();
+    this.renderChapterDetail();
+    this.saveSessionState();
+  }
+
+  updateLanguageUi() {
+    const isEn = this.currentLanguage === "en";
+    const label = document.getElementById("languageLabel");
+    if (label) {
+      label.textContent = isEn ? "🇬🇧 English" : "🇲🇾 B. Melayu";
+    }
+    const btn = document.getElementById("languageToggleBtn");
+    if (btn) {
+      btn.title = isEn ? "Tukar ke Bahasa Melayu" : "Switch to English";
+    }
   }
 
   setupEventListeners() {
+    // Auto-save session state before unload
+    window.addEventListener("beforeunload", () => this.saveSessionState());
+
     // Listen for gamification updates
     window.addEventListener("edupintar:profile-updated", () => {
       this.updateHeaderProfile();
@@ -162,6 +243,7 @@ class EduPintarApp {
     this.renderGradePills();
     this.renderSubjectsGrid();
     this.renderChapterDetail();
+    this.saveSessionState();
   }
 
   renderGradePills() {
@@ -210,6 +292,7 @@ class EduPintarApp {
     this.renderGradePills();
     this.renderSubjectsGrid();
     this.renderChapterDetail();
+    this.saveSessionState();
   }
 
   renderSubjectsGrid() {
@@ -282,16 +365,24 @@ class EduPintarApp {
     }
   }
 
-  enterSubjectArena(subjectId) {
+  enterSubjectArena(subjectId, resetChapter = true) {
     if (window.eduAudio) window.eduAudio.playClick();
     this.currentSubjectId = subjectId;
     const subj = this.getCurrentSubject();
     if (!subj) return;
 
-    if (subj.chapters && subj.chapters.length > 0) {
-      this.currentChapterId = subj.chapters[0].id;
+    if (resetChapter || !this.currentChapterId) {
+      if (subj.chapters && subj.chapters.length > 0) {
+        this.currentChapterId = subj.chapters[0].id;
+      } else {
+        this.currentChapterId = null;
+      }
     } else {
-      this.currentChapterId = null;
+      // Validate that currentChapterId belongs to this subject
+      const hasCh = subj.chapters && subj.chapters.some(c => c.id === this.currentChapterId);
+      if (!hasCh && subj.chapters && subj.chapters.length > 0) {
+        this.currentChapterId = subj.chapters[0].id;
+      }
     }
 
     // Hide Main Lobby, Show Subject Arena
@@ -320,26 +411,33 @@ class EduPintarApp {
 
     const countEl = document.getElementById("arenaChaptersCount");
     if (countEl) {
-      countEl.textContent = `${subj.chapters ? subj.chapters.length : 0} Bab Tersedia`;
+      const isEn = this.currentLanguage === "en";
+      countEl.textContent = `${subj.chapters ? subj.chapters.length : 0} ${isEn ? 'Chapters Available' : 'Bab Tersedia'}`;
     }
 
-    // Initialize 3D Lab with subject-appropriate model
-    if (window.edu3D) {
-      const lowerName = subj.name.toLowerCase();
-      if (lowerName.includes("sains") || lowerName.includes("kimia") || lowerName.includes("fizik")) {
-        window.edu3D.buildLabModel("atom");
-      } else if (lowerName.includes("matematik")) {
-        window.edu3D.buildLabModel("geometry");
-      } else {
-        window.edu3D.buildLabModel("compass");
-      }
-      setTimeout(() => {
-        window.edu3D.initSubjectLabCanvas("lab3dContainer");
-      }, 50);
-    }
-
+    // Render quest roadmap and chapter detail FIRST!
     this.renderArenaQuestRoadmap();
     this.renderChapterDetail();
+    this.saveSessionState();
+
+    // Initialize 3D Lab safely with subject-appropriate model
+    try {
+      if (window.edu3D) {
+        let modelType = "compass";
+        const lowerName = (subj.name || "").toLowerCase();
+        if (lowerName.includes("sains") || lowerName.includes("kimia") || lowerName.includes("fizik") || lowerName.includes("biologi")) {
+          modelType = "atom";
+        } else if (lowerName.includes("matematik")) {
+          modelType = "geometry";
+        }
+        setTimeout(() => {
+          window.edu3D.initSubjectLabCanvas("lab3dContainer", modelType);
+        }, 40);
+      }
+    } catch (e) {
+      console.warn("3D Lab init error:", e);
+    }
+
     if (window.edu3D) window.edu3D.setupCard3DTilt();
   }
 
@@ -348,6 +446,7 @@ class EduPintarApp {
     document.getElementById("subjectArenaView")?.classList.add("hidden");
     document.getElementById("mainLobbyView")?.classList.remove("hidden");
     document.getElementById("gradePillsContainer")?.scrollIntoView({ behavior: "smooth" });
+    this.saveSessionState();
     if (window.edu3D) window.edu3D.setupCard3DTilt();
   }
 
@@ -355,10 +454,11 @@ class EduPintarApp {
     const container = document.getElementById("arenaQuestRoadmapContainer");
     if (!container) return;
 
+    const isEn = this.currentLanguage === "en";
     const subj = this.getCurrentSubject();
     if (!subj || !subj.chapters || subj.chapters.length === 0) {
       container.innerHTML = `
-        <div class="py-4 text-slate-400 text-xs">Semua topik sukatan KPM bagi subjek ini sedia untuk diterokai.</div>
+        <div class="py-4 text-slate-400 text-xs">${isEn ? 'All KPM curriculum topics for this subject are ready to explore.' : 'Semua topik sukatan KPM bagi subjek ini sedia untuk diterokai.'}</div>
       `;
       return;
     }
@@ -368,6 +468,10 @@ class EduPintarApp {
     container.innerHTML = subj.chapters.map((ch, idx) => {
       const isActive = ch.id === this.currentChapterId;
       const isCompleted = profile.completedNotes.includes(ch.id);
+      const chNumber = isEn && ch.numberEn ? ch.numberEn : ch.number;
+      const chTitle = isEn && ch.titleEn ? ch.titleEn : ch.title;
+      const chStatus = isCompleted ? (isEn ? '⭐ Completed' : '⭐ Selesai') : (isEn ? '🎯 Active' : '🎯 Aktif');
+      const actionText = isActive ? (isEn ? 'Active Now' : 'Sedang Dibuka') : (isEn ? 'Open Chapter →' : 'Buka Bab →');
 
       return `
         <div 
@@ -384,21 +488,21 @@ class EduPintarApp {
             <span class="text-xs font-black uppercase px-2 py-0.5 rounded-lg ${
               isActive ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-400'
             }">
-              ${ch.number}
+              ${chNumber}
             </span>
-            <span class="text-xs">
-              ${isCompleted ? '⭐ Selesai' : '🎯 Aktif'}
+            <span class="text-xs font-bold text-slate-300">
+              ${chStatus}
             </span>
           </div>
 
           <h5 class="text-xs font-bold text-white line-clamp-2 leading-snug">
-            ${ch.title}
+            ${chTitle}
           </h5>
 
           <div class="mt-3 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px]">
             <span class="text-amber-400 font-bold">+${ch.xpReward} XP</span>
             <span class="${isActive ? 'text-indigo-300 font-bold' : 'text-slate-500'}">
-              ${isActive ? 'Sedang Dibuka' : 'Buka Bab →'}
+              ${actionText}
             </span>
           </div>
         </div>
@@ -425,6 +529,7 @@ class EduPintarApp {
     const container = document.getElementById("chapterDetailContainer");
     if (!container) return;
 
+    const isEn = this.currentLanguage === "en";
     const subject = this.getCurrentSubject();
     const chapter = this.getCurrentChapter();
 
@@ -432,8 +537,8 @@ class EduPintarApp {
       container.innerHTML = `
         <div class="bg-white rounded-3xl p-8 border border-slate-200 text-center">
           <span class="text-4xl">📖</span>
-          <h3 class="text-lg font-bold text-slate-800 mt-2">Pilih Bab untuk Mula Belajar</h3>
-          <p class="text-xs text-slate-500 mt-1">Sila klik pada salah satu subjek di atas untuk memaparkan nota padat, video dan latihan kuiz.</p>
+          <h3 class="text-lg font-bold text-slate-800 mt-2">${isEn ? 'Select a Chapter to Begin Learning' : 'Pilih Bab untuk Mula Belajar'}</h3>
+          <p class="text-xs text-slate-500 mt-1">${isEn ? 'Please click on any subject above to view compact notes, video and quiz practices.' : 'Sila klik pada salah satu subjek di atas untuk memaparkan nota padat, video dan latihan kuiz.'}</p>
         </div>
       `;
       return;
@@ -442,6 +547,10 @@ class EduPintarApp {
     const isNoteRead = window.gamification.profile.completedNotes.includes(chapter.id);
     const quizResult = window.gamification.profile.completedQuizzes[chapter.quiz?.id];
 
+    const chNumber = isEn && chapter.numberEn ? chapter.numberEn : chapter.number;
+    const chTitle = isEn && chapter.titleEn ? chapter.titleEn : chapter.title;
+    const chSummary = isEn && chapter.summaryEn ? chapter.summaryEn : chapter.summary;
+
     container.innerHTML = `
       <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
         <!-- Chapter Header Banner -->
@@ -449,7 +558,7 @@ class EduPintarApp {
           <div class="flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center gap-2">
               <span class="px-2.5 py-1 bg-indigo-500/30 text-indigo-300 border border-indigo-400/30 rounded-xl text-xs font-bold uppercase">
-                ${chapter.number}
+                ${chNumber}
               </span>
               <span class="text-slate-400 text-xs font-medium">
                 ${subject.name} • ${SYLLABUS_DATA[this.currentLevel].grades.find(g => g.id === this.currentGradeId)?.name}
@@ -463,35 +572,38 @@ class EduPintarApp {
               </span>
               ${isNoteRead ? `
                 <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                  <span>✓</span> Selesai Dibaca
+                  <span>✓</span> ${isEn ? 'Completed Reading' : 'Selesai Dibaca'}
                 </span>
               ` : ''}
             </div>
           </div>
 
           <h2 class="text-xl sm:text-2xl font-black text-white mt-3">
-            ${chapter.title}
+            ${chTitle}
           </h2>
           <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-3xl leading-relaxed">
-            ${chapter.summary}
+            ${chSummary}
           </p>
 
           <!-- Chapter Navigation Pills (if subject has multiple chapters) -->
           ${subject.chapters.length > 1 ? `
             <div class="flex items-center gap-2 mt-5 pt-4 border-t border-slate-800 overflow-x-auto pb-1">
-              <span class="text-xs text-slate-400 font-semibold shrink-0">Bab Lain:</span>
-              ${subject.chapters.map(ch => `
-                <button 
-                  onclick="window.app.setChapter('${ch.id}')"
-                  class="shrink-0 px-3 py-1 rounded-xl text-xs font-bold transition-all ${
-                    ch.id === chapter.id 
-                      ? 'bg-indigo-600 text-white' 
-                      : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
-                  }"
-                >
-                  ${ch.number}
-                </button>
-              `).join("")}
+              <span class="text-xs text-slate-400 font-semibold shrink-0">${isEn ? 'Other Chapters:' : 'Bab Lain:'}</span>
+              ${subject.chapters.map(ch => {
+                const label = isEn && ch.numberEn ? ch.numberEn : ch.number;
+                return `
+                  <button 
+                    onclick="window.app.setChapter('${ch.id}')"
+                    class="shrink-0 px-3 py-1 rounded-xl text-xs font-bold transition-all ${
+                      ch.id === chapter.id 
+                        ? 'bg-indigo-600 text-white' 
+                        : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                    }"
+                  >
+                    ${label}
+                  </button>
+                `;
+              }).join("")}
             </div>
           ` : ''}
         </div>
@@ -506,7 +618,7 @@ class EduPintarApp {
                 : 'border-transparent text-slate-600 hover:text-slate-900'
             }"
           >
-            <span>📝</span> Nota Padat
+            <span>📝</span> ${isEn ? 'Compact Notes' : 'Nota Padat'}
           </button>
           
           ${chapter.video ? `
@@ -518,7 +630,7 @@ class EduPintarApp {
                   : 'border-transparent text-slate-600 hover:text-slate-900'
               }"
             >
-              <span>🎥</span> Video Pembelajaran
+              <span>🎥</span> ${isEn ? 'Video Lessons' : 'Video Pembelajaran'}
             </button>
           ` : ''}
 
@@ -531,7 +643,7 @@ class EduPintarApp {
                   : 'border-transparent text-slate-600 hover:text-slate-900'
               }"
             >
-              <span>⚡</span> Latihan Kuiz Interaktif 
+              <span>⚡</span> ${isEn ? 'Interactive Quiz' : 'Latihan Kuiz Interaktif'} 
               ${quizResult ? `<span class="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded-full font-bold">${quizResult.score}%</span>` : ''}
             </button>
           ` : ''}
@@ -544,8 +656,8 @@ class EduPintarApp {
                 : 'border-transparent text-slate-600 hover:text-slate-900'
             }"
           >
-            <span>🎮</span> Zon Game / Duel
-            <span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">Interaktif</span>
+            <span>🎮</span> ${isEn ? 'Game Zone / Duel' : 'Zon Game / Duel'}
+            <span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">${isEn ? 'Interactive' : 'Interaktif'}</span>
           </button>
 
           <button 
@@ -556,7 +668,7 @@ class EduPintarApp {
                 : 'border-transparent text-slate-600 hover:text-slate-900'
             }"
           >
-            <span>📄</span> Cetak / PDF
+            <span>📄</span> ${isEn ? 'Print / PDF' : 'Cetak / PDF'}
           </button>
         </div>
 
@@ -569,12 +681,17 @@ class EduPintarApp {
   }
 
   setChapter(chapterId) {
+    if (window.eduAudio) window.eduAudio.playClick();
     this.currentChapterId = chapterId;
+    this.renderArenaQuestRoadmap();
     this.renderChapterDetail();
+    this.saveSessionState();
   }
 
   setContentTab(tab) {
+    if (window.eduAudio) window.eduAudio.playClick();
     this.activeContentTab = tab;
+    this.saveSessionState();
     const container = document.getElementById("chapterTabContent");
     const chapter = this.getCurrentChapter();
     if (container && chapter) {
@@ -658,29 +775,48 @@ class EduPintarApp {
 
   renderNotesTab(chapter) {
     const notes = chapter.notes;
+    const isEn = this.currentLanguage === "en";
+
     if (!notes) {
-      return `<p class="text-sm text-slate-500">Nota sedang disediakan untuk unit ini.</p>`;
+      return `<p class="text-sm text-slate-500">${isEn ? 'Notes are being prepared for this unit.' : 'Nota sedang disediakan untuk unit ini.'}</p>`;
     }
+
+    const sec0Heading = isEn && notes.sections[0]?.headingEn ? notes.sections[0].headingEn : (notes.sections[0]?.heading || 'Konsep Kunci');
+    const sec0Content = isEn && notes.sections[0]?.contentEn ? notes.sections[0].contentEn : (notes.sections[0]?.content || 'Kuasai konsep utama bab ini.');
+    const secMnemonic = isEn 
+      ? (notes.sections[0]?.mnemonicEn || notes.sections[1]?.mnemonicEn || notes.sections[0]?.mnemonic || 'Use initial keywords to reinforce memory!') 
+      : (notes.sections[0]?.mnemonic || notes.sections[1]?.mnemonic || 'Gunakan formula kata kunci awal untuk mengukuhkan ingatan!');
+    const secExamTip = isEn 
+      ? (notes.sections[1]?.examTipEn || notes.sections[0]?.examTipEn || notes.sections[1]?.examTip || 'Write full keywords following the official marking scheme!') 
+      : (notes.sections[1]?.examTip || notes.sections[0]?.examTip || 'Tulis kata kunci lengkap mengikut skema pemarkahan rasmi!');
 
     return `
       <div class="space-y-6">
         <!-- Top controls: DLP toggle and Print button -->
         <div class="flex items-center justify-between pb-4 border-b border-slate-200">
           <div class="flex items-center gap-2">
-            <span class="text-xs font-bold text-slate-500">⏱️ Masa Bacaan: ${notes.readTime}</span>
+            <span class="text-xs font-bold text-slate-500">⏱️ ${isEn ? 'Reading Time: ' + (notes.readTimeEn || notes.readTime || '5 mins') : 'Masa Bacaan: ' + (notes.readTime || '5 minit')}</span>
             ${notes.dlpAvailable ? `
               <span class="text-xs bg-cyan-50 text-cyan-700 border border-cyan-200 px-2.5 py-0.5 rounded-full font-semibold">
-                DLP Bilingval
+                ${isEn ? 'DLP Bilingual (BM/EN)' : 'DLP Bilingval (BM/BI)'}
               </span>
             ` : ''}
           </div>
           
-          <button 
-            onclick="window.print()" 
-            class="px-3.5 py-1.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200 transition-all flex items-center gap-1.5"
-          >
-            <span>🖨️</span> Cetak / Simpan PDF
-          </button>
+          <div class="flex items-center gap-2">
+            <button 
+              onclick="window.app.toggleLanguage()" 
+              class="px-3 py-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl border border-indigo-200 transition-all flex items-center gap-1.5"
+            >
+              <span>🌐</span> ${isEn ? 'Bahasa Melayu' : 'English Mode'}
+            </button>
+            <button 
+              onclick="window.print()" 
+              class="px-3.5 py-1.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200 transition-all flex items-center gap-1.5"
+            >
+              <span>🖨️</span> ${isEn ? 'Print / Save PDF' : 'Cetak / Simpan PDF'}
+            </button>
+          </div>
         </div>
 
         <!-- 3D Interactive Flippable Flashcards Deck -->
@@ -688,9 +824,9 @@ class EduPintarApp {
           <div class="flex items-center justify-between mb-4">
             <div>
               <h4 class="text-sm font-black text-white flex items-center gap-2">
-                <span>🃏</span> Kad Imbasan 3D Interaktif
+                <span>🃏</span> ${isEn ? '3D Interactive Flashcards' : 'Kad Imbasan 3D Interaktif'}
               </h4>
-              <p class="text-[11px] text-slate-400">Klik kad untuk memusingkannya 180° dalam 3D</p>
+              <p class="text-[11px] text-slate-400">${isEn ? 'Click any card to flip 180° in 3D' : 'Klik kad untuk memusingkannya 180° dalam 3D'}</p>
             </div>
             <span class="text-[11px] font-bold text-amber-300 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full">
               🔄 3D Flip Card FX
@@ -703,25 +839,25 @@ class EduPintarApp {
               <div class="flip-card-inner">
                 <div class="flip-card-front bg-gradient-to-br from-indigo-950 to-slate-900 border border-indigo-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg">
                   <div class="flex justify-between items-center text-xs font-bold text-indigo-300">
-                    <span>KAD 1</span>
-                    <span>🔄 Klik Pusing</span>
+                    <span>${isEn ? 'CARD 1' : 'KAD 1'}</span>
+                    <span>${isEn ? '🔄 Click to Flip' : '🔄 Klik Pusing'}</span>
                   </div>
                   <div>
                     <span class="text-2xl mb-1 block">💡</span>
-                    <h5 class="text-sm font-black text-white line-clamp-2">${notes.sections[0] ? notes.sections[0].heading : 'Konsep Kunci'}</h5>
-                    <p class="text-[11px] text-indigo-200 mt-1">Apakah fakta asas yang mesti anda ketahui?</p>
+                    <h5 class="text-sm font-black text-white line-clamp-2">${sec0Heading}</h5>
+                    <p class="text-[11px] text-indigo-200 mt-1">${isEn ? 'What are the core fundamentals you must remember?' : 'Apakah fakta asas yang mesti anda ketahui?'}</p>
                   </div>
                   <span class="text-[10px] text-indigo-400 font-bold uppercase">EduPintar 3D Flashcard</span>
                 </div>
                 <div class="flip-card-back bg-gradient-to-br from-indigo-900 to-purple-950 border border-purple-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg text-white">
                   <div class="flex justify-between items-center text-xs font-bold text-purple-300">
-                    <span>JAWAPAN KAD 1</span>
-                    <span>✓ Hafal</span>
+                    <span>${isEn ? 'CARD 1 ANSWER' : 'JAWAPAN KAD 1'}</span>
+                    <span>✓ ${isEn ? 'Mastered' : 'Hafal'}</span>
                   </div>
                   <div class="text-xs leading-relaxed text-slate-200 overflow-y-auto max-h-24">
-                    ${notes.sections[0] ? notes.sections[0].content : 'Kuasai konsep utama bab ini.'}
+                    ${sec0Content}
                   </div>
-                  <span class="text-[10px] text-purple-400 font-bold">Syabas! Teruskan kad seterusnya</span>
+                  <span class="text-[10px] text-purple-400 font-bold">${isEn ? 'Great job! Continue to next card' : 'Syabas! Teruskan kad seterusnya'}</span>
                 </div>
               </div>
             </div>
@@ -731,25 +867,25 @@ class EduPintarApp {
               <div class="flip-card-inner">
                 <div class="flip-card-front bg-gradient-to-br from-amber-950 to-slate-900 border border-amber-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg">
                   <div class="flex justify-between items-center text-xs font-bold text-amber-300">
-                    <span>KAD 2</span>
-                    <span>🔄 Klik Pusing</span>
+                    <span>${isEn ? 'CARD 2' : 'KAD 2'}</span>
+                    <span>${isEn ? '🔄 Click to Flip' : '🔄 Klik Pusing'}</span>
                   </div>
                   <div>
                     <span class="text-2xl mb-1 block">🧠</span>
-                    <h5 class="text-sm font-black text-white">Akronim & Formula Ingat</h5>
-                    <p class="text-[11px] text-amber-200 mt-1">Teknik memori pantas untuk peperiksaan.</p>
+                    <h5 class="text-sm font-black text-white">${isEn ? 'Mnemonics & Formulas' : 'Akronim & Formula Ingat'}</h5>
+                    <p class="text-[11px] text-amber-200 mt-1">${isEn ? 'Fast memory techniques for exams.' : 'Teknik memori pantas untuk peperiksaan.'}</p>
                   </div>
-                  <span class="text-[10px] text-amber-400 font-bold uppercase">Formula Pintar</span>
+                  <span class="text-[10px] text-amber-400 font-bold uppercase">${isEn ? 'Smart Formula' : 'Formula Pintar'}</span>
                 </div>
                 <div class="flip-card-back bg-gradient-to-br from-amber-900 to-orange-950 border border-amber-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg text-white">
                   <div class="flex justify-between items-center text-xs font-bold text-amber-300">
-                    <span>FORMULA RAHSIA</span>
-                    <span>✓ Kuasai</span>
+                    <span>${isEn ? 'KEY FORMULA' : 'FORMULA RAHSIA'}</span>
+                    <span>✓ ${isEn ? 'Mastered' : 'Kuasai'}</span>
                   </div>
                   <div class="text-xs leading-relaxed text-amber-100 overflow-y-auto max-h-24">
-                    ${notes.sections[0] && notes.sections[0].mnemonic ? notes.sections[0].mnemonic : (notes.sections[1] && notes.sections[1].mnemonic ? notes.sections[1].mnemonic : 'Gunakan formula kata kunci awal untuk mengukuhkan ingatan!')}
+                    ${secMnemonic}
                   </div>
-                  <span class="text-[10px] text-amber-300 font-bold">Skor Tinggi Menanti Anda!</span>
+                  <span class="text-[10px] text-amber-300 font-bold">${isEn ? 'High scores await you!' : 'Skor Tinggi Menanti Anda!'}</span>
                 </div>
               </div>
             </div>
@@ -759,25 +895,25 @@ class EduPintarApp {
               <div class="flip-card-inner">
                 <div class="flip-card-front bg-gradient-to-br from-emerald-950 to-slate-900 border border-emerald-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg">
                   <div class="flex justify-between items-center text-xs font-bold text-emerald-300">
-                    <span>KAD 3</span>
-                    <span>🔄 Klik Pusing</span>
+                    <span>${isEn ? 'CARD 3' : 'KAD 3'}</span>
+                    <span>${isEn ? '🔄 Click to Flip' : '🔄 Klik Pusing'}</span>
                   </div>
                   <div>
                     <span class="text-2xl mb-1 block">⭐</span>
-                    <h5 class="text-sm font-black text-white">Tip Soalan Peperiksaan</h5>
-                    <p class="text-[11px] text-emerald-200 mt-1">Perangkap soalan dan teknik markah penuh.</p>
+                    <h5 class="text-sm font-black text-white">${isEn ? 'Exam Tips & Traps' : 'Tip Soalan Peperiksaan'}</h5>
+                    <p class="text-[11px] text-emerald-200 mt-1">${isEn ? 'Common pitfalls and full mark keys.' : 'Perangkap soalan dan teknik markah penuh.'}</p>
                   </div>
-                  <span class="text-[10px] text-emerald-400 font-bold uppercase">Skema UASA / SPM</span>
+                  <span class="text-[10px] text-emerald-400 font-bold uppercase">UASA / SPM Scheme</span>
                 </div>
                 <div class="flip-card-back bg-gradient-to-br from-emerald-900 to-teal-950 border border-emerald-500/40 p-5 rounded-3xl flex flex-col justify-between text-left shadow-lg text-white">
                   <div class="flex justify-between items-center text-xs font-bold text-emerald-300">
-                    <span>SKEMA JAWAPAN</span>
-                    <span>✓ Skor A</span>
+                    <span>${isEn ? 'ANSWER SCHEME' : 'SKEMA JAWAPAN'}</span>
+                    <span>✓ ${isEn ? 'Score A' : 'Skor A'}</span>
                   </div>
                   <div class="text-xs leading-relaxed text-emerald-100 overflow-y-auto max-h-24">
-                    ${notes.sections[1] && notes.sections[1].examTip ? notes.sections[1].examTip : (notes.sections[0] && notes.sections[0].examTip ? notes.sections[0].examTip : 'Tulis kata kunci lengkap mengikut skema pemarkahan rasmi!')}
+                    ${secExamTip}
                   </div>
-                  <span class="text-[10px] text-emerald-300 font-bold">A+ Dalam Genggaman!</span>
+                  <span class="text-[10px] text-emerald-300 font-bold">${isEn ? 'A+ Within Your Reach!' : 'A+ Dalam Genggaman!'}</span>
                 </div>
               </div>
             </div>
@@ -785,47 +921,55 @@ class EduPintarApp {
         </div>
 
         <!-- Note Sections -->
-        ${notes.sections.map(sec => `
-          <div class="bg-slate-50/60 p-5 sm:p-6 rounded-2xl border border-slate-200/80">
-            <h3 class="text-base sm:text-lg font-black text-slate-900 mb-2 flex items-center gap-2">
-              <span class="w-2 h-5 bg-indigo-600 rounded-full inline-block"></span>
-              ${sec.heading}
-            </h3>
-            
-            <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
-              ${sec.content}
-            </p>
+        ${notes.sections.map(sec => {
+          const heading = isEn && sec.headingEn ? sec.headingEn : sec.heading;
+          const content = isEn && sec.contentEn ? sec.contentEn : sec.content;
+          const bulletPoints = isEn && sec.bulletPointsEn ? sec.bulletPointsEn : sec.bulletPoints;
+          const mnemonic = isEn && sec.mnemonicEn ? sec.mnemonicEn : sec.mnemonic;
+          const examTip = isEn && sec.examTipEn ? sec.examTipEn : sec.examTip;
 
-            ${sec.bulletPoints ? `
-              <ul class="mt-3 space-y-2 text-xs sm:text-sm text-slate-700 pl-4 border-l-2 border-indigo-200">
-                ${sec.bulletPoints.map(bp => `<li>• ${bp}</li>`).join("")}
-              </ul>
-            ` : ''}
+          return `
+            <div class="bg-slate-50/60 p-5 sm:p-6 rounded-2xl border border-slate-200/80">
+              <h3 class="text-base sm:text-lg font-black text-slate-900 mb-2 flex items-center gap-2">
+                <span class="w-2 h-5 bg-indigo-600 rounded-full inline-block"></span>
+                ${heading}
+              </h3>
+              
+              <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+                ${content}
+              </p>
 
-            ${sec.mnemonic ? `
-              <div class="mt-4 p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs sm:text-sm text-amber-900 leading-relaxed shadow-sm">
-                ${sec.mnemonic}
-              </div>
-            ` : ''}
+              ${bulletPoints ? `
+                <ul class="mt-3 space-y-2 text-xs sm:text-sm text-slate-700 pl-4 border-l-2 border-indigo-200">
+                  ${bulletPoints.map(bp => `<li>• ${bp}</li>`).join("")}
+                </ul>
+              ` : ''}
 
-            ${sec.examTip ? `
-              <div class="mt-4 p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs sm:text-sm text-emerald-900 leading-relaxed shadow-sm">
-                ${sec.examTip}
-              </div>
-            ` : ''}
-          </div>
-        `).join("")}
+              ${mnemonic ? `
+                <div class="mt-4 p-3.5 bg-amber-50 border border-amber-200 rounded-xl text-xs sm:text-sm text-amber-900 leading-relaxed shadow-sm">
+                  ${mnemonic}
+                </div>
+              ` : ''}
+
+              ${examTip ? `
+                <div class="mt-4 p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs sm:text-sm text-emerald-900 leading-relaxed shadow-sm">
+                  ${examTip}
+                </div>
+              ` : ''}
+            </div>
+          `;
+        }).join("")}
 
         <!-- Mark completed & award XP action -->
         <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p class="text-xs text-slate-500">
-            Sudah selesai membaca dan memahami konsep penting bab ini?
+            ${isEn ? 'Finished reading and mastering the core concepts of this chapter?' : 'Sudah selesai membaca dan memahami konsep penting bab ini?'}
           </p>
           <button 
             onclick="window.app.completeNote('${chapter.id}')"
             class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-95 text-white font-bold text-sm rounded-xl shadow-md shadow-emerald-200 transition-all flex items-center justify-center gap-2 card-3d-tilt"
           >
-            <span>✓</span> Tandakan Selesai Baca (+50 XP)
+            <span>✓</span> ${isEn ? 'Mark as Read (+50 XP)' : 'Tandakan Selesai Baca (+50 XP)'}
           </button>
         </div>
       </div>
@@ -902,38 +1046,41 @@ class EduPintarApp {
 
   renderQuizTab(chapter) {
     const quiz = chapter.quiz;
-    if (!quiz) return `<p class="text-sm text-slate-500">Kuiz belum dibuka bagi unit ini.</p>`;
+    const isEn = this.currentLanguage === "en";
+
+    if (!quiz) return `<p class="text-sm text-slate-500">${isEn ? 'Quiz is not yet available for this unit.' : 'Kuiz belum dibuka bagi unit ini.'}</p>`;
 
     const history = window.gamification.profile.completedQuizzes[quiz.id];
+    const quizTitle = isEn && quiz.titleEn ? quiz.titleEn : quiz.title;
 
     return `
       <div class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 rounded-2xl p-6 sm:p-8 border border-indigo-100 text-center max-w-xl mx-auto">
         <span class="text-5xl">⚡</span>
-        <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-3">${quiz.title}</h3>
+        <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-3">${quizTitle}</h3>
         <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
-          Uji kefahaman anda mengikut format peperiksaan sebenar. Dapatkan markah tinggi untuk kumpul XP dan lencana!
+          ${isEn ? 'Test your understanding following official KPM exam standards. Score high to earn XP and unlock badges!' : 'Uji kefahaman anda mengikut format peperiksaan sebenar. Dapatkan markah tinggi untuk kumpul XP dan lencana!'}
         </p>
 
         <!-- Quiz Details Pill Grid -->
         <div class="grid grid-cols-3 gap-3 my-6 text-center">
           <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
-            <span class="text-xs text-slate-400 block font-medium">Soalan</span>
-            <span class="text-base font-black text-slate-800">${quiz.questions.length} Soalan</span>
+            <span class="text-xs text-slate-400 block font-medium">${isEn ? 'Questions' : 'Soalan'}</span>
+            <span class="text-base font-black text-slate-800">${quiz.questions.length} ${isEn ? 'Q\'s' : 'Soalan'}</span>
           </div>
           <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
-            <span class="text-xs text-slate-400 block font-medium">Masa</span>
-            <span class="text-base font-black text-slate-800">${quiz.timeLimitMinutes} Minit</span>
+            <span class="text-xs text-slate-400 block font-medium">${isEn ? 'Duration' : 'Masa'}</span>
+            <span class="text-base font-black text-slate-800">${quiz.timeLimitMinutes} ${isEn ? 'Mins' : 'Minit'}</span>
           </div>
           <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
-            <span class="text-xs text-slate-400 block font-medium">Ganjaran</span>
+            <span class="text-xs text-slate-400 block font-medium">${isEn ? 'Reward' : 'Ganjaran'}</span>
             <span class="text-base font-black text-amber-500">+${quiz.xpPoints} XP</span>
           </div>
         </div>
 
         ${history ? `
           <div class="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-xs text-emerald-800">
-            <span class="font-bold">Skor Percubaan Lepas: ${history.score}%</span>
-            <p class="text-emerald-600 mt-0.5">Anda boleh cuba semula pada bila-bila masa untuk mengukuhkan memori!</p>
+            <span class="font-bold">${isEn ? 'Previous Attempt Score: ' : 'Skor Percubaan Lepas: '}${history.score}%</span>
+            <p class="text-emerald-600 mt-0.5">${isEn ? 'You can retry at any time to reinforce your memory and improve mastery!' : 'Anda boleh cuba semula pada bila-bila masa untuk mengukuhkan memori!'}</p>
           </div>
         ` : ''}
 
@@ -941,7 +1088,7 @@ class EduPintarApp {
           onclick="window.app.openQuizModal('${chapter.id}')"
           class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-indigo-200 hover:shadow-2xl transition-all"
         >
-          Mula Kuiz Sekarang 🚀
+          ${isEn ? 'Start Quiz Now 🚀' : 'Mula Kuiz Sekarang 🚀'}
         </button>
       </div>
     `;

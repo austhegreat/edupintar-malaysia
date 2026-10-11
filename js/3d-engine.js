@@ -196,43 +196,67 @@ class Edu3DEngine {
   }
 
   // --- Interactive Subject 3D Lab Arena ---
-  initSubjectLabCanvas(containerId = "lab3dContainer") {
+  initSubjectLabCanvas(containerId = "lab3dContainer", modelType = null) {
+    if (modelType) this.currentModelType = modelType;
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Clean previous
-    container.innerHTML = "";
+    try {
+      // Clean previous canvas/fallback
+      container.innerHTML = "";
 
-    const width = container.clientWidth || 400;
-    const height = container.clientHeight || 260;
+      const width = container.clientWidth || 320;
+      const height = container.clientHeight || 224;
 
-    this.labScene = new THREE.Scene();
-    this.labCamera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
-    this.labCamera.position.set(0, 0, 16);
+      this.labScene = new THREE.Scene();
+      this.labCamera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+      this.labCamera.position.set(0, 0, 16);
 
-    this.labRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    this.labRenderer.setSize(width, height);
-    this.labRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    container.appendChild(this.labRenderer.domElement);
+      this.labRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "default" });
+      this.labRenderer.setSize(width, height);
+      this.labRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(this.labRenderer.domElement);
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-    this.labScene.add(ambientLight);
+      // Lights
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+      this.labScene.add(ambientLight);
 
-    const dirLight1 = new THREE.DirectionalLight(0x6366f1, 2.5);
-    dirLight1.position.set(10, 15, 10);
-    this.labScene.add(dirLight1);
+      const dirLight1 = new THREE.DirectionalLight(0x6366f1, 2.5);
+      dirLight1.position.set(10, 15, 10);
+      this.labScene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0xf59e0b, 1.8);
-    dirLight2.position.set(-10, -10, -10);
-    this.labScene.add(dirLight2);
+      const dirLight2 = new THREE.DirectionalLight(0xf59e0b, 1.8);
+      dirLight2.position.set(-10, -10, -10);
+      this.labScene.add(dirLight2);
 
-    this.buildLabModel(this.currentModelType);
-    this.attachLabInteractions(this.labRenderer.domElement);
+      this.buildLabModel(this.currentModelType);
+      this.attachLabInteractions(this.labRenderer.domElement);
+    } catch (e) {
+      console.warn("3D Lab WebGL fallback active:", e);
+      this.renderFallbackLab(container);
+    }
+  }
+
+  renderFallbackLab(container) {
+    if (!container) return;
+    const icon = this.currentModelType === "atom" ? "🔬" : (this.currentModelType === "geometry" ? "📐" : "🏆");
+    const title = this.currentModelType === "atom" ? "Model Atom 3D" : (this.currentModelType === "geometry" ? "Bentuk Geometri 3D" : "Trofi Kejayaan 3D");
+    container.innerHTML = `
+      <div class="flex flex-col items-center justify-center text-center p-4 h-full animate-float">
+        <span class="text-6xl mb-2 filter drop-shadow-lg">${icon}</span>
+        <h4 class="text-sm font-black text-amber-300">${title}</h4>
+        <p class="text-[10px] text-indigo-200 mt-1">Putaran Interaktif 360° EduPintar</p>
+      </div>
+    `;
   }
 
   buildLabModel(type = "atom") {
     this.currentModelType = type;
+    if (!this.labScene) {
+      this.initSubjectLabCanvas("lab3dContainer", type);
+      return;
+    }
+
     if (this.labModelGroup) {
       this.labScene.remove(this.labModelGroup);
     }

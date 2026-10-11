@@ -73,15 +73,20 @@ class QuizEngine {
 
     const isCurrentAnswered = this.userAnswers[this.currentQuestionIdx] !== null;
 
+    const isEn = window.app && window.app.currentLanguage === "en";
+    const qTitle = isEn && this.currentQuiz.titleEn ? this.currentQuiz.titleEn : this.currentQuiz.title;
+    const qQuestion = isEn && q.questionEn ? q.questionEn : q.question;
+    const qOptions = isEn && q.optionsEn ? q.optionsEn : q.options;
+
     container.innerHTML = `
       <div class="p-4 sm:p-6 flex flex-col h-full max-h-[85vh] overflow-y-auto">
         <!-- Top Quiz Header -->
         <div class="flex items-center justify-between pb-4 border-b border-slate-200">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-md">
-              Soalan ${this.currentQuestionIdx + 1} daripada ${totalQ}
+              ${isEn ? `Question ${this.currentQuestionIdx + 1} of ${totalQ}` : `Soalan ${this.currentQuestionIdx + 1} daripada ${totalQ}`}
             </span>
-            <h3 class="text-lg font-bold text-slate-800 mt-1">${this.currentQuiz.title}</h3>
+            <h3 class="text-lg font-bold text-slate-800 mt-1">${qTitle}</h3>
           </div>
           <div class="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
             <span class="text-base">⏳</span>
@@ -97,13 +102,13 @@ class QuizEngine {
         <!-- Question Body -->
         <div class="my-3">
           <div class="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed bg-slate-50 p-4 rounded-2xl border border-slate-200">
-            ${q.question}
+            ${qQuestion}
           </div>
         </div>
 
         <!-- Options List -->
         <div class="space-y-3 my-4">
-          ${q.options.map((opt, idx) => {
+          ${qOptions.map((opt, idx) => {
             const isSelected = this.userAnswers[this.currentQuestionIdx] === idx;
             const letter = String.fromCharCode(65 + idx); // A, B, C, D
             return `
@@ -131,7 +136,7 @@ class QuizEngine {
             ${this.currentQuestionIdx === 0 ? 'disabled' : ''}
             class="px-4 py-2.5 rounded-xl font-semibold text-sm border border-slate-300 text-slate-700 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            ← Sebelumnya
+            ${isEn ? '← Previous' : '← Sebelumnya'}
           </button>
 
           <div class="flex items-center gap-2">
@@ -140,14 +145,14 @@ class QuizEngine {
                 onclick="window.quizEngine.nextQuestion()" 
                 class="px-5 py-2.5 rounded-xl font-bold text-sm bg-indigo-600 text-white hover:bg-indigo-700 shadow-md shadow-indigo-200 transition-all"
               >
-                Seterusnya →
+                ${isEn ? 'Next →' : 'Seterusnya →'}
               </button>
             ` : `
               <button 
                 onclick="window.quizEngine.submitQuiz()" 
                 class="px-6 py-2.5 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:opacity-95 shadow-md shadow-emerald-200 transition-all"
               >
-                Hantar Jawapan ✅
+                ${isEn ? 'Submit Answers ✅' : 'Hantar Jawapan ✅'}
               </button>
             `}
           </div>
@@ -222,20 +227,23 @@ class QuizEngine {
     const container = document.getElementById("quizModalBody");
     if (!container) return;
 
-    let gradeTitle = "Lulus Cemerlang! 🌟";
-    let gradeDesc = "Tahniah! Anda menunjukkan kefahaman yang sangat tinggi dalam sukatan pelajaran ini.";
+    const isEn = window.app && window.app.currentLanguage === "en";
+    let gradeTitle = isEn ? "Passed with Flying Colours! 🌟" : "Lulus Cemerlang! 🌟";
+    let gradeDesc = isEn 
+      ? "Congratulations! You demonstrated strong mastery of this official syllabus." 
+      : "Tahniah! Anda menunjukkan kefahaman yang sangat tinggi dalam sukatan pelajaran ini.";
     let ringColor = "text-emerald-500 border-emerald-500";
 
     if (scorePercent >= 80) {
-      gradeTitle = "Pencapaian Cemerlang (Gred A)! 🏆";
+      gradeTitle = isEn ? "Outstanding Achievement (Grade A)! 🏆" : "Pencapaian Cemerlang (Gred A)! 🏆";
       ringColor = "text-emerald-600 border-emerald-500";
     } else if (scorePercent >= 60) {
-      gradeTitle = "Tahniah, Lulus Baik! 👍";
-      gradeDesc = "Usaha yang bagus! Ulang kaji sedikit lagi untuk mencapai gred cemerlang.";
+      gradeTitle = isEn ? "Congratulations, Good Pass! 👍" : "Tahniah, Lulus Baik! 👍";
+      gradeDesc = isEn ? "Great effort! Revise a bit more to achieve top grades." : "Usaha yang bagus! Ulang kaji sedikit lagi untuk mencapai gred cemerlang.";
       ringColor = "text-blue-600 border-blue-500";
     } else {
-      gradeTitle = "Perlu Tingkatkan Ulang Kaji 📚";
-      gradeDesc = "Jangan putus asa! Baca kembali Nota Padat dan cuba kuiz ini sekali lagi.";
+      gradeTitle = isEn ? "Further Revision Recommended 📚" : "Perlu Tingkatkan Ulang Kaji 📚";
+      gradeDesc = isEn ? "Never give up! Re-read the Compact Notes and attempt this quiz again." : "Jangan putus asa! Baca kembali Nota Padat dan cuba kuiz ini sekali lagi.";
       ringColor = "text-amber-500 border-amber-500";
     }
 
@@ -268,22 +276,22 @@ class QuizEngine {
                   <div class="flex items-start gap-2">
                     <span class="text-lg">${isCorrect ? '✅' : '❌'}</span>
                     <div class="flex-1">
-                      <p class="font-bold text-slate-800 text-sm">Soalan ${idx + 1}: ${q.question}</p>
+                      <p class="font-bold text-slate-800 text-sm">${isEn ? 'Question' : 'Soalan'} ${idx + 1}: ${isEn && q.questionEn ? q.questionEn : q.question}</p>
                       
                       <div class="mt-2 text-xs space-y-1">
                         <p class="${isCorrect ? 'text-emerald-700 font-semibold' : 'text-rose-700'}">
-                          Jawapan Anda: <strong>${userAns !== null ? q.options[userAns] : 'Tiada jawapan'}</strong>
+                          ${isEn ? 'Your Answer:' : 'Jawapan Anda:'} <strong>${userAns !== null ? ((isEn && q.optionsEn ? q.optionsEn[userAns] : q.options[userAns])) : (isEn ? 'No answer' : 'Tiada jawapan')}</strong>
                         </p>
                         ${!isCorrect ? `
                           <p class="text-emerald-700 font-semibold">
-                            Jawapan Tepat: <strong>${q.options[q.correctIndex]}</strong>
+                            ${isEn ? 'Correct Answer:' : 'Jawapan Tepat:'} <strong>${(isEn && q.optionsEn ? q.optionsEn[q.correctIndex] : q.options[q.correctIndex])}</strong>
                           </p>
                         ` : ''}
                       </div>
 
                       <!-- Explanation -->
                       <div class="mt-3 p-3 bg-white/80 rounded-xl border border-slate-200 text-xs text-slate-700 leading-relaxed">
-                        <strong class="text-indigo-600">💡 Penjelasan / Tip Peperiksaan:</strong> ${q.explanation}
+                        <strong class="text-indigo-600">💡 ${isEn ? 'Explanation / Exam Tip:' : 'Penjelasan / Tip Peperiksaan:'}</strong> ${isEn && q.explanationEn ? q.explanationEn : q.explanation}
                       </div>
                     </div>
                   </div>
@@ -299,13 +307,13 @@ class QuizEngine {
             onclick="window.quizEngine.startQuiz(window.quizEngine.currentQuiz, window.quizEngine.chapterContext)"
             class="flex-1 py-3 px-4 rounded-xl font-bold text-sm border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 transition-all text-center"
           >
-            🔄 Cuba Semula Kuiz
+            ${isEn ? '🔄 Retake Quiz' : '🔄 Cuba Semula Kuiz'}
           </button>
           <button 
             onclick="window.closeQuizModal()"
             class="flex-1 py-3 px-4 rounded-xl font-bold text-sm bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-200 transition-all text-center"
           >
-            Kembali ke Modul Bab 📚
+            ${isEn ? 'Back to Chapter Module 📚' : 'Kembali ke Modul Bab 📚'}
           </button>
         </div>
       </div>
