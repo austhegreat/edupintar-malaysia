@@ -537,6 +537,18 @@ class EduPintarApp {
           ` : ''}
 
           <button 
+            onclick="window.app.setContentTab('game')"
+            class="py-4 px-3 sm:px-5 font-bold text-xs sm:text-sm border-b-2 transition-all flex items-center gap-2 shrink-0 ${
+              this.activeContentTab === 'game' 
+                ? 'border-purple-600 text-purple-600' 
+                : 'border-transparent text-slate-600 hover:text-slate-900'
+            }"
+          >
+            <span>🎮</span> Zon Game / Duel
+            <span class="bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-bold">Interaktif</span>
+          </button>
+
+          <button 
             onclick="window.app.setContentTab('worksheet')"
             class="py-4 px-3 sm:px-5 font-bold text-xs sm:text-sm border-b-2 transition-all flex items-center gap-2 shrink-0 ${
               this.activeContentTab === 'worksheet' 
@@ -579,10 +591,69 @@ class EduPintarApp {
       return this.renderVideoTab(chapter);
     } else if (this.activeContentTab === "quiz") {
       return this.renderQuizTab(chapter);
+    } else if (this.activeContentTab === "game") {
+      return this.renderGameTab(chapter);
     } else if (this.activeContentTab === "worksheet") {
       return this.renderWorksheetTab(chapter);
     }
     return "";
+  }
+
+  renderGameTab(chapter) {
+    const subject = this.getCurrentSubject();
+    return `
+      <div class="space-y-6 animate-fade-in">
+        <!-- Interactive Game Stage Banner -->
+        <div class="bg-gradient-to-r from-purple-950 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white border-2 border-purple-500/40 shadow-2xl relative overflow-hidden">
+          <div class="max-w-2xl z-10 relative">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 text-xs font-black mb-3">
+              <span>🎮</span> Zon Permainan Silibus: ${subject?.name || 'Mata Pelajaran'}
+            </span>
+            <h3 class="text-xl sm:text-2xl font-black text-white">
+              Cabar Diri Anda: Belajar Sambil Bermain!
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+              Mainkan permainan interaktif yang berorientasikan tajuk <strong>${chapter.title}</strong>. Jawab soalan secara pantas untuk menewaskan Bot Pintar AI atau uji kepantasan memori konsep anda.
+            </p>
+
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <button 
+                onclick="window.eduGame.selectGameMode('duel'); window.eduGame.openGameModal(window.app.getCurrentSubject());" 
+                class="px-6 py-3 bg-gradient-to-r from-purple-600 via-indigo-600 to-indigo-700 hover:from-purple-500 hover:to-indigo-600 text-white font-black text-xs sm:text-sm rounded-2xl shadow-lg shadow-purple-500/30 transition-all flex items-center gap-2 transform hover:scale-105"
+              >
+                <span>⚔️</span> Mula EduDuel 1-Lawan-1 Topik Ini
+              </button>
+
+              <button 
+                onclick="window.eduGame.selectGameMode('memory'); window.eduGame.openGameModal(window.app.getCurrentSubject());" 
+                class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 font-bold text-xs sm:text-sm rounded-2xl transition-all flex items-center gap-2"
+              >
+                <span>🧠</span> Padanan Memori 3D
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Feature Highlight Badges -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="p-5 rounded-3xl bg-slate-900/80 border border-slate-800 text-center">
+            <span class="text-3xl mb-2 block">⚡</span>
+            <h5 class="font-black text-sm text-white">Masa Pantas, Skor Tinggi</h5>
+            <p class="text-xs text-slate-400 mt-1">15 saat setiap soalan. Jawab berturut-turut untuk cetus Kombo Berapi x3.0!</p>
+          </div>
+          <div class="p-5 rounded-3xl bg-slate-900/80 border border-slate-800 text-center">
+            <span class="text-3xl mb-2 block">🏆</span>
+            <h5 class="font-black text-sm text-amber-400">+150 XP & Lencana Duel</h5>
+            <p class="text-xs text-slate-400 mt-1">Mata ganjaran kemenangan dimasukkan terus ke Papan Pendahulu Kebangsaan.</p>
+          </div>
+          <div class="p-5 rounded-3xl bg-slate-900/80 border border-slate-800 text-center">
+            <span class="text-3xl mb-2 block">🤖</span>
+            <h5 class="font-black text-sm text-purple-300">3 Tahap Lawan Bot AI</h5>
+            <p class="text-xs text-slate-400 mt-1">Pilih lawan Santai, Pintar, atau tahap Jaguh Peperiksaan SPM.</p>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   renderNotesTab(chapter) {

@@ -68,6 +68,20 @@ const ALL_BADGES = [
     desc: "Kuasai modul Bahasa Melayu SPM Sistem Bahasa",
     icon: "📖",
     color: "bg-rose-100 text-rose-700 border-rose-300"
+  },
+  {
+    id: "duel_victor",
+    title: "Juara Arena Duel",
+    desc: "Kalahkan Lawan Maya / Rakan dalam Pertarungan EduDuel 1-Lawan-1",
+    icon: "⚔️",
+    color: "bg-red-100 text-red-700 border-red-300"
+  },
+  {
+    id: "memory_master",
+    title: "Raja Memori 3D",
+    desc: "Selesaikan Padanan Memori Konsep Silibus dengan cemerlang",
+    icon: "🧠",
+    color: "bg-purple-100 text-purple-700 border-purple-300"
   }
 ];
 
