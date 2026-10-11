@@ -14264,46 +14264,95 @@ const SYLLABUS_DATA = {
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "1. Analogi Dunia Sebenar: Lontaran Bola & Bentuk Parabola",
-                    "headingEn": "1. Real-Life Analogy: Basketball Shot & The Parabola Curve",
-                    "content": "Bayangkan anda berdiri di gelanggang bola keranjang dan melontar bola ke jaring, atau melihat pancutan air di taman tasik. Bola itu akan naik ke atas, mencapai satu puncak tertinggi (titik maksimum), dan kemudian turun melengkung ke dalam jaring. Laluan melengkung yang simetri ini dinamakan PARABOLA! Dalam matematik, bentuk semula jadi ini diterangkan oleh Fungsi Kuadratik: f(x) = ax² + bx + c.",
-                    "contentEn": "Imagine standing on a basketball court shooting a ball towards the hoop, or watching a water fountain in a park. The ball rises up, reaches a highest peak (maximum point), and curves smoothly downwards into the basket. This symmetrical curved path is called a PARABOLA! In mathematics, this natural phenomenon is modeled by a Quadratic Function: f(x) = ax² + bx + c.",
+                    "heading": "1. Pengenalan Asas: Apakah Itu Fungsi & Ungkapan Kuadratik?",
+                    "headingEn": "1. Foundational Concept: What are Quadratic Expressions & Functions?",
+                    "content": "Mari kita mulakan dari sifar seperti anda tidak pernah belajar algebra sebelum ini. Dalam matematik, 'Kuadratik' merujuk kepada sebarang ungkapan yang mempunyai satu pemboleh ubah (contohnya x) di mana KUASA TERTINGGI pemboleh ubah itu ialah DUA (x²). Jika kuasa tertingginya ialah 1 (contohnya 3x + 5), itu ialah persamaan Linear (garis lurus). Tetapi apabila terdapat x², garisan itu tidak lagi lurus—ia akan melengkung secara licin membentuk lengkungan parabola yang simetri!",
+                    "contentEn": "Let's start from zero. 'Quadratic' refers to any expression containing a single variable (e.g. x) where the HIGHEST POWER is strictly TWO (x²). If the highest power is 1 (e.g. 3x + 5), it is Linear (straight line). But once x² is present, the line bends into a smooth, symmetrical curve called a parabola!",
                     "bulletPoints": [
-                      "Bentuk Am: f(x) = ax² + bx + c, di mana kuasa tertinggi pemboleh ubah x ialah 2.",
-                      "Bila 'a' POSITIF (a > 0): Graf berbentuk U 'SENYUM' 😊 → mempunyai Titik MINIMUM di bahagian paling bawah.",
-                      "Bila 'a' NEGATIF (a < 0): Graf berbentuk Bukit 'SEDIH' ☹️ → mempunyai Titik MAKSIMUM di bahagian paling atas (seperti lontaran bola).",
-                      "Paksi Simetri: Garisan menegak x = -b / (2a) yang membahagikan lengkungan parabola kepada dua bahagian cermin yang sama tepat."
+                      "Bentuk Am: f(x) = ax² + bx + c atau ax² + bx + c = 0.",
+                      "Syarat Mutlak: Nilai 'a' TIDAK BOLEH sama dengan sifar (a ≠ 0). Jika a = 0, sebutan x² hilang dan ia menjadi linear biasa!",
+                      "Pemboleh Ubah: Hanya satu pemboleh ubah sahaja yang terlibat (biasanya x, t, atau y).",
+                      "Pekali (Coefficients): 'a' ialah nombor di hadapan x², 'b' ialah nombor di hadapan x, dan 'c' ialah pemalar (nombor tunggal tanpa x)."
                     ],
                     "bulletPointsEn": [
-                      "General Form: f(x) = ax² + bx + c, where the highest power of x is 2.",
-                      "When 'a' is POSITIVE (a > 0): Graph is a 'SMILE' U-shape 😊 → possesses a MINIMUM Point at the bottom.",
-                      "When 'a' is NEGATIVE (a < 0): Graph is a 'FROWN' hill shape ☹️ → possesses a MAXIMUM Point at the top (like a ball trajectory).",
-                      "Axis of Symmetry: Vertical line x = -b / (2a) dividing the parabola into two exact mirror images."
-                    ],
-                    "mnemonic": "💡 Formula Ingat: 'a POSITIF = Senyum U (Minima duit dalam poket)', 'a NEGATIF = Sedih Bukit (Maksima tinggi lontaran)'.",
-                    "mnemonicEn": "💡 Memory Hack: 'Positive a = Smiling U (Minimum valley)', 'Negative a = Frowning hill (Maximum peak)'.",
-                    "examTip": "Kerap keluar dalam Kertas 2 Bahagian A: Soalan meminta koordinat titik maksimum/minimum dan paksi simetri berdasarkan fungsi ketinggian h(t) = -5t² + 20t + 2."
+                      "General Form: f(x) = ax² + bx + c or ax² + bx + c = 0.",
+                      "Absolute Rule: 'a' CANNOT be zero (a ≠ 0). If a = 0, the x² term vanishes and it becomes a linear equation!",
+                      "Single Variable: Only one variable is involved (typically x, t, or y).",
+                      "Coefficients: 'a' precedes x², 'b' precedes x, and 'c' is the constant."
+                    ]
                   },
                   {
-                    "heading": "2. Contoh Praktikal Langkah Demi Langkah: Mencari Punca Persamaan",
-                    "headingEn": "2. Step-by-Step Practical Example: Finding the Roots of an Equation",
-                    "content": "Apakah itu 'Punca'? Bayangkan anda mahu tahu pada saat ke berapakah bola keranjang itu mencecah lantai semula (tinggi = 0). Nilai-nilai x apabila f(x) = 0 dipanggil PUNCA (titik di mana graf memotong paksi-x).",
-                    "contentEn": "What are 'Roots'? Imagine wanting to know at which exact second the basketball hits the ground again (height = 0). The values of x where f(x) = 0 are called the ROOTS (points where the curve intersects the x-axis).",
+                    "heading": "2. Analogi Dunia Sebenar: Lontaran Bola Keranjang, Pancutan Air & Jambatan Gantung",
+                    "headingEn": "2. Real-Life Analogy: Basketball Trajectory, Water Fountains & Suspension Bridges",
+                    "content": "Di manakah kita melihat kuadratik dalam kehidupan sebenar setiap hari? Bayangkan anda berdiri di gelanggang bola keranjang dan melontar bola ke jaring. Bola itu tidak bergerak dalam garis lurus tajam. Graviti bumi menarik bola ke bawah semasa ia bergerak ke hadapan, menghasilkan lengkungan parabola yang sempurna! Air pancutan di taman tasik KLCC, lampu depan kereta yang memantulkan cahaya, dan kabel gantung Jambatan Pulau Pinang semuanya dibina menggunakan formula kuadratik.",
+                    "contentEn": "Where do quadratics exist in everyday life? When you shoot a basketball, gravity pulls it downward while forward momentum carries it, tracing an exact mathematical parabola! Water jets at KLCC fountains, car headlight reflectors, and suspension cables on the Penang Bridge are all engineered using quadratic equations.",
                     "bulletPoints": [
-                      "Langkah 1: Susun ke bentuk am ax² + bx + c = 0 terlebih dahulu.",
-                      "Langkah 2: Kaedah Pemfaktoran: Cari dua kurungan (x - p)(x - q) = 0.",
-                      "Contoh Realiti: Luas sebuah padang futsal segi empat tepat ialah 60 m². Panjangnya ialah (x + 7) meter dan lebarnya x meter. Cari nilai x.",
-                      "Persamaan: x(x + 7) = 60 → x² + 7x - 60 = 0 → (x + 12)(x - 5) = 0.",
-                      "Punca: x = -12 (abaikan kerana ukuran panjang tidak boleh negatif!) atau x = 5 meter (jawapan tepat!)."
+                      "Kesan Nilai 'a' (Bentuk Graf): Jika a > 0 (Positif), graf berbentuk U 'SENYUM' 😊 dengan Titik MINIMUM di bahagian paling bawah.",
+                      "Jika a < 0 (Negatif): Graf berbentuk Bukit 'SEDIH' ☹️ dengan Titik MAKSIMUM di bahagian paling atas (seperti lontaran bola).",
+                      "Kesan Nilai 'b' (Kedudukan Paksi Simetri): Paksi simetri ditentukan oleh rumus x = -b / (2a).",
+                      "Kesan Nilai 'c' (Pintasan-y): Nilai 'c' ialah titik di mana graf memotong paksi menegak (ketinggian awal bola semasa dilontar)."
                     ],
                     "bulletPointsEn": [
-                      "Step 1: Always arrange equation into general form ax² + bx + c = 0 first.",
-                      "Step 2: Factorisation Method: Find two factors (x - p)(x - q) = 0.",
-                      "Real-World Scenario: A futsal court has an area of 60 m². Its length is (x + 7) m and width is x m. Find x.",
-                      "Equation: x(x + 7) = 60 → x² + 7x - 60 = 0 → (x + 12)(x - 5) = 0.",
-                      "Roots: x = -12 (reject as length cannot be negative!) or x = 5 meters (valid answer!)."
+                      "Effect of 'a': When a > 0 (Positive), graph is a smiling U-shape 😊 with a MINIMUM point at the bottom.",
+                      "When a < 0 (Negative): Graph is a frowning hill shape ☹️ with a MAXIMUM peak point (like a ball shot).",
+                      "Effect of 'b': Determines axis of symmetry line: x = -b / (2a).",
+                      "Effect of 'c': The y-intercept where the curve crosses the vertical axis (initial release height)."
                     ],
-                    "examTip": "⚠️ Kesilapan Lazim Murid: Lupa menukar tanda apabila memindahkan nombor ke sebelah kiri persamaan sebelum memfaktorkan!"
+                    "mnemonic": "💡 Mnemonic Mudah: 'a Positif = Poket Penuh Senyum 😊 (Titik Minima)', 'a Negatif = Muram Sedih Bukit ☹️ (Titik Maksima)'.",
+                    "mnemonicEn": "💡 Visual Mnemonic: 'Positive a = Smiling U (Minimum valley)', 'Negative a = Frowning hill (Maximum peak)'."
+                  },
+                  {
+                    "heading": "3. Pembedahan Langkah Demi Langkah: Kaedah Mencari Punca Persamaan",
+                    "headingEn": "3. Step-by-Step Breakdown: Solving Roots of Quadratic Equations",
+                    "content": "Apakah maksud 'Punca' (Roots)? Punca ialah nilai-nilai x yang menyebabkan f(x) = 0 (iaitu titik di mana graf memotong paksi-x). Bayangkan anda ingin tahu saat ke berapakah bola keranjang itu mencecah lantai semula.",
+                    "contentEn": "What are 'Roots'? Roots are values of x satisfying f(x) = 0 (where the parabola crosses the horizontal x-axis).",
+                    "bulletPoints": [
+                      "Kaedah 1 (Pemfaktoran / Darab Silang): Susun dalam bentuk am ax² + bx + c = 0. Faktorkan kepada dua kurungan: (x - p)(x - q) = 0. Maka x = p atau x = q.",
+                      "Kaedah 2 (Rumus Kuadratik Universal): x = [-b ± √(b² - 4ac)] / (2a). Rumus ini berfungsi untuk SEMUA persamaan, termasuk punca bernombor perpuluhan!",
+                      "Penyempurnaan Kuasa Dua (Completing the Square): Mengubah bentuk am kepada f(x) = a(x - h)² + k, di mana koordinat titik pusingan ialah (h, k)."
+                    ],
+                    "bulletPointsEn": [
+                      "Method 1 (Factorisation): Arrange into ax² + bx + c = 0. Factor into (x - p)(x - q) = 0. Roots: x = p, x = q.",
+                      "Method 2 (Quadratic Formula): x = [-b ± √(b² - 4ac)] / (2a). Solves any quadratic equation.",
+                      "Method 3 (Completing the Square): Express as f(x) = a(x - h)² + k, yielding vertex coordinates (h, k)."
+                    ]
+                  },
+                  {
+                    "heading": "4. Contoh Masalah Kehidupan Sebenar Diselesaikan A-Z",
+                    "headingEn": "4. Real-World Practical Worked Example A-Z",
+                    "content": "Sebuah taman permainan berbentuk segi empat tepat mempunyai panjang (2x + 3) meter dan lebar x meter. Diberi luas keseluruhan taman tersebut ialah 35 m². Cari nilai x dan tentukan perimeter taman itu.",
+                    "contentEn": "A rectangular park has a length of (2x + 3) meters and width of x meters. Given the total area is 35 m², find x and calculate the perimeter.",
+                    "bulletPoints": [
+                      "Langkah 1 (Bina Persamaan): Luas = Panjang × Lebar → x(2x + 3) = 35.",
+                      "Langkah 2 (Kembangkan & Bentuk Am): 2x² + 3x - 35 = 0.",
+                      "Langkah 3 (Pemfaktoran): Cari faktor bagi 2 × (-35) = -70 yang menghasilkan hasil tambah +3. Nombornya ialah +10 dan -7. Faktorkan: (2x - 7)(x + 5) = 0.",
+                      "Langkah 4 (Selesaikan Nilai x): 2x - 7 = 0 → x = 3.5 meter, ATAU x + 5 = 0 → x = -5 (Abaikan kerana panjang tidak boleh negatif!).",
+                      "Langkah 5 (Jawapan Akhir): Lebar = 3.5 m, Panjang = 2(3.5) + 3 = 10 m. Perimeter = 2(10 + 3.5) = 27 meter!"
+                    ],
+                    "bulletPointsEn": [
+                      "Step 1 (Formulate Equation): Area = Length × Width → x(2x + 3) = 35.",
+                      "Step 2 (Expand to General Form): 2x² + 3x - 35 = 0.",
+                      "Step 3 (Factorisation): (2x - 7)(x + 5) = 0.",
+                      "Step 4 (Extract Roots): x = 3.5 m, or x = -5 (Reject negative length!).",
+                      "Step 5 (Final Solution): Width = 3.5 m, Length = 10 m. Perimeter = 27 m!"
+                    ],
+                    "examTip": "⚠️ Kesilapan Lazim Murid SPM: Murid kerap terlupa menolak punca negatif apabila soalan melibatkan dimensi fizikal (panjang, luas, masa, usia). Jangan lupa tulis 'abaikan nilai negatif' untuk markah penuh!"
+                  },
+                  {
+                    "heading": "5. Ringkasan Pantas Peperiksaan & Kata Kunci",
+                    "headingEn": "5. Exam Masterclass Summary & Core Keywords",
+                    "content": "Perkara wajib diingat sebelum melangkah ke dewan peperiksaan SPM / UASA:",
+                    "contentEn": "Essential checklist before entering your examination hall:",
+                    "bulletPoints": [
+                      "Paksi Simetri sentiasa melalui titik puncak: x = -b / (2a).",
+                      "Pintasan-y sentiasa sama dengan nilai pemalar c (iaitu f(0) = c).",
+                      "Pemfaktoran kalkulator fx-570: Gunakan [MODE] → [EQN] → [Degree 2] untuk menyemak punca, tetapi pastikan anda menulis kurungan pemfaktoran di atas kertas jawapan!"
+                    ],
+                    "bulletPointsEn": [
+                      "Axis of symmetry always passes through vertex: x = -b / (2a).",
+                      "y-intercept is always equal to constant c (f(0) = c).",
+                      "Scientific calculator check: Use MODE → EQN → Degree 2 to verify roots, but always show factorisation brackets on your exam paper!"
+                    ]
                   }
                 ]
               },
@@ -14382,39 +14431,71 @@ const SYLLABUS_DATA = {
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "1. Analogi Dunia Sebenar: Mengapa Ada Nombor Selain Asas 10?",
-                    "headingEn": "1. Real-Life Analogy: Why Do We Have Numbers Other Than Base 10?",
-                    "content": "Kita manusia mengira menggunakan Asas 10 kerana kita dilahirkan dengan 10 jari tangan (digit 0, 1, 2, 3, 4, 5, 6, 7, 8, 9). Tetapi cip mikroprosesor dalam telefon pintar anda tidak mempunyai 10 jari! Ia hanya mempunyai suis elektrik kecil yang sama ada 'MATI' (0) atau 'HIDUP' (1). Oleh itu, semua komputer bercakap dalam ASAS 2 (Sistem Binari). Bila anda menghantar mesej WhatsApp atau bermain game, cip telefon sebenarnya sedang memproses berjuta-juta nombor Asas 2 setiap saat!",
-                    "contentEn": "Humans count in Base 10 because we are born with 10 fingers (digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9). But computer chips inside your smartphone don't have 10 fingers! They only have microscopic electric switches that are either 'OFF' (0) or 'ON' (1). Hence, all digital machines speak in BASE 2 (Binary System). When you chat on WhatsApp or stream videos, your phone processor is crunching millions of Base 2 numbers every second!",
+                    "heading": "1. Pengenalan Asas: Mengapa Wujud Asas Nombor Selain Asas 10?",
+                    "headingEn": "1. Fundamental Concept: Why Do Bases Other Than Base 10 Exist?",
+                    "content": "Kita manusia mengira menggunakan Asas 10 (Sistem Perpuluhan) kerana kita mempunyai 10 jari tangan (digit 0, 1, 2, 3, 4, 5, 6, 7, 8, 9). Tetapi di dalam telefon pintar, cip komputer dan kad SIM, tiada jari manusia! Di dalamnya hanya ada berbilion-bilion suis elektrik mikroskopik (transistor) yang hanya ada dua keadaan: MATI (0) atau HIDUP (1). Itulah ASAS 2 (Sistem Binari). Asas nombor ialah cara sistem berbeza menulis kuantiti yang sama menggunakan set simbol digit yang berlainan.",
+                    "contentEn": "Humans count in Base 10 because we have 10 fingers (digits 0 to 9). But microprocessors only understand two electrical states: OFF (0) or ON (1). That is BASE 2 (Binary). Number bases represent the same physical quantities using different sets of digit symbols.",
                     "bulletPoints": [
-                      "Peraturan Emas Digit: Digit dalam sebarang Asas n mesti sentiasa KECIL daripada n. (Contoh: Asas 2 hanya ada digit 0 dan 1; Asas 5 hanya ada digit 0, 1, 2, 3, 4; Asas 8 hanya ada digit 0 hingga 7).",
-                      "Nilai Tempat: Ditentukan oleh kuasa asas tersebut dari kanan ke kiri: n⁰, n¹, n², n³, ...",
-                      "Contoh Nilai Digit: Dalam nombor 1011₂, digit 1 di tempat paling kiri bernilai 1 × 2³ = 8₁₀."
+                      "Asas 2 (Binari): Hanya digit 0 dan 1 (Bahasa komputer & cip digital).",
+                      "Asas 5 (Kuinari): Hanya digit 0, 1, 2, 3, 4.",
+                      "Asas 8 (Oktal): Hanya digit 0, 1, 2, 3, 4, 5, 6, 7 (Digunakan dalam alamat storan memori).",
+                      "Asas 10 (Perpuluhan): Digit 0 hingga 9 (Sistem mata wang dan timbangan manusia).",
+                      "Hukum Asas Emas: Digit dalam sebarang Asas n TIDAK BOLEH sama atau melebihi n!"
                     ],
                     "bulletPointsEn": [
-                      "The Golden Digit Rule: Digits in any Base n must always be LESS than n. (e.g. Base 2 only has 0 and 1; Base 5 only has 0, 1, 2, 3, 4; Base 8 only has 0 to 7).",
-                      "Place Value: Defined by powers of the base moving right to left: n⁰, n¹, n², n³, ...",
-                      "Digit Value Example: In 1011₂, the leftmost digit 1 has a value of 1 × 2³ = 8₁₀."
-                    ],
-                    "mnemonic": "💡 Formula Ingat: 'Digit tak boleh sama atau lebih besar dari Asas!' Nombor 345₂ adalah MUSTAHIL kerana ada digit 3, 4, 5 dalam Asas 2.",
-                    "mnemonicEn": "💡 Memory Hack: 'Digits must always be strictly less than the Base!' 345₂ is IMPOSSIBLE because digits 3, 4, 5 cannot exist in Base 2."
+                      "Base 2 (Binary): Only digits 0 and 1 (Computer architecture & bit storage).",
+                      "Base 5: Only digits 0, 1, 2, 3, 4.",
+                      "Base 8 (Octal): Only digits 0 to 7.",
+                      "Base 10 (Decimal): Digits 0 to 9 (Everyday human counting).",
+                      "Golden Base Law: Digits in any Base n can NEVER equal or exceed n!"
+                    ]
                   },
                   {
-                    "heading": "2. Langkah Demi Langkah: Tukar Antara Asas Nombor",
-                    "headingEn": "2. Step-by-Step: Converting Between Number Bases",
-                    "content": "Bagaimana menukar sebarang asas ke Asas 10, dan bagaimana menukar Asas 10 ke asas lain?",
-                    "contentEn": "How do you convert any base into Base 10, and Base 10 back into other bases?",
+                    "heading": "2. Nilai Tempat & Nilai Digit Langkah Demi Langkah",
+                    "headingEn": "2. Place Values & Digit Values Step-by-Step",
+                    "content": "Bagaimanakah kita membaca nilai sesuatu digit dalam asas yang berbeza? Sama seperti Asas 10 mempunyai tempat Sa (10⁰), Puluh (10¹), Ratus (10²), Ribu (10³)—semua asas lain menggunakan KUASA ASAS tersebut dari kanan ke kiri!",
+                    "contentEn": "How do we evaluate digits in different bases? Just as Base 10 uses units (10⁰), tens (10¹), hundreds (10²)—all bases use POWERS OF THE BASE moving right to left!",
                     "bulletPoints": [
-                      "Langkah A (Asas Lain → Asas 10): Cerakinkan mengikut nilai tempat darab kuasa asas. Contoh: 1101₂ = (1×2³) + (1×2²) + (0×2¹) + (1×2⁰) = 8 + 4 + 0 + 1 = 13₁₀.",
-                      "Langkah B (Asas 10 → Asas Lain): Gunakan Pembahagian Berulang dan baca baki dari BAWAH ke ATAS.",
-                      "Contoh Pembahagian Berulang: Tukar 25₁₀ ke Asas 8: 25 ÷ 8 = 3 baki 1, kemudian 3 ÷ 8 = 0 baki 3. Baca dari bawah ke atas = 31₈!"
+                      "Nilai Tempat: Ditulis sebagai n⁰, n¹, n², n³, n⁴ dari kanan ke kiri.",
+                      "Contoh dalam Asas 2: Nilai tempat dari kanan ialah 2⁰=1, 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128.",
+                      "Nilai Digit: Nilai digit = Digit tersebut didarabkan dengan nilai tempatnya. Contoh: Dalam nombor 10110₂, digit 1 paling kiri bernilai 1 × 2⁴ = 16₁₀."
                     ],
                     "bulletPointsEn": [
-                      "Step A (Other Base → Base 10): Expand using place value multiplied by base powers. Example: 1101₂ = (1×2³) + (1×2²) + (0×2¹) + (1×2⁰) = 8 + 4 + 0 + 1 = 13₁₀.",
-                      "Step B (Base 10 → Other Base): Use Repeated Division and read remainder from BOTTOM to TOP.",
-                      "Repeated Division Example: Convert 25₁₀ to Base 8: 25 ÷ 8 = 3 remainder 1, then 3 ÷ 8 = 0 remainder 3. Reading bottom to top gives 31₈!"
+                      "Place Value: Written as n⁰, n¹, n², n³, n⁴ from right to left.",
+                      "Powers of 2: 2⁰=1, 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32, 2⁶=64, 2⁷=128.",
+                      "Digit Value: Multiply digit by its place value. Example: In 10110₂, the leftmost 1 represents 1 × 2⁴ = 16₁₀."
+                    ]
+                  },
+                  {
+                    "heading": "3. Kaedah Penukaran Asas A-Z: Pembahagian Berulang & Pencerakinan",
+                    "headingEn": "3. Conversion Protocols A-Z: Repeated Division & Expansion",
+                    "content": "Terdapat dua arah penukaran utama:",
+                    "contentEn": "Two primary conversion directions exist:",
+                    "bulletPoints": [
+                      "Arah 1 (Asas Lain → Asas 10): Cerakinkan mengikut hasil tambah pendaraban digit dengan nilai tempatnya. Contoh: 342₅ = (3×5²) + (4×5¹) + (2×5⁰) = 75 + 20 + 2 = 97₁₀.",
+                      "Arah 2 (Asas 10 → Asas Lain): Gunakan Kaedah Pembahagian Berulang dengan asas sasaran. Bahagikan berulang kali dan BACA BAKI DARI BAWAH KE ATAS!",
+                      "Arah 3 (Asas p → Asas q): Tukarkan Asas p kepada Asas 10 terlebih dahulu (jambatan perantaraan), kemudian tukarkan Asas 10 tersebut kepada Asas q."
                     ],
-                    "examTip": "Kalkulator saintifik model fx-570EX boleh menyemak jawapan asas 2, 8 dan 10 menggunakan mod BASE-N!"
+                    "bulletPointsEn": [
+                      "Direction 1 (Other Base → Base 10): Expand as sum of digit multiplied by place value.",
+                      "Direction 2 (Base 10 → Other Base): Repeated division by target base, reading remainders from BOTTOM TO TOP!",
+                      "Direction 3 (Base p → Base q): Convert Base p to Base 10 first (the bridge), then convert to Base q."
+                    ],
+                    "examTip": "⚠️ Kesilapan Lazim: Murid kerap membaca baki pembahagian dari ATAS ke BAWAH. Sentiasa baca dari BAWAH ke ATAS untuk mendapatkan susunan digit yang betul!"
+                  },
+                  {
+                    "heading": "4. Operasi Tambah dan Tolak Nombor Pelbagai Asas",
+                    "headingEn": "4. Addition & Subtraction in Various Bases",
+                    "content": "Menambah nombor dalam asas n sama seperti dalam Asas 10, cuma bila jumlah melebihi atau sama dengan n, kita 'kumpul semula' (bawa 1 ke depan bernilai n):",
+                    "contentEn": "Adding numbers in Base n follows standard column arithmetic, but regrouping occurs at value n:",
+                    "bulletPoints": [
+                      "Operasi Tambah: Dalam Asas 2, 1 + 1 = 10₂ (tulis 0 di bawah, bawa 1 ke depan). 1 + 1 + 1 = 11₂ (tulis 1 di bawah, bawa 1 ke depan).",
+                      "Operasi Tolak: Bila meminjam dari lajur sebelah dalam Asas n, nilai yang dipinjam ialah n (bukan 10!). Contoh: Dalam Asas 5, pinjam 1 memberi nilai 5."
+                    ],
+                    "bulletPointsEn": [
+                      "Addition: In Base 2, 1 + 1 = 10₂ (write 0, carry 1). 1 + 1 + 1 = 11₂ (write 1, carry 1).",
+                      "Subtraction: Borrowing from the next column brings value n (not 10!). In Base 5, borrowing brings 5."
+                    ]
                   }
                 ]
               },
