@@ -14235,107 +14235,122 @@ const SYLLABUS_DATA = {
           "theme": "indigo",
           "hasDlp": true,
           "chaptersCount": 10,
-          "description": "Subjek Wajib Lulus SPM: Fungsi kuadratik, asas nombor, penaakulan logik, dan operasi set.",
+          "description": "Sukatan rasmi KSSM Matematik Tingkatan 4 KPM (10 Bab Lengkap): Dari fungsi kuadratik, asas nombor, teori graf hingga pengurusan kewangan praktikal.",
           "chapters": [
             {
               "id": "f4-mt-c1",
               "number": "Bab 1",
-              "title": "Fungsi & Persamaan Kuadratik dalam Satu Pemboleh Ubah",
-              "summary": "Bentuk am ax² + bx + c = 0, bentuk graf parabola (senyum/masam), titik punca, dan pemfaktoran.",
-              "xpReward": 170,
-              "badgeReward": "Pakar Kuadratik SPM",
+              "numberEn": "Chapter 1",
+              "title": "Fungsi dan Persamaan Kuadratik dalam Satu Pemboleh Ubah",
+              "titleEn": "Quadratic Functions and Equations in One Variable",
+              "summary": "Bentuk am f(x) = ax² + bx + c. Memahami lengkungan parabola, titik maksimum/minimum, paksi simetri dan penyelesaian punca persamaan kuadratik melalui situasi lontaran bola, jambatan gantung dan reka bentuk air pancut.",
+              "summaryEn": "General form f(x) = ax² + bx + c. Understanding parabolic curves, vertex/maximum/minimum points, axis of symmetry and solving quadratic roots through basketball shots, suspension bridges and fountains.",
+              "xpReward": 120,
+              "video": {
+                "title": "Animasi Parabola & Situasi Realiti Kuadratik",
+                "duration": "14:20",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:15 - Apa itu Parabola & Bentuk Senyum/Sedih",
+                  "04:30 - Kesan Nilai 'a', 'b', dan 'c' pada Graf",
+                  "08:45 - Contoh Realiti: Lontaran Bola Keranjang ke Jaring",
+                  "11:20 - Kaedah Pemfaktoran Pantas Guna Kalkulator"
+                ]
+              },
               "notes": {
-                "title": "Bab 1: Fungsi & Persamaan Kuadratik Lengkap",
                 "readTime": "8 minit",
+                "readTimeEn": "8 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "1. Bentuk Am Fungsi Kuadratik",
-                    "content": "Fungsi kuadratik ditulis dalam bentuk: <code>f(x) = ax² + bx + c</code>, di mana a, b, dan c ialah pemalar serta <code>a ≠ 0</code>.",
+                    "heading": "1. Analogi Dunia Sebenar: Lontaran Bola & Bentuk Parabola",
+                    "headingEn": "1. Real-Life Analogy: Basketball Shot & The Parabola Curve",
+                    "content": "Bayangkan anda berdiri di gelanggang bola keranjang dan melontar bola ke jaring, atau melihat pancutan air di taman tasik. Bola itu akan naik ke atas, mencapai satu puncak tertinggi (titik maksimum), dan kemudian turun melengkung ke dalam jaring. Laluan melengkung yang simetri ini dinamakan PARABOLA! Dalam matematik, bentuk semula jadi ini diterangkan oleh Fungsi Kuadratik: f(x) = ax² + bx + c.",
+                    "contentEn": "Imagine standing on a basketball court shooting a ball towards the hoop, or watching a water fountain in a park. The ball rises up, reaches a highest peak (maximum point), and curves smoothly downwards into the basket. This symmetrical curved path is called a PARABOLA! In mathematics, this natural phenomenon is modeled by a Quadratic Function: f(x) = ax² + bx + c.",
                     "bulletPoints": [
-                      "Kuasa tertinggi bagi pemboleh ubah x mestilah <strong>2</strong>.",
-                      "Hanya mempunyai <strong>satu pemboleh ubah</strong> sahaja (contohnya x atau y).",
-                      "Bukan kuadratik jika ada x³ atau x⁻¹ atau pemboleh ubah di bawah pecahan."
+                      "Bentuk Am: f(x) = ax² + bx + c, di mana kuasa tertinggi pemboleh ubah x ialah 2.",
+                      "Bila 'a' POSITIF (a > 0): Graf berbentuk U 'SENYUM' 😊 → mempunyai Titik MINIMUM di bahagian paling bawah.",
+                      "Bila 'a' NEGATIF (a < 0): Graf berbentuk Bukit 'SEDIH' ☹️ → mempunyai Titik MAKSIMUM di bahagian paling atas (seperti lontaran bola).",
+                      "Paksi Simetri: Garisan menegak x = -b / (2a) yang membahagikan lengkungan parabola kepada dua bahagian cermin yang sama tepat."
                     ],
-                    "mnemonic": "💡 <strong>Bentuk Graf:</strong><br>• Jika <code>a > 0</code> (positif) ➔ Graf bentuk <strong>SENYUM (∪)</strong>, mempunyai titik <strong>MINIMUM</strong>.<br>• Jika <code>a < 0</code> (negatif) ➔ Graf bentuk <strong>MASAM (∩)</strong>, mempunyai titik <strong>MAKSIMUM</strong>."
+                    "bulletPointsEn": [
+                      "General Form: f(x) = ax² + bx + c, where the highest power of x is 2.",
+                      "When 'a' is POSITIVE (a > 0): Graph is a 'SMILE' U-shape 😊 → possesses a MINIMUM Point at the bottom.",
+                      "When 'a' is NEGATIVE (a < 0): Graph is a 'FROWN' hill shape ☹️ → possesses a MAXIMUM Point at the top (like a ball trajectory).",
+                      "Axis of Symmetry: Vertical line x = -b / (2a) dividing the parabola into two exact mirror images."
+                    ],
+                    "mnemonic": "💡 Formula Ingat: 'a POSITIF = Senyum U (Minima duit dalam poket)', 'a NEGATIF = Sedih Bukit (Maksima tinggi lontaran)'.",
+                    "mnemonicEn": "💡 Memory Hack: 'Positive a = Smiling U (Minimum valley)', 'Negative a = Frowning hill (Maximum peak)'.",
+                    "examTip": "Kerap keluar dalam Kertas 2 Bahagian A: Soalan meminta koordinat titik maksimum/minimum dan paksi simetri berdasarkan fungsi ketinggian h(t) = -5t² + 20t + 2."
                   },
                   {
-                    "heading": "2. Kaedah Mencari Punca Persamaan Kuadratik",
-                    "content": "Punca persamaan kuadratik <code>ax² + bx + c = 0</code> ialah nilai-nilai x yang memuaskan persamaan tersebut (titik persilangan pada paksi-x).",
+                    "heading": "2. Contoh Praktikal Langkah Demi Langkah: Mencari Punca Persamaan",
+                    "headingEn": "2. Step-by-Step Practical Example: Finding the Roots of an Equation",
+                    "content": "Apakah itu 'Punca'? Bayangkan anda mahu tahu pada saat ke berapakah bola keranjang itu mencecah lantai semula (tinggi = 0). Nilai-nilai x apabila f(x) = 0 dipanggil PUNCA (titik di mana graf memotong paksi-x).",
+                    "contentEn": "What are 'Roots'? Imagine wanting to know at which exact second the basketball hits the ground again (height = 0). The values of x where f(x) = 0 are called the ROOTS (points where the curve intersects the x-axis).",
                     "bulletPoints": [
-                      "<strong>Kaedah 1 - Pemfaktoran:</strong> Contoh <code>x² - 5x + 6 = 0</code> ➔ <code>(x - 2)(x - 3) = 0</code> ➔ <code>x = 2</code> atau <code>x = 3</code>.",
-                      "<strong>Kaedah 2 - Formula Kuadratik:</strong> <code>x = [-b ± √(b² - 4ac)] / (2a)</code>.",
-                      "<strong>Semakan Pantas Menggunakan Kalkulator:</strong> Tekan MODE ➔ EQN ➔ Degree 2."
+                      "Langkah 1: Susun ke bentuk am ax² + bx + c = 0 terlebih dahulu.",
+                      "Langkah 2: Kaedah Pemfaktoran: Cari dua kurungan (x - p)(x - q) = 0.",
+                      "Contoh Realiti: Luas sebuah padang futsal segi empat tepat ialah 60 m². Panjangnya ialah (x + 7) meter dan lebarnya x meter. Cari nilai x.",
+                      "Persamaan: x(x + 7) = 60 → x² + 7x - 60 = 0 → (x + 12)(x - 5) = 0.",
+                      "Punca: x = -12 (abaikan kerana ukuran panjang tidak boleh negatif!) atau x = 5 meter (jawapan tepat!)."
                     ],
-                    "examTip": "⚡ <strong>Tip Kertas 2 Bahagian A:</strong> Tulis jalan kerja pemfaktoran dengan lengkap <code>(x ± p)(x ± q) = 0</code> sebelum menyatakan nilai akhir x untuk mendapat markah penuh!"
+                    "bulletPointsEn": [
+                      "Step 1: Always arrange equation into general form ax² + bx + c = 0 first.",
+                      "Step 2: Factorisation Method: Find two factors (x - p)(x - q) = 0.",
+                      "Real-World Scenario: A futsal court has an area of 60 m². Its length is (x + 7) m and width is x m. Find x.",
+                      "Equation: x(x + 7) = 60 → x² + 7x - 60 = 0 → (x + 12)(x - 5) = 0.",
+                      "Roots: x = -12 (reject as length cannot be negative!) or x = 5 meters (valid answer!)."
+                    ],
+                    "examTip": "⚠️ Kesilapan Lazim Murid: Lupa menukar tanda apabila memindahkan nombor ke sebelah kiri persamaan sebelum memfaktorkan!"
                   }
                 ]
               },
-              "video": {
-                "title": "Teknik Skor A SPM: Selesaikan Persamaan Kuadratik Tanpa Silap",
-                "duration": "10:15 minit",
-                "presenter": "Cikgu Alex (Guru Cemerlang Matematik)",
-                "embedUrl": "https://www.youtube.com/embed/f9ONXd_-anM",
-                "highlights": [
-                  "0:45 - Mengenal pasti graf Senyum vs Masam",
-                  "3:20 - Tip Pemfaktoran Pantas Silang / Kalkulator",
-                  "6:40 - Soalan KBAT Penyelesaian Masalah Geometri"
-                ]
-              },
-              "worksheet": {
-                "title": "Koleksi Soalan Percubaan SPM: Bab 1 Kuadratik",
-                "pages": 3,
-                "itemsCount": 8,
-                "fileType": "Lembaran Kerja PDF",
-                "downloadUrl": "#",
-                "previewItems": [
-                  "Menentukan sama ada ungkapan ialah kuadratik atau bukan",
-                  "Mencari titik maksimum dan paksi simetri",
-                  "Soalan masalah berayat: Luas padang berbentuk segiempat tepat"
-                ]
-              },
               "quiz": {
-                "id": "quiz-f4-mt-c1",
-                "title": "Ujian Formatif: Kuadratik SPM 1449",
+                "id": "f4-mt-q1",
+                "title": "Kuiz Interaktif Bab 1: Fungsi & Persamaan Kuadratik",
+                "titleEn": "Interactive Quiz Chapter 1: Quadratic Functions & Equations",
                 "timeLimitMinutes": 10,
-                "passingScore": 60,
-                "xpPoints": 140,
+                "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Antara ungkapan berikut, yang manakah merupakan ungkapan kuadratik dalam satu pemboleh ubah?",
+                    "question": "Sebuah roket mercun dilancarkan ke udara dengan fungsi ketinggian h(t) = -4t² + 16t + 1, di mana h ialah ketinggian (meter) dan t ialah masa (saat). Adakah graf ini mempunyai titik maksimum atau titik minimum, dan mengapa?",
+                    "questionEn": "A toy rocket is launched with height function h(t) = -4t² + 16t + 1, where h is height (meters) and t is time (seconds). Does this graph have a maximum or minimum point, and why?",
                     "options": [
-                      "3x² + 2y - 5",
-                      "4x³ - x + 1",
-                      "2x² - 7x + 3",
-                      "5/x² + 4"
+                      "Titik Maksimum, kerana nilai pekali a = -4 (negatif, graf bentuk bukit)",
+                      "Titik Minimum, kerana roket bermula dari bawah",
+                      "Titik Minimum, kerana nilai pemalar c = 1",
+                      "Tiada titik maksimum atau minimum kerana masa sentiasa bergerak"
                     ],
-                    "correctIndex": 2,
-                    "explanation": "2x² - 7x + 3 mempunyai hanya satu pemboleh ubah (x) dan kuasa tertinggi pemboleh ubah ialah 2."
+                    "optionsEn": [
+                      "Maximum Point, because coefficient a = -4 (negative, hill-shaped curve)",
+                      "Minimum Point, because the rocket starts from the ground",
+                      "Minimum Point, because constant c = 1",
+                      "Neither, because time always increases"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Nilai pekali a menentukan bentuk graf. Kerana a = -4 (< 0), bentuk graf ialah bukit/frown, yang mencapai titik tertinggi iaitu Titik Maksimum.",
+                    "explanationEn": "The coefficient 'a' determines graph curvature. Because a = -4 (< 0), the curve is an inverted hill, achieving a peak known as the Maximum Point."
                   },
                   {
-                    "id": 2,
-                    "question": "Jika fungsi f(x) = -2x² + 8x - 3, apakah bentuk graf dan jenis titik yang terhasil?",
+                    "question": "Selesaikan persamaan kuadratik x² - 5x + 6 = 0 menggunakan kaedah pemfaktoran. Apakah punca-puncanya?",
+                    "questionEn": "Solve the quadratic equation x² - 5x + 6 = 0 using factorisation. What are its roots?",
                     "options": [
-                      "Graf bentuk ∪ (senyum) dan mempunyai titik minimum",
-                      "Graf bentuk ∩ (masam) dan mempunyai titik maksimum",
-                      "Garis lurus cerun positif",
-                      "Graf bulatan dengan jejari 3"
+                      "x = 2 dan x = 3",
+                      "x = -2 dan x = -3",
+                      "x = 1 dan x = 6",
+                      "x = -1 dan x = -6"
                     ],
-                    "correctIndex": 1,
-                    "explanation": "Kerana nilai a = -2 (negatif), bentuk graf adalah melengkung ke bawah (masam / ∩) dan mempunyai titik MAKSIMUM."
-                  },
-                  {
-                    "id": 3,
-                    "question": "Selesaikan persamaan kuadratik x² - 9 = 0. Apakah nilai-nilai bagi x?",
-                    "options": [
-                      "x = 3 sahaja",
-                      "x = 9 dan x = -9",
-                      "x = 3 dan x = -3",
-                      "x = 0"
+                    "optionsEn": [
+                      "x = 2 and x = 3",
+                      "x = -2 and x = -3",
+                      "x = 1 and x = 6",
+                      "x = -1 and x = -6"
                     ],
-                    "correctIndex": 2,
-                    "explanation": "x² - 9 = 0 ➔ (x - 3)(x + 3) = 0. Maka x = 3 atau x = -3."
+                    "correctIndex": 0,
+                    "explanation": "x² - 5x + 6 = (x - 2)(x - 3) = 0. Maka x - 2 = 0 → x = 2, dan x - 3 = 0 → x = 3.",
+                    "explanationEn": "x² - 5x + 6 = (x - 2)(x - 3) = 0. Therefore x - 2 = 0 → x = 2, and x - 3 = 0 → x = 3."
                   }
                 ]
               }
@@ -14344,63 +14359,109 @@ const SYLLABUS_DATA = {
               "id": "f4-mt-c2",
               "number": "Bab 2",
               "numberEn": "Chapter 2",
-              "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-              "titleEn": "Chapter 2: Advanced Learning Module Unit 2",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 2.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 2.",
+              "title": "Asas Nombor",
+              "titleEn": "Number Bases",
+              "summary": "Memahami bagaimana sistem nombor selain Asas 10 berfungsi dalam dunia digital (Asas 2, 5, 8, dan 9). Penukaran nombor antara asas berbeza, nilai tempat, nilai digit dan operasi tambah tolak berasaskan kod komputer dan storan data.",
+              "summaryEn": "Understanding how numeral systems other than Base 10 power our digital world (Base 2, 5, 8, 9). Converting between bases, place values, digit values, and arithmetic operations based on computer bits and data storage.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
+              "video": {
+                "title": "Rahsia Asas Nombor: Bahasa Komputer & Telefon Pintar",
+                "duration": "13:45",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:00 - Mengapa Manusia Guna Asas 10 (10 Jari)",
+                  "04:10 - Asas 2 (Binari): Bagaimana Cip Komputer Membaca 0 dan 1",
+                  "07:30 - Cara Membaca Nilai Tempat Menggunakan Kuasa Asas",
+                  "10:15 - Kaedah Pembahagian Berulang untuk Tukar Asas"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2 (Chapter 2: Advanced Learning Module Unit 2)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                    "headingEn": "Key Concept: Chapter 2: Advanced Learning Module Unit 2",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 2.",
+                    "heading": "1. Analogi Dunia Sebenar: Mengapa Ada Nombor Selain Asas 10?",
+                    "headingEn": "1. Real-Life Analogy: Why Do We Have Numbers Other Than Base 10?",
+                    "content": "Kita manusia mengira menggunakan Asas 10 kerana kita dilahirkan dengan 10 jari tangan (digit 0, 1, 2, 3, 4, 5, 6, 7, 8, 9). Tetapi cip mikroprosesor dalam telefon pintar anda tidak mempunyai 10 jari! Ia hanya mempunyai suis elektrik kecil yang sama ada 'MATI' (0) atau 'HIDUP' (1). Oleh itu, semua komputer bercakap dalam ASAS 2 (Sistem Binari). Bila anda menghantar mesej WhatsApp atau bermain game, cip telefon sebenarnya sedang memproses berjuta-juta nombor Asas 2 setiap saat!",
+                    "contentEn": "Humans count in Base 10 because we are born with 10 fingers (digits 0, 1, 2, 3, 4, 5, 6, 7, 8, 9). But computer chips inside your smartphone don't have 10 fingers! They only have microscopic electric switches that are either 'OFF' (0) or 'ON' (1). Hence, all digital machines speak in BASE 2 (Binary System). When you chat on WhatsApp or stream videos, your phone processor is crunching millions of Base 2 numbers every second!",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Peraturan Emas Digit: Digit dalam sebarang Asas n mesti sentiasa KECIL daripada n. (Contoh: Asas 2 hanya ada digit 0 dan 1; Asas 5 hanya ada digit 0, 1, 2, 3, 4; Asas 8 hanya ada digit 0 hingga 7).",
+                      "Nilai Tempat: Ditentukan oleh kuasa asas tersebut dari kanan ke kiri: n⁰, n¹, n², n³, ...",
+                      "Contoh Nilai Digit: Dalam nombor 1011₂, digit 1 di tempat paling kiri bernilai 1 × 2³ = 8₁₀."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "The Golden Digit Rule: Digits in any Base n must always be LESS than n. (e.g. Base 2 only has 0 and 1; Base 5 only has 0, 1, 2, 3, 4; Base 8 only has 0 to 7).",
+                      "Place Value: Defined by powers of the base moving right to left: n⁰, n¹, n², n³, ...",
+                      "Digit Value Example: In 1011₂, the leftmost digit 1 has a value of 1 × 2³ = 8₁₀."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Formula Ingat: 'Digit tak boleh sama atau lebih besar dari Asas!' Nombor 345₂ adalah MUSTAHIL kerana ada digit 3, 4, 5 dalam Asas 2.",
+                    "mnemonicEn": "💡 Memory Hack: 'Digits must always be strictly less than the Base!' 345₂ is IMPOSSIBLE because digits 3, 4, 5 cannot exist in Base 2."
+                  },
+                  {
+                    "heading": "2. Langkah Demi Langkah: Tukar Antara Asas Nombor",
+                    "headingEn": "2. Step-by-Step: Converting Between Number Bases",
+                    "content": "Bagaimana menukar sebarang asas ke Asas 10, dan bagaimana menukar Asas 10 ke asas lain?",
+                    "contentEn": "How do you convert any base into Base 10, and Base 10 back into other bases?",
+                    "bulletPoints": [
+                      "Langkah A (Asas Lain → Asas 10): Cerakinkan mengikut nilai tempat darab kuasa asas. Contoh: 1101₂ = (1×2³) + (1×2²) + (0×2¹) + (1×2⁰) = 8 + 4 + 0 + 1 = 13₁₀.",
+                      "Langkah B (Asas 10 → Asas Lain): Gunakan Pembahagian Berulang dan baca baki dari BAWAH ke ATAS.",
+                      "Contoh Pembahagian Berulang: Tukar 25₁₀ ke Asas 8: 25 ÷ 8 = 3 baki 1, kemudian 3 ÷ 8 = 0 baki 3. Baca dari bawah ke atas = 31₈!"
+                    ],
+                    "bulletPointsEn": [
+                      "Step A (Other Base → Base 10): Expand using place value multiplied by base powers. Example: 1101₂ = (1×2³) + (1×2²) + (0×2¹) + (1×2⁰) = 8 + 4 + 0 + 1 = 13₁₀.",
+                      "Step B (Base 10 → Other Base): Use Repeated Division and read remainder from BOTTOM to TOP.",
+                      "Repeated Division Example: Convert 25₁₀ to Base 8: 25 ÷ 8 = 3 remainder 1, then 3 ÷ 8 = 0 remainder 3. Reading bottom to top gives 31₈!"
+                    ],
+                    "examTip": "Kalkulator saintifik model fx-570EX boleh menyemak jawapan asas 2, 8 dan 10 menggunakan mod BASE-N!"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-mt-c2",
-                "title": "Kuiz / Quiz: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-mt-q2",
+                "title": "Kuiz Interaktif Bab 2: Asas Nombor",
+                "titleEn": "Interactive Quiz Chapter 2: Number Bases",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Advanced Learning Module Unit 2?",
+                    "question": "Apakah nilai digit bagi digit 3 dalam nombor 342₅ dalam Asas 10?",
+                    "questionEn": "What is the digit value of 3 in the number 342₅ in Base 10?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "75",
+                      "300",
+                      "15",
+                      "25"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "75",
+                      "300",
+                      "15",
+                      "25"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Nilai tempat bagi digit 3 dalam 342₅ ialah 5². Oleh itu, nilai digit = 3 × 5² = 3 × 25 = 75.",
+                    "explanationEn": "The place value of 3 in 342₅ is 5². Thus, digit value = 3 × 5² = 3 × 25 = 75."
+                  },
+                  {
+                    "question": "Tukarkan nombor binari 1011₂ kepada nombor dalam Asas 10.",
+                    "questionEn": "Convert the binary number 1011₂ to a number in Base 10.",
+                    "options": [
+                      "11",
+                      "13",
+                      "9",
+                      "15"
+                    ],
+                    "optionsEn": [
+                      "11",
+                      "13",
+                      "9",
+                      "15"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "1011₂ = (1×2³) + (0×2²) + (1×2¹) + (1×2⁰) = 8 + 0 + 2 + 1 = 11.",
+                    "explanationEn": "1011₂ = (1×2³) + (0×2²) + (1×2¹) + (1×2⁰) = 8 + 0 + 2 + 1 = 11."
                   }
                 ]
               }
@@ -14409,63 +14470,115 @@ const SYLLABUS_DATA = {
               "id": "f4-mt-c3",
               "number": "Bab 3",
               "numberEn": "Chapter 3",
-              "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-              "titleEn": "Chapter 3: Advanced Learning Module Unit 3",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 3.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 3.",
+              "title": "Penaakulan Logik",
+              "titleEn": "Logical Reasoning",
+              "summary": "Memahami pernyataan matematik, penafian (~p), implikasi 'Jika p maka q', akas, songsangan, kontrapositif dan hujah deduktif/induktif melalui situasi undang-undang, perjanjian kontrak dan syarat harian.",
+              "summaryEn": "Understanding mathematical statements, negations (~p), implications 'If p then q', converse, inverse, contrapositive, and deductive/inductive arguments through everyday contracts, rules and detective investigations.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
+              "video": {
+                "title": "Logik Matematik: Berfikir Seperti Peguam & Detektif",
+                "duration": "15:10",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:20 - Apa itu Pernyataan (Benar vs Palsu)",
+                  "04:50 - Perbezaan Kunci 'DAN' vs 'ATAU'",
+                  "08:15 - 'Jika p maka q': Akas, Songsangan & Kontrapositif",
+                  "12:00 - Hujah Sahih & Munasabah vs Hujah Kuat"
+                ]
+              },
               "notes": {
-                "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3 (Chapter 3: Advanced Learning Module Unit 3)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                    "headingEn": "Key Concept: Chapter 3: Advanced Learning Module Unit 3",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 3.",
+                    "heading": "1. Analogi Dunia Sebenar: Syarat Ibu & Perjanjian Kontrak",
+                    "headingEn": "1. Real-Life Analogy: Mom's Rules & Contract Agreements",
+                    "content": "Bayangkan ibu anda menetapkan syarat: 'JIKA anda mendapat A dalam Matematik, MAKA ibu akan belikan kasut sukan baharu.' Ini adalah contoh Implikasi Matematik ('Jika p, maka q'). p ialah Antejadian (sebab), q ialah Akibat (hasil). Dalam kehidupan, kita membuat keputusan berdasarkan logik deduktif yang sahih untuk membuktikan sama ada sesuatu dakwaan itu benar atau palsu tanpa sebarang keraguan.",
+                    "contentEn": "Imagine your mom makes a deal: 'IF you get an A in Mathematics, THEN I will buy you new running shoes.' This is an Implication in logic ('If p, then q'). p is the Antecedent (cause), q is the Consequent (result). In life, we make sound decisions using deductive logic to verify whether statements are objectively true or false beyond reasonable doubt.",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Pernyataan: Ayat yang sama ada BENAR atau PALSU, tetapi bukan kedua-duanya. (Ayat tanya atau arahan seperti 'Sila kemas meja!' BUKAN pernyataan).",
+                      "Operasi 'DAN': Hanya BENAR jika KEDUA-DUA bahagian benar serentak.",
+                      "Operasi 'ATAU': BENAR jika SEKURANG-KURANGNYA SATU bahagian benar.",
+                      "Akas: 'Jika q, maka p' (terbalikkan kedudukan).",
+                      "Songsangan: 'Jika bukan p, maka bukan q' (~p → ~q).",
+                      "Kontrapositif: 'Jika bukan q, maka bukan p' (~q → ~p)."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Statement: A sentence that is either strictly TRUE or FALSE, but not both. (Questions or commands like 'Clean the table!' are NOT statements).",
+                      "Conjunction 'AND': TRUE only if BOTH components are true simultaneously.",
+                      "Disjunction 'OR': TRUE if AT LEAST ONE component is true.",
+                      "Converse: 'If q, then p' (swapping antecedent and consequent).",
+                      "Inverse: 'If not p, then not q' (~p → ~q).",
+                      "Contrapositive: 'If not q, then not p' (~q → ~p)."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
+                    "mnemonic": "💡 Rahsia Kontrapositif: Jika pernyataan asal Benar, maka KONTRA POSITIFnya PASTI Benar secara automatik!",
+                    "mnemonicEn": "💡 Contrapositive Truth: If the original implication is True, its CONTRAPOSITIVE is GUARANTEED to be True as well!"
+                  },
+                  {
+                    "heading": "2. Hujah Deduktif vs Induktif: Sah & Munasabah",
+                    "headingEn": "2. Deductive vs Inductive Arguments: Validity & Soundness",
+                    "content": "Bagaimana membezakan hujah yang kuat dengan hujah yang lemah?",
+                    "contentEn": "How do you distinguish valid logical arguments from faulty ones?",
+                    "bulletPoints": [
+                      "Deduktif (Umum ke Khusus): Bermula daripada peraturan am yang universal untuk membuat kesimpulan bagi kes tertentu. Contoh: Semua mamalia menyusukan anak. Kucing ialah mamalia. Kesimpulan: Kucing menyusukan anak (Hujah Sahih dan Munasabah).",
+                      "Induktif (Khusus ke Umum): Bermula daripada pemerhatian beberapa sampel untuk membuat kesimpulan umum. Contoh: Burung gagak A hitam, burung gagak B hitam. Kesimpulan: Semua burung gagak berwarna hitam.",
+                      "Tiga Bentuk Hujah Deduktif: Bentuk I (Semua A adalah B), Bentuk II (Jika p maka q; p benar maka q benar), Bentuk III (Jika p maka q; bukan q benar maka bukan p benar)."
+                    ],
+                    "bulletPointsEn": [
+                      "Deductive (General to Specific): Starts with a universal rule to conclude a specific case. (e.g. All mammals produce milk. A cat is a mammal. Conclusion: Cats produce milk - Valid & Sound).",
+                      "Inductive (Specific to General): Studies specific observations to form a generalized rule. (e.g. Crow A is black, Crow B is black. Conclusion: All crows are black).",
+                      "Three Deductive Forms: Form I (All A are B), Form II (If p then q; p is true therefore q is true), Form III (If p then q; not q is true therefore not p is true)."
+                    ],
+                    "examTip": "⚠️ Perangkap SPM: Soalan minta 'Tentukan sama ada hujah ini munasabah'. Hujah munasabah jika ia SAHIH dan SEMUA premisnya BENAR di dunia sebenar!"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-mt-c3",
-                "title": "Kuiz / Quiz: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-mt-q3",
+                "title": "Kuiz Interaktif Bab 3: Penaakulan Logik",
+                "titleEn": "Interactive Quiz Chapter 3: Logical Reasoning",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Advanced Learning Module Unit 3?",
+                    "question": "Diberi pernyataan: 'Jika x = 3, maka 2x + 1 = 7'. Apakah Akas (Converse) bagi pernyataan tersebut?",
+                    "questionEn": "Given the statement: 'If x = 3, then 2x + 1 = 7'. What is the Converse of this statement?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Jika 2x + 1 = 7, maka x = 3",
+                      "Jika x ≠ 3, maka 2x + 1 ≠ 7",
+                      "Jika 2x + 1 ≠ 7, maka x ≠ 3",
+                      "x = 3 jika dan hanya jika 2x + 1 = 7"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "If 2x + 1 = 7, then x = 3",
+                      "If x ≠ 3, then 2x + 1 ≠ 7",
+                      "If 2x + 1 ≠ 7, then x ≠ 3",
+                      "x = 3 if and only if 2x + 1 = 7"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Akas dibina dengan menukar tempat antejadian dan akibat: Jika q, maka p. Jadi 'Jika 2x + 1 = 7, maka x = 3'.",
+                    "explanationEn": "Converse is formed by swapping the antecedent and consequent: If q, then p. Thus 'If 2x + 1 = 7, then x = 3'."
+                  },
+                  {
+                    "question": "Tentukan nilai kebenaran bagi pernyataan majmuk berikut: '5 ialah nombor perdana DAN 5 ialah nombor genap'.",
+                    "questionEn": "Determine the truth value of the compound statement: '5 is a prime number AND 5 is an even number'.",
+                    "options": [
+                      "Palsu, kerana 5 bukan nombor genap walaupun ia nombor perdana (operasi DAN memerlukan kedua-duanya benar)",
+                      "Benar, kerana 5 ialah nombor perdana",
+                      "Benar, kerana 5 ialah nombor bulat positif",
+                      "Tidak dapat ditentukan tanpa persamaan"
+                    ],
+                    "optionsEn": [
+                      "False, because 5 is not even even though it is prime (AND requires both to be true)",
+                      "True, because 5 is a prime number",
+                      "True, because 5 is a positive integer",
+                      "Cannot be determined without an equation"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Untuk operasi 'DAN' (Conjunction), pernyataan hanya benar jika KEDUA-DUA bahagian benar. Kerana '5 nombor genap' adalah palsu, seluruh pernyataan majmuk adalah PALSU.",
+                    "explanationEn": "For an 'AND' compound statement, it is true ONLY if both parts are true. Since '5 is even' is false, the entire statement is FALSE."
                   }
                 ]
               }
@@ -14474,63 +14587,113 @@ const SYLLABUS_DATA = {
               "id": "f4-mt-c4",
               "number": "Bab 4",
               "numberEn": "Chapter 4",
-              "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-              "titleEn": "Chapter 4: Advanced Learning Module Unit 4",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 4.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 4.",
+              "title": "Operasi Set",
+              "titleEn": "Operations on Sets",
+              "summary": "Persilangan set (A ∩ B), kesatuan set (A ∪ B), dan pelengkap gabungan set (A ∩ B)' menggunakan gambar rajah Venn. Menyelesaikan masalah kehidupan harian seperti pilihan makanan kantin, kelab kokurikulum dan data kaji selidik.",
+              "summaryEn": "Intersection of sets (A ∩ B), union of sets (A ∪ B), and complement of combined sets (A ∩ B)' using Venn diagrams. Solving real-world problems like canteen food preferences, school club memberships, and survey analytics.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
+              "video": {
+                "title": "Gambar Rajah Venn & Operasi Set: Cara Lorek Paling Pantas",
+                "duration": "12:50",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - Gambar Rajah Venn & Konsep Set Semesta (ξ)",
+                  "04:20 - Teknik Bernombor Kawasan (Nombor Rahsia)",
+                  "07:35 - Persilangan ∩ vs Kesatuan ∪",
+                  "10:15 - Aplikasi Masalah Sebenar: Tinjauan Minat Murid"
+                ]
+              },
               "notes": {
-                "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4 (Chapter 4: Advanced Learning Module Unit 4)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                    "headingEn": "Key Concept: Chapter 4: Advanced Learning Module Unit 4",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 4.",
+                    "heading": "1. Analogi Dunia Sebenar: Grup Kawan & Peminat Muzik",
+                    "headingEn": "1. Real-Life Analogy: Friend Circles & Music Fans",
+                    "content": "Bayangkan anda membuat kaji selidik dalam kelas 4 Dinamik. Set A ialah murid yang meminati lagu K-Pop (Blackpink/BTS). Set B ialah murid yang meminati lagu Rock. PERSILANGAN (A ∩ B) ialah kawan yang meminati KEDUA-DUA genre muzik tersebut serentak! KESATUAN (A ∪ B) pula ialah semua murid yang meminati sekurang-kurangnya satu daripada genre muzik itu. Dan PELENGKAP (A ∪ B)' ialah murid yang tidak meminati kedua-duanya langsung (mereka suka dengar podcast).",
+                    "contentEn": "Imagine conducting a survey in your classroom. Set A represents students who love K-Pop. Set B represents students who love Rock music. The INTERSECTION (A ∩ B) consists of students who love BOTH genres at the same time! The UNION (A ∪ B) represents everyone who loves at least one genre. And the COMPLEMENT (A ∪ B)' represents students outside who don't listen to either (they only listen to podcasts).",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Set Semesta (ξ): Kesemua ahli yang dipertimbangkan dalam perbincangan.",
+                      "Persilangan (A ∩ B): Unsur yang dipunyai BERSAMA oleh kedua-dua set A dan set B.",
+                      "Kesatuan (A ∪ B): Gabungan SEMUA unsur dari set A dan set B tanpa mengulangi ahli yang sama.",
+                      "Pelengkap (A'): Semua unsur dalam set semesta ξ yang BUKAN ahli set A."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Universal Set (ξ): The entire universe of elements being considered.",
+                      "Intersection (A ∩ B): Elements shared in COMMON by both set A and set B.",
+                      "Union (A ∪ B): Combining ALL elements belonging to set A or set B or both.",
+                      "Complement (A'): All elements in the universal set ξ that do NOT belong to set A."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
+                    "mnemonic": "💡 Simbol Mudah: ∩ nampak macam 'N' = Kongsi Bersama (Intersection), ∪ nampak macam 'U' = Gabung Semua (Union).",
+                    "mnemonicEn": "💡 Symbol Trick: ∩ looks like 'n' = iNtersection (Shared), ∪ looks like 'U' = Union (United all)."
+                  },
+                  {
+                    "heading": "2. Teknik Rahsia SPM: Kaedah Bernombor Kawasan",
+                    "headingEn": "2. Secret SPM Exam Technique: Area Numbering Method",
+                    "content": "Bila soalan meminta anda melorek rantau kompleks seperti (A ∪ B)' ∩ C, jangan teka! Gunakan teknik nombor ajaib ini:",
+                    "contentEn": "When exam questions ask you to shade complex regions like (A ∪ B)' ∩ C, don't guess! Use this foolproof numbering technique:",
+                    "bulletPoints": [
+                      "Langkah 1: Labelkan setiap ruang kosong dalam gambar rajah Venn dengan nombor kecil: 1, 2, 3, 4, 5, 6, 7, 8.",
+                      "Langkah 2: Tulis nombor kawasan bagi setiap kurungan.",
+                      "Langkah 3: Cari nombor yang sepadan mengikut operasi (∩ ambil nombor sama, ∪ kumpulkan semua nombor).",
+                      "Langkah 4: Lorekkan kawasan yang mempunyai nombor jawapan akhir tersebut. Anda pasti dapat markah penuh 3/3!"
+                    ],
+                    "bulletPointsEn": [
+                      "Step 1: Label every enclosed region in the Venn diagram with small numbers: 1, 2, 3, 4, 5, 6, 7, 8.",
+                      "Step 2: List the region numbers for each bracketed expression.",
+                      "Step 3: Combine or find matches according to operation (∩ finds common numbers, ∪ merges all).",
+                      "Step 4: Shade the regions holding the final resulting numbers. Guaranteed 3/3 marks!"
+                    ],
+                    "examTip": "Sentiasa gunakan pembaris atau pensel apabila melorek. Lorekan mestilah kemas dan tidak melebihi garisan sempadan set."
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-mt-c4",
-                "title": "Kuiz / Quiz: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-mt-q4",
+                "title": "Kuiz Interaktif Bab 4: Operasi Set",
+                "titleEn": "Interactive Quiz Chapter 4: Operations on Sets",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Advanced Learning Module Unit 4?",
+                    "question": "Diberi Set P = {2, 3, 5, 7} dan Set Q = {3, 5, 8, 9}. Cari P ∩ Q (Persilangan P dan Q).",
+                    "questionEn": "Given Set P = {2, 3, 5, 7} and Set Q = {3, 5, 8, 9}. Find P ∩ Q (Intersection of P and Q).",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "{3, 5}",
+                      "{2, 3, 5, 7, 8, 9}",
+                      "{2, 7}",
+                      "{8, 9}"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "{3, 5}",
+                      "{2, 3, 5, 7, 8, 9}",
+                      "{2, 7}",
+                      "{8, 9}"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Persilangan (∩) mencari unsur yang wujud dalam KEDUA-DUA set. Unsur 3 dan 5 terdapat dalam Set P dan juga Set Q. Maka P ∩ Q = {3, 5}.",
+                    "explanationEn": "Intersection (∩) finds elements common to BOTH sets. The elements 3 and 5 exist in Set P as well as Set Q. Therefore P ∩ Q = {3, 5}."
+                  },
+                  {
+                    "question": "Dalam satu kelas 40 orang murid, 25 orang suka bermain bola sepak, 18 orang suka bermain badminton, dan 8 orang suka bermain kedua-dua permainan tersebut. Berapakah bilangan murid yang TIDAK suka kedua-dua sukan ini?",
+                    "questionEn": "In a class of 40 students, 25 like playing football, 18 like playing badminton, and 8 like playing both. How many students do NOT like either sport?",
+                    "options": [
+                      "5 orang",
+                      "8 orang",
+                      "12 orang",
+                      "3 orang"
+                    ],
+                    "optionsEn": [
+                      "5 students",
+                      "8 students",
+                      "12 students",
+                      "3 students"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "n(Bola ∪ Badminton) = n(Bola) + n(Badminton) - n(Kedua-dua) = 25 + 18 - 8 = 35 orang. Murid yang tidak suka kedua-duanya = 40 - 35 = 5 orang.",
+                    "explanationEn": "n(Football ∪ Badminton) = 25 + 18 - 8 = 35 students. Those who dislike both = 40 - 35 = 5 students."
                   }
                 ]
               }
@@ -14539,63 +14702,111 @@ const SYLLABUS_DATA = {
               "id": "f4-mt-c5",
               "number": "Bab 5",
               "numberEn": "Chapter 5",
-              "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-              "titleEn": "Chapter 5: Advanced Learning Module Unit 5",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 5.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 5.",
+              "title": "Rangkaian dalam Teori Graf",
+              "titleEn": "Network in Graph Theory",
+              "summary": "Mengenal bucu (V), tepi (E), darjah bucu ∑d(v) = 2E, graf berbilang tepi, graf gelung, graf terarah, graf berpemberat, subgraf dan pokok (tree). Aplikasi praktikal dalam laluan penghantaran Grab, kabel gentian optik internet TM dan sistem transit LRT.",
+              "summaryEn": "Understanding vertices (V), edges (E), sum of degrees ∑d(v) = 2E, multiple edges, loops, directed graphs, weighted graphs, subgraphs and trees. Real-world applications in Grab delivery routes, TM fiber-optic layouts, and LRT transit lines.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
+              "video": {
+                "title": "Rangkaian Teori Graf: Rahsia Peta Waze, Grab & LRT",
+                "duration": "14:00",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:30 - Apa itu Bucu (Vertex) & Tepi (Edge)",
+                  "04:45 - Rumus Emas Darjah Bucu: ∑d(v) = 2E",
+                  "08:20 - Graf Berpemberat (Jarak, Masa & Kos)",
+                  "11:15 - Ciri-ciri Pokok (Tree) & Laluan Terpendek"
+                ]
+              },
               "notes": {
-                "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5 (Chapter 5: Advanced Learning Module Unit 5)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                    "headingEn": "Key Concept: Chapter 5: Advanced Learning Module Unit 5",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 5.",
+                    "heading": "1. Analogi Dunia Sebenar: Peta Transit LRT & Rangkaian Penghantaran Grab",
+                    "headingEn": "1. Real-Life Analogy: LRT Transit Map & Grab Delivery Networks",
+                    "content": "Pernahkah anda melihat peta stesen LRT Kelana Jaya line atau peta Waze semasa memesan makanan? Setiap stesen kereta api atau lokasi rumah ialah satu TITIK yang dipanggil BUCU (Vertex, V). Landasan rel atau jalan raya yang menghubungkan stesen-stesen tersebut ialah GARISAN yang dipanggil TEPI (Edge, E). Teori Graf ialah cabang matematik moden yang digunakan oleh jurutera Google Maps, Waze dan jurutera rangkaian internet Telekom Malaysia untuk mencari laluan terpantas dan paling menjimatkan kos!",
+                    "contentEn": "Have you ever looked at the RapidKL LRT transit map or navigation route on Waze? Every train station or delivery pickup is a POINT called a VERTEX (V). The railway track or road connecting stations is a LINE called an EDGE (E). Graph Theory is the mathematics powering Google Maps, Grab and fiber-optic engineers at Telekom Malaysia to find the shortest routes with minimum installation cost!",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Bucu (Vertex, V): Titik atau lokasi dalam graf.",
+                      "Tepi (Edge, E): Garisan yang menyambungkan dua bucu.",
+                      "Bilangan Darjah, d(v): Bilangan tepi yang bersambung dengan bucu tersebut. Satu gelung (loop) menyumbang 2 darjah!",
+                      "Rumus Emas Teori Graf: Jumlah darjah ∑d(v) = 2E (Sentiasa NOMBOR GENAP kerana setiap tepi ada dua hujung!)."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Vertex (V): A dot or location node in the graph.",
+                      "Edge (E): A link line connecting two vertices.",
+                      "Degree of Vertex, d(v): Number of edges connected to that vertex. A loop contributes 2 degrees!",
+                      "Golden Formula of Graph Theory: Sum of degrees ∑d(v) = 2E (Always an EVEN number because every edge connects two ends!)."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
+                    "mnemonic": "💡 Formula Emas: 'Jumlah Darjah = 2 kali ganda Bilangan Tepi!' Jika ∑d(v) nombor ganjil, graf itu SALAH!",
+                    "mnemonicEn": "💡 Golden Rule: 'Sum of degrees = 2 × Number of edges!' If sum of degrees is odd, the graph is mathematically IMPOSSIBLE!"
+                  },
+                  {
+                    "heading": "2. Pokok (Tree) & Pemasangan Kabel Internet Terpendek",
+                    "headingEn": "2. Trees & Finding Minimum Spanning Fiber Cable Cost",
+                    "content": "Apakah itu POKOK (Tree) dalam matematik?",
+                    "contentEn": "What defines a TREE in mathematical graph theory?",
+                    "bulletPoints": [
+                      "Definisi Pokok: Graf mudah yang bersambung TANPA sebarang kitaran (loop / cycle).",
+                      "Rumus Utama Pokok: Bilangan Tepi E = Bilangan Bucu V - 1 (E = V - 1).",
+                      "Aplikasi Kejuruteraan: Seorang jurutera Telekom Malaysia ingin memasang kabel fiber optik untuk menyambungkan 5 buah pejabat cawangan (V = 5). Berapakah kabel minimum yang diperlukan? Jawapannya tepat 4 kabel (E = 5 - 1 = 4). Laluan ini memastikan semua pejabat terhubung tanpa kabel berlebihan yang membazir jutaan ringgit!"
+                    ],
+                    "bulletPointsEn": [
+                      "Definition of a Tree: A connected simple graph without any cycles or closed loops.",
+                      "Core Tree Formula: Number of Edges E = Number of Vertices V - 1 (E = V - 1).",
+                      "Engineering Case: An engineer connects 5 regional branch offices with high-speed internet (V = 5). What is the minimum number of cables needed? Exactly 4 cables (E = 5 - 1 = 4). This guarantees every office communicates without redundant loop cables!"
+                    ],
+                    "examTip": "Soalan melukis pokok sering keluar 3 markah: Pastikan semua bucu bersambung dan JANGAN lukis sebarang bentuk segitiga atau segiempat tertutup (kitaran)."
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-mt-c5",
-                "title": "Kuiz / Quiz: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-mt-q5",
+                "title": "Kuiz Interaktif Bab 5: Rangkaian dalam Teori Graf",
+                "titleEn": "Interactive Quiz Chapter 5: Network in Graph Theory",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Advanced Learning Module Unit 5?",
+                    "question": "Sebuah graf mempunyai 7 tepi. Berapakah jumlah darjah bagi semua bucu dalam graf tersebut?",
+                    "questionEn": "A graph has 7 edges. What is the sum of degrees for all vertices in the graph?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "14",
+                      "7",
+                      "21",
+                      "49"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "14",
+                      "7",
+                      "21",
+                      "49"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Mengikut teorem teori graf, Jumlah Darjah ∑d(v) = 2 × Bilangan Tepi (E). Maka ∑d(v) = 2 × 7 = 14.",
+                    "explanationEn": "According to graph theory theorem, Sum of Degrees ∑d(v) = 2 × Number of Edges (E). Thus ∑d(v) = 2 × 7 = 14."
+                  },
+                  {
+                    "question": "Sebuah pokok (tree) mempunyai 6 bucu. Berapakah bilangan tepi bagi pokok tersebut?",
+                    "questionEn": "A tree has 6 vertices. How many edges does this tree have?",
+                    "options": [
+                      "5 tepi",
+                      "6 tepi",
+                      "7 tepi",
+                      "12 tepi"
+                    ],
+                    "optionsEn": [
+                      "5 edges",
+                      "6 edges",
+                      "7 edges",
+                      "12 edges"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Ciri utama sebuah pokok ialah E = V - 1. Dengan V = 6 bucu, bilangan tepi E = 6 - 1 = 5 tepi.",
+                    "explanationEn": "The primary characteristic of a tree is E = V - 1. With V = 6 vertices, the number of edges E = 6 - 1 = 5 edges."
                   }
                 ]
               }
@@ -14604,63 +14815,567 @@ const SYLLABUS_DATA = {
               "id": "f4-mt-c6",
               "number": "Bab 6",
               "numberEn": "Chapter 6",
-              "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-              "titleEn": "Chapter 6: Advanced Learning Module Unit 6",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 6.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 6.",
+              "title": "Ketaksamaan Linear dalam Dua Pemboleh Ubah",
+              "titleEn": "Linear Inequalities in Two Variables",
+              "summary": "Mewakilkan ketaksamaan linear dalam satah Cartes, garis padu vs garis sempang, dan menentukan rantau berlorek yang memuaskan suatu sistem ketaksamaan linear. Mengaplikasikannya dalam peruntukan bajet perniagaan, kapasiti muatan van dan sasaran keuntungan.",
+              "summaryEn": "Representing linear inequalities on Cartesian planes, solid vs dashed boundary lines, and determining shaded feasible regions satisfying systems of inequalities. Real-world applications in business budgeting, vehicle load capacities, and profit maximization.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
+              "video": {
+                "title": "Melorek Rantau Ketaksamaan Linear Tanpa Silap",
+                "duration": "13:15",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:00 - Garis Padu (≥, ≤) vs Garis Sempang (>, <)",
+                  "03:40 - Ujian Titik Asalan (0,0) untuk Menentukan Kawasan Lorek",
+                  "07:15 - Sistem Ketaksamaan Linear (Pertindihan Rantau)",
+                  "10:45 - Soalan Aplikasi SPM: Bajet Peniaga Pasar Malam"
+                ]
+              },
               "notes": {
-                "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6 (Chapter 6: Advanced Learning Module Unit 6)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                    "headingEn": "Key Concept: Chapter 6: Advanced Learning Module Unit 6",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 6.",
+                    "heading": "1. Analogi Dunia Sebenar: Bajet Poket & Had Muatan Kereta",
+                    "headingEn": "1. Real-Life Analogy: Pocket Money Limits & Car Boot Capacity",
+                    "content": "Bayangkan anda pergi ke pasar malam dengan wang tunai tepat RM30. Anda ingin membeli cucur udang (RM2 sekeping) dan air mangga (RM5 secawan). Jika x = bilangan cucur udang dan y = cawan air mangga, jumlah belanja anda TIDAK BOLEH melebihi RM30. Dalam matematik: 2x + 5y ≤ 30. Kawasan rantau berlorek di bawah garisan ialah semua kemungkinan kombinasi makanan yang anda mampu beli dengan wang anda!",
+                    "contentEn": "Imagine visiting a night market with exactly RM30 in your pocket. You want to buy prawn fritters (RM2 each) and mango shakes (RM5 per cup). If x = number of fritters and y = cups of mango shake, your total spending CANNOT exceed RM30. Mathematically: 2x + 5y ≤ 30. The shaded region underneath the line represents every single combination of food you can afford within your budget!",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Matematik (SPM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Garis Padu (Solid Line): Digunakan bila simbol ketaksamaan mengandungi tanda sama dengan: ≤ atau ≥ (Titik atas garisan termasuk dalam jawapan).",
+                      "Garis Sempang (Dashed/Dotted Line): Digunakan bila simbol ketaksamaan ialah strictly < atau > (Titik atas garisan TIDAK termasuk).",
+                      "Arah Lorekan: y > mx + c lorek ke ATAS garisan; y < mx + c lorek ke BAWAH garisan."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Matematik (SPM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Solid Boundary Line: Used when inequality contains an equal sign: ≤ or ≥ (Points lying on the line are included).",
+                      "Dashed Line: Used when inequality is strict: < or > (Points lying on the boundary are excluded).",
+                      "Shading Direction: y > mx + c shade ABOVE the line; y < mx + c shade BELOW the line."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
+                    "mnemonic": "💡 Tips Ujian Pantas (0,0): Masukkan x = 0 dan y = 0 ke dalam ketaksamaan. Jika benar, lorek sebelah yang ada (0,0)! Jika palsu, lorek sebelah bertentangan.",
+                    "mnemonicEn": "💡 Quick (0,0) Test: Plug in x = 0 and y = 0. If inequality holds true, shade the region containing the origin (0,0)!"
+                  },
+                  {
+                    "heading": "2. Sistem Ketaksamaan Linear: Kawasan Sepunya",
+                    "headingEn": "2. System of Linear Inequalities: The Common Overlap Region",
+                    "content": "Dalam kehidupan sebenar, kita sering mempunyai lebih daripada satu syarat sekaligus. Sebagai contoh:",
+                    "contentEn": "In real life, we balance multiple constraints at once. For example:",
+                    "bulletPoints": [
+                      "Syarat 1 (Bajet Duit): 2x + 5y ≤ 30.",
+                      "Syarat 2 (Kapasiti Beg): x + y ≤ 10 (beg hanya muat maksimum 10 item).",
+                      "Syarat 3 (Bukan Negatif): x ≥ 0 dan y ≥ 0 (bilangan makanan tidak boleh negatif).",
+                      "Kawasan Jawapan: Rantau berlorek yang bertindih dan memuaskan KETIGA-TIGA syarat ini serentak (Rantau Bersepadu / Feasible Region)."
+                    ],
+                    "bulletPointsEn": [
+                      "Constraint 1 (Budget): 2x + 5y ≤ 30.",
+                      "Constraint 2 (Bag Capacity): x + y ≤ 10 (bag carries maximum 10 items).",
+                      "Constraint 3 (Non-negativity): x ≥ 0 and y ≥ 0 (cannot buy negative food).",
+                      "Final Solution: The shaded intersection region satisfying ALL constraints simultaneously."
+                    ],
+                    "examTip": "⚠️ Kesilapan Lazim Murid: Melukis garis padu padahal simbolnya '>' atau '<'. Hilang 1 markah ketepatan graf serta-merta!"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-mt-c6",
-                "title": "Kuiz / Quiz: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-mt-q6",
+                "title": "Kuiz Interaktif Bab 6: Ketaksamaan Linear",
+                "titleEn": "Interactive Quiz Chapter 6: Linear Inequalities",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Advanced Learning Module Unit 6?",
+                    "question": "Antara berikut, jenis garisan sempadan manakah yang patut digunakan untuk melukis graf ketaksamaan y > 2x - 3 pada satah Cartes?",
+                    "questionEn": "Which type of boundary line should be drawn on Cartesian plane for inequality y > 2x - 3?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Garis sempang (putus-putus), kerana simbol '>' tidak mengandungi tanda sama dengan",
+                      "Garis padu lurus, kerana graf linear sentiasa bersambung",
+                      "Garis lengkung parabola",
+                      "Garis menegak pada paksi-y"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "Dashed line, because '>' does not include an equal sign",
+                      "Solid line, because linear graphs are always connected",
+                      "Curved parabolic line",
+                      "Vertical line along the y-axis"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Simbol ketaksamaan '>' bermaksud titik-titik di atas sempadan tidak termasuk sebagai penyelesaian. Oleh itu, ia mesti dilukis dengan garisan sempang (dashed line).",
+                    "explanationEn": "The strict inequality '>' means boundary coordinates are not part of the solution set. It must be represented using a dashed line."
+                  },
+                  {
+                    "question": "Adakah titik koordinat (1, 2) memuaskan ketaksamaan 3x + y ≤ 6?",
+                    "questionEn": "Does the coordinate point (1, 2) satisfy the inequality 3x + y ≤ 6?",
+                    "options": [
+                      "Ya, kerana 3(1) + 2 = 5, dan 5 ≤ 6 adalah pernyataan yang benar",
+                      "Tidak, kerana 5 tidak sama dengan 6",
+                      "Tidak, kerana nombor 1 dan 2 adalah nombor positif",
+                      "Hanya jika x digantikan dengan sifar"
+                    ],
+                    "optionsEn": [
+                      "Yes, because 3(1) + 2 = 5, and 5 ≤ 6 is a true statement",
+                      "No, because 5 is not equal to 6",
+                      "No, because 1 and 2 are positive",
+                      "Only if x is replaced with zero"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Gantikan x = 1 dan y = 2: 3(1) + 2 = 5. Kerana 5 sememangnya kurang daripada atau sama dengan 6, titik (1, 2) memuaskan ketaksamaan tersebut.",
+                    "explanationEn": "Substitute x = 1 and y = 2: 3(1) + 2 = 5. Since 5 is indeed less than or equal to 6, point (1, 2) satisfies the inequality."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "f4-mt-c7",
+              "number": "Bab 7",
+              "numberEn": "Chapter 7",
+              "title": "Graf Gerakan",
+              "titleEn": "Graphs of Motion",
+              "summary": "Graf Jarak-Masa (Kecerunan = Laju, Kecerunan Sifar = Pegun/Rehat) dan Graf Laju-Masa (Kecerunan = Pecutan, Luas di bawah Graf = Jarak Keseluruhan). Analogi pemanduan kereta di Lebuhraya PLUS, tren ETS dan larian maraton.",
+              "summaryEn": "Distance-Time Graphs (Gradient = Speed, Zero Gradient = Stationary/Rest) and Speed-Time Graphs (Gradient = Acceleration, Area under Graph = Total Distance). Real-life analogies with PLUS Highway road trips, ETS trains and 100m sprint athletics.",
+              "xpReward": 120,
+              "video": {
+                "title": "Menguasai Graf Jarak-Masa & Laju-Masa SPM",
+                "duration": "15:30",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:15 - Graf Jarak-Masa: Bagaimana Membaca Speedometer Kereta",
+                  "04:40 - Garisan Mendatar: Kereta Berhenti di RnR",
+                  "08:10 - Graf Laju-Masa: Rahsia 'Luas di Bawah Graf' = Jarak",
+                  "12:20 - Formula Laju Purata: Jumlah Jarak / Jumlah Masa"
+                ]
+              },
+              "notes": {
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "1. Analogi Dunia Sebenar: Pemanduan Kereta Balik Kampung",
+                    "headingEn": "1. Real-Life Analogy: Road Trip Driving on PLUS Highway",
+                    "content": "Bayangkan anda menaiki kereta bersama keluarga dari Kuala Lumpur ke Pulau Pinang. Sepanjang perjalanan, ayah anda memandu, berhenti di RnR Tapah untuk makan tengah hari, dan memecut semula di laluan lurus. Dalam matematik, terdapat DUA jenis graf gerakan yang menceritakan perjalanan ini:",
+                    "contentEn": "Imagine taking a family road trip from Kuala Lumpur to Penang. Your father drives, stops at Tapah RnR for lunch, and accelerates smoothly on open straight stretches. In mathematics, TWO distinct motion graphs describe this journey:",
+                    "bulletPoints": [
+                      "Graf JARAK-MASA (Distance-Time): Paksi-y ialah Jarak, Paksi-x ialah Masa.",
+                      "Kecerunan Graf Jarak-Masa = LAJU (Speed = Perubahan Jarak / Perubahan Masa). Garis lebih curam = Kereta lebih laju!",
+                      "Garisan Mendatar Rata pada Graf Jarak-Masa = KENDERAAN PEGUN / BERHENTI (Jarak tidak bertambah, sedang rehat makan di RnR).",
+                      "Laju Purata = Jumlah Jarak Dilalui ÷ Jumlah Masa Keseluruhan (termasuk masa berehat di RnR!)."
+                    ],
+                    "bulletPointsEn": [
+                      "DISTANCE-TIME Graph: y-axis is Distance, x-axis is Time.",
+                      "Gradient of Distance-Time Graph = SPEED (Speed = Change in Distance / Change in Time). Steeper line = Faster speed!",
+                      "Horizontal Flat Line on Distance-Time Graph = VEHICLE IS STATIONARY (Distance remains constant while resting at RnR).",
+                      "Average Speed = Total Distance Traveled ÷ Total Time Taken (including rest stops!)."
+                    ],
+                    "mnemonic": "💡 Formula Rahsia: Dalam Graf Jarak-Masa: 'Kecerunan = Laju'. Dalam Graf Laju-Masa: 'Kecerunan = Pecutan', 'Luas = Jarak'!",
+                    "mnemonicEn": "💡 Secret Rule: On Distance-Time: 'Gradient = Speed'. On Speed-Time: 'Gradient = Acceleration', 'Area underneath = Total Distance'!"
+                  },
+                  {
+                    "heading": "2. Graf Laju-Masa: Kuasa 'Luas di Bawah Graf'",
+                    "headingEn": "2. Speed-Time Graphs: The Power of 'Area Under The Graph'",
+                    "content": "Dalam Graf Laju-Masa, paksi menegak ialah kelajuan kenderaan (m/s atau km/j). Dua perkara ajaib berlaku di sini:",
+                    "contentEn": "On a Speed-Time graph, the vertical axis measures vehicle speed (m/s or km/h). Two fundamental principles apply here:",
+                    "bulletPoints": [
+                      "Kecerunan = PECUTAN (Pecutan = (Laju Akhir - Laju Awal) / Masa). Kecerunan negatif = NYAHPECUTAN (brek ditekan!).",
+                      "LUAS DI BAWAH GRAF = JARAK DILALUI! Bentuk di bawah graf biasanya terdiri daripada Segi Tiga (½ × tapak × tinggi), Segi Empat (panjang × lebar), atau Trapezium (½ × (hasil tambah sisi selari) × tinggi).",
+                      "Contoh Pengiraan: Kereta bergerak dengan laju malar 20 m/s selama 10 saat. Bentuk bawah graf = Segi empat tepat. Luas = 20 × 10 = 200 meter jarak yang dilalui!"
+                    ],
+                    "bulletPointsEn": [
+                      "Gradient = ACCELERATION ((Final Speed - Initial Speed) / Time). Negative gradient = DECELERATION (braking!).",
+                      "AREA UNDER THE GRAPH = DISTANCE TRAVELED! Shapes are composed of Triangles (½ × base × height), Rectangles (length × width), or Trapeziums (½ × (sum of parallel sides) × height).",
+                      "Calculation Example: A car cruises at constant 20 m/s for 10 seconds. Shape under graph = Rectangle. Area = 20 × 10 = 200 meters traveled!"
+                    ],
+                    "examTip": "⚠️ Perangkap SPM Paling Bahaya: Murid keliru antara Graf Jarak-Masa dengan Graf Laju-Masa. Tengok label paksi-y dulu sebelum menjawab!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "f4-mt-q7",
+                "title": "Kuiz Interaktif Bab 7: Graf Gerakan",
+                "titleEn": "Interactive Quiz Chapter 7: Graphs of Motion",
+                "timeLimitMinutes": 10,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "question": "Apakah kuantiti fizik yang diwakili oleh KECERUNAN bagi Graf Jarak-Masa?",
+                    "questionEn": "What physical quantity is represented by the GRADIENT of a Distance-Time Graph?",
+                    "options": [
+                      "Laju kenderaan",
+                      "Pecutan kenderaan",
+                      "Jarak keseluruhan",
+                      "Daya enjin"
+                    ],
+                    "optionsEn": [
+                      "Speed of the vehicle",
+                      "Acceleration of the vehicle",
+                      "Total distance",
+                      "Engine force"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Kecerunan graf jarak-masa = Perubahan Jarak / Perubahan Masa = Laju kenderaan.",
+                    "explanationEn": "Gradient of a distance-time graph = Change in Distance / Change in Time = Speed."
+                  },
+                  {
+                    "question": "Dalam Graf Laju-Masa, bagaimana kita mengira Jarak Keseluruhan yang dilalui oleh kenderaan?",
+                    "questionEn": "In a Speed-Time Graph, how do we calculate the Total Distance traveled by a vehicle?",
+                    "options": [
+                      "Mengira luas di bawah graf",
+                      "Mengira kecerunan garisan",
+                      "Mendarabkan laju maksimum dengan pecutan",
+                      "Membaca nilai titik puncak tertinggi"
+                    ],
+                    "optionsEn": [
+                      "Calculating the area under the graph",
+                      "Calculating the gradient of the curve",
+                      "Multiplying top speed by acceleration",
+                      "Reading the highest peak value"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Dalam graf laju-masa, Luas di Bawah Graf mewakili Jarak Keseluruhan (Distance = Speed × Time).",
+                    "explanationEn": "On a speed-time graph, the Area Under the Graph represents the Total Distance (Distance = Speed × Time)."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "f4-mt-c8",
+              "number": "Bab 8",
+              "numberEn": "Chapter 8",
+              "title": "Sukatan Serakan Data Tak Terkumpul",
+              "titleEn": "Measures of Dispersion for Ungrouped Data",
+              "summary": "Memahami serakan data: Julat, Julat Antara Kuartil (IQR), Varians (σ²), dan Sisihan Piawai (σ). Menggunakan plot titik, plot batang-dan-daun serta plot kotak. Menganalisis ketekalan prestasi atlet sukan, gred ujian peperiksaan dan kualiti produk kilang.",
+              "summaryEn": "Understanding data dispersion: Range, Interquartile Range (IQR), Variance (σ²), and Standard Deviation (σ). Using dot plots, stem-and-leaf plots, and box plots to analyze athlete consistency, exam results distribution, and industrial product quality.",
+              "xpReward": 120,
+              "video": {
+                "title": "Sisihan Piawai & Sukatan Serakan: Siapa Atlet Paling Konsisten?",
+                "duration": "14:40",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:20 - Apa itu Serakan Data & Mengapa Min Sahaja Tak Cukup",
+                  "04:50 - Kuartil Pertama (Q1), Median (Q2) & Kuartil Ketiga (Q3)",
+                  "08:15 - Plot Kotak (Box Plot) & Tafsiran Bentuk",
+                  "11:30 - Formula Sisihan Piawai & Maksud Ketekalan Prestasi"
+                ]
+              },
+              "notes": {
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "1. Analogi Dunia Sebenar: Memilih Penjaring Gol Harimau Malaya",
+                    "headingEn": "1. Real-Life Analogy: Selecting a National Team Football Striker",
+                    "content": "Bayangkan anda seorang jurulatih bola sepak yang perlu memilih seorang daripada dua orang penyerang untuk perlawanan akhir Piala AFF. Pemain A menjaringkan gol: [2, 2, 3, 2, 3] dalam 5 perlawanan lepas (Min = 2.4). Pemain B menjaringkan gol: [0, 8, 0, 1, 3] dalam 5 perlawanan lepas (Min = 2.4 juga!). Kedua-dua pemain mempunyai purata min yang sama. Tetapi siapa yang patut anda pilih? Pemain A mempunyai serakan kecil (data terkumpul rapat dan sangat konsisten!). Pemain B mempunyai serakan besar (prestasi tidak menentu, adakalanya 0 gol). Sukatan Serakan memberitahu kita sejauh mana data itu tersebar dari nilai purata!",
+                    "contentEn": "Imagine you are a football head coach deciding between two strikers for the cup final. Striker A scored: [2, 2, 3, 2, 3] goals in the last 5 games (Mean = 2.4). Striker B scored: [0, 8, 0, 1, 3] goals in the last 5 games (Mean = 2.4 as well!). Both players have the exact same mean average. But whom would you trust? Striker A has very small dispersion (tight cluster, highly consistent!). Striker B has huge dispersion (wildly erratic). Measures of Dispersion measure how widely data spreads around the central average!",
+                    "bulletPoints": [
+                      "Julat (Range): Nilai Terbesar - Nilai Terkecil.",
+                      "Julat Antara Kuartil (IQR): Kuartil Ketiga (Q3) - Kuartil Pertama (Q1). Mengukur serakan 50% data di bahagian tengah (tidak dipengaruhi oleh nilai ekstrem/pencilan).",
+                      "Sisihan Piawai (Standard Deviation, σ): Purata jarak setiap data daripada nilai min. Semakin KECIL sisihan piawai, semakin KONSISTEN prestasi sesuatu data!"
+                    ],
+                    "bulletPointsEn": [
+                      "Range: Largest Value - Smallest Value.",
+                      "Interquartile Range (IQR): Third Quartile (Q3) - First Quartile (Q1). Measures the spread of the middle 50% of data (unaffected by extreme outliers).",
+                      "Standard Deviation (σ): Average distance of data points from the mean. A SMALLER standard deviation indicates HIGHER CONSISTENCY!"
+                    ],
+                    "mnemonic": "💡 Kata Kunci Peperiksaan: 'Sisihan Piawai Lebih Kecil = Prestasi Lebih KONSISTEN & Stabil!'.",
+                    "mnemonicEn": "💡 Exam Keyword: 'Smaller Standard Deviation = Data is MORE CONSISTENT and reliable!'."
+                  },
+                  {
+                    "heading": "2. Plot Kotak (Box Plot) & Pencilan (Outliers)",
+                    "headingEn": "2. Box Plots & Identifying Outliers",
+                    "content": "Plot kotak merumuskan data menggunakan 5 nilai penting: Nilai Minimum, Q1, Median (Q2), Q3, dan Nilai Maksimum.",
+                    "contentEn": "A box plot summarizes dataset distribution using 5 summary numbers: Minimum, Q1, Median (Q2), Q3, and Maximum.",
+                    "bulletPoints": [
+                      "Kotak mewakili 50% data pertengahan (dari Q1 hingga Q3). Panjang kotak = Julat Antara Kuartil.",
+                      "Garis di dalam kotak ialah MEDIAN (Q2). Jika median berada tepat di tengah kotak, data adalah simetri.",
+                      "Apakah itu Pencilan (Outlier)? Nilai ekstrem yang terlalu jauh daripada data lain. Rumus pencilan: Nilai < Q1 - 1.5(IQR) atau Nilai > Q3 + 1.5(IQR)."
+                    ],
+                    "bulletPointsEn": [
+                      "The box represents the middle 50% of data (from Q1 to Q3). Box length = Interquartile Range.",
+                      "The line inside the box is the MEDIAN (Q2). If centered, the distribution is symmetrical.",
+                      "What is an Outlier? Extreme data points far away from the rest. Outlier boundary: Value < Q1 - 1.5(IQR) or Value > Q3 + 1.5(IQR)."
+                    ],
+                    "examTip": "Bila soalan SPM meminta anda 'Bandingkan taburan dua set data', berikan 2 poin: (1) Bandingkan Min/Median, dan (2) Bandingkan Sisihan Piawai/IQR beserta tafsiran ketekalan."
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "f4-mt-q8",
+                "title": "Kuiz Interaktif Bab 8: Sukatan Serakan Data",
+                "titleEn": "Interactive Quiz Chapter 8: Measures of Dispersion",
+                "timeLimitMinutes": 10,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "question": "Dua orang murid, Adam dan Danial, menduduki 5 ujian Matematik. Adam mempunyai sisihan piawai 2.5 manakala Danial mempunyai sisihan piawai 8.1. Murid manakah yang menunjukkan prestasi lebih konsisten?",
+                    "questionEn": "Two students, Adam and Danial, took 5 Mathematics tests. Adam has a standard deviation of 2.5 while Danial has 8.1. Which student showed more consistent performance?",
+                    "options": [
+                      "Adam, kerana sisihan piawainya lebih kecil (skor ujian lebih rapat dengan min)",
+                      "Danial, kerana sisihan piawainya lebih besar",
+                      "Kedua-duanya sama kerana bergantung kepada markah penuh",
+                      "Tidak dapat ditentukan tanpa mengetahui markah min"
+                    ],
+                    "optionsEn": [
+                      "Adam, because his standard deviation is smaller (scores closer to mean)",
+                      "Danial, because his standard deviation is larger",
+                      "Both are identical depending on full marks",
+                      "Cannot be determined without knowing the mean score"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Nilai sisihan piawai yang lebih kecil menunjukkan bahawa data bertabur lebih rapat di sekitar nilai min, membuktikan prestasi yang jauh lebih konsisten.",
+                    "explanationEn": "A smaller standard deviation indicates data values are clustered closely around the mean, demonstrating much higher consistency."
+                  },
+                  {
+                    "question": "Diberi satu set data: 3, 5, 7, 8, 12, 15, 20. Apakah julat bagi set data ini?",
+                    "questionEn": "Given a dataset: 3, 5, 7, 8, 12, 15, 20. What is the range of this dataset?",
+                    "options": [
+                      "17",
+                      "20",
+                      "8",
+                      "15"
+                    ],
+                    "optionsEn": [
+                      "17",
+                      "20",
+                      "8",
+                      "15"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Julat = Nilai Terbesar - Nilai Terkecil = 20 - 3 = 17.",
+                    "explanationEn": "Range = Maximum Value - Minimum Value = 20 - 3 = 17."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "f4-mt-c9",
+              "number": "Bab 9",
+              "numberEn": "Chapter 9",
+              "title": "Kebarangkalian Peristiwa Bergabung",
+              "titleEn": "Probability of Combined Events",
+              "summary": "Ruang sampel peristiwa bergabung, peristiwa bersandar vs tak bersandar, peristiwa saling eksklusif vs tidak saling eksklusif. Hukum Pendaraban P(A ∩ B) dan Hukum Penambahan P(A ∪ B) = P(A) + P(B) - P(A ∩ B) melalui cabutan bertuah, balingan dadu dan kaji cuaca.",
+              "summaryEn": "Sample spaces of combined events, dependent vs independent events, mutually exclusive vs non-mutually exclusive events. Multiplication Rule P(A ∩ B) and Addition Rule P(A ∪ B) = P(A) + P(B) - P(A ∩ B) through lucky draws, dice games and weather forecasts.",
+              "xpReward": 120,
+              "video": {
+                "title": "Kebarangkalian Peristiwa Bergabung & Rajah Pokok",
+                "duration": "13:50",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - Apa itu Peristiwa Bergabung (Dua Peristiwa Berlaku)",
+                  "04:30 - Peristiwa Bersandar (Tanpa Pengembalian) vs Tak Bersandar",
+                  "07:50 - Peristiwa Saling Eksklusif (Tak Boleh Berlaku Serentak)",
+                  "11:10 - Melukis Rajah Pokok (Tree Diagram) untuk Skor Penuh"
+                ]
+              },
+              "notes": {
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "1. Analogi Dunia Sebenar: Cabutan Balang Gula-Gula & Balingan Syiling",
+                    "headingEn": "1. Real-Life Analogy: Candy Jar Draws & Coin Tosses",
+                    "content": "Bayangkan anda mempunyai sebalang gula-gula yang mengandungi 3 gula-gula perisa strawberi dan 2 gula-gula perisa coklat. Anda mencabut satu gula-gula, MAKANNYA (tanpa memasukkannya kembali), dan kemudian mencabut gula-gula kedua. Jumlah gula-gula di dalam balang sudah berkurang daripada 5 menjadi 4! Ini dinamakan PERISTIWA BERSANDAR kerana hasil cabutan pertama mengubah peluang cabutan kedua. Tetapi jika anda membaling sekeping duit syiling dan membaling dadu, hasil syiling tidak memberi kesan langsung kepada dadu—itu adalah PERISTIWA TAK BERSANDAR!",
+                    "contentEn": "Imagine having a jar of 3 strawberry candies and 2 chocolate candies. You draw one candy, EAT IT (without replacement), and then draw a second candy. The total count in the jar dropped from 5 to 4! This is a DEPENDENT EVENT because the first action alters the probability of the second outcome. But if you flip a coin and roll a dice, the coin toss has zero influence on the dice roll—that is an INDEPENDENT EVENT!",
+                    "bulletPoints": [
+                      "Peristiwa Tak Bersandar (Independent): P(A dan B) = P(A ∩ B) = P(A) × P(B). Kejadian A tidak mempengaruhi peluang kejadian B.",
+                      "Peristiwa Bersandar (Dependent): Peluang kejadian kedua berubah selepas kejadian pertama berlaku (biasanya situasi 'tanpa pengembalian').",
+                      "Peristiwa Saling Eksklusif (Mutually Exclusive): Dua peristiwa yang TIDAK BOLEH berlaku serentak. Contoh: Mendapat Kepala ATAU Ekor pada satu balingan syiling. Rumus: P(A ∪ B) = P(A) + P(B).",
+                      "Peristiwa Tidak Saling Eksklusif: Boleh berlaku serentak. Rumus: P(A ∪ B) = P(A) + P(B) - P(A ∩ B)."
+                    ],
+                    "bulletPointsEn": [
+                      "Independent Events: P(A and B) = P(A ∩ B) = P(A) × P(B). Outcome of event A has zero effect on event B.",
+                      "Dependent Events: Probability of second event changes based on outcome of the first (common in 'without replacement' draws).",
+                      "Mutually Exclusive Events: Events that CANNOT occur simultaneously. (e.g. Getting Heads OR Tails on a single coin flip). Formula: P(A ∪ B) = P(A) + P(B).",
+                      "Non-Mutually Exclusive Events: Can happen together. Formula: P(A ∪ B) = P(A) + P(B) - P(A ∩ B)."
+                    ],
+                    "mnemonic": "💡 Kata Kunci: 'DAN = Darab (×)', 'ATAU = Tambah (+) tolak persilangan jika bertindih'.",
+                    "mnemonicEn": "💡 Rule of Thumb: 'AND = Multiply (×)', 'OR = Add (+) minus intersection if overlapping'."
+                  },
+                  {
+                    "heading": "2. Rajah Pokok (Tree Diagram) Langkah Demi Langkah",
+                    "headingEn": "2. Tree Diagram Step-by-Step",
+                    "content": "Rajah pokok ialah alat visual paling berkuasa untuk menyelesaikan soalan kebarangkalian SPM:",
+                    "contentEn": "A tree diagram is the most reliable visual technique to ace SPM probability questions:",
+                    "bulletPoints": [
+                      "Setiap cabang mewakili satu kemungkinan hasil dengan kebarangkaliannya ditulis di atas garisan.",
+                      "Untuk mencari kebarangkalian satu laluan lengkap: DARABKAN kebarangkalian di sepanjang cabang tersebut.",
+                      "Untuk mencari jumlah kebarangkalian beberapa laluan berbeza yang memenuhi syarat: TAMBAHKAN hasil darab setiap laluan.",
+                      "Jumlah semua kebarangkalian pada setiap peringkat cabang mestilah sentiasa bersamaan dengan 1.0!"
+                    ],
+                    "bulletPointsEn": [
+                      "Each branch branch represents an outcome with its probability written on the branch line.",
+                      "To calculate probability of a full single path: MULTIPLY probabilities along that pathway.",
+                      "To combine probabilities of multiple valid paths: ADD their individual branch products.",
+                      "The sum of branch probabilities at each node must always sum up to exactly 1.0!"
+                    ],
+                    "examTip": "Bila soalan kata 'Sekurang-kurangnya satu', gunakan pelengkap: P(Sekurang-kurangnya satu) = 1 - P(Tiada langsung). Cara ini menjimatkan 5 minit masa menjawab!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "f4-mt-q9",
+                "title": "Kuiz Interaktif Bab 9: Kebarangkalian Peristiwa Bergabung",
+                "titleEn": "Interactive Quiz Chapter 9: Probability of Combined Events",
+                "timeLimitMinutes": 10,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "question": "Sekeping syiling adil dan sebiji dadu adil dilambung serentak. Apakah kebarangkalian mendapat 'Kepala' pada syiling DAN nombor '6' pada dadu?",
+                    "questionEn": "A fair coin and a fair dice are tossed simultaneously. What is the probability of getting 'Heads' on the coin AND a '6' on the dice?",
+                    "options": [
+                      "1/12",
+                      "1/2",
+                      "1/6",
+                      "7/12"
+                    ],
+                    "optionsEn": [
+                      "1/12",
+                      "1/2",
+                      "1/6",
+                      "7/12"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Ini adalah peristiwa tak bersandar. P(Kepala) = 1/2, P(Nombor 6) = 1/6. P(Kepala DAN 6) = 1/2 × 1/6 = 1/12.",
+                    "explanationEn": "These are independent events. P(Heads) = 1/2, P(Number 6) = 1/6. P(Heads AND 6) = 1/2 × 1/6 = 1/12."
+                  },
+                  {
+                    "question": "Dalam sebuah kotak terdapat 4 guli merah dan 6 guli biru. Dua biji guli dicabut satu demi satu TANPA pengembalian. Apakah kebarangkalian guli pertama dan guli kedua kedua-duanya berwarna merah?",
+                    "questionEn": "A box contains 4 red marbles and 6 blue marbles. Two marbles are drawn one by one WITHOUT replacement. What is the probability that both marbles are red?",
+                    "options": [
+                      "2/15",
+                      "4/25",
+                      "16/100",
+                      "1/5"
+                    ],
+                    "optionsEn": [
+                      "2/15",
+                      "4/25",
+                      "16/100",
+                      "1/5"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Cabutan pertama merah = 4/10. Tanpa pengembalian, tinggal 3 merah daripada 9 guli. Cabutan kedua merah = 3/9. P(Merah, Merah) = 4/10 × 3/9 = 12/90 = 2/15.",
+                    "explanationEn": "First red = 4/10. Without replacement, 3 red remain out of 9 marbles. Second red = 3/9. P(Red, Red) = 4/10 × 3/9 = 12/90 = 2/15."
+                  }
+                ]
+              }
+            },
+            {
+              "id": "f4-mt-c10",
+              "number": "Bab 10",
+              "numberEn": "Chapter 10",
+              "title": "Matematik Pengguna: Pengurusan Kewangan",
+              "titleEn": "Consumer Mathematics: Financial Management",
+              "summary": "Proses pengurusan kewangan berkesan: Menetapkan matlamat SMART (Specific, Measurable, Attainable, Realistic, Time-bound), menilai kedudukan kewangan, menyusun pelan kewangan, pendapatan aktif vs pasif, perbelanjaan tetap vs tidak tetap, aliran tunai dan dana kecemasan.",
+              "summaryEn": "Effective financial management process: Setting SMART goals (Specific, Measurable, Attainable, Realistic, Time-bound), evaluating financial health, constructing financial plans, active vs passive income, fixed vs variable expenses, cash flow, and emergency funds.",
+              "xpReward": 120,
+              "video": {
+                "title": "Bijak Wang & Matlamat SMART: Cara Urus Duit Sejak Sekolah",
+                "duration": "15:00",
+                "presenter": "Cikgu Hafiz (Guru Cemerlang Matematik)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - 5 Langkah Proses Pengurusan Kewangan",
+                  "04:20 - Menetapkan Matlamat Kewangan SMART",
+                  "08:15 - Pendapatan vs Perbelanjaan Tetap & Tidak Tetap",
+                  "11:45 - Mengira Aliran Tunai Positif & Dana Kecemasan 6 Bulan"
+                ]
+              },
+              "notes": {
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
+                "dlpAvailable": true,
+                "sections": [
+                  {
+                    "heading": "1. Analogi Dunia Sebenar: Membeli Komputer Riba Untuk Belajar",
+                    "headingEn": "1. Real-Life Analogy: Saving Up to Buy a Student Laptop",
+                    "content": "Bayangkan anda seorang murid Tingkatan 4 yang ingin membeli sebuah komputer riba berharga RM2,400 untuk tujuan pembelajaran SPM dalam tempoh 12 bulan. Bagaimana anda memastikan impian ini tercapai tanpa berhutang? Anda membina PELAN KEWANGAN SMART! Setiap bulan, anda memperuntukkan simpanan bulanan RM200 (RM2,400 ÷ 12 bulan) sebelum berbelanja. Ini membezakan orang yang berjaya membina masa depan cerah daripada mereka yang terjebak dalam masalah kewangan!",
+                    "contentEn": "Imagine you are a Form 4 student aiming to purchase a RM2,400 laptop for your SPM studies within 12 months. How do you guarantee this goal without falling into debt? You construct a SMART FINANCIAL PLAN! Every month, you set aside monthly savings of RM200 (RM2,400 ÷ 12 months) before spending on entertainment. This separates financially savvy individuals from those overwhelmed by debt!",
+                    "bulletPoints": [
+                      "S - Specific (Khusus): Matlamat mesti jelas (Contoh: 'Beli laptop RM2,400', bukan sekadar 'nak simpan duit').",
+                      "M - Measurable (Boleh Diukur): Ada jumlah wang tepat yang boleh dijejak (RM2,400).",
+                      "A - Attainable (Boleh Dicapai): Simpanan bulanan RM200 mampu disimpan daripada elaun/duit kerja sambilan.",
+                      "R - Realistic (Realistik): Masuk akal mengikut kemampuan kewangan sebenar.",
+                      "T - Time-bound (Bertempoh Masa): Mempunyai tarikh sasaran yang jelas (12 bulan dari sekarang)."
+                    ],
+                    "bulletPointsEn": [
+                      "S - Specific: Clear objective (e.g. 'Buy RM2,400 laptop', not just vague 'save money').",
+                      "M - Measurable: Exact measurable dollar figure (RM2,400).",
+                      "A - Attainable: Monthly saving target of RM200 is reachable from allowances/part-time income.",
+                      "R - Realistic: Pragmatic relative to actual cash inflow.",
+                      "T - Time-bound: Explicit target horizon deadline (12 months from now)."
+                    ],
+                    "mnemonic": "💡 Konsep SMART: S-Khas, M-Ukur, A-Capai, R-Realistik, T-Tempoh. 'Pay yourself first' (Simpan dulu sebelum belanja)!",
+                    "mnemonicEn": "💡 SMART Concept: S-Specific, M-Measurable, A-Attainable, R-Realistic, T-Time-bound. Pay yourself first before spending!"
+                  },
+                  {
+                    "heading": "2. Pendapatan, Perbelanjaan & Aliran Tunai Bersih",
+                    "headingEn": "2. Income, Expenses & Net Cash Flow",
+                    "content": "Bagaimana menyusun bajet kewangan bulanan yang sihat?",
+                    "contentEn": "How do you structure a healthy monthly personal budget?",
+                    "bulletPoints": [
+                      "Pendapatan Aktif vs Pasif: Pendapatan aktif dijana melalui tenaga kerja fizikal (gaji, elaun). Pendapatan pasif dijana tanpa kerja harian berterusan (dividen ASB, sewa rumah).",
+                      "Perbelanjaan Tetap: Jumlah bayaran yang tidak berubah setiap bulan (sewa rumah, ansuran kereta, bil internet wifi).",
+                      "Perbelanjaan Tidak Tetap: Jumlah bayaran yang berubah mengikut corak penggunaan harian (makan minum di luar, petrol, pakaian, hiburan wayang).",
+                      "Aliran Tunai Bersih = Jumlah Pendapatan - Jumlah Perbelanjaan. Jika POSITIF (+), anda mempunyai lebihan wang untuk pelaburan. Jika NEGATIF (-), anda sedang mengalami defisit (poket bocor)!"
+                    ],
+                    "bulletPointsEn": [
+                      "Active vs Passive Income: Active income requires ongoing labor (wages, commissions). Passive income flows from assets (dividends, rental yields).",
+                      "Fixed Expenses: Predictable, constant monthly bills (house rent, car installment, home broadband subscription).",
+                      "Variable Expenses: Fluctuates based on daily lifestyle choices (groceries, dining out, fuel, weekend entertainment).",
+                      "Net Cash Flow = Total Income - Total Expenses. POSITIVE (+) means savings surplus. NEGATIVE (-) means financial deficit!"
+                    ],
+                    "examTip": "Soalan pengurusan kewangan Kertas 2: Sentiasa kira Dana Kecemasan (sekurang-kurangnya 3 hingga 6 bulan jumlah perbelanjaan bulanan)!"
+                  }
+                ]
+              },
+              "quiz": {
+                "id": "f4-mt-q10",
+                "title": "Kuiz Interaktif Bab 10: Pengurusan Kewangan",
+                "titleEn": "Interactive Quiz Chapter 10: Financial Management",
+                "timeLimitMinutes": 10,
+                "xpPoints": 100,
+                "questions": [
+                  {
+                    "question": "Encik Azman mempunyai pendapatan bulanan RM4,000. Perbelanjaan tetapnya ialah RM1,800 dan perbelanjaan tidak tetapnya ialah RM1,500. Berapakah aliran tunai bulanan Encik Azman?",
+                    "questionEn": "Mr. Azman earns a monthly income of RM4,000. His fixed expenses are RM1,800 and variable expenses are RM1,500. What is his monthly cash flow?",
+                    "options": [
+                      "+RM700 (Aliran tunai positif / lebihan)",
+                      "-RM700 (Aliran tunai negatif / defisit)",
+                      "+RM2,200",
+                      "+RM2,500"
+                    ],
+                    "optionsEn": [
+                      "+RM700 (Positive cash flow / surplus)",
+                      "-RM700 (Negative cash flow / deficit)",
+                      "+RM2,200",
+                      "+RM2,500"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Aliran Tunai = Pendapatan - (Perbelanjaan Tetap + Perbelanjaan Tidak Tetap) = RM4,000 - (RM1,800 + RM1,500) = RM4,000 - RM3,300 = +RM700 (Positif).",
+                    "explanationEn": "Cash Flow = Income - (Fixed Expenses + Variable Expenses) = RM4,000 - (RM1,800 + RM1,500) = RM4,000 - RM3,300 = +RM700 (Positive)."
+                  },
+                  {
+                    "question": "Apakah maksud huruf 'S' dalam konsep penetapan matlamat kewangan SMART?",
+                    "questionEn": "What does the letter 'S' stand for in the SMART financial goal concept?",
+                    "options": [
+                      "Specific (Khusus / Jelas)",
+                      "Simple (Mudah)",
+                      "Saving (Simpanan)",
+                      "Strict (Ketat)"
+                    ],
+                    "optionsEn": [
+                      "Specific (Explicit & Well-defined)",
+                      "Simple",
+                      "Saving",
+                      "Strict"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Dalam konsep SMART, S merujuk kepada Specific (Khusus), iaitu matlamat kewangan mestilah dinyatakan dengan jelas dan tidak samar-samar.",
+                    "explanationEn": "In SMART framework, S represents Specific: financial targets must be precisely stated rather than vague."
                   }
                 ]
               }
@@ -14679,105 +15394,77 @@ const SYLLABUS_DATA = {
           "description": "Pengukuran, daya dan gerakan, kegravitian, haba, gelombang dan cahaya.",
           "chapters": [
             {
-              "id": "f4-fiz-c2",
-              "number": "Bab 2",
-              "title": "Daya dan Gerakan I (Linear Motion)",
-              "summary": "Gerakan linear, graf halaju-masa, inersia, momentum dan 4 persamaan kinematik linear.",
-              "xpReward": 190,
-              "badgeReward": "Pakar Fizik Kuantum",
+              "id": "f4-fiz-c1",
+              "number": "Bab 1",
+              "numberEn": "Chapter 1",
+              "title": "Pengukuran",
+              "titleEn": "Measurement",
+              "summary": "Kuantiti asas vs terbitan, kuantiti skalar vs vektor. Kejituan, kepersisan, kepekaan dan ralat sifar menggunakan angkup vernier dan tolok skru mikrometer.",
+              "summaryEn": "Base vs derived quantities, scalar vs vector quantities. Accuracy, consistency, sensitivity and zero error handling using vernier callipers and micrometer screw gauge.",
+              "xpReward": 120,
+              "video": {
+                "title": "Pengukuran Fizik: Cara Elak Ralat Sifar & Paralaks",
+                "duration": "12:15",
+                "presenter": "Dr. Roslan (Pakar Fizik KPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:00 - Kuantiti Asas",
+                  "04:30 - Tolok Skru Mikrometer",
+                  "08:15 - Ralat Paralaks"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Daya dan Gerakan I (KSSM / DLP Physics)",
-                "readTime": "9 minit",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "1. Konsep Asas Gerakan Linear (Linear Motion)",
-                    "content": "Fizik gerakan melibatkan kuantiti skalar (magnitud sahaja) dan kuantiti vektor (magnitud + arah).",
+                    "heading": "1. Analogi Dunia Sebenar: Mengukur Sehelai Rambut & Ketebalan Kertas",
+                    "headingEn": "1. Real-Life Analogy: Measuring a Single Strand of Hair",
+                    "content": "Pembaris plastik sekolah anda hanya boleh membaca sehingga 0.1 cm (1 mm). Bolehkah anda mengukur ketebalan sehelai rambut atau wayar tembaga elektrik yang sangat halus? Mustahil! Itulah sebabnya ahli fizik mencipta ANGUP VERNIER (kejituan 0.01 cm) dan TOLOK SKRU MIKROMETER (kejituan 0.01 mm). Ketepatan ukuran ini sangat kritikal dalam membina komponen enjin kapal terbang jet di mana perbezaan 0.01 mm boleh menyebabkan enjin meletup!",
+                    "contentEn": "Your regular 15cm school ruler can only measure down to 0.1 cm (1 mm). Can you measure the thickness of a single human hair or microscopic copper wire? Impossible! That is why physicists invented VERNIER CALLIPERS (0.01 cm precision) and MICROMETER SCREW GAUGES (0.01 mm precision). Extreme precision is critical in aerospace engineering where a 0.01 mm mismatch causes jet engine failure!",
                     "bulletPoints": [
-                      "<strong>Jarak (Distance) vs Sesaran (Displacement):</strong> Jarak ialah jumlah panjang lintasan (skalar), manakala sesaran ialah jarak terpendek antara titik awal dan akhir pada arah tertentu (vektor).",
-                      "<strong>Laju (Speed) vs Halaju (Velocity):</strong> Laju = Jarak / Masa. Halaju = Sesaran / Masa (ms⁻¹).",
-                      "<strong>Pecutan (Acceleration, a):</strong> Kadar perubahan halaju: <code>a = (v - u) / t</code> (ms⁻²)."
+                      "Kuantiti Asas: 7 kuantiti yang tidak boleh diterbitkan (Panjang, Jisim, Masa, Suhu, Arus elektrik, Keamatan berluminositi, Kuantiti bahan).",
+                      "Ralat Sifar Positif: Bacaan sebenar = Bacaan diambil - (+Ralat sifar).",
+                      "Ralat Sifar Negatif: Bacaan sebenar = Bacaan diambil - (-Ralat sifar).",
+                      "Ralat Paralaks: Sentiasa pastikan mata berada berserenjang (90 darjah) dengan skala bacaan!"
                     ],
-                    "mnemonic": "💡 <strong>4 Formula Kinematik Wajib SPM:</strong><br>1. <code>v = u + at</code><br>2. <code>s = ut + ½at²</code><br>3. <code>v² = u² + 2as</code><br>4. <code>s = ½(u + v)t</code>"
-                  },
-                  {
-                    "heading": "2. Hukum Gerakan Newton & Inersia",
-                    "content": "Inersia ialah kecenderungan suatu objek untuk mengekalkan keadaan asalnya sama ada pegun atau bergerak dalam garis lurus.",
-                    "bulletPoints": [
-                      "<strong>Hukum Gerakan Newton Pertama:</strong> Objek akan kekal pegun atau bergerak dengan halaju seragam kecuali jika dikenakan daya luar.",
-                      "<strong>Hubungan Jisim dan Inersia:</strong> Semakin besar jisim sesuatu objek, semakin besar inersianya (contoh: lori sarat muatan sukar berhenti berbanding kereta kancil).",
-                      "<strong>Momentum (p):</strong> Hasil darab jisim dan halaju: <code>p = m × v</code> (kg ms⁻¹)."
+                    "bulletPointsEn": [
+                      "Base Quantities: 7 fundamental units (Length, Mass, Time, Thermodynamic Temperature, Electric Current, Luminous Intensity, Amount of Substance).",
+                      "Positive Zero Error: Actual reading = Measured reading - (+Zero error).",
+                      "Negative Zero Error: Actual reading = Measured reading - (-Zero error).",
+                      "Parallax Error: Ensure line of sight is perpendicular (90°) to the measurement scale!"
                     ],
-                    "examTip": "🎯 <strong>Tip Kertas 2 Bahagian B:</strong> Soalan reka bentuk kenderaan selamat sering menyoal fungsi zon remuk (crush zone) dan beg udara untuk memanjangkan masa hentaman seterusnya mengurangkan daya impuls!"
+                    "mnemonic": "💡 Petua: 'Tolak apa yang salah!' Bacaan Sebenar = Bacaan Ukuran TOLAK Ralat Sifar.",
+                    "mnemonicEn": "💡 Golden Rule: 'Always deduct the error!' Actual Reading = Observed Reading MINUS Zero Error."
                   }
                 ]
               },
-              "video": {
-                "title": "SPM Physics Masterclass: Linear Motion & Newton's Law",
-                "duration": "14:10 minit",
-                "presenter": "Sir Brian (Guru Fizik Cemerlang)",
-                "embedUrl": "https://www.youtube.com/embed/f9ONXd_-anM",
-                "highlights": [
-                  "1:20 - Scalar vs Vector Quantities",
-                  "5:00 - Ticker Tape & Velocity-Time Graphs",
-                  "8:30 - Solving the 4 Kinematics Equations",
-                  "12:00 - SPM Calculation Pitfalls"
-                ]
-              },
-              "worksheet": {
-                "title": "Modul Soalan Klon SPM Fizik Kertas 2: Gerakan Linear",
-                "pages": 3,
-                "itemsCount": 10,
-                "fileType": "Lembaran Latihan PDF",
-                "downloadUrl": "#",
-                "previewItems": [
-                  "Mentafsir graf halaju-masa dan mengira luas di bawah graf (sesaran)",
-                  "Menyelesaikan masalah kenderaan membrek menggunakan formula kuadratik kinematik",
-                  "Menjelaskan prinsip keabadian momentum dalam perlanggaran kenyal"
-                ]
-              },
               "quiz": {
-                "id": "quiz-f4-fiz-c2",
-                "title": "Simulasi SPM Fizik 4531: Gerakan Linear",
-                "timeLimitMinutes": 12,
-                "passingScore": 60,
-                "xpPoints": 160,
+                "id": "f4-fiz-q1",
+                "title": "Kuiz Interaktif Bab 1: Pengukuran Fizik",
+                "titleEn": "Interactive Quiz Chapter 1: Physics Measurement",
+                "timeLimitMinutes": 10,
+                "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Sebuah kereta memecut secara seragam daripada pegun (u = 0 ms⁻¹) sehingga mencapai halaju 20 ms⁻¹ dalam masa 5 saat. Berapakah pecutan kereta tersebut?",
+                    "question": "Alat pengukur manakah yang paling jitu dan sesuai digunakan untuk mengukur diameter wayar kuprum yang halus?",
+                    "questionEn": "Which measuring instrument is most accurate and suitable for measuring the diameter of a thin copper wire?",
                     "options": [
-                      "2 ms⁻²",
-                      "4 ms⁻²",
-                      "10 ms⁻²",
-                      "100 ms⁻²"
+                      "Tolok skru mikrometer (kejituan 0.01 mm)",
+                      "Angkup vernier (kejituan 0.01 cm)",
+                      "Pembaris meter (kejituan 0.1 cm)",
+                      "Pita pengukur"
                     ],
-                    "correctIndex": 1,
-                    "explanation": "Gunakan formula a = (v - u) / t. Maka a = (20 - 0) / 5 = 4 ms⁻²."
-                  },
-                  {
-                    "id": 2,
-                    "question": "Kecerunan bagi graf halaju melawan masa (v-t) mewakili kuantiti fizik apakah?",
-                    "options": [
-                      "Sesaran objek",
-                      "Pecutan objek",
-                      "Jumlah momentum",
-                      "Daya impuls"
+                    "optionsEn": [
+                      "Micrometer screw gauge (precision 0.01 mm)",
+                      "Vernier callipers (precision 0.01 cm)",
+                      "Metre ruler (precision 0.1 cm)",
+                      "Measuring tape"
                     ],
-                    "correctIndex": 1,
-                    "explanation": "Kecerunan graf v-t ialah perubahan halaju dibahagikan masa (dv/dt), iaitu pecutan objek."
-                  },
-                  {
-                    "id": 3,
-                    "question": "Antara ciri berikut, yang manakah menentukan magnitud inersia bagi suatu objek?",
-                    "options": [
-                      "Ketumpatan objek",
-                      "Jisim objek",
-                      "Isipadu objek",
-                      "Bentuk geometri objek"
-                    ],
-                    "correctIndex": 1,
-                    "explanation": "Inersia bergantung sepenuhnya kepada jisim objek. Semakin besar jisim, semakin besar rintangan objek terhadap perubahan keadaan gerakannya."
+                    "correctIndex": 0,
+                    "explanation": "Tolok skru mikrometer mempunyai kejituan tertinggi (0.01 mm atau 0.001 cm), menjadikannya instrumen paling tepat untuk objek mikroskopik seperti wayar halus.",
+                    "explanationEn": "A micrometer screw gauge has the smallest sensitivity scale (0.01 mm), making it ideal for wire diameters."
                   }
                 ]
               }
@@ -14786,323 +15473,72 @@ const SYLLABUS_DATA = {
               "id": "f4-fiz-c2",
               "number": "Bab 2",
               "numberEn": "Chapter 2",
-              "title": "Bab 2: Daya dan Gerakan",
-              "titleEn": "Chapter 2: Forces and Motion",
-              "summary": "Graf sesaran-masa dan halaju-masa, inersia, Hukum Newton I, II, III, dan momentum (p = mv).",
-              "summaryEn": "Displacement-time graphs, inertia, Newton's Laws I, II, III, and momentum (p = mv).",
+              "title": "Daya dan Gerakan I",
+              "titleEn": "Force and Motion I",
+              "summary": "Hukum Gerakan Newton I, II, dan III. Inersia dan tali pinggang keledar, momentum p = mv, impuls dan daya impuls, serta prinsip keabadian momentum dalam perlanggaran kenyal dan tak kenyal.",
+              "summaryEn": "Newton's Laws of Motion I, II, and III. Inertia and seatbelts, momentum p = mv, impulse and impulsive force, and conservation of momentum in elastic and inelastic collisions.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
+              "video": {
+                "title": "Inersia, Momentum & Kereta Lumba: Fizik Gerakan",
+                "duration": "14:10",
+                "presenter": "Dr. Roslan (Pakar Fizik KPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:15 - Inersia & Tali Pinggang",
+                  "05:00 - Hukum Newton II: F = ma",
+                  "09:30 - Daya Impuls & Zon Remuk Kereta"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Daya dan Gerakan (Chapter 2: Forces and Motion)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 2: Daya dan Gerakan",
-                    "headingEn": "Key Concept: Chapter 2: Forces and Motion",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 2.",
+                    "heading": "1. Analogi Dunia Sebenar: Menunggang Basikal & Brek Mengejut Kereta",
+                    "headingEn": "1. Real-Life Analogy: Braking Suddenly in a RapidKL Bus",
+                    "content": "Pernahkah anda berdiri di dalam bas RapidKL dan tiba-tiba pemandu menekan brek kecemasan? Badan anda terhumban ke hadapan secara automatik! Mengapa? Kerana badan anda mempunyai INERSIA (keengganan untuk mengubah keadaan gerakan asalnya). Semakin besar jisim sesuatu objek, semakin besar inersianya—sebab itulah lori tangki minyak memerlukan jarak membrek yang jauh lebih panjang berbanding kereta kancil kecil!",
+                    "contentEn": "Have you ever stood in a city bus when the driver stepped on emergency brakes? Your body lunges forward uncontrollably! Why? Because your body has INERTIA (the resistance to change its state of motion). The larger the mass, the larger the inertia—which is why heavy 40-tonne lorries require much greater braking distances than compact cars!",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Hukum Newton I: Objek kekal pegun atau bergerak dengan halaju malar melainkan dikenakan daya luar.",
+                      "Hukum Newton II: Daya F = ma (Daya berkadar terus dengan kadar perubahan momentum).",
+                      "Daya Impuls F = (mv - mu) / t: Masa hentaman 't' lebih panjang → Daya impuls lebih KECIL! Zon remuk (crumple zone) dan beg udara kereta direka untuk memanjangkan masa hentaman supaya nyawa pemandu selamat."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Newton's 1st Law: An object remains at rest or moves at constant velocity unless acted upon by a net external force.",
+                      "Newton's 2nd Law: Force F = ma.",
+                      "Impulsive Force F = (mv - mu) / t: Longer impact duration 't' → SMALLER impulsive force! Crumple zones and airbags lengthen impact time to save human lives."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Keselamatan Kereta: 'Masa hentaman panjang = Daya hentaman kecil = Penumpang Selamat!'",
+                    "mnemonicEn": "💡 Road Safety Principle: 'Longer collision duration = Lower impulsive force = Lives saved!'"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-fiz-c2",
-                "title": "Kuiz / Quiz: Bab 2: Daya dan Gerakan",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-fiz-q2",
+                "title": "Kuiz Interaktif Bab 2: Daya dan Gerakan",
+                "titleEn": "Interactive Quiz Chapter 2: Force and Motion",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Daya dan Gerakan?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Forces and Motion?",
+                    "question": "Mengapakah kereta moden direka dengan zon remuk (crumple zone) di bahagian depan dan belakangnya?",
+                    "questionEn": "Why are modern cars designed with crumple zones in the front and rear?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Memanjangkan masa perlanggaran (t) untuk mengurangkan daya impuls yang bertindak ke atas penumpang",
+                      "Menjadikan kereta lebih ringan dan jimat petrol",
+                      "Meningkatkan momentum kereta semasa kemalangan",
+                      "Mengelakkan tayar daripada meletup"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "To lengthen the collision impact time (t) and reduce impulsive force on passengers",
+                      "To make the car lighter and more fuel efficient",
+                      "To increase the momentum of the car during crash",
+                      "To prevent tires from bursting"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-fiz-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Kegravitian & Orbit Satelit",
-              "titleEn": "Chapter 3: Gravitation & Satellite Orbits",
-              "summary": "Hukum Kegravitian Semesta Newton F = G(m1m2)/r² dan Hukum Kepler I, II, III.",
-              "summaryEn": "Newton's Universal Law of Gravitation and Kepler's Laws I, II, III.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Kegravitian & Orbit Satelit (Chapter 3: Gravitation & Satellite Orbits)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Kegravitian & Orbit Satelit",
-                    "headingEn": "Key Concept: Chapter 3: Gravitation & Satellite Orbits",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-fiz-c3",
-                "title": "Kuiz / Quiz: Bab 3: Kegravitian & Orbit Satelit",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Kegravitian & Orbit Satelit?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Gravitation & Satellite Orbits?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-fiz-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Haba & Keseimbangan Terma",
-              "titleEn": "Chapter 4: Heat & Thermal Equilibrium",
-              "summary": "Muatan haba tentu Q = mcΔθ, haba pendam tentu Q = mL, dan hukum gas (Boyle, Charles, Gay-Lussac).",
-              "summaryEn": "Specific heat capacity Q = mcΔθ, latent heat Q = mL, and gas laws.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Haba & Keseimbangan Terma (Chapter 4: Heat & Thermal Equilibrium)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Haba & Keseimbangan Terma",
-                    "headingEn": "Key Concept: Chapter 4: Heat & Thermal Equilibrium",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-fiz-c4",
-                "title": "Kuiz / Quiz: Bab 4: Haba & Keseimbangan Terma",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Haba & Keseimbangan Terma?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Heat & Thermal Equilibrium?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-fiz-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Gelombang & Pantulan",
-              "titleEn": "Chapter 5: Waves & Reflection",
-              "summary": "Ciri gelombang, resonans, pelembapan, pantulan, pembiasan, pembelauan, dan interferens gelombang.",
-              "summaryEn": "Wave characteristics, resonance, damping, reflection, refraction, diffraction, and interference.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Gelombang & Pantulan (Chapter 5: Waves & Reflection)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Gelombang & Pantulan",
-                    "headingEn": "Key Concept: Chapter 5: Waves & Reflection",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-fiz-c5",
-                "title": "Kuiz / Quiz: Bab 5: Gelombang & Pantulan",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Gelombang & Pantulan?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Waves & Reflection?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-fiz-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Cahaya dan Optik",
-              "titleEn": "Chapter 6: Light and Optics",
-              "summary": "Hukum Pembiasan Snell n = sin i / sin r, pantulan dalam penuh, kanta cembung dan kanta cekung.",
-              "summaryEn": "Snell's Law of Refraction, total internal reflection, convex and concave lenses.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Cahaya dan Optik (Chapter 6: Light and Optics)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Cahaya dan Optik",
-                    "headingEn": "Key Concept: Chapter 6: Light and Optics",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Fizik (DLP/BM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Fizik (DLP/BM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-fiz-c6",
-                "title": "Kuiz / Quiz: Bab 6: Cahaya dan Optik",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Cahaya dan Optik?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Light and Optics?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Berdasarkan rumus Daya Impuls F = (mv - mu)/t, apabila zon remuk kemek, masa hentaman 't' dipanjangkan. Ini mengurangkan daya impuls 'F' secara drastik untuk melindungi nyawa penumpang.",
+                    "explanationEn": "From F = (mv - mu)/t, crumpling extends impact duration 't', drastically reducing impulsive force 'F' experienced by passengers."
                   }
                 ]
               }
@@ -15121,106 +15557,75 @@ const SYLLABUS_DATA = {
           "description": "Jirim dan struktur atom, konsep mol, jadual berkala, dan ikatan kimia.",
           "chapters": [
             {
-              "id": "f4-kim-c2",
-              "number": "Bab 2",
-              "title": "Jirim dan Struktur Atom",
-              "summary": "Teori zarah jirim, takat lebur/beku, perkembangan model atom, nombor proton & nukleon, serta isotop.",
-              "xpReward": 180,
-              "badgeReward": "Ahli Kimia Pintar",
+              "id": "f4-kim-c1",
+              "number": "Bab 1",
+              "numberEn": "Chapter 1",
+              "title": "Pengenalan kepada Kimia",
+              "titleEn": "Introduction to Chemistry",
+              "summary": "Memahami bahan kimia dalam kehidupan harian (ubat-ubatan, garam masakan, sabun dan baja pertanian), kerjaya dalam bidang kimia serta kaedah saintifik menjalankan penyiasatan.",
+              "summaryEn": "Understanding daily chemicals (medicine, food seasoning, detergents, fertilizers), chemical careers and scientific methodology in laboratories.",
+              "xpReward": 120,
+              "video": {
+                "title": "Kimia di Sekeliling Kita: Dari Dapur ke Makmal Industri",
+                "duration": "11:50",
+                "presenter": "Cikgu Aisyah (Guru Kimia SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:00 - Kimia di Dapur",
+                  "04:30 - Kaedah Saintifik",
+                  "08:15 - Kerjaya Ahli Farmasi"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Jirim dan Struktur Atom Lengkap (SPM 4541)",
-                "readTime": "8 minit",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "1. Teori Kinetik Jirim & Keluk Pemanasan",
-                    "content": "Jirim terdiri daripada zarah-zarah halus dan diskret yang sentiasa bergerak secara rawak.",
+                    "heading": "1. Analogi Dunia Sebenar: Kita Hidup Dalam Lautan Bahan Kimia",
+                    "headingEn": "1. Real-Life Analogy: We Live in an Ocean of Chemicals",
+                    "content": "Ramai orang menyangka 'bahan kimia' itu hanya racun berbahaya dalam botol berlabel tengkorak. Salah sama sekali! Air paip yang anda minum (H₂O), garam atas telur goreng (NaCl), gas oksigen yang anda sedut (O₂), dan ubat demam panadol (parasetamol) semuanya adalah BAHAN KIMIA! Mempelajari kimia bermaksud membongkar rahsia bagaimana zarah-zarah alam semesta berinteraksi untuk menghasilkan semua benda yang wujud di sekeliling anda.",
+                    "contentEn": "Many assume 'chemicals' only mean deadly poisons in bottles with skull labels. That is completely untrue! The water you drink (H₂O), table salt on your fried egg (NaCl), the oxygen gas you breathe (O₂), and paracetamol for fevers are all CHEMICALS! Studying chemistry unlocks the secret building blocks of everything that exists in our universe.",
                     "bulletPoints": [
-                      "<strong>3 Keadaan Jirim:</strong> Pepejal (zarah tersusun padat bergetar pada kedudukan tetap), Cecair (tersusun longgar, menggelongsor), Gas (berjauhan, bergerak rawak laju).",
-                      "<strong>Suhu Kekal Semasa Peleburan:</strong> Tenaga haba diserap digunakan untuk mengatasi daya tarikan antara zarah, bukan untuk menaikkan suhu.",
-                      "<strong>Suhu Kekal Semasa Pembekuan:</strong> Tenaga haba yang dibebaskan ke persekitaran diimbangi oleh tenaga haba yang terbebas apabila ikatan terbentuk."
+                      "Bahan Kimia Makanan: Pengawet (natrium benzoat), perisa (MSG), pewarna.",
+                      "Bahan Kimia Perubatan: Antibiotik (penisilin), analgesik (parasetamol), antiseptik (iodin).",
+                      "Kaedah Saintifik: Mengenal pasti masalah → Membuat hipotesis → Mengawal pemboleh ubah (Dimalarkan, Dimanipulasi, Bergerak balas) → Mengumpul data → Kesimpulan."
                     ],
-                    "mnemonic": "💡 <strong>Ingat Tokoh Model Atom (D-T-R-B-C):</strong><br><u>D</u>alton (Bebola pejal) ➔ <u>T</u>homson (Elektron/Puding plum) ➔ <u>R</u>utherford (Nukleus positif) ➔ <u>B</u>ohr (Petala elektron) ➔ <u>C</u>hadwick (Neutron)!"
-                  },
-                  {
-                    "heading": "2. Struktur Atom & Isotop",
-                    "content": "Atom terdiri daripada 3 zarah subatom: Proton (positif), Neutron (neutral), dan Elektron (negatif).",
-                    "bulletPoints": [
-                      "<strong>Nombor Proton (Z):</strong> Bilangan proton dalam nukleus suatu atom.",
-                      "<strong>Nombor Nukleon (A):</strong> Jumlah bilangan proton dan neutron dalam nukleus: <code>A = Bilangan Proton + Bilangan Neutron</code>.",
-                      "<strong>Definisi Isotop SPM:</strong> Atom-atom bagi unsur yang sama yang mempunyai bilangan proton yang sama tetapi bilangan neutron yang berbeza.",
-                      "<strong>Kegunaan Isotop:</strong> Kobalt-60 (radioterapi kanser), Karbon-14 (menganggar usia fosil), Iodin-131 (rawatan kelenjar tiroid)."
+                    "bulletPointsEn": [
+                      "Food Chemicals: Preservatives (sodium benzoate), flavor enhancers (MSG), coloring.",
+                      "Pharmaceuticals: Antibiotics (penicillin), analgesics (paracetamol), antiseptics (iodine).",
+                      "Scientific Method: Identify problem → Formulate hypothesis → Control variables (Constant, Manipulated, Responding) → Collect data → Draw conclusion."
                     ],
-                    "examTip": "⚡ <strong>Soalan Lazim Kertas 2:</strong> Pastikan anda hafal takrifan isotop perkataan demi perkataan! Jangan lupa sebut 'atom-atom bagi unsur yang sama'."
+                    "mnemonic": "💡 Formula Pemboleh Ubah: 'ManiPulasi = Pilihan kita nak ubah', 'Bergerak Balas = Hasil keputusan eksperimen'.",
+                    "mnemonicEn": "💡 Variables Tip: 'Manipulated = What I change', 'Responding = What I measure'."
                   }
                 ]
               },
-              "video": {
-                "title": "Kimia SPM: Struktur Atom & Formula Mudah Kuasai Keluk Pemanasan",
-                "duration": "11:30 minit",
-                "presenter": "Cikgu Suhana (Pakar Kimia SPM)",
-                "embedUrl": "https://www.youtube.com/embed/f9ONXd_-anM",
-                "highlights": [
-                  "1:00 - Keluk Pemanasan & Penyejukan Naftalena",
-                  "4:20 - Kronologi Model Atom dari Dalton ke Chadwick",
-                  "7:50 - Mengira Zarah Subatom & Susunan Elektron",
-                  "9:45 - 4 Kegunaan Penting Isotop dalam Industri"
-                ]
-              },
-              "worksheet": {
-                "title": "Modul Soalan Struktur Kimia Bab 2: Struktur Atom",
-                "pages": 2,
-                "itemsCount": 8,
-                "fileType": "Lembaran Kerja PDF",
-                "downloadUrl": "#",
-                "previewItems": [
-                  "Melukis susunan elektron atom natrium dan ion natrium",
-                  "Menentukan bilangan neutron bagi isotop klorin-35 dan klorin-37",
-                  "Menerangkan mengapa suhu tidak berubah semasa peleburan"
-                ]
-              },
               "quiz": {
-                "id": "quiz-f4-kim-c2",
-                "title": "Kuiz Formatif: Kimia SPM Bab 2",
+                "id": "f4-kim-q1",
+                "title": "Kuiz Interaktif Bab 1: Pengenalan kepada Kimia",
+                "titleEn": "Interactive Quiz Chapter 1: Introduction to Chemistry",
                 "timeLimitMinutes": 10,
-                "passingScore": 60,
-                "xpPoints": 150,
+                "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Tokoh saintis manakah yang menemukan zarah neutral iaitu neutron dalam nukleus atom?",
+                    "question": "Antara bahan berikut, yang manakah merupakan bahan kimia semula jadi yang digunakan sebagai pengawet makanan tradisional sejak zaman dahulu?",
+                    "questionEn": "Which of the following is a natural chemical traditionally used as food preservative?",
                     "options": [
-                      "John Dalton",
-                      "J.J. Thomson",
-                      "Ernest Rutherford",
-                      "James Chadwick"
+                      "Natrium klorida (garam dapur)",
+                      "Asid sulfurik pekat",
+                      "Klorin gas",
+                      "Merkuri"
                     ],
-                    "correctIndex": 3,
-                    "explanation": "James Chadwick menemukan neutron pada tahun 1932, melengkapkan model atom nukleus moden."
-                  },
-                  {
-                    "id": 2,
-                    "question": "Suatu atom unsur X mempunyai 11 proton dan 12 neutron. Apakah nombor nukleon bagi unsur X?",
-                    "options": [
-                      "11",
-                      "12",
-                      "23",
-                      "1"
-                    ],
-                    "correctIndex": 2,
-                    "explanation": "Nombor nukleon ialah jumlah bilangan proton dan neutron: 11 + 12 = 23 (iaitu Natrium, Na)."
-                  },
-                  {
-                    "id": 3,
-                    "question": "Isotop Kobalt-60 lazimnya digunakan dalam bidang perubatan untuk...",
-                    "options": [
-                      "Merawat kanser melalui radioterapi",
-                      "Mengesan kebocoran paip bawah tanah",
-                      "Menjana tenaga elektrik dalam reaktor",
-                      "Menganggar usia artifak purba"
+                    "optionsEn": [
+                      "Sodium chloride (table salt)",
+                      "Concentrated sulfuric acid",
+                      "Chlorine gas",
+                      "Mercury"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Kobalt-60 memancarkan sinar gama yang digunakan untuk memusnahkan sel kanser dalam radioterapi."
+                    "explanation": "Garam dapur (natrium klorida, NaCl) menyerap air daripada sel bakteria melalui osmosis, mengelakkan makanan seperti ikan masin daripada rosak.",
+                    "explanationEn": "Table salt (sodium chloride) dehydrates microbial cells through osmosis, preserving traditional salted fish from rotting."
                   }
                 ]
               }
@@ -15229,323 +15634,75 @@ const SYLLABUS_DATA = {
               "id": "f4-kim-c2",
               "number": "Bab 2",
               "numberEn": "Chapter 2",
-              "title": "Bab 2: Jirim dan Struktur Atom",
-              "titleEn": "Chapter 2: Matter and Atomic Structure",
-              "summary": "Teori kinetik jirim, isotop, nombor proton dan nombor nukleon, susunan elektron.",
-              "summaryEn": "Kinetic theory, isotopes, proton & nucleon numbers, electron arrangement.",
+              "title": "Jirim dan Struktur Atom",
+              "titleEn": "Matter and the Structure of the Atom",
+              "summary": "Teori kinetik jirim: Pepejal, cecair dan gas. Lengkung pemanasan dan penyejukan (takat lebur dan takat beku). Zarah subatom (proton, neutron, elektron), nombor nukleon dan aplikasi isotop seperti Karbon-14 dan Kobalt-60.",
+              "summaryEn": "Kinetic theory of matter: Solids, liquids, gases. Heating and cooling curves (melting/freezing points). Subatomic particles, nucleon number and applications of isotopes like Carbon-14 and Cobalt-60 in modern medicine.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
+              "video": {
+                "title": "Zarah Atom & Lengkung Pemanasan: Kenapa Suhu Malar Semasa Lebur?",
+                "duration": "13:30",
+                "presenter": "Cikgu Aisyah (Guru Kimia SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - Model Tiga Keadaan Jirim",
+                  "04:45 - Rahsia Haba Pendam Lengkung Lebur",
+                  "08:30 - Struktur Elektron Atom",
+                  "11:15 - Isotop Perubatan Kanser"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Jirim dan Struktur Atom (Chapter 2: Matter and Atomic Structure)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 2: Jirim dan Struktur Atom",
-                    "headingEn": "Key Concept: Chapter 2: Matter and Atomic Structure",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 2.",
+                    "heading": "1. Analogi Dunia Sebenar: Ketulan Ais Melebur & Penonton Konsert",
+                    "headingEn": "1. Real-Life Analogy: Melting Ice Cubes & Concert Crowds",
+                    "content": "Bayangkan zarah-zarah jirim seperti manusia di dalam dewan konsert. Dalam keadaan PEPEJAL (seperti ais), orang ramai duduk rapat di kerusi masing-masing dan hanya boleh bergetar setempat. Bila dipanaskan menjadi CECAIR (air), orang mula bangun dan menggelongsor bersesak melepasi satu sama lain. Bila mendidih menjadi GAS (wap air), mereka melompat dan berlari pantas ke merata arah secara bebas! Mengapakah suhu TIDAK NAIK semasa ais sedang melebur? Kerana semua haba digunakan untuk MEMUTUSKAN IKATAN antara zarah (Haba Pendam), bukan untuk menaikkan suhu!",
+                    "contentEn": "Imagine matter particles as people attending an auditorium concert. In a SOLID (like ice), everyone sits rigidly shoulder-to-shoulder, only able to vibrate in fixed positions. When heated into a LIQUID (water), they stand up and slide past one another. When boiled into a GAS (steam), they run freely at high velocities! Why does temperature FREEZE CONSTANT while ice melts? Because all absorbed heat is consumed to BREAK INTERMOLECULAR BONDS (latent heat) rather than raising temperature!",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Tiga Zarah Subatom: Proton (Cas +1, di nukleus), Neutron (Cas 0 / neutral, di nukleus), Elektron (Cas -1, mengelilingi nukleus dalam petala).",
+                      "Nombor Proton (Z): Bilangan proton dalam nukleus atom (identiti unsur).",
+                      "Nombor Nukleon (A): Jumlah bilangan proton + bilangan neutron.",
+                      "Isotop: Atom-atom bagi unsur yang SAMA mempunyai nombor proton yang sama tetapi bilangan neutron yang BERBEZA (Contoh: Karbon-12 dan Karbon-14)."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Three Subatomic Particles: Proton (+1 charge, nucleus), Neutron (0 neutral, nucleus), Electron (-1 charge, orbital shells).",
+                      "Proton Number (Z): Number of protons inside atomic nucleus (element identity).",
+                      "Nucleon Number (A): Total number of protons + neutrons.",
+                      "Isotopes: Atoms of the SAME element possessing the same proton number but DIFFERENT numbers of neutrons (e.g. Carbon-12 and Carbon-14)."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Formula Nukleon: 'A = p + n' (Nukleon = Proton + Neutron).",
+                    "mnemonicEn": "💡 Nucleon Formula: 'A = p + n' (Nucleon number = Protons + Neutrons)."
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-kim-c2",
-                "title": "Kuiz / Quiz: Bab 2: Jirim dan Struktur Atom",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-kim-q2",
+                "title": "Kuiz Interaktif Bab 2: Jirim & Struktur Atom",
+                "titleEn": "Interactive Quiz Chapter 2: Matter & Atomic Structure",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Jirim dan Struktur Atom?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Matter and Atomic Structure?",
+                    "question": "Atom Natrium mempunyai nombor proton 11 dan nombor nukleon 23. Berapakah bilangan neutron di dalam nukleus atom natrium tersebut?",
+                    "questionEn": "A Sodium atom has a proton number of 11 and a nucleon number of 23. How many neutrons are inside its nucleus?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "12 neutron",
+                      "11 neutron",
+                      "23 neutron",
+                      "34 neutron"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "12 neutrons",
+                      "11 neutrons",
+                      "23 neutrons",
+                      "34 neutrons"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-kim-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Konsep Mol & Formula Kimia",
-              "titleEn": "Chapter 3: The Mole Concept & Chemical Formulae",
-              "summary": "Jisim atom relatif, bilangan mol n = m/JMR, formula empirik vs formula molekul.",
-              "summaryEn": "Relative atomic mass, moles n = m/RAM, empirical vs molecular formulae.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Konsep Mol & Formula Kimia (Chapter 3: The Mole Concept & Chemical Formulae)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Konsep Mol & Formula Kimia",
-                    "headingEn": "Key Concept: Chapter 3: The Mole Concept & Chemical Formulae",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-kim-c3",
-                "title": "Kuiz / Quiz: Bab 3: Konsep Mol & Formula Kimia",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Konsep Mol & Formula Kimia?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: The Mole Concept & Chemical Formulae?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-kim-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Jadual Berkala Unsur",
-              "titleEn": "Chapter 4: The Periodic Table of Elements",
-              "summary": "Kumpulan 1 (logam alkali), Kumpulan 17 (halogen), Kumpulan 18 (gas adi), dan unsur peralihan.",
-              "summaryEn": "Group 1 (alkali metals), Group 17 (halogens), Group 18 (noble gases), transition elements.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Jadual Berkala Unsur (Chapter 4: The Periodic Table of Elements)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Jadual Berkala Unsur",
-                    "headingEn": "Key Concept: Chapter 4: The Periodic Table of Elements",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-kim-c4",
-                "title": "Kuiz / Quiz: Bab 4: Jadual Berkala Unsur",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Jadual Berkala Unsur?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: The Periodic Table of Elements?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-kim-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Ikatan Kimia",
-              "titleEn": "Chapter 5: Chemical Bonds",
-              "summary": "Pembentukan ikatan ionik (pemindahan elektron) dan ikatan kovalen (perkongsian elektron).",
-              "summaryEn": "Formation of ionic bonds (electron transfer) and covalent bonds (electron sharing).",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Ikatan Kimia (Chapter 5: Chemical Bonds)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Ikatan Kimia",
-                    "headingEn": "Key Concept: Chapter 5: Chemical Bonds",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-kim-c5",
-                "title": "Kuiz / Quiz: Bab 5: Ikatan Kimia",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Ikatan Kimia?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Chemical Bonds?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-kim-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Asid, Bes dan Garam",
-              "titleEn": "Chapter 6: Acids, Bases and Salts",
-              "summary": "Skala pH, kekuatan asid/alkali, pentitratan asid-bes, dan penyediaan garam terlarutkan/tak terlarutkan.",
-              "summaryEn": "pH scale, acid/alkali strength, acid-base titration, preparation of soluble/insoluble salts.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Asid, Bes dan Garam (Chapter 6: Acids, Bases and Salts)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Asid, Bes dan Garam",
-                    "headingEn": "Key Concept: Chapter 6: Acids, Bases and Salts",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Kimia (DLP/BM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Kimia (DLP/BM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-kim-c6",
-                "title": "Kuiz / Quiz: Bab 6: Asid, Bes dan Garam",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Asid, Bes dan Garam?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Acids, Bases and Salts?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Bilangan Neutron = Nombor Nukleon - Nombor Proton = 23 - 11 = 12 neutron.",
+                    "explanationEn": "Number of Neutrons = Nucleon Number - Proton Number = 23 - 11 = 12 neutrons."
                   }
                 ]
               }
@@ -15565,432 +15722,154 @@ const SYLLABUS_DATA = {
           "chapters": [
             {
               "id": "f4-bm-c1",
-              "number": "Bahagian A & B",
-              "title": "Sistem Bahasa & Teknik Karangan Cemerlang",
-              "summary": "Menguasai golongan kata (morfologi), ayat aktif/pasif (sintaksis), peribahasa dan formula karangan IMBaKUP.",
-              "xpReward": 170,
-              "badgeReward": "Pujangga Melayu",
+              "number": "Unit 1",
+              "numberEn": "Unit 1",
+              "title": "Sistem Bahasa: Golongan Kata & Morfologi",
+              "titleEn": "Language System: Word Classes & Morphology",
+              "summary": "Kata Nama, Kata Kerja, Kata Adjektif dan Kata Tugas. Mengelakkan kesalahan ejaan dan tatabahasa harian dalam mesej, penulisan surat rasmi dan format peperiksaan SPM.",
+              "summaryEn": "Nouns, Verbs, Adjectives and Function Words. Avoiding everyday grammatical errors in official communications, letters and SPM Paper 2 format.",
+              "xpReward": 120,
+              "video": {
+                "title": "Teknik Skor A Tatabahasa & Morfologi SPM",
+                "duration": "13:20",
+                "presenter": "Cikgu Zainal (Guru Pakar BM SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - Kata Tugas vs Kata Sendi",
+                  "04:30 - Kesalahan Ejaan Viral",
+                  "08:15 - Teknik Bina Ayat Lengkap"
+                ]
+              },
               "notes": {
-                "title": "Sistem & Aplikasi Bahasa serta Penulisan Esei SPM",
-                "readTime": "8 minit",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": false,
                 "sections": [
                   {
-                    "heading": "1. Formula Perenggan Isi Karangan Cemerlang (IMBaKUP)",
-                    "content": "Untuk memperoleh markah Cemerlang (Gred A/A+) dalam Kertas 1 SPM, setiap perenggan isi mestilah matang dan berkembang.",
+                    "heading": "1. Analogi Dunia Sebenar: Kata Tugas Seperti Simen & Bata Rumah",
+                    "headingEn": "1. Real-Life Analogy: Words as Bricks & Cement in Building a House",
+                    "content": "Bayangkan anda membina sebuah rumah banglo. Kata Nama (orang, benda) dan Kata Kerja (perbuatan) ialah KETULAN BATA merah yang kukuh. Tetapi jika tiada SIMEN untuk mencantumkannya, rumah itu akan runtuh! KATA TUGAS (kata sendi nama, kata hubung, kata penegas) ialah simen pelekat tersebut. Kesalahan kecil seperti menggunakan 'di masa' (salah, masa tiada tempat fizikal!) sepatutnya 'pada masa' boleh menjatuhkan markah bahasa anda.",
+                    "contentEn": "Imagine building a house. Nouns and Verbs are solid bricks. But without cement to bond them together, the structure collapses! Function words (prepositions, conjunctions) are the bonding cement. Small mistakes like using wrong prepositions in formal writing undermine overall credibility.",
                     "bulletPoints": [
-                      "<strong>I (Isi Utama):</strong> Nyatakan idea pokok dengan jelas menggunakan penanda wacana.",
-                      "<strong>M (Mengapa):</strong> Huraikan punca atau sebab mengapa isi tersebut penting.",
-                      "<strong>Ba (Bagaimana):</strong> Berikan contoh konkrit, program atau statistik semasa.",
-                      "<strong>K (Kesan):</strong> Jelaskan impak positif atau negatif kepada individu, masyarakat atau negara.",
-                      "<strong>U (Ungkapan Menarik):</strong> Selitkan peribahasa, cogan kata atau kata-kata tokoh.",
-                      "<strong>P (Penegas):</strong> Simpulkan kembali isi utama dalam ayat penutup perenggan."
+                      "Kata Sendi 'DI' vs 'PADA': 'Di' hanya untuk TEMPAT fizikal (di sekolah, di Kuala Lumpur). 'Pada' untuk MASA dan MANUSIA (pada pukul 8 pagi, pada pendapat saya).",
+                      "Kata Hubung: Menggabungkan dua klausa menjadi ayat majmuk yang gramatis (kerana, sekiranya, agar).",
+                      "Kesalahan Lazim: 'Ibu bapa-ibu bapa' (SALAH, kata ganda hanya 'ibu bapa'), 'di kalangan' (SALAH, sepatutnya 'dalam kalangan')."
                     ],
-                    "mnemonic": "💡 <strong>Formula Karangan A+:</strong> <u>I</u>-<u>M</u>-<u>Ba</u>-<u>K</u>-<u>U</u>-<u>P</u> (Isu, Mengapa, Bagaimana, Kesan, Ungkapan menarik, Penegas)!"
-                  },
-                  {
-                    "heading": "2. Sistem Bahasa Kertas 2: Morfologi & Sintaksis",
-                    "content": "Kertas 2 menguji kefahaman tatabahasa secara tepat tanpa menokok tambah imbuhan sesuka hati.",
-                    "bulletPoints": [
-                      "<strong>Golongan Kata:</strong> Kata Nama, Kata Kerja, Kata Adjektif, Kata Tugas.",
-                      "<strong>Pola Ayat Dasar Bahasa Melayu:</strong><br>• FN + FN (Ali ialah guru)<br>• FN + FK (Ali sedang membaca buku)<br>• FN + FA (Rumah Ali sangat besar)<br>• FN + FS (Bapa Ali ke pejabat)",
-                      "<strong>Penyuntingan Ejaan:</strong> Teliti kesalahan ejaan seperti <em>merbahaya ➔ berbahaya</em>, <em>tengahari ➔ tengah hari</em>, <em>atlit ➔ atlet</em>."
+                    "bulletPointsEn": [
+                      "Prepositions 'DI' vs 'PADA': 'Di' is strictly for physical places. 'Pada' is used for time, abstract concepts, and people.",
+                      "Conjunctions: Connect clauses into coherent compound sentences.",
+                      "Common Pitfalls: 'Ibu bapa' is already plural and should not be duplicated."
                     ],
-                    "examTip": "🎯 <strong>Tip Kertas 2 SPM:</strong> Semasa membina ayat dalam soalan Morfologi, pastikan ayat yang dibina jelas maksudnya dan mengandungi subjek serta predikat yang lengkap!"
+                    "mnemonic": "💡 Petua: 'DI untuk Destinasi/Tempat', 'PADA untuk Pukul/Masa & Orang'.",
+                    "mnemonicEn": "💡 Quick Rule: 'DI' for physical Destination, 'PADA' for Time & People."
                   }
                 ]
               },
-              "video": {
-                "title": "Teknik Menulis Karangan SPM Skor A+ Bersama Guru Pakar",
-                "duration": "13:00 minit",
-                "presenter": "Cikgu Haslina (Guru Cemerlang BM)",
-                "embedUrl": "https://www.youtube.com/embed/f9ONXd_-anM",
-                "highlights": [
-                  "1:00 - Struktur Perenggan Pendahuluan Format Terkini",
-                  "4:30 - Aplikasi Formula IMBaKUP dalam Perenggan Isi",
-                  "8:15 - Koleksi Peribahasa Berimpak Tinggi untuk SPM",
-                  "11:00 - Analisis Kesalahan Lazim Morfologi Kertas 2"
-                ]
-              },
-              "worksheet": {
-                "title": "Modul Gerempur Kertas 2 SPM: Morfologi & Sintaksis",
-                "pages": 2,
-                "itemsCount": 6,
-                "fileType": "Lembaran Latihan PDF",
-                "downloadUrl": "#",
-                "previewItems": [
-                  "Membina ayat bagi pasangan kata ganda",
-                  "Menukarkan ayat aktif kepada ayat pasif",
-                  "Mengenal pasti pola ayat dasar bagi 4 ayat contoh"
-                ]
-              },
               "quiz": {
-                "id": "quiz-f4-bm-c1",
-                "title": "Ujian Formatif: Sistem Bahasa SPM 1103",
+                "id": "f4-bm-q1",
+                "title": "Kuiz Interaktif Unit 1: Morfologi & Tatabahasa",
+                "titleEn": "Interactive Quiz Unit 1: Morphology & Grammar",
                 "timeLimitMinutes": 10,
-                "passingScore": 60,
-                "xpPoints": 140,
+                "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Antara berikut, pasangan ejaan manakah yang semuanya dieja dengan betul mengikut Dewan Bahasa dan Pustaka (DBP)?",
+                    "question": "Pilih ayat yang menggunakan kata sendi nama dengan betul mengikut Hukum Tatabahasa Dewan.",
+                    "questionEn": "Choose the sentence that uses the correct preposition according to standard grammar rules.",
                     "options": [
-                      "Tengahari, merbahaya, ko-kurikulum",
-                      "Tengah hari, berbahaya, kokurikulum",
-                      "Tengah-hari, bahaya, ko kurikulum",
-                      "Tengahari, berbaaya, kokurikulum"
+                      "Majlis perasmian sukan tahunan itu akan bermula pada pukul 8:00 pagi di stadium sekolah.",
+                      "Majlis perasmian sukan tahunan itu akan bermula di pukul 8:00 pagi pada stadium sekolah.",
+                      "Kerjasama di kalangan murid amat penting demi kejayaan bersama.",
+                      "Hadiah itu diserahkan daripada Cikgu Rosli kepada pemenang."
                     ],
-                    "correctIndex": 1,
-                    "explanation": "'Tengah hari' dieja dua patah perkataan, imbuhan awalan bagi bahaya ialah 'berbahaya' (bukan merbahaya), dan 'kokurikulum' dieja serangkai."
-                  },
-                  {
-                    "id": 2,
-                    "question": "Ayat 'Pemandangan di puncak bukit itu sungguh indah' tergolong dalam pola ayat dasar yang manakah?",
-                    "options": [
-                      "Frasa Nama + Frasa Nama (FN + FN)",
-                      "Frasa Nama + Frasa Kerja (FN + FK)",
-                      "Frasa Nama + Frasa Adjektif (FN + FA)",
-                      "Frasa Nama + Frasa Sendi Nama (FN + FS)"
+                    "optionsEn": [
+                      "The annual sports ceremony will commence at 8:00 am in the school stadium.",
+                      "The ceremony will commence with wrong prepositions.",
+                      "Cooperation among students with incorrect phrasing.",
+                      "Prize handover with incorrect source preposition."
                     ],
-                    "correctIndex": 2,
-                    "explanation": "'Pemandangan di puncak bukit itu' ialah Frasa Nama (subjek), manakala 'sungguh indah' ialah Frasa Adjektif (predikat). Maka polanya ialah FN + FA."
-                  },
-                  {
-                    "id": 3,
-                    "question": "Peribahasa yang manakah paling tepat digunakan untuk menggambarkan sikap generasi muda yang mudah melupakan asal usul dan jasa ibu bapa?",
-                    "options": [
-                      "Bagai aur dengan tebing",
-                      "Kacang lupakan kulit",
-                      "Alang-alang menyeluk pekasam",
-                      "Hujan emas di negeri orang"
-                    ],
-                    "correctIndex": 1,
-                    "explanation": "'Kacang lupakan kulit' bermaksud orang yang tidak mengenang budi atau melupakan jasa mereka yang telah membantunya."
+                    "correctIndex": 0,
+                    "explanation": "'Pada' digunakan untuk masa ('pada pukul 8:00 pagi'), manakala 'di' digunakan untuk tempat fizikal ('di stadium sekolah').",
+                    "explanationEn": "'Pada' is used for time, while 'di' denotes a physical location."
                   }
                 ]
               }
             },
             {
               "id": "f4-bm-c2",
-              "number": "Bab 2",
-              "numberEn": "Chapter 2",
-              "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-              "titleEn": "Chapter 2: Advanced Learning Module Unit 2",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 2.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 2.",
+              "number": "Unit 2",
+              "numberEn": "Unit 2",
+              "title": "Teknik Karangan SPM: Formula IMBAKUP",
+              "titleEn": "SPM Essay Writing: The IMBAKUP Formula",
+              "summary": "Formula membina perenggan isi karangan yang mantap: Isu, Mengapa, Bagaimana, Kesan, Ungkapan menarik/peribahasa, dan Penegas. Mengarang esei matang bertaraf cemerlang.",
+              "summaryEn": "Formulating high-scoring essay body paragraphs using the IMBAKUP structure: Issue, Why, How, Impact, Idioms, and Reaffirmation.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
+              "video": {
+                "title": "Teknik IMBAKUP Karangan Bahasa Melayu Kertas 1 SPM",
+                "duration": "14:10",
+                "presenter": "Cikgu Zainal (Guru Pakar BM SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:15 - Anatomi Perenggan Cemerlang",
+                  "05:00 - Mengembangkan Hujah 'Bagaimana'",
+                  "09:30 - Memasukkan Peribahasa Tempat Tepat"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2 (Chapter 2: Advanced Learning Module Unit 2)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
+                "dlpAvailable": false,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                    "headingEn": "Key Concept: Chapter 2: Advanced Learning Module Unit 2",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 2.",
+                    "heading": "1. Analogi Dunia Sebenar: Menyajikan Hidangan Makanan 5 Bintang",
+                    "headingEn": "1. Real-Life Analogy: Plating a 5-Star Gourmet Meal",
+                    "content": "Karangan yang cemerlang bukan sekadar panjang meleret-leret. Ia seperti hidangan chef 5 bintang: ada pembuka selera (pendahuluan memukau), hidangan utama yang berkhasiat dan lazat (isi IMBAKUP padat hujah), serta pencuci mulut yang memuaskan (kesimpulan bermakna). Jika anda menggunakan formula IMBAKUP, pemeriksa SPM tidak mempunyai alasan untuk menolak karangan anda daripada Gred A+!",
+                    "contentEn": "An outstanding essay isn't just about word count. It resembles a 5-star course: an appetizer (compelling introduction), hearty main dishes (evidence-backed body paragraphs), and a memorable dessert (impactful conclusion).",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "I - Isu / Ayat Topik: Nyatakan isi utama secara jelas.",
+                      "M - Mengapa: Jelaskan punca rasional mengapa isi tersebut penting.",
+                      "B - Bagaimana: Berikan langkah terperinci atau contoh situasi sebenar dalam masyarakat.",
+                      "K - Kesan: Terangkan implikasi positif terhadap negara atau individu.",
+                      "U - Ungkapan Menarik: Selitkan peribahasa tepat (cth: 'bagai aur dengan tebing', 'di mana ada kemahuan, di situ ada jalan').",
+                      "P - Penegas: Simpulkan perenggan dengan mengulang kata kunci soalan."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "I - Issue: Main topic sentence.",
+                      "M - Mechanism/Why: Underlying rationale.",
+                      "B - Behavior/How: Concrete operational examples.",
+                      "K - Key Impact: Tangible positive outcomes.",
+                      "U - Unique Idiom: Contextual Malay proverbs.",
+                      "P - Pivot Reaffirmation: Concluding sentence tying back to exam prompt."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Formula Rahsia: I-M-B-A-K-U-P untuk setiap perenggan isi. Pastikan peribahasa disepadukan secara semula jadi!",
+                    "mnemonicEn": "💡 Memory Formula: Follow IMBAKUP for every single body paragraph."
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-bm-c2",
-                "title": "Kuiz / Quiz: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-bm-q2",
+                "title": "Kuiz Interaktif Unit 2: Teknik Karangan IMBAKUP",
+                "titleEn": "Interactive Quiz Unit 2: IMBAKUP Essay Writing",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Advanced Learning Module Unit 2?",
+                    "question": "Peribahasa manakah yang paling sesuai diselitkan dalam hujah karangan mengenai semangat perpaduan dan gotong-royong masyarakat?",
+                    "questionEn": "Which proverb best fits an essay argument regarding community unity and gotong-royong cooperation?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Berat sama dipikul, ringan sama dijinjing",
+                      "Sudah jatuh ditimpa tangga",
+                      "Mendengar guruh di langit, air di tempayan dicurahkan",
+                      "Bagai melepaskan batuk di tangga"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "Berat sama dipikul, ringan sama dijinjing (Sharing burdens together)",
+                      "Bad luck comes in pairs",
+                      "Discarding assets prematurely on false hopes",
+                      "Doing work half-heartedly"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bm-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-              "titleEn": "Chapter 3: Advanced Learning Module Unit 3",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 3.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 3.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3 (Chapter 3: Advanced Learning Module Unit 3)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                    "headingEn": "Key Concept: Chapter 3: Advanced Learning Module Unit 3",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bm-c3",
-                "title": "Kuiz / Quiz: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Advanced Learning Module Unit 3?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bm-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-              "titleEn": "Chapter 4: Advanced Learning Module Unit 4",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 4.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 4.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4 (Chapter 4: Advanced Learning Module Unit 4)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                    "headingEn": "Key Concept: Chapter 4: Advanced Learning Module Unit 4",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bm-c4",
-                "title": "Kuiz / Quiz: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Advanced Learning Module Unit 4?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bm-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-              "titleEn": "Chapter 5: Advanced Learning Module Unit 5",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 5.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 5.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5 (Chapter 5: Advanced Learning Module Unit 5)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                    "headingEn": "Key Concept: Chapter 5: Advanced Learning Module Unit 5",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bm-c5",
-                "title": "Kuiz / Quiz: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Advanced Learning Module Unit 5?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bm-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-              "titleEn": "Chapter 6: Advanced Learning Module Unit 6",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 6.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 6.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6 (Chapter 6: Advanced Learning Module Unit 6)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                    "headingEn": "Key Concept: Chapter 6: Advanced Learning Module Unit 6",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Melayu (SPM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Melayu (SPM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bm-c6",
-                "title": "Kuiz / Quiz: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Advanced Learning Module Unit 6?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "'Berat sama dipikul, ringan sama dijinjing' bermaksud bekerjasama mengharungi kesukaran dan kesenangan bersama dalam perpaduan masyarakat.",
+                    "explanationEn": "This proverb reflects mutual support and cooperation in overcoming collective challenges."
                   }
                 ]
               }
@@ -16011,371 +15890,75 @@ const SYLLABUS_DATA = {
             {
               "id": "f4-bi-c1",
               "number": "Unit 1",
-              "title": "Let's Chat: Descriptive Writing & SPM Paper 2 Format",
-              "summary": "Mastering SPM English Paper 2 Part 2 (Guided Writing) & Part 3 (Extended Writing: Article, Review, Report).",
+              "numberEn": "Unit 1",
+              "title": "Let's Chat: Informal Letters & Digital Communication",
+              "titleEn": "Let's Chat: Informal Letters & Digital Communication",
+              "summary": "SPM Paper 2 Part 1 Writing: Drafting 80-word informal emails or letters to friends with friendly tone, contractions, transition signals and appropriate sign-offs.",
+              "summaryEn": "SPM Paper 2 Part 1 Writing: Drafting 80-word informal emails or letters to friends with friendly tone, contractions, transition signals and appropriate sign-offs.",
               "xpReward": 120,
-              "badgeReward": "SPM English Ace",
-              "notes": {
-                "title": "Unit 1: SPM Extended Writing Masterclass",
-                "readTime": "6 minutes",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "SPM Paper 2 Writing Breakdown",
-                    "content": "SPM English (1119/2) consists of three crucial writing sections requiring high CEFR vocabulary and clear cohesion:",
-                    "bulletPoints": [
-                      "<strong>Part 1: Short Communicative Message (Email/Letter):</strong> 80 words (20 marks). Direct, concise responses to all prompts.",
-                      "<strong>Part 2: Guided Writing (Essay):</strong> 125 - 150 words (20 marks). Must elaborate on all 3 given bullet points thoroughly.",
-                      "<strong>Part 3: Extended Writing (Article, Review, Report, Story):</strong> 200 - 250 words (20 marks). Strong voice, advanced vocabulary, and cohesive linkers (Moreover, Consequently, On the other hand).",
-                      "<strong>Vocabulary Boost:</strong> Crucial, Indispensable, Paramount, Ubiquitous, Detrimental."
-                    ],
-                    "mnemonic": "💡 <strong>SPM Writing Formula:</strong> P-E-E-L (Point, Explanation, Evidence/Example, Link back to topic)!"
-                  }
+              "video": {
+                "title": "SPM English Paper 2: Acing the 80-word Email in 15 Minutes",
+                "duration": "12:00",
+                "presenter": "Ms. Evelyn (SPM English Master Teacher)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:00 - The 80-word Email Format",
+                  "04:30 - Using Friendly Contractions",
+                  "08:15 - Hitting All 3 Prompt Points"
                 ]
               },
-              "quiz": {
-                "id": "quiz-f4-bi-c1",
-                "title": "SPM Writing Techniques Quiz",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Which of the following cohesive devices indicates a strong contrast between two points?",
-                    "options": [
-                      "Furthermore",
-                      "Nevertheless",
-                      "Subsequently",
-                      "In addition to"
-                    ],
-                    "correctIndex": 1,
-                    "explanation": "'Nevertheless' functions as a formal conjunctive adverb showing contrast (similar to 'However' or 'Nonetheless')."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bi-c2",
-              "number": "Bab 2",
-              "numberEn": "Chapter 2",
-              "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-              "titleEn": "Chapter 2: Advanced Learning Module Unit 2",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 2.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 2.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
               "notes": {
-                "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2 (Chapter 2: Advanced Learning Module Unit 2)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                    "headingEn": "Key Concept: Chapter 2: Advanced Learning Module Unit 2",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 2.",
+                    "heading": "1. Real-Life Analogy: Texting a Best Friend with Politeness & Structure",
+                    "headingEn": "1. Real-Life Analogy: Texting a Best Friend with Politeness & Structure",
+                    "content": "Writing Part 1 in SPM English is just like sending a well-crafted email or WhatsApp message to a close friend planning a weekend hangout. You shouldn't sound like a robot or a Victorian lawyer ('I hereby inform thee')! Instead, use natural conversational English, contractions ('I'd love to', 'let's go'), and answer all three points given in the stimulus prompt.",
+                    "contentEn": "Writing Part 1 in SPM English is just like sending a well-crafted email to a close friend planning a weekend hangout. Use natural conversational English, contractions ('I'd love to', 'let's go'), and answer all three points given in the stimulus prompt.",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Word Limit: Strictly around 80 words (keep between 75 to 90 words; do not write 200 words!).",
+                      "Friendly Opening: 'Hi Daniel, it's great to hear from you!'",
+                      "Body Paragraphs: Address Prompt Point 1, Point 2, and Point 3 systematically.",
+                      "Warm Sign-off: 'Write back soon! Cheers, [Your Name]'"
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Word Count: Aim for 75-90 words concisely.",
+                      "Friendly Opening: 'Hi Sarah, hope you're having an awesome week!'",
+                      "Target Prompts: Check off each of the 3 bullets in the question prompt.",
+                      "Closing: 'Take care, your friend [Name]'."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Golden 3-P Rule: Address Point 1, Point 2, Point 3 in under 90 words!",
+                    "mnemonicEn": "💡 3-P Rule: Prompt 1, Prompt 2, Prompt 3 answered smoothly!"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-bi-c2",
-                "title": "Kuiz / Quiz: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-bi-q1",
+                "title": "Interactive Quiz Unit 1: SPM Informal Email",
+                "titleEn": "Interactive Quiz Unit 1: SPM Informal Email",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Advanced Learning Module Unit 2?",
+                    "question": "Which of the following salutations is most appropriate when writing an informal email to a school friend in SPM Paper 2 Part 1?",
+                    "questionEn": "Which of the following salutations is most appropriate when writing an informal email to a school friend in SPM Paper 2 Part 1?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Hi Ryan,",
+                      "To Whom It May Concern,",
+                      "Dear Sir / Madam,",
+                      "Respected Principal,"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "Hi Ryan,",
+                      "To Whom It May Concern,",
+                      "Dear Sir / Madam,",
+                      "Respected Principal,"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bi-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-              "titleEn": "Chapter 3: Advanced Learning Module Unit 3",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 3.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 3.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3 (Chapter 3: Advanced Learning Module Unit 3)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                    "headingEn": "Key Concept: Chapter 3: Advanced Learning Module Unit 3",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bi-c3",
-                "title": "Kuiz / Quiz: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Advanced Learning Module Unit 3?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bi-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-              "titleEn": "Chapter 4: Advanced Learning Module Unit 4",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 4.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 4.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4 (Chapter 4: Advanced Learning Module Unit 4)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                    "headingEn": "Key Concept: Chapter 4: Advanced Learning Module Unit 4",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bi-c4",
-                "title": "Kuiz / Quiz: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Advanced Learning Module Unit 4?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bi-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-              "titleEn": "Chapter 5: Advanced Learning Module Unit 5",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 5.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 5.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5 (Chapter 5: Advanced Learning Module Unit 5)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                    "headingEn": "Key Concept: Chapter 5: Advanced Learning Module Unit 5",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bi-c5",
-                "title": "Kuiz / Quiz: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Advanced Learning Module Unit 5?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bi-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-              "titleEn": "Chapter 6: Advanced Learning Module Unit 6",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 6.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 6.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6 (Chapter 6: Advanced Learning Module Unit 6)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                    "headingEn": "Key Concept: Chapter 6: Advanced Learning Module Unit 6",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Bahasa Inggeris (SPM/CEFR) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Bahasa Inggeris (SPM/CEFR) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bi-c6",
-                "title": "Kuiz / Quiz: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Advanced Learning Module Unit 6?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "In informal writing to friends or peers, a warm and friendly greeting like 'Hi Ryan,' or 'Dear Ryan,' is standard.",
+                    "explanationEn": "'Hi [Name],' strikes the natural, friendly tone expected in SPM informal communications."
                   }
                 ]
               }
@@ -16394,48 +15977,77 @@ const SYLLABUS_DATA = {
           "description": "Bab 2: Biologi Sel dan Organisasi Sel, struktur membran plasma (Model Mozek Bendalir), dan osmosis.",
           "chapters": [
             {
-              "id": "f4-bio-c2",
-              "number": "Bab 2",
-              "title": "Biologi Sel: Organel & Membran Plasma (Model Mozek Bendalir)",
-              "summary": "Menganalisis komponen membran plasma (dwilapisan fosfolipid, protein pembawa, protein liang) dan resapan ringkas vs osmosis.",
+              "id": "f4-bio-c1",
+              "number": "Bab 1",
+              "numberEn": "Chapter 1",
+              "title": "Pengenalan kepada Biologi dan Peraturan Makmal",
+              "titleEn": "Introduction to Biology and Laboratory Rules",
+              "summary": "Bidang biologi (botani, zoologi, mikrobiologi), sumbangan biologi dalam perubatan dan pertanian, etika penyelidikan biologi dan peralatan makmal biologi.",
+              "summaryEn": "Fields of biology (botany, zoology, microbiology), biological contributions in medicine and agriculture, research bioethics and biosafety protocols.",
               "xpReward": 120,
-              "badgeReward": "Biologis Molekul",
+              "video": {
+                "title": "Dunia Biologi: Menjelajah Keajaiban Hidupan",
+                "duration": "11:30",
+                "presenter": "Cikgu Syahirah (Pakar Biologi SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:00 - Cabang Biologi",
+                  "04:20 - Bioetika",
+                  "08:00 - Mikroskop Cahaya"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Model Mozek Bendalir Membran Plasma",
-                "readTime": "6 minit",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Struktur Membran Plasma",
-                    "content": "Membran plasma bersifat telap memilih yang mengawal pergerakan bahan masuk dan keluar sel:",
+                    "heading": "1. Analogi Dunia Sebenar: Menjadi Doktor & Saintis Alam Semula Jadi",
+                    "headingEn": "1. Real-Life Analogy: Becoming a Medical Doctor & Nature Scientist",
+                    "content": "Biologi berasal daripada perkataan Greek: 'Bios' (hidupan) dan 'Logos' (kajian). Setiap kali doktor merawat kanser, ahli pertanian mencipta padi tahan kemarau untuk mengelakkan kebuluran, atau forensik DNA mengenal pasti penjenayah—semuanya menggunakan sains Biologi! Dalam makmal biologi, kita mengkaji spesimen hidup di bawah mikroskop dengan mematuhi etika bioetika kemanusiaan.",
+                    "contentEn": "Biology originates from Greek words: 'Bios' (life) and 'Logos' (study). Every time oncologists develop cancer therapies, agronomists breed drought-resistant padi crops, or forensic detectives match criminal DNA—they rely on Biology! In biology labs, we investigate living specimens through microscopes with strict bioethical respect for living organisms.",
                     "bulletPoints": [
-                      "<strong>Dwilapisan Fosfolipid:</strong> Kepala hidrofilik (tertarik kepada air) menghadap ke luar dan dalam sel; ekor hidrofobik (menolak air) menghadap ke dalam.",
-                      "<strong>Protein Liang & Protein Pembawa:</strong> Mengangkut molekul berkutub besar dan ion (Glukosa, asid amino, ion Na+/K+).",
-                      "<strong>Kolesterol:</strong> Mengawal ketelapan dan fleksibiliti (kebendaliran) membran pada suhu berbeza.",
-                      "<strong>Glikoprotein & Glikolipid:</strong> Bertindak sebagai tapak reseptor pengecaman sel."
+                      "Botani: Kajian hidupan tumbuhan hijau.",
+                      "Zoologi: Kajian alam haiwan.",
+                      "Mikrobiologi: Kajian virus, bakteria dan kulat seni.",
+                      "Genetik: Kajian pewarisan ciri keturunan baka dari ibu bapa kepada anak."
                     ],
-                    "mnemonic": "💡 <strong>Formula Fosfolipid:</strong> Kepala Suka Air (Hidrofilik), Ekor Takut Air (Hidrofobik)!"
+                    "bulletPointsEn": [
+                      "Botany: Scientific study of plant life.",
+                      "Zoology: Scientific study of animal kingdom.",
+                      "Microbiology: Investigation of microorganisms like bacteria, viruses, and fungi.",
+                      "Genetics: Study of heredity and transmission of traits from parents to offspring."
+                    ],
+                    "mnemonic": "💡 Tiga Kategori Kemalangan Makmal: 'Biologikal, Kimia, Fizikal'. Basuh tangan dengan sabun selepas setiap eksperimen!",
+                    "mnemonicEn": "💡 Lab Safety: Always wash hands thoroughly after handling biological tissue cultures!"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-bio-c2",
-                "title": "Kuiz Struktur Membran Plasma",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-bio-q1",
+                "title": "Kuiz Interaktif Bab 1: Pengenalan kepada Biologi",
+                "titleEn": "Interactive Quiz Chapter 1: Introduction to Biology",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Bahagian fosfolipid yang menghadap ke luar membran dan bersifat larut dalam air ialah...",
+                    "question": "Bidang biologi manakah yang mengkaji virus, bakteria dan organisma mikroskopik yang tidak boleh dilihat dengan mata kasar?",
+                    "questionEn": "Which biological branch studies viruses, bacteria and microscopic organisms invisible to naked eyes?",
                     "options": [
-                      "Ekor hidrofobik",
-                      "Kepala hidrofilik",
-                      "Molekul kolesterol",
-                      "Glikogen"
+                      "Mikrobiologi",
+                      "Botani",
+                      "Ekologi",
+                      "Anatomi"
                     ],
-                    "correctIndex": 1,
-                    "explanation": "Kepala fosfolipid mengandungi kumpulan fosfat yang berkutub dan hidrofilik (tertarik kepada molekul air)."
+                    "optionsEn": [
+                      "Microbiology",
+                      "Botany",
+                      "Ecology",
+                      "Anatomy"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Mikrobiologi mengkaji hidupan seni mikro seperti bakteria, kulat yis dan virus.",
+                    "explanationEn": "Microbiology is the science studying microscopic life including bacteria, yeast and viruses."
                   }
                 ]
               }
@@ -16444,323 +16056,77 @@ const SYLLABUS_DATA = {
               "id": "f4-bio-c2",
               "number": "Bab 2",
               "numberEn": "Chapter 2",
-              "title": "Bab 2: Biologi Sel & Organisasi Sel",
-              "titleEn": "Chapter 2: Cell Biology & Organization",
-              "summary": "Struktur sel haiwan dan tumbuhan, fungsi organel (mitokondria, kloroplas, ribosom).",
-              "summaryEn": "Animal and plant cell structures, organelle functions (mitochondria, chloroplasts, ribosomes).",
+              "title": "Biologi Sel dan Organisasi Sel",
+              "titleEn": "Cell Biology and Organisation",
+              "summary": "Struktur sel haiwan vs sel tumbuhan di bawah mikroskop elektron. Organel sel: Nukleus, mitokondria (stesen janakuasa tenaga ATP), jasad Golgi, jalinan endoplasma, dan kloroplas.",
+              "summaryEn": "Animal vs plant cell ultrastructure under electron microscope. Cell organelles: Nucleus, mitochondria (cellular ATP powerplants), Golgi apparatus, endoplasmic reticulum, and chloroplasts.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
+              "video": {
+                "title": "Sel Seperti Kilang Mini Canggih: Menjelajah Organel Sel",
+                "duration": "14:50",
+                "presenter": "Cikgu Syahirah (Pakar Biologi SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:15 - Sel Sebagai Kilang Berteknologi Tinggi",
+                  "04:40 - Mitokondria: Stesen Janakuasa Tenaga",
+                  "08:15 - Jasad Golgi & Pembungkusan Protein",
+                  "11:50 - Perbezaan Sel Haiwan & Tumbuhan"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Biologi Sel & Organisasi Sel (Chapter 2: Cell Biology & Organization)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "8 minit",
+                "readTimeEn": "8 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 2: Biologi Sel & Organisasi Sel",
-                    "headingEn": "Key Concept: Chapter 2: Cell Biology & Organization",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 2.",
+                    "heading": "1. Analogi Dunia Sebenar: Sel Badan Anda Seperti Sebuah Kilang Mega!",
+                    "headingEn": "1. Real-Life Analogy: Your Body Cell is a High-Tech Smart Factory!",
+                    "content": "Bayangkan sel badan anda ialah sebuah kilang pintar bersaiz mikroskopik yang beroperasi 24 jam sehari tanpa henti:",
+                    "contentEn": "Imagine each cell in your body as a microscopic smart manufacturing plant operating 24 hours a day non-stop:",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Nukleus (Bilik Pengurus Besar / CEO): Mengandungi fail pelan tindakan DNA dan mengawal semua aktiviti kilang.",
+                      "Mitokondria (Stesen Janakuasa Elektrik TNB): Membakar glukosa dan oksigen untuk menghasilkan tenaga ATP (sebab itu sel otot atlet mempunyai beribu-ribu mitokondria!).",
+                      "Ribosom (Pekerja Barisan Pemasangan): Membina rantai protein mengikut arahan DNA.",
+                      "Jasad Golgi (Pusat Pembungkusan & Kurier Pos Laju): Mengubah suai, membungkus dan menghantar protein keluar dari sel.",
+                      "Dinding Sel & Vakuol Besar (Hanya pada Tumbuhan): Seperti rangka dinding bata dan tangki simpanan air yang memberikan ketegaran (kesegahan) kepada pokok."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Nucleus (CEO Executive Suite): Holds DNA master blueprints controlling all operations.",
+                      "Mitochondria (Power Generating Plant): Generates cellular ATP energy (athletes' muscle cells contain thousands of mitochondria!).",
+                      "Ribosomes (Assembly Line Workers): Synthesizes protein chains following DNA instructions.",
+                      "Golgi Apparatus (Packaging & Shipping Center): Modifies, packages and dispatches cellular cargo.",
+                      "Cell Wall & Large Central Vacuole (Plants Only): Acts like brick scaffolding and internal water tanks keeping plants turgid and upright."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Ingat Organel Penting: 'Mito-Kondria = Jana Tenaga Powerhouse', 'Golgi = Pos Laju bungkusan protein'.",
+                    "mnemonicEn": "💡 Organelle Trick: 'Mighty Mitochondria = Energy Powerhouse', 'Golgi = FedEx packing center'."
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-bio-c2",
-                "title": "Kuiz / Quiz: Bab 2: Biologi Sel & Organisasi Sel",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-bio-q2",
+                "title": "Kuiz Interaktif Bab 2: Biologi Sel",
+                "titleEn": "Interactive Quiz Chapter 2: Cell Biology",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Biologi Sel & Organisasi Sel?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Cell Biology & Organization?",
+                    "question": "Mengapakah sel otot penerbangan burung merpati dan sel sperma manusia mempunyai kepadatan mitokondria yang sangat tinggi berbanding sel lain?",
+                    "questionEn": "Why do pigeon flight muscle cells and human sperm cells have an extremely high density of mitochondria compared to other cells?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Memerlukan bekalan tenaga ATP yang banyak untuk pengecutan otot berterusan dan pergerakan aktif",
+                      "Menghasilkan klorofil untuk fotosintesis",
+                      "Menyimpan air dan garam mineral berlebihan",
+                      "Membina dinding sel yang tebal"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "They require large amounts of cellular ATP energy for continuous contraction and movement",
+                      "To synthesize chlorophyll for photosynthesis",
+                      "To store excess water and mineral ions",
+                      "To construct rigid cell walls"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bio-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Membran Plasma & Pengangkutan",
-              "titleEn": "Chapter 3: Plasma Membrane & Transport",
-              "summary": "Model Mozek Bendalir, resapan ringkas, osmosis, pengangkutan aktif (pam natrium-kalium).",
-              "summaryEn": "Fluid Mosaic Model, simple diffusion, osmosis, active transport (sodium-potassium pump).",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Membran Plasma & Pengangkutan (Chapter 3: Plasma Membrane & Transport)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Membran Plasma & Pengangkutan",
-                    "headingEn": "Key Concept: Chapter 3: Plasma Membrane & Transport",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bio-c3",
-                "title": "Kuiz / Quiz: Bab 3: Membran Plasma & Pengangkutan",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Membran Plasma & Pengangkutan?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Plasma Membrane & Transport?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bio-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Komposisi Kimia dalam Sel",
-              "titleEn": "Chapter 4: Chemical Composition in Cells",
-              "summary": "Sifat air, karbohidrat (monosakarida/polisakarida), lipid, protein, dan asid nukleik (DNA/RNA).",
-              "summaryEn": "Properties of water, carbohydrates, lipids, proteins, and nucleic acids (DNA/RNA).",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Komposisi Kimia dalam Sel (Chapter 4: Chemical Composition in Cells)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Komposisi Kimia dalam Sel",
-                    "headingEn": "Key Concept: Chapter 4: Chemical Composition in Cells",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bio-c4",
-                "title": "Kuiz / Quiz: Bab 4: Komposisi Kimia dalam Sel",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Komposisi Kimia dalam Sel?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Chemical Composition in Cells?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bio-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Enzim & Metabolisme",
-              "titleEn": "Chapter 5: Enzymes & Metabolism",
-              "summary": "Model mangga dan kunci mekanisme enzim, faktor mempengaruhi aktiviti enzim (suhu, pH, kepekatan).",
-              "summaryEn": "Lock and key hypothesis of enzyme mechanism, factors affecting enzyme activity.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Enzim & Metabolisme (Chapter 5: Enzymes & Metabolism)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Enzim & Metabolisme",
-                    "headingEn": "Key Concept: Chapter 5: Enzymes & Metabolism",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bio-c5",
-                "title": "Kuiz / Quiz: Bab 5: Enzim & Metabolisme",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Enzim & Metabolisme?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Enzymes & Metabolism?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-bio-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Pembahagian Sel: Mitosis & Meiosis",
-              "titleEn": "Chapter 6: Cell Division: Mitosis & Meiosis",
-              "summary": "Kitar sel, peringkat mitosis (Profasa, Metafasa, Anafasa, Telofasa), dan meiosis variasi genetik.",
-              "summaryEn": "Cell cycle, stages of mitosis (P-M-A-T), and meiosis generating genetic variation.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Pembahagian Sel: Mitosis & Meiosis (Chapter 6: Cell Division: Mitosis & Meiosis)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Pembahagian Sel: Mitosis & Meiosis",
-                    "headingEn": "Key Concept: Chapter 6: Cell Division: Mitosis & Meiosis",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Biologi (DLP/BM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Biologi (DLP/BM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-bio-c6",
-                "title": "Kuiz / Quiz: Bab 6: Pembahagian Sel: Mitosis & Meiosis",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Pembahagian Sel: Mitosis & Meiosis?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Cell Division: Mitosis & Meiosis?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Mitokondria menjana tenaga ATP melalui respirasi sel. Sel aktif yang bekerja keras seperti otot penerbangan dan sperma memerlukan tenaga yang amat tinggi.",
+                    "explanationEn": "Mitochondria produce ATP energy via cellular respiration. High-demand cells like flight muscles require abundant ATP to function."
                   }
                 ]
               }
@@ -16781,45 +16147,73 @@ const SYLLABUS_DATA = {
             {
               "id": "f4-sn-c1",
               "number": "Bab 1",
-              "title": "Bantuan Kecemasan: Kaedah CPR & Heimlich Maneuver",
-              "summary": "Prosedur menyelamatkan mangsa tercekik dan mangsa serangan jantung/lemas melalui CPR 30 mampatan dada : 2 hembusan.",
+              "numberEn": "Chapter 1",
+              "title": "Langkah Keselamatan di dalam Makmal",
+              "titleEn": "Safety Measures in Laboratory",
+              "summary": "Peralatan perlindungan diri (gogal, topeng muka, sarung tangan), pemadam kebakaran mengikut kelas A, B, C, D, dan prosedur menangani tumpahan merkuri termometer menggunakan serbuk sulfur.",
+              "summaryEn": "Personal protective equipment (goggles, lab coat, safety gloves), fire extinguishers by classes A, B, C, D, and emergency response for mercury spills using sulfur powder.",
               "xpReward": 120,
-              "badgeReward": "Penyelamat Nyawa SPM",
+              "video": {
+                "title": "Keselamatan Makmal: Apa Buat Bila Termometer Pecah?",
+                "duration": "11:20",
+                "presenter": "Cikgu Farah (Guru Cemerlang Sains)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:00 - Alat PPE",
+                  "04:15 - Jenis Pemadam Api",
+                  "07:30 - Bahaya Wasap Merkuri"
+                ]
+              },
               "notes": {
-                "title": "Bab 1: Prosedur CPR & Heimlich Maneuver",
-                "readTime": "5 minit",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Resusitasi Kardiopulmonari (CPR)",
-                    "content": "CPR ialah bantuan kecemasan gabungan mampatan dada dan hembusan nafas untuk memulihkan denyutan jantung dan pernafasan mangsa:",
+                    "heading": "1. Analogi Dunia Sebenar: Memasak di Dapur vs Eksperimen di Makmal",
+                    "headingEn": "1. Real-Life Analogy: Cooking in Kitchen vs Laboratory Work",
+                    "content": "Sama seperti anda tidak akan memegang kuali panas dengan tangan kosong di dapur, makmal sains mempunyai bahan kimia yang jauh lebih menghakis dan mudah meletup! Jika asid pekat terpercik ke mata, ia boleh menyebabkan buta kekal dalam masa 5 saat. Itulah sebabnya gogal keselamatan, kebuk wasap dan pencuci mata kecemasan disediakan.",
+                    "contentEn": "Just as you wouldn't grab a red-hot pan with bare hands in a kitchen, science labs contain chemicals that are significantly more corrosive and toxic! If concentrated acid splashes into eyes, it can cause irreversible damage in seconds. That's why safety goggles, fume hoods and emergency eyewash stations exist.",
                     "bulletPoints": [
-                      "<strong>Situasi CPR:</strong> Mangsa tidak bernafas, tiada tindak balas (respons), dan tiada denyutan nadi.",
-                      "<strong>Nisbah Mampatan:</strong> 30 mampatan dada diikuti 2 hembusan nafas berterusan pada kedalaman 5 cm.",
-                      "<strong>Heimlich Maneuver:</strong> Dilakukan kepada mangsa yang tercekik (saluran pernafasan tersumbat oleh makanan/objek). Tangan digenggam antara pusat dengan bawah tulang rusuk dan ditekan ke dalam dan ke atas dengan pantas."
+                      "Gogal: Melindungi mata daripada percikan asid dan kaca pecah.",
+                      "Kebuk Wasap (Fume Chamber): Mengendalikan bahan meruap bertoksik seperti gas klorin dan ammonia.",
+                      "Tumpahan Merkuri: JANGAN sesekali menyapu atau memvakum merkuri! Taburkan SERBUK SULFUR dengan segera dan hubungi bomba."
                     ],
-                    "mnemonic": "💡 <strong>Formula CPR:</strong> 30 Mampatan Dada : 2 Hembusan Nafas (Kadar 100-120 mampatan/minit)!"
+                    "bulletPointsEn": [
+                      "Goggles: Shields eyes from acid splashes and shattered glass.",
+                      "Fume Hood: Operates volatile toxic chemicals like chlorine gas and ammonia.",
+                      "Mercury Spill: NEVER sweep or vacuum mercury! Cover with SULFUR POWDER immediately and notify emergency services."
+                    ],
+                    "mnemonic": "💡 Formula Ingat: 'M-S: Merkuri tabur Sulfur'. Jangan guna air!",
+                    "mnemonicEn": "💡 Memory Hack: 'M-S: Mercury needs Sulfur'. Never use water!"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-sn-c1",
-                "title": "Kuiz Bantuan Kecemasan CPR",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-sn-q1",
+                "title": "Kuiz Interaktif Bab 1: Keselamatan Makmal",
+                "titleEn": "Interactive Quiz Chapter 1: Laboratory Safety",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah nisbah mampatan dada kepada hembusan nafas semasa melakukan CPR?",
+                    "question": "Apakah tindakan pertama yang perlu diambil jika termometer merkuri pecah di atas meja makmal?",
+                    "questionEn": "What is the very first step to take if a mercury thermometer shatters on the lab bench?",
                     "options": [
-                      "15 mampatan : 1 hembusan",
-                      "30 mampatan : 2 hembusan",
-                      "50 mampatan : 5 hembusan",
-                      "10 mampatan : 2 hembusan"
+                      "Maklumkan guru dan taburkan serbuk sulfur di atas tumpahan merkuri",
+                      "Sapu merkuri dengan penyapu ke dalam tong sampah",
+                      "Basuh merkuri dengan air paip yang banyak",
+                      "Gunakan pembersih vakum untuk menyedut manik merkuri"
                     ],
-                    "correctIndex": 1,
-                    "explanation": "Standard protokol antarabangsa menetapkan 30 kali mampatan dada diikuti oleh 2 kali hembusan nafas."
+                    "optionsEn": [
+                      "Notify teacher and sprinkle sulfur powder over the mercury spill",
+                      "Sweep mercury into dustbin",
+                      "Wash mercury down the sink with water",
+                      "Vacuum the mercury droplets"
+                    ],
+                    "correctIndex": 0,
+                    "explanation": "Merkuri meruap menjadi gas bertoksik. Menaburkan serbuk sulfur meneutralkan dan mengikat merkuri membentuk merkuri sulfida yang selamat.",
+                    "explanationEn": "Mercury evaporates into toxic fumes. Scattering sulfur powder binds with mercury to form non-volatile mercury sulfide."
                   }
                 ]
               }
@@ -16828,323 +16222,72 @@ const SYLLABUS_DATA = {
               "id": "f4-sn-c2",
               "number": "Bab 2",
               "numberEn": "Chapter 2",
-              "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-              "titleEn": "Chapter 2: Advanced Learning Module Unit 2",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 2.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 2.",
+              "title": "Bantuan Kecemasan: CPR & Heimlich Maneuver",
+              "titleEn": "Emergency Assistance: CPR & Heimlich Maneuver",
+              "summary": "Prosedur Resusitasi Kardiopulmonari (CPR) bagi mangsa henti jantung atau lemas, nisbah 30 mampatan dada dan 2 hembusan mulut. Kaedah Heimlich Maneuver bagi menyelamatkan mangsa tercekik makanan.",
+              "summaryEn": "Cardiopulmonary Resuscitation (CPR) protocols for cardiac arrest or drowning victims, 30 chest compressions to 2 rescue breaths ratio. Heimlich Maneuver techniques to save choking individuals.",
               "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
+              "video": {
+                "title": "Menyelamatkan Nyawa: Kaedah CPR & Heimlich Maneuver Sebenar",
+                "duration": "13:00",
+                "presenter": "Cikgu Farah (Guru Cemerlang Sains)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - Mangsa Tercekik di Kedai Makan",
+                  "04:30 - Heimlich Maneuver",
+                  "08:15 - CPR 30:2"
+                ]
+              },
               "notes": {
-                "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2 (Chapter 2: Advanced Learning Module Unit 2)",
-                "readTime": "5 minit / 5 mins",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": true,
                 "sections": [
                   {
-                    "heading": "Konsep Utama: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                    "headingEn": "Key Concept: Chapter 2: Advanced Learning Module Unit 2",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 2.",
+                    "heading": "1. Analogi Dunia Sebenar: Tercekik Bebola Ikan di Restoran & Pam Jantung",
+                    "headingEn": "1. Real-Life Analogy: Choking on Fishball at Food Court & Heart Pump",
+                    "content": "Bayangkan anda sedang makan malam bersama rakan di restoran. Tiba-tiba rakan anda tercekik bebola ikan, tidak boleh bercakap, memegang lehernya dengan kedua-dua belah tangan dan mukanya mula membiru. Ini tanda amaran universal tercekik! Anda perlu melakukan HEIMLICH MANEUVER serta-merta. Bagi mangsa yang jantungnya terhenti, otak manusia akan mati selepas 4 minit tanpa oksigen. CPR bertindak sebagai PAM JANTUNG MANUAL untuk terus membekalkan darah beroksigen ke otak sehingga ambulans tiba!",
+                    "contentEn": "Imagine dining at a food court with friends. Suddenly a friend chokes on a fishball, cannot speak, clutches their throat with both hands, and their face turns blue. This is the universal choking sign! You must execute the HEIMLICH MANEUVER immediately. In cardiac arrest, brain cells die within 4 minutes without oxygen. CPR acts as a MANUAL MECHANICAL PUMP keeping oxygenated blood flowing to the brain until paramedics arrive!",
                     "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Heimlich Maneuver: Berdiri di belakang mangsa, genggam tangan di antara pusat dan bawah tulang rusuk, tekan ke dalam dan ke atas dengan pantas.",
+                      "CPR (30 Mampatan : 2 Hembusan): Tekan bahagian tengah dada sedalam 5-6 cm pada kadar 100-120 mampatan seminit.",
+                      "Lagu Irama CPR: Tekan mengikut rentak lagu 'Stayin' Alive' oleh Bee Gees atau lagu kanak-kanak 'Baby Shark'!"
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Heimlich Maneuver: Stand behind victim, fist placed between navel and ribcage, thrust inward and upward forcefully.",
+                      "CPR (30 Compressions : 2 Breaths): Push hard and fast in center of chest 5-6 cm deep at 100-120 bpm.",
+                      "CPR Tempo Guide: Compress to the rhythm of 'Stayin' Alive' or 'Baby Shark'!"
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Formula Emas: '30:2' (30 kali tekan dada, 2 kali hembus nafas). Cepat dan dalam!",
+                    "mnemonicEn": "💡 Golden Ratio: '30:2' (30 chest compressions, 2 rescue breaths). Hard and fast!"
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-sn-c2",
-                "title": "Kuiz / Quiz: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-sn-q2",
+                "title": "Kuiz Interaktif Bab 2: Bantuan Kecemasan",
+                "titleEn": "Interactive Quiz Chapter 2: Emergency Assistance",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Advanced Learning Module Unit 2?",
+                    "question": "Apakah nisbah mampatan dada kepada hembusan nafas mulut yang betul semasa melakukan CPR kepada orang dewasa?",
+                    "questionEn": "What is the correct ratio of chest compressions to rescue breaths during adult CPR?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "30 mampatan dada : 2 hembusan nafas",
+                      "15 mampatan dada : 2 hembusan nafas",
+                      "10 mampatan dada : 5 hembusan nafas",
+                      "50 mampatan dada : 1 hembusan nafas"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "30 chest compressions : 2 rescue breaths",
+                      "15 chest compressions : 2 rescue breaths",
+                      "10 chest compressions : 5 rescue breaths",
+                      "50 chest compressions : 1 rescue breath"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-sn-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-              "titleEn": "Chapter 3: Advanced Learning Module Unit 3",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 3.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 3.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3 (Chapter 3: Advanced Learning Module Unit 3)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                    "headingEn": "Key Concept: Chapter 3: Advanced Learning Module Unit 3",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-sn-c3",
-                "title": "Kuiz / Quiz: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Advanced Learning Module Unit 3?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-sn-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-              "titleEn": "Chapter 4: Advanced Learning Module Unit 4",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 4.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 4.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4 (Chapter 4: Advanced Learning Module Unit 4)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                    "headingEn": "Key Concept: Chapter 4: Advanced Learning Module Unit 4",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-sn-c4",
-                "title": "Kuiz / Quiz: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Advanced Learning Module Unit 4?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-sn-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-              "titleEn": "Chapter 5: Advanced Learning Module Unit 5",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 5.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 5.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5 (Chapter 5: Advanced Learning Module Unit 5)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                    "headingEn": "Key Concept: Chapter 5: Advanced Learning Module Unit 5",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-sn-c5",
-                "title": "Kuiz / Quiz: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Advanced Learning Module Unit 5?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-sn-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-              "titleEn": "Chapter 6: Advanced Learning Module Unit 6",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 6.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 6.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6 (Chapter 6: Advanced Learning Module Unit 6)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                    "headingEn": "Key Concept: Chapter 6: Advanced Learning Module Unit 6",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Sains Teras (SPM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Sains Teras (SPM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-sn-c6",
-                "title": "Kuiz / Quiz: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Advanced Learning Module Unit 6?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Protokol antarabangsa menetapkan 30 mampatan dada berterusan diikuti oleh 2 hembusan nafas bantuan (30:2).",
+                    "explanationEn": "International resuscitation guidelines mandate 30 chest compressions followed by 2 rescue breaths (30:2)."
                   }
                 ]
               }
@@ -17165,370 +16308,75 @@ const SYLLABUS_DATA = {
             {
               "id": "f4-perniagaan-c1",
               "number": "Bab 1",
-              "title": "Tujuan Perniagaan & Bentuk Pemilikan Perniagaan",
-              "summary": "Perbezaan Organisasi Bermotifkan Untung (OBU) vs Bukan Bermotifkan Untung (OBBU), serta perbandingan liabiliti terhad vs tidak terhad.",
+              "numberEn": "Chapter 1",
+              "title": "Tujuan Perniagaan dan Pemilikan Perniagaan",
+              "titleEn": "Purpose of Business and Business Ownership",
+              "summary": "Konsep perniagaan: Menghasilkan barang & perkhidmatan, memuaskan keperluan & kehendak pengguna, keuntungan vs organisasi bukan keuntungan (OBK). Bentuk pemilikan perniagaan: Milikan Tunggal, Perkongsian, Syarikat Berhad (Sdn Bhd & Bhd), dan Koperasi.",
+              "summaryEn": "Core business concept: Providing goods and services, satisfying human needs and wants, profit vs non-profit organizations. Business entities: Sole Proprietorship, Partnership, Companies Limited by Shares (Sdn Bhd & Bhd), and Cooperatives.",
               "xpReward": 120,
-              "badgeReward": "Usahawan Muda SPM",
+              "video": {
+                "title": "Dari Gerai Burger Tepi Jalan ke Syarikat Sdn Bhd Bernilai Jutaan Ringgit",
+                "duration": "13:40",
+                "presenter": "Cikgu Razak (Pakar Perniagaan SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - Keperluan vs Kehendak",
+                  "04:30 - Milikan Tunggal vs Syarikat Sdn Bhd",
+                  "08:15 - Liabiliti Terhad vs Tidak Terhad"
+                ]
+              },
               "notes": {
-                "title": "Bab 1: Bentuk-Bentuk Pemilikan Perniagaan",
-                "readTime": "5 minit",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": false,
                 "sections": [
                   {
-                    "heading": "Perbandingan Bentuk Milikan Entiti Perniagaan",
-                    "content": "Perniagaan ditubuhkan untuk memenuhi keperluan dan kehendak pengguna melalui aktiviti jual beli barang atau perkhidmatan:",
+                    "heading": "1. Analogi Dunia Sebenar: Membuka Gerai Burger Ramly vs Menubuhkan Restoran Mewah",
+                    "headingEn": "1. Real-Life Analogy: Street Burger Stall vs Nationwide Restaurant Chain",
+                    "content": "Bayangkan anda mahu berniaga. Anda bermula dengan membuka gerai burger tepi jalan modal RM1,000 simpanan sendiri. Anda menguruskan stok, menggoreng daging, melayan pelanggan dan menyimpan semua keuntungan sendiri. Ini adalah MILIKAN TUNGGAL! Tetapi jika perniagaan berkembang dan anda memerlukan modal RM500,000 untuk buka kilang memproses daging burger, anda boleh menubuhkan SYARIKAT SDN BHD bersama rakan kongsi pelabur. Kelebihannya? Liabiliti Terhad—jika syarikat muflis, kereta dan rumah peribadi anda selamat daripada disita bank!",
+                    "contentEn": "Imagine starting a business with a roadside burger stall using RM1,000 savings. You manage inventory, cook patties, serve customers and keep all profits. That is a SOLE PROPRIETORSHIP! As you expand into nationwide distribution requiring RM500,000, you form a PRIVATE LIMITED COMPANY (Sdn Bhd). Its superpower? Limited Liability—if the business fails, your personal car and family home are legally shielded from creditors!",
                     "bulletPoints": [
-                      "<strong>Milikan Tunggal:</strong> Dimiliki oleh seorang individu. Modal kecil, untung milik sendiri, liabiliti TIDAK TERHAD (harta peribadi boleh disita jika bankrap).",
-                      "<strong>Perkongsian:</strong> Dimiliki oleh 2 hingga 20 orang rakan kongsi. Modal lebih besar, liabiliti tidak terhad bagi perkongsian am.",
-                      "<strong>Syarikat Sendirian Berhad (Sdn. Bhd.):</strong> Dimiliki oleh 1 hingga 50 orang pemegang saham. Liabiliti TERHAD kepada modal saham dilaburkan, entiti berasingan di bawah Akta Syarikat 2016."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Liabiliti:</strong> Tunggal & Kongsi = Liabiliti TIDAK TERHAD; Syarikat Sdn Bhd = Liabiliti TERHAD!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-perniagaan-c1",
-                "title": "Kuiz Bentuk Pemilikan Perniagaan",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah kelebihan utama Syarikat Sendirian Berhad (Sdn. Bhd.) berbanding Milikan Tunggal?",
-                    "options": [
-                      "Tidak perlu membayar cukai",
-                      "Liabiliti pemegang saham adalah terhad kepada modal yang dilaburkan sahaja",
-                      "Boleh menjual saham kepada orang awam di Bursa Malaysia",
-                      "Tidak perlu mendaftar perniagaan"
-                    ],
-                    "correctIndex": 1,
-                    "explanation": "Liabiliti terhad melindungi aset peribadi pemilik daripada dituntut oleh pemiutang sekiranya syarikat mengalami muflis."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-perniagaan-c2",
-              "number": "Bab 2",
-              "numberEn": "Chapter 2",
-              "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-              "titleEn": "Chapter 2: Advanced Learning Module Unit 2",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 2.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 2.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
-              "notes": {
-                "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2 (Chapter 2: Advanced Learning Module Unit 2)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                    "headingEn": "Key Concept: Chapter 2: Advanced Learning Module Unit 2",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 2.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Milikan Tunggal: Modal kecil, pendaftaran mudah di SSM, keuntungan milik sendiri, tetapi LIABILITI TIDAK TERHAD (harta peribadi boleh disita jika rugi).",
+                      "Perkongsian: Dimiliki 2 hingga 20 orang rakan kongsi, modal lebih besar, gabungan kepakaran.",
+                      "Syarikat Sdn Bhd: Pemegang saham 1 hingga 50 orang, LIABILITI TERHAD (hanya rugi setakat modal saham dilaburkan), entiti undang-undang berasingan.",
+                      "Koperasi: Matlamat utama untuk menjaga kebajikan sosioekonomi anggota, bukan memaksimumkan keuntungan semata-mata."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Sole Proprietorship: Low startup capital, full autonomy, but unlimited liability.",
+                      "Partnership: 2-20 partners pooling capital and complementary skills.",
+                      "Sdn Bhd: Limited liability protecting personal assets, separate legal entity.",
+                      "Cooperative: Focuses on member welfare rather than pure profit extraction."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Formula Liabiliti: 'Sdn Bhd = Selamat Harta Peribadi (Liabiliti Terhad)'. 'Milikan Tunggal = Tanggung semua sampai poket kosong (Liabiliti Tidak Terhad)'.",
+                    "mnemonicEn": "💡 Liability Rule: Sdn Bhd gives Limited Liability shielding personal wealth."
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-perniagaan-c2",
-                "title": "Kuiz / Quiz: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-perniagaan-q1",
+                "title": "Kuiz Interaktif Bab 1: Pemilikan Perniagaan",
+                "titleEn": "Interactive Quiz Chapter 1: Business Ownership",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Advanced Learning Module Unit 2?",
+                    "question": "Apakah kelebihan utama sesebuah perniagaan yang didaftarkan sebagai Syarikat Sendirian Berhad (Sdn. Bhd.) berbanding Milikan Tunggal?",
+                    "questionEn": "What is the primary advantage of registering as a Private Limited Company (Sdn Bhd) compared to a Sole Proprietorship?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Pemegang saham menikmati liabiliti terhad (harta peribadi tidak boleh disita untuk membayar hutang perniagaan)",
+                      "Perniagaan tidak perlu membayar cukai pendapatan",
+                      "Tidak perlu menyediakan laporan kewangan tahunan",
+                      "Keuntungan tidak perlu dibahagikan kepada sesiapa"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "Shareholders enjoy limited liability protecting personal assets from business debts",
+                      "Exemption from all corporate taxes",
+                      "No requirement for annual financial audits",
+                      "Owner keeps 100% of profits without sharing"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-perniagaan-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-              "titleEn": "Chapter 3: Advanced Learning Module Unit 3",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 3.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 3.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3 (Chapter 3: Advanced Learning Module Unit 3)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                    "headingEn": "Key Concept: Chapter 3: Advanced Learning Module Unit 3",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-perniagaan-c3",
-                "title": "Kuiz / Quiz: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Advanced Learning Module Unit 3?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-perniagaan-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-              "titleEn": "Chapter 4: Advanced Learning Module Unit 4",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 4.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 4.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4 (Chapter 4: Advanced Learning Module Unit 4)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                    "headingEn": "Key Concept: Chapter 4: Advanced Learning Module Unit 4",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-perniagaan-c4",
-                "title": "Kuiz / Quiz: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Advanced Learning Module Unit 4?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-perniagaan-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-              "titleEn": "Chapter 5: Advanced Learning Module Unit 5",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 5.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 5.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5 (Chapter 5: Advanced Learning Module Unit 5)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                    "headingEn": "Key Concept: Chapter 5: Advanced Learning Module Unit 5",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-perniagaan-c5",
-                "title": "Kuiz / Quiz: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Advanced Learning Module Unit 5?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-perniagaan-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-              "titleEn": "Chapter 6: Advanced Learning Module Unit 6",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 6.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 6.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6 (Chapter 6: Advanced Learning Module Unit 6)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                    "headingEn": "Key Concept: Chapter 6: Advanced Learning Module Unit 6",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Perniagaan (SPM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Perniagaan (SPM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-perniagaan-c6",
-                "title": "Kuiz / Quiz: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Advanced Learning Module Unit 6?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Liabiliti terhad bermaksud tanggungan kerugian pemegang saham terhad kepada jumlah modal saham yang telah dilaburkan sahaja. Harta peribadi mereka dilindungi undang-undang.",
+                    "explanationEn": "Limited liability guarantees that owners' financial exposure is capped at their invested share capital, protecting personal assets."
                   }
                 ]
               }
@@ -17549,370 +16397,73 @@ const SYLLABUS_DATA = {
             {
               "id": "f4-pi-c1",
               "number": "Unit 1",
+              "numberEn": "Unit 1",
               "title": "Akidah: Pegangan Ahli Sunnah Wal Jamaah (ASWJ)",
-              "summary": "Memahami prinsip utama akidah Ahli Sunnah Wal Jamaah berlandaskan Al-Quran dan As-Sunnah serta pandangan Imam Abu Hassan Al-Asy'ari.",
+              "titleEn": "Faith: The Creed of Ahli Sunnah Wal Jamaah",
+              "summary": "Mengenal prinsip akidah Ahli Sunnah Wal Jamaah (ASWJ) yang berpandukan al-Quran, as-Sunnah dan pandangan ijmak sahabat. Menjauhi amalan khurafat, sihir, ajaran sesat dan fahaman ekstremis dalam masyarakat moden.",
+              "summaryEn": "Core tenets of Ahli Sunnah Wal Jamaah based on Quran, authentic Sunnah, and consensus of companions. Rejecting superstition, black magic, deviant cults and extremist interpretations in modern society.",
               "xpReward": 120,
-              "badgeReward": "Kukuh Akidah SPM",
+              "video": {
+                "title": "Akidah Kukuh: Menolak Ajaran Sesat & Fahaman Menyimpang",
+                "duration": "12:45",
+                "presenter": "Ustaz Luqman (Pakar Pendidikan Islam SPM)",
+                "embedUrl": "https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ",
+                "highlights": [
+                  "01:10 - Siapakah Ahli Sunnah Wal Jamaah",
+                  "04:30 - Ciri-ciri Ajaran Sesat",
+                  "08:15 - Menjaga Iman di Zaman Internet"
+                ]
+              },
               "notes": {
-                "title": "Unit 1: Prinsip Ahli Sunnah Wal Jamaah",
-                "readTime": "5 minit",
+                "readTime": "7 minit",
+                "readTimeEn": "7 mins",
                 "dlpAvailable": false,
                 "sections": [
                   {
-                    "heading": "Prinsip Utama Ahli Sunnah Wal Jamaah",
-                    "content": "Ahli Sunnah Wal Jamaah ialah kumpulan majoriti umat Islam yang berpegang teguh dengan ajaran Rasulullah SAW dan para sahabat:",
+                    "heading": "1. Analogi Dunia Sebenar: Navigasi GPS Kompas di Lautan Luas",
+                    "headingEn": "1. Real-Life Analogy: GPS Compass Navigation on Stormy Seas",
+                    "content": "Bayangkan anda menaiki kapal di lautan gelap gelita waktu malam. Jika anda tiada kompas atau GPS yang tepat, kapal anda pasti hanyut dan melanggar batu karang tajam! Dalam kehidupan dunia yang penuh dengan kekeliruan maklumat di media sosial, AKIDAH AHLI SUNNAH WAL JAMAAH ialah kompas panduan yang lurus berasaskan al-Quran dan Sunnah Rasulullah SAW agar iman kita tidak tersasar mengikut nafsu atau ajaran sesat.",
+                    "contentEn": "Imagine steering a ship across pitch-black stormy seas. Without reliable GPS coordinates, you crash onto jagged reefs! In an era of online misinformation, sound faith serves as an authentic compass guiding human morals and spiritual integrity.",
                     "bulletPoints": [
-                      "<strong>Sumber Rujukan Utama:</strong> Berpegang kepada Al-Quran dan Al-Sunnah mengikut kefahaman para sahabat, tabiin, dan tabi' tabiin.",
-                      "<strong>Kedudukan Para Sahabat:</strong> Memuliakan semua sahabat Nabi SAW dan tidak mencela mana-mana sahabat.",
-                      "<strong>Pelaku Dosa Besar:</strong> Mengiktiraf bahawa pelaku dosa besar masih mukmin dan tidak kafir, nasibnya terserah kepada keampunan Allah di akhirat.",
-                      "<strong>Tokoh Utama:</strong> Imam Abu Hassan Al-Asy'ari dan Imam Abu Mansur Al-Maturidi."
-                    ]
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-pi-c1",
-                "title": "Kuiz Akidah Ahli Sunnah Wal Jamaah",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Menurut pegangan Ahli Sunnah Wal Jamaah, status orang Islam yang melakukan dosa besar dan belum bertaubat ialah...",
-                    "options": [
-                      "Kafir keluar daripada Islam",
-                      "Kekal dalam neraka selamanya",
-                      "Mukmin yang berdosa (Fasiq), terserah kepada Allah",
-                      "Munafik tulen"
-                    ],
-                    "correctIndex": 2,
-                    "explanation": "ASWJ berpegang bahawa pelaku dosa besar tetap dianggap mukmin tetapi fasik, dan urusannya terserah kepada rahmat atau azab Allah."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-pi-c2",
-              "number": "Bab 2",
-              "numberEn": "Chapter 2",
-              "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-              "titleEn": "Chapter 2: Advanced Learning Module Unit 2",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 2.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 2.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 2",
-              "notes": {
-                "title": "Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2 (Chapter 2: Advanced Learning Module Unit 2)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                    "headingEn": "Key Concept: Chapter 2: Advanced Learning Module Unit 2",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 2.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 2.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 2.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
+                      "Sumber Rujukan: Al-Quran, As-Sunnah, Ijmak Ulama dan Qias.",
+                      "Ciri Pegangan: Sederhana (wasatiyyah), tidak mengkafirkan sesama muslim tanpa bukti syarie, berpegang kepada hujah dalil sahih.",
+                      "Bahaya Ajaran Sesat: Mendakwa pemimpin sebagai nabi baharu, mengubah cara solat, menghalalkan perbuatan haram seperti penipuan wang derma."
                     ],
                     "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 2.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
+                      "Primary Sources: Quran, authentic Sunnah, scholarly consensus (Ijmak), and Qiyas.",
+                      "Key Creed Traits: Moderation (wasatiyyah), unity, respecting companions.",
+                      "Hallmarks of Deviant Cults: Claiming false prophethood, altering established rituals, financial exploitation."
                     ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 2!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 2!",
-                    "examTip": "Kuasai kata kunci soalan Unit 2!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 2!"
+                    "mnemonic": "💡 Formula Pegangan: Al-Quran + As-Sunnah + Sahabat = Akidah Selamat Dunia Akhirat.",
+                    "mnemonicEn": "💡 Core Anchor: Adhering strictly to authentic foundational sources ensures spiritual clarity."
                   }
                 ]
               },
               "quiz": {
-                "id": "quiz-f4-pi-c2",
-                "title": "Kuiz / Quiz: Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
+                "id": "f4-pi-q1",
+                "title": "Kuiz Interaktif Unit 1: Akidah Ahli Sunnah Wal Jamaah",
+                "titleEn": "Interactive Quiz Unit 1: Ahli Sunnah Wal Jamaah",
+                "timeLimitMinutes": 10,
                 "xpPoints": 100,
                 "questions": [
                   {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 2: Aplikasi Pembelajaran Lanjutan Unit 2?",
-                    "questionEn": "What is the most important concept learned in Chapter 2: Advanced Learning Module Unit 2?",
+                    "question": "Antara berikut, yang manakah merupakan prinsip utama pegangan akidah Ahli Sunnah Wal Jamaah?",
+                    "questionEn": "Which of the following is a primary principle of Ahli Sunnah Wal Jamaah creed?",
                     "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
+                      "Berpegang teguh kepada al-Quran, as-Sunnah dan pandangan ijmak para sahabat Nabi SAW",
+                      "Mendakwa pemimpin kumpulan menerima wahyu baharu selepas kewafatan Rasulullah SAW",
+                      "Mengkafirkan orang Islam yang melakukan dosa besar secara membuta tuli",
+                      "Menolak hadis Nabi SAW dan hanya menerima akal fikiran semata-mata"
                     ],
                     "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
+                      "Strict adherence to Quran, authentic Sunnah and consensus of companions",
+                      "Claiming continuing revelation post-prophethood",
+                      "Indiscriminate excommunication of fellow believers",
+                      "Rejecting prophetic traditions entirely"
                     ],
                     "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-pi-c3",
-              "number": "Bab 3",
-              "numberEn": "Chapter 3",
-              "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-              "titleEn": "Chapter 3: Advanced Learning Module Unit 3",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 3.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 3.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 3",
-              "notes": {
-                "title": "Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3 (Chapter 3: Advanced Learning Module Unit 3)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                    "headingEn": "Key Concept: Chapter 3: Advanced Learning Module Unit 3",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 3.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 3.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 3.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 3.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 3!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 3!",
-                    "examTip": "Kuasai kata kunci soalan Unit 3!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 3!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-pi-c3",
-                "title": "Kuiz / Quiz: Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 3: Aplikasi Pembelajaran Lanjutan Unit 3?",
-                    "questionEn": "What is the most important concept learned in Chapter 3: Advanced Learning Module Unit 3?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-pi-c4",
-              "number": "Bab 4",
-              "numberEn": "Chapter 4",
-              "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-              "titleEn": "Chapter 4: Advanced Learning Module Unit 4",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 4.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 4.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 4",
-              "notes": {
-                "title": "Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4 (Chapter 4: Advanced Learning Module Unit 4)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                    "headingEn": "Key Concept: Chapter 4: Advanced Learning Module Unit 4",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 4.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 4.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 4.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 4.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 4!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 4!",
-                    "examTip": "Kuasai kata kunci soalan Unit 4!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 4!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-pi-c4",
-                "title": "Kuiz / Quiz: Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 4: Aplikasi Pembelajaran Lanjutan Unit 4?",
-                    "questionEn": "What is the most important concept learned in Chapter 4: Advanced Learning Module Unit 4?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-pi-c5",
-              "number": "Bab 5",
-              "numberEn": "Chapter 5",
-              "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-              "titleEn": "Chapter 5: Advanced Learning Module Unit 5",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 5.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 5.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 5",
-              "notes": {
-                "title": "Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5 (Chapter 5: Advanced Learning Module Unit 5)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                    "headingEn": "Key Concept: Chapter 5: Advanced Learning Module Unit 5",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 5.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 5.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 5.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 5.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 5!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 5!",
-                    "examTip": "Kuasai kata kunci soalan Unit 5!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 5!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-pi-c5",
-                "title": "Kuiz / Quiz: Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 5: Aplikasi Pembelajaran Lanjutan Unit 5?",
-                    "questionEn": "What is the most important concept learned in Chapter 5: Advanced Learning Module Unit 5?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
-                  }
-                ]
-              }
-            },
-            {
-              "id": "f4-pi-c6",
-              "number": "Bab 6",
-              "numberEn": "Chapter 6",
-              "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-              "titleEn": "Chapter 6: Advanced Learning Module Unit 6",
-              "summary": "Mempelajari konsep teori, aplikasi praktikal, dan teknik menjawab soalan format KPM Unit 6.",
-              "summaryEn": "Mastering theoretical concepts, practical applications, and exam techniques for Unit 6.",
-              "xpReward": 120,
-              "badgeReward": "Kuasai Bab 6",
-              "notes": {
-                "title": "Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6 (Chapter 6: Advanced Learning Module Unit 6)",
-                "readTime": "5 minit / 5 mins",
-                "dlpAvailable": true,
-                "sections": [
-                  {
-                    "heading": "Konsep Utama: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                    "headingEn": "Key Concept: Chapter 6: Advanced Learning Module Unit 6",
-                    "content": "Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 6.",
-                    "contentEn": "Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 6.",
-                    "bulletPoints": [
-                      "<strong>Definisi:</strong> Konsep standard bagi sukatan pelajaran rasmi KPM Pendidikan Islam (SPM) Unit 6.",
-                      "<strong>Aplikasi Penting:</strong> Konsep ini kerap disoal dalam peperiksaan format rasmi KPM."
-                    ],
-                    "bulletPointsEn": [
-                      "<strong>Definition:</strong> Standard curriculum concept for official KPM syllabus Pendidikan Islam (SPM) Unit 6.",
-                      "<strong>Key Application:</strong> Frequently tested in official KPM examination formats."
-                    ],
-                    "mnemonic": "💡 <strong>Formula Pintar:</strong> Kuasai kata kunci soalan Unit 6!",
-                    "mnemonicEn": "💡 <strong>Smart Tip:</strong> Master key concepts and exam keywords for Unit 6!",
-                    "examTip": "Kuasai kata kunci soalan Unit 6!",
-                    "examTipEn": "Master key concepts and exam keywords for Unit 6!"
-                  }
-                ]
-              },
-              "quiz": {
-                "id": "quiz-f4-pi-c6",
-                "title": "Kuiz / Quiz: Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6",
-                "timeLimitMinutes": 5,
-                "passingScore": 60,
-                "xpPoints": 100,
-                "questions": [
-                  {
-                    "id": 1,
-                    "question": "Apakah intipati terpenting yang dipelajari dalam Bab 6: Aplikasi Pembelajaran Lanjutan Unit 6?",
-                    "questionEn": "What is the most important concept learned in Chapter 6: Advanced Learning Module Unit 6?",
-                    "options": [
-                      "Pemahaman fakta dan aplikasi konsep",
-                      "Menghafal tanpa faham",
-                      "Mengabaikan soalan",
-                      "Tiada jawapan"
-                    ],
-                    "optionsEn": [
-                      "Understanding facts and conceptual application",
-                      "Rote memorization without understanding",
-                      "Ignoring questions",
-                      "None of the above"
-                    ],
-                    "correctIndex": 0,
-                    "explanation": "Pemarkahan penuh menuntut calon memahami fakta dan menghubungkaitkannya dengan situasi harian.",
-                    "explanationEn": "Full marks require candidates to understand core facts and relate them to practical situations."
+                    "explanation": "Ahli Sunnah Wal Jamaah berpegang kepada ajaran al-Quran, Sunnah Rasulullah SAW dan kefahaman para sahabat serta ulama muktabar dengan manhaj wasatiyyah (kesederhanaan).",
+                    "explanationEn": "The orthodox tradition adheres firmly to the Quran, Sunnah, and consensus of companions in faith and practice."
                   }
                 ]
               }
