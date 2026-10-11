@@ -443,6 +443,7 @@ class EduPintarApp {
 
   exitSubjectArena() {
     if (window.eduAudio) window.eduAudio.playClick();
+    if (window.cikguAus) window.cikguAus.stopSpeaking();
     document.getElementById("subjectArenaView")?.classList.add("hidden");
     document.getElementById("mainLobbyView")?.classList.remove("hidden");
     document.getElementById("gradePillsContainer")?.scrollIntoView({ behavior: "smooth" });
@@ -621,18 +622,17 @@ class EduPintarApp {
             <span>📘</span> ${isEn ? 'Comprehensive Lesson (A-Z)' : 'Modul Pembelajaran Lengkap (A-Z)'}
           </button>
           
-          ${chapter.video ? `
-            <button 
-              onclick="window.app.setContentTab('video')"
-              class="py-4 px-3 sm:px-5 font-bold text-xs sm:text-sm border-b-2 transition-all flex items-center gap-2 shrink-0 ${
-                this.activeContentTab === 'video' 
-                  ? 'border-indigo-600 text-indigo-600' 
-                  : 'border-transparent text-slate-600 hover:text-slate-900'
-              }"
-            >
-              <span>🎥</span> ${isEn ? 'Video Lessons' : 'Video Pembelajaran'}
-            </button>
-          ` : ''}
+          <button 
+            onclick="window.app.setContentTab('video')"
+            class="py-4 px-3 sm:px-5 font-bold text-xs sm:text-sm border-b-2 transition-all flex items-center gap-2 shrink-0 ${
+              this.activeContentTab === 'video' 
+                ? 'border-indigo-600 text-indigo-600 bg-indigo-50/50' 
+                : 'border-transparent text-slate-600 hover:text-slate-900'
+            }"
+          >
+            <span>🎓</span> ${isEn ? 'AI Classroom: Cikgu Aus' : 'Bilik Kuliah AI: Cikgu Aus'}
+            <span class="bg-indigo-100 text-indigo-800 text-[10px] px-1.5 py-0.5 rounded-full font-black">AI ASLI</span>
+          </button>
 
           ${chapter.quiz ? `
             <button 
@@ -682,6 +682,7 @@ class EduPintarApp {
 
   setChapter(chapterId) {
     if (window.eduAudio) window.eduAudio.playClick();
+    if (window.cikguAus) window.cikguAus.stopSpeaking();
     this.currentChapterId = chapterId;
     this.renderArenaQuestRoadmap();
     this.renderChapterDetail();
@@ -690,14 +691,9 @@ class EduPintarApp {
 
   setContentTab(tab) {
     if (window.eduAudio) window.eduAudio.playClick();
+    if (window.cikguAus) window.cikguAus.stopSpeaking();
     this.activeContentTab = tab;
     this.saveSessionState();
-    const container = document.getElementById("chapterTabContent");
-    const chapter = this.getCurrentChapter();
-    if (container && chapter) {
-      container.innerHTML = this.renderActiveTabContent(chapter);
-    }
-    // Update active tab buttons
     this.renderChapterDetail();
   }
 
@@ -997,126 +993,24 @@ class EduPintarApp {
   }
 
   renderVideoTab(chapter) {
-    const vid = chapter.video;
     const isEn = this.currentLanguage === "en";
-    if (!vid) return `<p class="text-sm text-slate-500">${isEn ? 'Video lesson is currently being prepared for this unit.' : 'Video pembelajaran sedang disediakan untuk unit ini.'}</p>`;
 
-    // Curated educational video player embed
-    const embedUrl = vid.embedUrl ? vid.embedUrl : "https://www.youtube-nocookie.com/embed/5F_1zQ9rD-M?rel=0";
+    // Asynchronously mount the AI lesson and interactive math lab
+    setTimeout(() => {
+      if (window.eduLesson) {
+        window.eduLesson.mountLesson(chapter, "lessonPlayerContainer");
+      }
+    }, 60);
 
     return `
-      <div class="space-y-6">
-        <!-- Interactive Video Player Container -->
-        <div class="bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border-2 border-indigo-500/30 relative" id="videoPlayerBox">
-          <div class="aspect-video w-full relative bg-black flex items-center justify-center" id="videoContainerWrapper">
-            <iframe 
-              id="mainVideoIframe"
-              class="w-full h-full rounded-t-3xl"
-              src="${embedUrl}" 
-              title="${vid.title}" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen
-            ></iframe>
-          </div>
-
-          <!-- Video Control Bar & Live Info -->
-          <div class="p-4 sm:p-5 bg-slate-900 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-white">
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="bg-red-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse flex items-center gap-1">
-                  <span>●</span> LIVE KELAS KPM
-                </span>
-                <span class="text-xs text-slate-400 font-mono">${vid.duration}</span>
-                <span class="text-xs bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 px-2.5 py-0.5 rounded-full font-semibold">HD 1080p</span>
-              </div>
-              <h3 class="font-black text-sm sm:text-base text-white">${vid.title}</h3>
-              <p class="text-xs text-slate-400">${isEn ? 'Presenter' : 'Pengajar'}: <strong class="text-indigo-300">${vid.presenter}</strong></p>
-            </div>
-
-            <!-- Player Utility Buttons -->
-            <div class="flex items-center gap-2 shrink-0">
-              <button 
-                onclick="window.app.reloadVideo('${embedUrl}')" 
-                class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 transition-all flex items-center gap-1.5"
-                title="Muat Semula Video"
-              >
-                <span>🔄</span> ${isEn ? 'Reload Video' : 'Muat Semula'}
-              </button>
-              <button 
-                onclick="window.app.toggleTheaterMode()" 
-                class="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white transition-all flex items-center gap-1.5 shadow-md"
-              >
-                <span>📺</span> ${isEn ? 'Theater Mode' : 'Mod Pawagam'}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Video Highlights & Interactive Chapter Markers -->
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-          <h4 class="font-bold text-slate-800 text-sm mb-3 flex items-center gap-2">
-            <span>⏱️</span> ${isEn ? 'Lecture Timestamps & Key Concepts:' : 'Minit Penting Kuliah & Bahagian Konsep:'}
-          </h4>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-            ${vid.highlights.map(hl => `
-              <div 
-                onclick="window.app.seekVideoTimestamp('${hl}')"
-                class="p-2.5 bg-white rounded-xl border border-slate-200/80 font-medium text-slate-700 flex items-center justify-between hover:border-indigo-400 hover:bg-indigo-50/50 transition-all cursor-pointer group"
-              >
-                <div class="flex items-center gap-2">
-                  <span class="text-indigo-600 font-bold group-hover:scale-110 transition-transform">📌</span>
-                  <span class="group-hover:text-indigo-900 font-semibold">${hl}</span>
-                </div>
-                <span class="text-[10px] font-bold text-indigo-500 bg-indigo-100/60 px-2 py-0.5 rounded-lg group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                  ${isEn ? 'Jump' : 'Tonton'} →
-                </span>
-              </div>
-            `).join("")}
-          </div>
+      <div id="lessonPlayerContainer" class="w-full">
+        <div class="p-10 sm:p-14 text-center bg-slate-950 rounded-3xl text-white border-2 border-indigo-500/30">
+          <div class="inline-block animate-bounce text-4xl mb-3">🎓</div>
+          <h3 class="font-black text-lg text-indigo-300">Menyediakan Bilik Kuliah AI Cikgu Aus...</h3>
+          <p class="text-xs text-slate-400 mt-1">Menyusun lakaran animasi papan putih, penceritaan suara, dan Makmal Matematik Interaktif.</p>
         </div>
       </div>
     `;
-  }
-
-  playInteractiveVideo(url) {
-    const iframe = document.getElementById("mainVideoIframe");
-    if (iframe && url) {
-      iframe.src = url.includes("autoplay=1") ? url : (url.includes("?") ? `${url}&autoplay=1` : `${url}?autoplay=1`);
-    }
-  }
-
-  reloadVideo(url) {
-    const iframe = document.getElementById("mainVideoIframe");
-    if (iframe) {
-      iframe.src = iframe.src;
-    }
-  }
-
-  toggleTheaterMode() {
-    const box = document.getElementById("videoPlayerBox");
-    if (!box) return;
-    box.classList.toggle("fixed");
-    box.classList.toggle("inset-4");
-    box.classList.toggle("z-50");
-    box.classList.toggle("h-[90vh]");
-  }
-
-  seekVideoTimestamp(timestampText) {
-    const match = timestampText.match(/(\d{1,2}):(\d{2})/);
-    if (match) {
-      const minutes = parseInt(match[1], 10);
-      const seconds = parseInt(match[2], 10);
-      const totalSeconds = minutes * 60 + seconds;
-      
-      const iframe = document.getElementById("mainVideoIframe");
-      if (iframe && iframe.src) {
-        let base = iframe.src.split('&start=')[0].split('?start=')[0];
-        const sep = base.includes('?') ? '&' : '?';
-        iframe.src = `${base}${sep}start=${totalSeconds}&autoplay=1`;
-      }
-    }
-    if (window.eduAudio) window.eduAudio.playClick();
   }
 
   renderQuizTab(chapter) {
