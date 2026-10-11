@@ -1,7 +1,35 @@
 # 🎓 EduPintar Malaysia - Portal Pembelajaran KSSR & KSSM
 
 > **Platform Web Pembelajaran Silibus Sekolah Rendah & Sekolah Menengah Malaysia (KSSR Semakan & KSSM / SPM)**  
-> Dibina dengan seni bina modular (Website-First), responsif untuk telefon pintar, dan sedia untuk dibungkus menjadi aplikasi Android/iOS.
+> Dibina dengan seni bina modular (Website-First), responsif untuk telefon pintar, dan sedia untuk dilancarkan secara langsung di **Render.com**.
+
+---
+
+## 🌐 Cara Pelancaran Langsung ke Render.com (Go Live Online)
+
+EduPintar Malaysia kini dilengkapi dengan fail konfigurasi [`render.yaml`](file:///C:/Users/User/.gemini/antigravity/scratch/edupintar-malaysia/render.yaml) dan pelayan pengeluaran [`server.js`](file:///C:/Users/User/.gemini/antigravity/scratch/edupintar-malaysia/server.js). Anda boleh menjadikannya boleh diakses oleh semua murid dan guru di seluruh Malaysia secara percuma dalam masa 2 minit!
+
+### Langkah 1: Muat Naik Kod ke GitHub
+1. Buka [GitHub.com](https://github.com) dan cipta repositori baharu bernama `edupintar-malaysia`.
+2. Buka terminal di direktori projek ini dan jalankan arahan berikut (gantikan URL dengan pautan GitHub anda):
+   ```bash
+   git remote add origin https://github.com/<username-anda>/edupintar-malaysia.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+### Langkah 2: Sambungkan ke Render.com (Percuma)
+1. Pergi ke [Render.com](https://render.com) dan daftar masuk / log masuk menggunakan akaun GitHub anda.
+2. Klik butang **"New +"** di bahagian atas kanan dan pilih **"Web Service"** (atau guna **"Blueprint"**).
+3. Pilih repositori `edupintar-malaysia` yang anda muat naik tadi.
+4. Render akan mengesan konfigurasi secara automatik daripada `render.yaml` & `package.json`:
+   - **Environment:** Node
+   - **Region:** Singapore *(paling pantas untuk pengguna di Malaysia)*
+   - **Build Command:** `npm install`
+   - **Start Command:** `npm start`
+   - **Plan:** Free ($0)
+5. Klik **"Deploy Web Service"**!
+6. Dalam masa 1–2 minit, Render akan memberikan pautan URL awam rasmi anda (contohnya: `https://edupintar-malaysia.onrender.com`). Anda boleh kongsikan pautan ini kepada murid, ibu bapa, dan guru untuk mula belajar secara langsung!
 
 ---
 
@@ -9,36 +37,46 @@
 
 1. **Struktur Silibus Rasmi KPM (Kementerian Pendidikan Malaysia)**
    - **Sekolah Rendah (KSSR Semakan):** Tahap 1 (Tahun 1–3) dan Tahap 2 (Tahun 4–6 / UASA).
-     - *Modul Pilihan:* **Tahun 5 Sains** (Sistem Peredaran Darah & Sistem Rangka) & **Tahun 6 Matematik** (Pecahan, Perpuluhan & Peratus).
-   - **Sekolah Menengah (KSSM):** Menengah Rendah (Tingkatan 1–3 / UASA) dan Menengah Atas (Tingkatan 4–5 / SPM).
-     - *Modul Pilihan:* **Tingkatan 4 Sejarah SPM** (Bab 2: Kebangkitan Nasionalisme), **Tingkatan 4 Matematik SPM** (Bab 1: Fungsi & Persamaan Kuadratik), dan **Tingkatan 5 Sejarah SPM** (Bab 1: Kedaulatan Negara).
-   - **Dual Language Programme (DLP):** Label dan sokongan dwibahasa bagi subjek Sains dan Matematik.
+     - **Tahun 4 Sains (Unit 2):** Organ Pernafasan Manusia, Perkumuhan vs Penyahtinjaan & Kadar Pernafasan.
+     - **Tahun 5 Sains (Unit 2):** Sistem Peredaran Darah & Sistem Rangka Manusia.
+     - **Tahun 6 Matematik (Unit 2):** Pecahan, Perpuluhan & Peratusan.
+   - **Sekolah Menengah (KSSM / SPM):**
+     - **Tingkatan 4 Sejarah SPM (Bab 2):** Kebangkitan Nasionalisme, Akhbar Kaum Muda, MPSI & Tokoh Pejuang.
+     - **Tingkatan 4 Matematik SPM (Bab 1):** Fungsi & Persamaan Kuadratik dalam Satu Pemboleh Ubah.
+     - **Tingkatan 4 Fizik SPM (DLP - Bab 2):** Daya & Gerakan I, Graf Gerakan Linear, Inersia, Momentum & 4 Persamaan Kinematik.
+     - **Tingkatan 4 Kimia SPM (DLP - Bab 2):** Jirim & Struktur Atom, Keluk Pemanasan/Penyejukan, Model Atom Dalton-Chadwick & Isotop.
+     - **Tingkatan 4 Bahasa Melayu SPM (Kertas 1 & 2):** Sistem & Aplikasi Bahasa, Morfologi, Sintaksis, Peribahasa & Formula Karangan Cemerlang IMBaKUP.
+     - **Tingkatan 5 Sejarah SPM (Bab 1):** Kedaulatan Negara, Formula TMUA & Ciri-ciri Negara Berdaulat.
 
-2. **Nota Padat & Konsep Penting (Bite-sized Notes)**
-   - Rumusan konsep padat mengikut subtopik.
-   - **Akronim & Mnemonik Pintar** (contoh: Formula TMUA Kedaulatan, Akronim Ingat Rangka).
-   - **Tip Peperiksaan SPM & UASA** (Panduan menjawab Kertas 1 & Kertas 2 KBAT).
+2. **Papan Pendahulu Kebangsaan & Profil Pelajar/Guru (National Leaderboard)**
+   - Paparan 10 Murid Paling Cemerlang di seluruh Malaysia.
+   - Murid boleh menamakan profil, memasukkan sekolah & negeri mereka.
+   - Mod pilihan Pelajar atau Guru.
+   - Skor XP disegerakkan secara langsung ke pelayan Render melalui endpoint `/api/leaderboard`.
 
-3. **Kuiz Interaktif Berformat Peperiksaan (Interactive Quizzes)**
-   - Pemasa undur masa (Countdown Timer) autentik peperiksaan.
-   - Format soalan aneka pilihan (MCQ).
+3. **Nota Padat & Konsep Penting (Bite-sized Notes)**
+   - Rumusan padat mengikut subtopik DSKP.
+   - **Akronim & Mnemonik Pintar** (contoh: Formula TMUA Kedaulatan, Formula IMBaKUP BM, D-T-R-B-C Model Atom).
+   - **Tip Peperiksaan SPM & UASA** (Panduan menjawab Kertas 1, Kertas 2 KBAT).
+
+4. **Kuiz Interaktif Berformat Peperiksaan (Interactive Quizzes)**
+   - Pemasa undur masa (*Countdown Timer*) format SPM / UASA.
    - Pengiraan skor masa-nyata & gred lulus.
-   - **Ulasan Terperinci Jawapan:** Menerangkan secara saintifik/fakta mengapa pilihan tersebut betul dan kesilapan lazim murid.
+   - **Ulasan Terperinci Jawapan:** Penjelasan konsep dan pembongkaran perangkap soalan peperiksaan.
 
-4. **Sistem Gamifikasi & Kemajuan Murid (Gamification Engine)**
-   - **Mata Ganjaran (XP):** +50 XP untuk pembacaan nota, +100 XP untuk kuiz selesai, bonus untuk markah 100%.
+5. **Sistem Gamifikasi & Kemajuan Murid (Gamification Engine)**
+   - **Mata Ganjaran (XP):** +50 XP pembacaan nota, +100-150 XP kuiz selesai, bonus skor 100%.
    - **Streak Harian (Daily Streak):** Mengira hari berturut-turut murid mengulang kaji pelajaran.
    - **Pangkat Murid (Level 1–6):** *Murid Permulaan* ➔ *Penuntut Bersemangat* ➔ *Bintang Kelas* ➔ *Wira Ilmuwan* ➔ *Jaguh Harapan* ➔ *Cendekiawan Pintar*.
-   - **Koleksi Lencana:** *Langkah Pertama*, *Juara Kuiz*, *Jaguh SPM*, *Wira Sains Cilik*, *Rajin Berterusan*, *Skor Sempurna 100%*.
-   - Penyimpanan data automatik dalam pelayar (`localStorage`).
+   - **9 Lencana Pencapaian:** *Langkah Pertama*, *Juara Kuiz*, *Jaguh SPM*, *Wira Sains Cilik*, *Pakar Fizik Kuantum*, *Ahli Kimia Pintar*, *Pujangga Melayu*, *Rajin Berterusan*, *Skor Sempurna 100%*.
 
-5. **Video Pembelajaran & Lembaran Kerja PDF**
+6. **Video Pembelajaran & Lembaran Kerja PDF**
    - Paparan pemain video kuliah interaktif dengan penanda masa (*timestamps*).
-   - Butang **Cetak / Simpan PDF** dengan templat reka letak khas (`print.css`) untuk salinan fizikal tanpa gangguan navigasi web.
+   - Butang **Cetak / Simpan PDF** dengan templat reka letak khas (`print.css`).
 
-6. **Antara Muka Sedia Aplikasi Mudah Alih (Mobile-Ready UI)**
+7. **Antara Muka Sedia Aplikasi Mudah Alih (Mobile-Ready UI)**
    - Bar navigasi bawah khas (*Bottom Navigation Bar*) untuk paparan telefon pintar.
-   - Fail `manifest.json` disediakan untuk pemasangan segera sebagai **PWA (Progressive Web App)** di Android dan iOS.
+   - Fail `manifest.json` disediakan untuk pemasangan segera sebagai **PWA** di telefon.
 
 ---
 
@@ -47,76 +85,37 @@
 ```
 edupintar-malaysia/
 ├── index.html               # Halaman utama aplikasi web (Responsive SPA)
+├── server.js                # Pelayan pengeluaran Express & API Leaderboard untuk Render
+├── package.json             # Konfigurasi dependensi Node.js
+├── render.yaml              # Render Blueprint untuk pelancaran automatik 1-klik
 ├── manifest.json            # Konfigurasi PWA untuk pemasangan di telefon
+├── .gitignore               # Peraturan pengabaian fail git
 ├── css/
 │   ├── style.css            # Penggayaan visual moden, font, animasi & mobile bottom nav
 │   └── print.css            # Penggayaan khas cetakan nota & eksport ke PDF
 ├── js/
-│   ├── app.js               # Pengawal aplikasi (Routing, carian topik, penukaran tab & peringkat)
+│   ├── app.js               # Pengawal aplikasi (Routing, carian topik, Leaderboard sync)
 │   ├── syllabus-data.js     # Pangkalan data silibus KSSR Semakan & KSSM
 │   ├── quiz-engine.js       # Enjin kuiz interaktif, pemasa & analisis jawapan
-│   └── gamification.js      # Enjin XP, streak, tahap murid & lencana pencapaian
-└── README.md                # Dokumentasi panduan penggunaan & pembangunan aplikasi
+│   └── gamification.js      # Enjin XP, streak, tahap murid & 9 lencana pencapaian
+└── README.md                # Dokumentasi panduan penggunaan & pelancaran ke Render
 ```
 
 ---
 
-## 🚀 Cara Menjalankan Laman Web Ini
+## 💻 Cara Menguji Secara Tempatan (Local Testing)
 
-### Kaedah 1: Buka Terus Dalam Pelayar Web (Paling Pantas)
-Klik dua kali pada fail `index.html` atau buka menggunakan pelayar pilihan anda (Google Chrome, Microsoft Edge, Safari, Firefox):
+Jalankan pelayan Node.js tempatan:
 ```powershell
-Start-Process "C:\Users\User\.gemini\antigravity\scratch\edupintar-malaysia\index.html"
+npm start
 ```
-
-### Kaedah 2: Jalankan Melalui Pelayan Tempatan Ringan (Local Server)
-Jika anda memasang Python atau Node.js:
-
-- **Menggunakan Python:**
-  ```powershell
-  python -m http.server 8000
-  # Buka pelayar di http://localhost:8000
-  ```
-
-- **Menggunakan Node.js / npx:**
-  ```powershell
-  npx serve .
-  ```
+Buka pelayar anda di: `http://localhost:3000`
 
 ---
 
-## 📱 Panduan Menukar Laman Web Kepada Aplikasi Telefon (Website ➔ Mobile App)
+## 📱 Panduan Masa Hadapan: Penukaran ke Aplikasi Telefon (APK)
 
-Memandangkan anda ingin **bina laman web dahulu** dan kemudian **bina aplikasi telefon**, kod ini telah direka khas agar sangat mudah ditukar kepada aplikasi mudah alih:
+Apabila anda selesai menguji versi web secara langsung di Render dan bersedia untuk membina fail aplikasi telefon (Android APK & iOS):
 
-### Langkah A: Pasang sebagai PWA (Progressive Web App) — Tanpa Kos & Serta-merta
-1. Hoskan laman web ini (contohnya di Vercel, Netlify, atau GitHub Pages secara percuma).
-2. Murid membuka pautan pada telefon mereka (Chrome / Safari).
-3. Murid klik **"Add to Home Screen"** / **"Pasang Aplikasi"**.
-4. Aplikasi akan muncul di skrin telefon dengan ikon sendiri dan boleh dibuka skrin penuh tanpa bar URL pelayar.
-
-### Langkah B: Menukar kepada Android APK & iOS Menggunakan Capacitor (Disyorkan)
-Capacitor membolehkan kod HTML/CSS/JS ini dibungkus terus menjadi aplikasi natif sebenar yang boleh dimuat naik ke Google Play Store dan Apple App Store:
-
-1. Di dalam direktori projek:
-   ```bash
-   npm init -y
-   npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/ios
-   npx cap init EduPintar com.edupintar.malaysia --web-dir .
-   ```
-2. Tambah platform Android:
-   ```bash
-   npx cap add android
-   npx cap open android
-   ```
-3. Buka Android Studio dan klik **"Build APK"**!
-
-### Langkah C: Integrasi Backend Penuh Pada Masa Hadapan (Jika Ingin Tambah Pangkalan Data Guru & Akaun Murid)
-- Pangkalan Data: **Supabase** atau **Firebase** (untuk pengesahan login emel, penyimpanan markah murid di pelayan awan, dan papan pendahulu kebangsaan).
-- Antara Muka Guru: Dashboard untuk guru memuat naik soalan kuiz dan nota baharu secara dinamik.
-
----
-
-## 📌 Cadangan Tetapan Ruang Kerja (Workspace)
-Sila tetapkan direktori projek ini sebagai ruang kerja aktif anda:  
-`C:\Users\User\.gemini\antigravity\scratch\edupintar-malaysia`
+1. **PWA (Tersedia Sekarang):** Murid hanya perlu buka pautan Render di Chrome/Safari dan tekan **"Add to Home Screen"**.
+2. **Capacitor (APK Natif):** Jalankan `npx cap init` dan `npx cap add android` untuk menghasilkan projek Android Studio dan membina APK.
