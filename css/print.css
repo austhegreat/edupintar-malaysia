@@ -1,0 +1,61 @@
+/* EduPintar Malaysia - Print & PDF Export Stylesheet */
+
+@media print {
+  /* Hide non-content UI elements */
+  header,
+  footer,
+  .mobile-bottom-nav,
+  #studentStatsBanner,
+  #gradePillsContainer,
+  #subjectsGridContainer,
+  .no-print,
+  button,
+  input,
+  #syllabusSearchInput,
+  .fixed {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    padding: 0 !important;
+    margin: 1cm !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  #chapterDetailContainer {
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .bg-slate-900 {
+    background: #1e1b4b !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .bg-amber-50, .bg-emerald-50, .bg-slate-50 {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    color: #0f172a !important;
+  }
+
+  p, ul {
+    page-break-inside: avoid;
+  }
+}

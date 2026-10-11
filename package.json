@@ -1,0 +1,30 @@
+{
+  "name": "edupintar-malaysia",
+  "version": "1.0.0",
+  "description": "Portal Pembelajaran Silibus Sekolah Rendah (KSSR) dan Sekolah Menengah (KSSM/SPM) Malaysia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "malaysia",
+    "kssr",
+    "kssm",
+    "spm",
+    "uasa",
+    "education",
+    "edtech",
+    "pwa"
+  ],
+  "author": "EduPintar Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

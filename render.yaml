@@ -1,0 +1,15 @@
+# Render Blueprint Specification for EduPintar Malaysia
+# Pelan pelancaran automatik di platform Render (render.com)
+
+services:
+  - type: web
+    name: edupintar-malaysia
+    runtime: node
+    plan: free
+    region: singapore # Singapore region gives lowest latency for Malaysian users!
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
