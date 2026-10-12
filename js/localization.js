@@ -13,7 +13,7 @@
     "Klik untuk Terokai Modul": "Choose a world to explore", "Masuk Arena →": "Explore zone →",
     "bab tersedia": "lessons ready", "draf": "in progress", "Kandungan sedang disediakan": "Lessons coming soon",
     "Peta Misi Bab (Roadmap)": "Learning path", "Pilih mana-mana bab untuk membuka nota padat, kad imbasan 3D dan kuiz": "Choose a lesson to see notes, visuals, and practice",
-    "Kembali ke Lobi Silibus": "Back to learning world", "Pilih Bab untuk Mula Belajar": "Choose a lesson to get started",
+    "Kembali ke Lobi Silibus": "Back to learning world", "Kembali ke Kelas": "Back to classroom", "Pilih Bab untuk Mula Belajar": "Choose a lesson to get started",
     "Kandungan pelajaran sedang disediakan": "Lesson being prepared", "Kandungan bab ini masih draf dan belum disemak.": "This lesson is still being prepared and reviewed.",
     "Modul Pembelajaran Lengkap (A-Z)": "Lesson", "Bilik Kuliah AI: Cikgu Aus": "Cikgu Aus classroom",
     "Latihan Kuiz Interaktif": "Practice quiz", "Zon Game / Duel": "Game zone", "Cetak / PDF": "Print / PDF",

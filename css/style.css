@@ -112,6 +112,64 @@
   .classroom-change-button { padding:.58rem .65rem; font-size:.68rem; }
 }
 
+/* Canvas classroom world */
+.classroom-scene { min-height:0; height:clamp(390px,62vh,650px); aspect-ratio:16/10; border-color:#cbd8ec; background:#d9e7f5; }
+#classroomWorldCanvas { display:block; width:100%; height:100%; outline:none; touch-action:none; cursor:crosshair; }
+#classroomWorldCanvas:focus-visible { outline:3px solid #7069ff; outline-offset:-4px; }
+.world-hud { position:absolute; z-index:5; display:flex; align-items:center; gap:.5rem; padding:.58rem .8rem; border:1px solid #ffffffa8; border-radius:999px; background:#fffefaed; color:#424863; box-shadow:0 5px 18px #28365020; backdrop-filter:blur(8px); }
+.world-help { left:1rem; bottom:1rem; max-width:min(72%,610px); border-radius:.8rem; font-size:.67rem; font-weight:700; line-height:1.35; }
+.world-help > span:first-child { font-size:1rem; }
+.world-location { top:1rem; right:1rem; font-size:.6rem; font-weight:900; letter-spacing:.13em; }
+.world-live-dot { width:.5rem; height:.5rem; border-radius:50%; background:#53be7a; box-shadow:0 0 0 3px #53be7a26; }
+.world-interaction { position:absolute; z-index:7; right:1rem; bottom:1rem; width:min(310px,calc(100% - 2rem)); padding:1rem; border:1px solid #e6e6f2; border-radius:1rem; background:#fffffff2; color:#343951; box-shadow:0 16px 42px #18213c3d; animation:world-pop .16s ease-out both; }
+.world-interaction[hidden] { display:none; }
+.world-interaction-close { position:absolute; top:.55rem; right:.65rem; width:1.75rem; height:1.75rem; border:0; border-radius:50%; background:#f0f1f6; color:#646b80; font-size:1.15rem; }
+.world-interaction p { margin:0 2rem .35rem 0; color:#736fca; font-size:.58rem; font-weight:900; letter-spacing:.13em; }
+.world-interaction h2 { margin:0 2rem .35rem 0; color:#292d46; font-size:1.05rem; font-weight:900; }
+.world-interaction div { color:#737991; font-size:.76rem; line-height:1.45; }
+.world-interaction-action { width:100%; margin-top:.8rem; padding:.68rem .8rem; border:0; border-radius:.7rem; background:#5750e9; color:#fff; font-size:.73rem; font-weight:900; }
+.world-dpad { position:absolute; z-index:6; bottom:.65rem; left:.65rem; display:none; flex-direction:column; align-items:center; gap:.15rem; padding:.35rem; border:1px solid #ffffffa8; border-radius:.8rem; background:#ffffffe0; box-shadow:0 5px 16px #28365020; }
+.world-dpad > div { display:flex; gap:.15rem; }
+.world-dpad button { display:grid; place-items:center; width:2.15rem; height:2.05rem; border:1px solid #e3e6ef; border-radius:.55rem; background:#fff; color:#515978; font-size:.68rem; font-weight:900; touch-action:none; }
+.world-dpad button:active { background:#e9e8ff; border-color:#9995f4; }
+.world-subject-overlay { position:absolute; z-index:12; inset:0; display:grid; place-items:center; padding:1rem; background:#1d2747a8; backdrop-filter:blur(3px); }
+.world-subject-overlay[hidden] { display:none; }
+.world-subject-panel { position:relative; width:min(660px,100%); max-height:calc(100% - 1rem); overflow:auto; padding:1.25rem; border:1px solid #e7e8f2; border-radius:1.2rem; background:#fffefa; color:#373c56; box-shadow:0 20px 65px #111a3248; }
+.world-subject-close { position:absolute; top:.8rem; right:.8rem; width:2rem; height:2rem; border:0; border-radius:50%; background:#eff0f6; color:#666c81; font-size:1.3rem; }
+.world-subject-panel > p:first-of-type { margin:0 2.5rem .35rem 0; color:#6d68d8; font-size:.6rem; font-weight:900; letter-spacing:.14em; }
+.world-subject-panel h2 { margin:0; color:#2c3048; font-size:1.25rem; font-weight:900; letter-spacing:-.03em; }
+.world-subject-panel > p:nth-of-type(2) { margin:.35rem 2rem .9rem 0; color:#7b8095; font-size:.75rem; }
+.world-subject-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
+.world-subject-card { display:flex; align-items:center; gap:.65rem; min-width:0; padding:.7rem; border:1px solid #e7e8f0; border-radius:.85rem; background:#fff; color:#41465f; text-align:left; transition:border-color .15s,transform .15s,box-shadow .15s; }
+.world-subject-card:hover,.world-subject-card:focus-visible { transform:translateY(-2px); border-color:#a7a2f5; box-shadow:0 6px 17px #655cf11b; outline:none; }
+.world-subject-icon { display:grid; place-items:center; width:2.35rem; height:2.35rem; flex:0 0 auto; border-radius:.75rem; background:#efefff; font-size:1.25rem; }
+.world-subject-card > span:nth-child(2) { min-width:0; flex:1; }
+.world-subject-card strong,.world-subject-card small { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.world-subject-card strong { font-size:.72rem; font-weight:900; }
+.world-subject-card small { margin-top:.2rem; color:#9095a7; font-size:.59rem; font-weight:700; }
+.world-subject-card > b { color:#807be4; }
+.world-subject-empty { grid-column:1/-1; padding:1rem; border:1px dashed #dbdeea; border-radius:.8rem; color:#7a8093; font-size:.75rem; text-align:center; }
+.classroom-bottom-row { max-width:1100px; }
+@keyframes world-pop { from { opacity:0; transform:translateY(6px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+@media(max-width:700px) {
+  .classroom-scene { height:clamp(390px,58svh,540px); aspect-ratio:auto; }
+  .world-dpad { display:flex; }
+  .world-help { left:.6rem; right:.6rem; bottom:auto; top:.6rem; max-width:calc(100% - 1.2rem); padding:.45rem .58rem; font-size:.58rem; }
+  .world-location { top:3.5rem; right:.6rem; padding:.42rem .58rem; font-size:.53rem; }
+  .world-interaction { right:.6rem; bottom:.6rem; width:min(270px,calc(100% - 5.7rem)); padding:.78rem; }
+  .world-interaction h2 { font-size:.9rem; }
+  .world-interaction div { font-size:.68rem; }
+  .world-subject-overlay { padding:.5rem; }
+  .world-subject-panel { padding:.95rem; border-radius:1rem; }
+  .world-subject-list { gap:.4rem; }
+  .world-subject-card { gap:.4rem; padding:.52rem; }
+  .world-subject-icon { width:1.9rem; height:1.9rem; font-size:1rem; }
+  .world-subject-card strong { font-size:.63rem; }
+  .world-subject-card small { font-size:.52rem; }
+  .classroom-demo-note { text-align:left; }
+}
+@media(prefers-reduced-motion:reduce) { .classroom-view:not(.hidden),.world-interaction { animation:none; } }
+
 
 body {
   font-family: var(--primary-font);

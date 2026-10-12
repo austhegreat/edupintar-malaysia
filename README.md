@@ -123,12 +123,19 @@ edupintar-malaysia/
 │   ├── style.css            # Penggayaan visual moden, font, animasi & mobile bottom nav
 │   └── print.css            # Penggayaan khas cetakan nota & eksport ke PDF
 ├── js/
+│   ├── classroom-world.js   # Dunia kelas 2D Canvas, avatar, pergerakan & interaksi objek
 │   ├── app.js               # Pengawal aplikasi (Routing, carian topik, Leaderboard sync)
 │   ├── syllabus-data.js     # Pangkalan data silibus KSSR Semakan & KSSM
 │   ├── quiz-engine.js       # Enjin kuiz interaktif, pemasa & analisis jawapan
 │   └── gamification.js      # Enjin XP, streak, tahap murid & 9 lencana pencapaian
 └── README.md                # Dokumentasi panduan penggunaan & pelancaran ke Render
 ```
+
+## 🌍 Dunia Kelas 2D
+
+Selepas murid memilih Tahun/Tingkatan, aplikasi membuka bilik darjah 2D yang dilukis pada HTML Canvas tanpa library permainan tambahan. Avatar boleh digerakkan dengan **WASD**, kekunci anak panah, kawalan sentuh, atau klik untuk berjalan. Dekati atau klik Cikgu Aus untuk memulakan pelajaran; dekati papan/rak buku untuk membuka pemilih subjek dalam dunia.
+
+`js/classroom-world.js` mengurus lukisan, pergerakan dan interaksi. `js/app.js` menghubungkan objek itu kepada kelas/subjek dan pelajaran sedia ada. Rakan sekelas ialah watak contoh sahaja; sesi berbilang pemain langsung belum disambungkan.
 
 ---
 

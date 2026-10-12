@@ -101,6 +101,7 @@ class EduPintarApp {
     this.renderStatsBanner();
     this.renderArenaQuestRoadmap();
     if (!document.getElementById("classroomView")?.classList.contains("hidden")) this.renderClassroomScene();
+    if (!document.getElementById("classroomSubjectsOverlay")?.hidden) this.openClassroomSubjects();
     this.renderChapterDetail();
     this.saveSessionState();
   }
@@ -282,49 +283,37 @@ class EduPintarApp {
     if (gradeLabel) gradeLabel.textContent = `${grade?.name || ""} · ${curriculum}`;
     const values = {
       classroomCurriculumLabel: isEn ? "YOUR LEARNING CLASSROOM" : "BILIK DARJAH PEMBELAJARAN ANDA",
-      classroomBoardLabel: isEn ? "TODAY'S CLASS" : "KELAS HARI INI",
-      classroomBoardTitle: isEn ? "Welcome, learners!" : "Selamat datang, murid-murid!",
-      classroomBoardText: isEn ? "Choose a learning mission and let's get started together." : "Pilih satu misi pembelajaran dan kita mulakan bersama.",
-      classroomTeacherRole: isEn ? "YOUR TEACHER" : "CIKGU KELAS",
       classroomWelcomeTitle: isEn ? "Class is ready!" : "Kelas sudah bermula!",
-      classroomWelcomeText: isEn ? "Cikgu Aus and your example classmates are waiting." : "Cikgu Aus dan rakan sekelas contoh anda sedang menunggu.",
-      classroomSubjectsAction: isEn ? "Explore subjects" : "Lihat semua subjek",
+      classroomWelcomeText: isEn ? "Meet your classmates and explore the room." : "Temui rakan sekelas dan teroka bilik darjah.",
+      classroomSubjectsAction: isEn ? "Bookshelf · Subjects" : "Rak buku · Subjek",
       classroomStartAction: isEn ? "Start learning" : "Mula belajar",
-      classroomDemoNote: isEn ? "These classmates are examples. Live classrooms and real-time interaction will come in a future update." : "Rakan sekelas yang dipaparkan ialah watak contoh. Ciri kelas langsung akan ditambah kemudian."
+      classroomWorldHelpText: isEn ? "Move: WASD / arrows · Click to walk · Approach an object to interact" : "Bergerak: WASD / anak panah · Klik untuk berjalan · Dekati objek untuk berinteraksi",
+      classroomRoomName: isEn ? "CLASSROOM" : "BILIK DARJAH",
+      classroomDemoNote: isEn ? "Classmates are sample characters for now. Live classrooms will come in a future update." : "Rakan sekelas ialah watak contoh buat masa ini. Kelas langsung akan datang kemudian."
     };
     Object.entries(values).forEach(([id, value]) => {
       const element = document.getElementById(id);
       if (element) element.textContent = value;
     });
 
-    const teacher = document.getElementById("classroomTeacherArt");
-    if (teacher && window.cikguAus?.generateSvg) teacher.innerHTML = window.cikguAus.generateSvg("waving");
-    const classmates = [
-      { name: "Aisyah", avatar: "👧🏻", color: "rose" },
-      { name: "Amir", avatar: "👦🏽", color: "sky" },
-      { name: "Mei Ling", avatar: "👧🏻", color: "amber" },
-      { name: "Kumar", avatar: "👦🏾", color: "emerald" },
-      { name: "Sofia", avatar: "👧🏽", color: "violet" },
-      { name: "Adam", avatar: "👦🏻", color: "orange" }
-    ];
-    const roster = document.getElementById("classroomStudents");
-    if (roster) roster.innerHTML = classmates.map((student, index) => `
-      <div class="classmate-seat seat-${index + 1}">
-        <div class="classmate-avatar avatar-${student.color}" aria-hidden="true">${student.avatar}</div>
-        <div class="classmate-desk" aria-hidden="true"></div>
-        <span class="classmate-name">${student.name}</span>
-      </div>
-    `).join("");
+    window.classroomWorld?.updateStudent({
+      name,
+      avatarUrl: profile.avatarUrl || "",
+      language: this.currentLanguage,
+      grade: grade?.name || ""
+    });
   }
 
   enterClassroom() {
     if (window.eduAudio) window.eduAudio.playClick();
+    this.closeClassroomSubjects();
     document.getElementById("classroomView")?.classList.add("hidden");
     document.getElementById("mainLobbyView")?.classList.add("hidden");
     document.getElementById("subjectArenaView")?.classList.add("hidden");
     const room = document.getElementById("classroomView");
     room?.classList.remove("hidden");
     this.renderClassroomScene();
+    window.classroomWorld?.start();
     room?.scrollIntoView({ behavior: "smooth", block: "start" });
     this.saveSessionState();
   }
@@ -335,6 +324,35 @@ class EduPintarApp {
     document.getElementById("mainLobbyView")?.classList.remove("hidden");
     document.getElementById("mainLobbyView")?.scrollIntoView({ behavior: "smooth", block: "start" });
     this.saveSessionState();
+  }
+
+  openClassroomSubjects() {
+    if (document.getElementById("classroomView")?.classList.contains("hidden")) this.enterClassroom();
+    const isEn = this.currentLanguage === "en";
+    const subjects = SYLLABUS_DATA[this.currentLevel]?.subjects[this.currentGradeId] || [];
+    const list = document.getElementById("classroomWorldSubjectList");
+    const overlay = document.getElementById("classroomSubjectsOverlay");
+    const copy = {
+      classroomSubjectsEyebrow: isEn ? "CLASS MISSION BOARD" : "PAPAN MISI KELAS",
+      classroomSubjectsHeading: isEn ? "Choose a subject world" : "Pilih dunia subjek",
+      classroomSubjectsDescription: isEn ? "Choose a door to enter your next learning mission." : "Pilih satu pintu untuk masuk ke misi pembelajaran anda."
+    };
+    Object.entries(copy).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.textContent = value; });
+    if (list) {
+      list.innerHTML = subjects.length ? subjects.map(subject => `
+        <button type="button" class="world-subject-card" onclick="window.app.enterSubjectArena('${subject.id}')">
+          <span class="world-subject-icon">${subject.icon || "📘"}</span>
+          <span><strong>${subject.name}</strong><small>${subject.chapters?.length || 0} ${isEn ? "missions" : "misi"}</small></span>
+          <b aria-hidden="true">↗</b>
+        </button>
+      `).join("") : `<p class="world-subject-empty">${isEn ? "Subject worlds for this class are being prepared." : "Dunia subjek untuk kelas ini sedang disediakan."}</p>`;
+    }
+    if (overlay) overlay.hidden = false;
+  }
+
+  closeClassroomSubjects() {
+    const overlay = document.getElementById("classroomSubjectsOverlay");
+    if (overlay) overlay.hidden = true;
   }
 
   startClassLesson() {
@@ -430,6 +448,7 @@ class EduPintarApp {
 
   enterSubjectArena(subjectId, resetChapter = true) {
     if (window.eduAudio) window.eduAudio.playClick();
+    this.closeClassroomSubjects();
     const previousSubjectId = this.currentSubjectId;
     this.currentSubjectId = subjectId;
     const subj = this.getCurrentSubject();
@@ -507,14 +526,8 @@ class EduPintarApp {
   }
 
   exitSubjectArena() {
-    if (window.eduAudio) window.eduAudio.playClick();
     if (window.cikguAus) window.cikguAus.stopSpeaking();
-    document.getElementById("subjectArenaView")?.classList.add("hidden");
-    document.getElementById("mainLobbyView")?.classList.remove("hidden");
-    document.getElementById("classroomView")?.classList.add("hidden");
-    document.getElementById("gradePillsContainer")?.scrollIntoView({ behavior: "smooth" });
-    this.saveSessionState();
-    if (window.edu3D) window.edu3D.setupCard3DTilt();
+    this.enterClassroom();
   }
 
   renderArenaQuestRoadmap() {
