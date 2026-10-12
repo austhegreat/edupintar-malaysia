@@ -11,7 +11,15 @@ class EduPintarApp {
     this.currentChapterId = "f5-mt-c1"; // default to Bab 1 Ubahan
     this.currentSubtopicIndex = 0;
     this.activeContentTab = "notes"; // 'notes', 'video', 'quiz', 'game', 'worksheet'
-    this.currentLanguage = "bm";     // 'bm' or 'en'
+    this.currentLanguage = "bm";
+    this.hasLanguagePreference = false;
+    try {
+      const languagePreference = localStorage.getItem("edupintar_language");
+      if (languagePreference === "en" || languagePreference === "bm") {
+        this.currentLanguage = languagePreference;
+        this.hasLanguagePreference = true;
+      }
+    } catch (_) {}
     this.searchQuery = "";
     this.savedSession = this.loadSessionState();
 
@@ -27,7 +35,7 @@ class EduPintarApp {
       if (this.savedSession.chapterId) this.currentChapterId = this.savedSession.chapterId;
       if (Number.isInteger(this.savedSession.subtopicIndex)) this.currentSubtopicIndex = this.savedSession.subtopicIndex;
       if (this.savedSession.activeTab) this.activeContentTab = this.savedSession.activeTab;
-      if (this.savedSession.language) this.currentLanguage = this.savedSession.language;
+      if (!this.hasLanguagePreference && (this.savedSession.language === "en" || this.savedSession.language === "bm")) this.currentLanguage = this.savedSession.language;
     }
 
     this.setupEventListeners();
@@ -85,10 +93,12 @@ class EduPintarApp {
 
   setLanguage(lang) {
     if (window.eduAudio) window.eduAudio.playClick();
-    this.currentLanguage = lang;
+    this.currentLanguage = lang === "en" ? "en" : "bm";
+    try { localStorage.setItem("edupintar_language", this.currentLanguage); } catch (_) {}
     this.updateLanguageUi();
     this.renderGradePills();
     this.renderSubjectsGrid();
+    this.renderStatsBanner();
     this.renderArenaQuestRoadmap();
     this.renderChapterDetail();
     this.saveSessionState();
@@ -98,12 +108,16 @@ class EduPintarApp {
     const isEn = this.currentLanguage === "en";
     const label = document.getElementById("languageLabel");
     if (label) {
-      label.textContent = isEn ? "🇬🇧 English" : "🇲🇾 B. Melayu";
+      label.textContent = isEn ? "EN" : "BM";
     }
     const btn = document.getElementById("languageToggleBtn");
     if (btn) {
-      btn.title = isEn ? "Tukar ke Bahasa Melayu" : "Switch to English";
+      btn.title = isEn ? "Switch to Bahasa Malaysia" : "Tukar ke Bahasa Malaysia / Switch to English";
+      btn.setAttribute("aria-label", btn.title);
+      btn.setAttribute("aria-pressed", String(isEn));
     }
+    document.documentElement.lang = isEn ? "en" : "ms";
+    window.eduI18n?.apply(this.currentLanguage);
   }
 
   setupEventListeners() {
@@ -155,26 +169,42 @@ class EduPintarApp {
     if (!banner) return;
 
     const profile = window.gamification.profile;
-    const levelInfo = window.gamification.getCurrentLevel();
-    const completedQuizzesCount = Object.keys(profile.completedQuizzes).length;
     const unlockedBadgesCount = profile.unlockedBadges.length;
     const grade = SYLLABUS_DATA[profile.studyLevel]?.grades.find(item => item.id === profile.studyGrade);
-
+    const safe = value => String(value || "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+    const name = safe(profile.username || (this.currentLanguage === "en" ? "learner" : "murid"));
+    const avatar = profile.avatarUrl
+      ? `<img src="${safe(profile.avatarUrl)}" alt="" class="h-full w-full object-cover">`
+      : `<span aria-hidden="true">🧑‍🚀</span>`;
+    const nextSubject = (SYLLABUS_DATA[this.currentLevel]?.subjects[this.currentGradeId] || [])[0];
+    const nextChapter = nextSubject?.chapters?.find(ch => !this.isPlaceholderChapter(ch));
+    const isEn = this.currentLanguage === "en";
     banner.innerHTML = `
-      <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div class="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <p class="text-xs font-semibold text-indigo-600">${grade ? `Ruang belajar · ${grade.name}` : 'Ruang belajar'}</p>
-            <h2 class="mt-1 text-xl font-bold text-slate-900">Selamat belajar, ${profile.username || 'murid'} 👋</h2>
-            <p class="mt-1 text-sm text-slate-600">Pilih subjek dan sambung belajar dari bab yang anda perlukan.</p>
+      <section class="world-hero">
+        <div class="world-hero-copy">
+          <p class="world-kicker">${isEn ? "YOUR LEARNING WORLD" : "DUNIA PEMBELAJARAN ANDA"}<span>${grade ? ` · ${safe(grade.name)}` : ""}</span></p>
+          <h2>${isEn ? "Ready for your next quest," : "Sedia untuk misi seterusnya,"}<br><span>${name}?</span> <span aria-hidden="true">✨</span></h2>
+          <p class="world-intro">${isEn ? "Explore your class worlds, collect knowledge, and grow your avatar as you learn." : "Terokai dunia kelas, kumpul ilmu dan kembangkan avatar anda sambil belajar."}</p>
+          <div class="world-actions">
+            <button type="button" class="world-primary-action" onclick="window.app.enterSubjectArena('${safe(nextSubject?.id || this.currentSubjectId || "")}')">${isEn ? "Continue learning" : "Sambung belajar"}<span aria-hidden="true">↗</span></button>
+            <button type="button" class="world-secondary-action" onclick="window.app.openProfileModal()">${isEn ? "Customize avatar" : "Ubah avatar"}</button>
           </div>
-          <div class="min-w-44">
-            <div class="mb-1 flex justify-between text-xs font-semibold text-slate-600"><span>${levelInfo.title}</span><span>${profile.xp} XP</span></div>
-            <div class="h-2 overflow-hidden rounded-full bg-slate-100"><div class="h-full rounded-full bg-indigo-500" style="width:${levelInfo.percentage}%"></div></div>
-            <p class="mt-2 text-[11px] text-slate-500">🔥 ${profile.streak} hari · 📝 ${completedQuizzesCount} kuiz · 🏆 ${unlockedBadgesCount} lencana</p>
+          <div class="world-stats" aria-label="${isEn ? "Your progress" : "Kemajuan anda"}">
+            <div><strong>${profile.xp}</strong><span>XP</span></div>
+            <div><strong>${profile.streak}</strong><span>${isEn ? "day streak" : "hari berturut"}</span></div>
+            <div><strong>${unlockedBadgesCount}</strong><span>${isEn ? "badges" : "lencana"}</span></div>
           </div>
         </div>
-      </div>
+        <div class="world-scene" aria-label="${isEn ? "Illustrated learning world" : "Ilustrasi dunia pembelajaran"}">
+          <span class="world-sun" aria-hidden="true"></span><span class="world-cloud cloud-one" aria-hidden="true"></span><span class="world-cloud cloud-two" aria-hidden="true"></span>
+          <div class="world-island island-back"><span>📚</span></div><div class="world-island island-front"><span>🧪</span></div>
+          <svg class="world-path" viewBox="0 0 440 250" aria-hidden="true"><path d="M70 192 C112 122 179 232 225 148 S331 72 374 126" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 15"/></svg>
+          <span class="world-star star-one" aria-hidden="true">✦</span><span class="world-star star-two" aria-hidden="true">✦</span>
+          <div class="world-player-avatar" title="${name}">${avatar}</div>
+          <div class="world-scene-caption"><span class="online-dot"></span>${isEn ? "Your next chapter is waiting" : "Bab seterusnya menanti"}</div>
+        </div>
+      </section>
+      <div class="world-social-note"><span class="social-note-icon">🫶</span><div><strong>${isEn ? "A world to learn together" : "Dunia untuk belajar bersama"}</strong><p>${isEn ? "Co-op study rooms and safe multiplayer quests are part of the next world update." : "Bilik belajar berkumpulan dan misi berbilang pemain yang selamat dirancang untuk kemas kini seterusnya."}</p></div><span class="coming-soon-pill">${isEn ? "COMING SOON" : "AKAN DATANG"}</span></div>
     `;
   }
 
@@ -233,6 +263,7 @@ class EduPintarApp {
     this.renderLevelSelector();
     this.renderGradePills();
     this.renderSubjectsGrid();
+    this.renderStatsBanner();
     this.renderChapterDetail();
     this.renderArenaQuestRoadmap();
     this.saveSessionState();
@@ -272,6 +303,7 @@ class EduPintarApp {
 
     this.renderGradePills();
     this.renderSubjectsGrid();
+    this.renderStatsBanner();
     this.renderChapterDetail();
     this.saveSessionState();
   }
@@ -296,50 +328,23 @@ class EduPintarApp {
       return;
     }
 
-    container.innerHTML = subjects.map(subj => {
+    const isEn = this.currentLanguage === "en";
+    const zoneNames = isEn ? ["Knowledge Grove", "Discovery Lab", "Story Island", "Puzzle Peak"] : ["Hutan Ilmu", "Makmal Ciptaan", "Pulau Cerita", "Puncak Teka-teki"];
+    container.innerHTML = subjects.map((subj, index) => {
       const isSelected = subj.id === this.currentSubjectId;
       const hasChapters = subj.chapters && subj.chapters.length > 0;
       const readyChapters = (subj.chapters || []).filter(chapter => !this.isPlaceholderChapter(chapter) && chapter.notes?.sections?.length).length;
       const draftChapters = Math.max(0, (subj.chapters || []).length - readyChapters);
       return `
-        <div 
-          onclick="window.app.enterSubjectArena('${subj.id}')"
-          class="card-3d-tilt group cursor-pointer p-5 rounded-3xl border transition-all duration-300 relative overflow-hidden ${
-            isSelected 
-              ? 'border-indigo-500 bg-slate-900/95 shadow-xl shadow-indigo-500/20 ring-2 ring-indigo-500/30' 
-              : 'border-slate-800 bg-slate-900/80 hover:border-indigo-500/60 hover:bg-slate-900 hover:shadow-lg'
-          }"
-        >
-          <div class="flex items-start justify-between">
-            <span class="text-3xl p-3 rounded-2xl bg-slate-800/90 border border-slate-700/80 transform group-hover:scale-110 group-hover:rotate-6 transition-transform shadow-inner">${subj.icon}</span>
-            <div class="flex items-center gap-1.5">
-              ${subj.hasDlp ? `
-                <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800">
-                  DLP
-                </span>
-              ` : ''}
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
-                ${subj.code}
-              </span>
-            </div>
-          </div>
-
-          <h4 class="font-black text-base text-white mt-3.5 group-hover:text-indigo-400 transition-colors">
-            ${subj.name}
-          </h4>
-          <p class="text-xs text-slate-400 line-clamp-2 mt-1 leading-relaxed">
-            ${subj.description}
-          </p>
-
-          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
-            <span class="font-bold ${hasChapters ? 'text-emerald-400' : 'text-slate-500'}">
-              ${hasChapters ? `${readyChapters} bab tersedia${draftChapters ? ` · ${draftChapters} draf` : ''}` : 'Kandungan sedang disediakan'}
-            </span>
-            <span class="text-indigo-400 font-bold group-hover:translate-x-1.5 transition-transform flex items-center gap-1">
-              Masuk Arena →
-            </span>
-          </div>
-        </div>
+        <button type="button" onclick="window.app.enterSubjectArena('${subj.id}')" class="learning-zone-card zone-${index % 4} ${isSelected ? "is-selected" : ""}" aria-label="${isEn ? "Explore" : "Terokai"} ${subj.name}">
+          <span class="zone-orbit orbit-a" aria-hidden="true"></span><span class="zone-orbit orbit-b" aria-hidden="true"></span>
+          <div class="zone-card-top"><span class="zone-icon">${subj.icon}</span><span class="zone-level">${subj.code}</span></div>
+          <span class="zone-world-name">${zoneNames[index % zoneNames.length]}</span>
+          <strong class="zone-title">${subj.name}</strong>
+          <span class="zone-description">${subj.description}</span>
+          <span class="zone-progress"><span style="width:${Math.max(8, Math.round(readyChapters / Math.max(1, subj.chapters?.length || 1) * 100))}%"></span></span>
+          <span class="zone-card-footer"><span>${hasChapters ? `${readyChapters} ${isEn ? "lessons ready" : "bab tersedia"}${draftChapters ? ` · ${draftChapters} ${isEn ? "in progress" : "draf"}` : ""}` : (isEn ? "Coming soon" : "Akan datang")}</span><span class="zone-enter" aria-hidden="true">↗</span></span>
+        </button>
       `;
     }).join("");
 

@@ -23,6 +23,13 @@ Versi ini menggunakan Supabase Auth dan Postgres untuk akaun, nama pengguna, gam
 
 Kemajuan disimpan pada profil akaun. Papan pendahulu hanya memaparkan pengguna yang memilih untuk menyertainya, menggunakan nama pengguna, gambar dan XP sahaja. Nama sebenar, sekolah dan e-mel tidak diminta atau dipaparkan.
 
+### Antara muka EduWorld dan bahasa
+
+- Antara muka utama kini menggunakan peta dunia pembelajaran, zon subjek berwarna, kemajuan ringkas dan avatar pelajar. Elemen promosi serta paparan 3D hiasan yang mengganggu fokus disembunyikan.
+- Butang `BM` / `EN` menukar bahasa antara Bahasa Malaysia dan English dan menyimpan pilihan dalam pelayar pada peranti itu.
+- Label navigasi, akaun dan kelas serta nama subjek yang mempunyai terjemahan akan bertukar bahasa. Kandungan nota hanya dipaparkan dalam English apabila terjemahan English memang tersedia; banyak nota masih dalam Bahasa Malaysia.
+- Bilik belajar bersama dan misi berbilang pemain masih idea untuk fasa seterusnya. Kad pada lobi menerangkan rancangan ini; ia belum menyambungkan pemain secara langsung.
+
 **Nota integriti skor:** XP masih dikira dalam pelayar. Untuk pertandingan berhadiah atau papan pendahulu kompetitif, pindahkan pengiraan ganjaran ke fungsi pelayan yang mengesahkan keputusan kuiz sebelum menganggap XP sebagai anti-penipuan.
 
 ---
