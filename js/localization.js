@@ -31,7 +31,6 @@
     "Pilih kelas anda untuk membuka bahan pembelajaran.": "Choose your class to open your learning materials.",
     "Pilihan ini menentukan bab, kuiz dan cabaran yang dipaparkan.": "Your choice sets which lessons, quizzes, and challenges you see.",
     "Kedudukan murid dalam kelas anda": "Your class leaderboard", "Tiada murid dipaparkan buat masa ini.": "No learners to show yet.",
-    "100% Format Rasmi KPM": "KPM-aligned learning", "Interaktif 3D & Kad Imbasan": "Interactive visuals & flashcards", "UASA & SPM Ready": "Practice for UASA & SPM",
     "Lihat Modul Contoh Lengkap": "View a sample learning zone", "Modul Tambahan Sedang Dikemaskini": "More learning zones are on the way",
     "Mata pelajaran": "Learning zones", "Pilih mata pelajaran": "Choose a learning zone", "Belum ada nota untuk bab ini.": "Notes for this lesson are not available yet."
     ,"Bahasa Melayu": "Malay Language", "Matematik (DLP)": "Mathematics", "Matematik (DLP/BM)": "Mathematics", "Matematik (SPM)": "Mathematics (SPM)",

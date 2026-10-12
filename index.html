@@ -5,15 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#f8fafc">
   <title>EduPintar Malaysia - Portal Pembelajaran KSSR Semakan & KSSM SPM</title>
-  <meta name="description" content="Portal Pembelajaran Interaktif 3D Silibus Sekolah Rendah dan Menengah Malaysia. Nota padat, kad imbasan 3D, video kuliah, kuiz UASA & SPM, dan gamifikasi pembelajaran.">
+  <meta name="description" content="Platform pembelajaran EduPintar untuk murid sekolah rendah dan menengah Malaysia. Teroka nota, visual interaktif dan latihan mengikut tahun atau tingkatan.">
   
   <!-- Web App Manifest for Mobile PWA -->
   <link rel="manifest" href="manifest.json">
 
-  <!-- Three.js 3D WebGL Library -->
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="js/supabase-config.js"></script>
+  <script defer src="js/supabase-config.js?v=primary-launch-20261013a"></script>
 
   <!-- Tailwind CSS CDN -->
   <script defer src="https://cdn.tailwindcss.com"></script>
@@ -42,20 +40,17 @@
   </script>
 
   <!-- Custom 3D & Mobile Styles -->
-  <link rel="stylesheet" href="css/style.css?v=2d-world-20261013">
-  <link rel="stylesheet" href="css/print.css" media="print">
+  <link rel="stylesheet" href="css/style.css?v=primary-launch-20261013a">
+  <link rel="stylesheet" href="css/print.css?v=primary-launch-20261013a" media="print">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white relative study-shell eduworld-shell">
-
-  <!-- Background Interactive 3D WebGL Canvas -->
-  <canvas id="bg3dCanvas" aria-hidden="true"></canvas>
 
   <!-- Print-Only Header -->
   <div class="print-only border-b-2 border-slate-900 pb-4 mb-6">
     <div class="flex items-center justify-between">
       <div>
         <h1 class="text-2xl font-black text-slate-900">EduPintar Malaysia</h1>
-        <p class="text-xs text-slate-600">Portal Sukatan Pelajaran Rasmi KSSR Semakan & KSSM (KPM)</p>
+        <p class="text-xs text-slate-600">Pembelajaran KSSR Semakan dan KSSM</p>
       </div>
       <div class="text-right text-xs text-slate-600">
         <p>Tarikh Cetakan: 11 Oktober 2026</p>
@@ -198,33 +193,23 @@
         </div>
         <button class="classroom-change-button" type="button" onclick="window.app.openGradeSetupModal(false)">Tukar kelas</button>
       </div>
-      <div class="classroom-scene">
-        <canvas id="classroomWorldCanvas" tabindex="0" role="application" aria-label="Dunia kelas. Bergerak dengan kekunci WASD atau anak panah, atau klik tempat untuk bergerak. Berinteraksi dengan Cikgu Aus, papan kelas atau rak buku."></canvas>
-        <div class="world-hud world-help" id="classroomWorldHelp"><span>🕹️</span><span id="classroomWorldHelpText">Bergerak: WASD / anak panah · Klik untuk berjalan · Dekati objek untuk berinteraksi</span></div>
-        <div class="world-hud world-location"><span class="world-live-dot"></span><span id="classroomRoomName">BILIK DARJAH</span></div>
-        <div class="world-interaction" id="classroomInteraction" hidden aria-live="polite">
-          <button class="world-interaction-close" type="button" aria-label="Tutup" onclick="window.classroomWorld.dismissInteraction()">×</button>
-          <p id="classroomInteractionKind">INTERAKSI</p>
-          <h2 id="classroomInteractionTitle"></h2>
-          <div id="classroomInteractionText"></div>
-          <button class="world-interaction-action" id="classroomInteractionAction" type="button" onclick="window.classroomWorld.activate()"></button>
-        </div>
-        <div class="world-dpad" role="group" aria-label="Kawalan pergerakan mudah alih">
-          <button type="button" data-world-key="ArrowUp" aria-label="Bergerak ke atas">▲</button>
-          <div><button type="button" data-world-key="ArrowLeft" aria-label="Bergerak ke kiri">◀</button><button type="button" data-world-key="ArrowDown" aria-label="Bergerak ke bawah">▼</button><button type="button" data-world-key="ArrowRight" aria-label="Bergerak ke kanan">▶</button></div>
-        </div>
+      <div class="classroom-scene classroom-scene-lite" aria-label="Ilustrasi kelas ringkas">
+        <div class="classroom-scene-label"><span class="classroom-scene-dot"></span><span id="classroomRoomName">BILIK DARJAH</span></div>
+        <div class="classroom-scene-board"><span>EDUPINTAR</span><strong id="classroomBoardGrade">KELAS ANDA</strong><small>Belajar · Cuba · Faham</small></div>
+        <div class="classroom-scene-teacher" aria-hidden="true"><span class="teacher-cap"></span><span class="teacher-head">●</span><span class="teacher-body"></span><span class="teacher-legs"></span><b>Cikgu Aus</b></div>
+        <div class="classroom-scene-desk desk-one" aria-hidden="true"></div><div class="classroom-scene-desk desk-two" aria-hidden="true"></div><div class="classroom-scene-desk desk-three" aria-hidden="true"></div>
         <div class="world-subject-overlay" id="classroomSubjectsOverlay" hidden role="dialog" aria-modal="true" aria-labelledby="classroomSubjectsHeading" onclick="if(event.target===this)window.app.closeClassroomSubjects()">
           <div class="world-subject-panel">
             <button type="button" class="world-subject-close" onclick="window.app.closeClassroomSubjects()" aria-label="Tutup">×</button>
             <p id="classroomSubjectsEyebrow">PAPAN MISI KELAS</p>
-            <h2 id="classroomSubjectsHeading">Pilih dunia subjek</h2>
-            <p id="classroomSubjectsDescription">Pilih satu pintu untuk masuk ke misi pembelajaran anda.</p>
+            <h2 id="classroomSubjectsHeading">Pilih mata pelajaran</h2>
+            <p id="classroomSubjectsDescription">Pilih mata pelajaran untuk melihat pelajaran dan latihan.</p>
             <div id="classroomWorldSubjectList" class="world-subject-list"></div>
           </div>
         </div>
       </div>
       <div class="classroom-bottom-row">
-        <div class="classroom-welcome-note"><span class="welcome-note-icon">👋</span><div><strong id="classroomWelcomeTitle">Kelas sudah bermula!</strong><p id="classroomWelcomeText">Cikgu Aus dan rakan sekelas contoh anda sedang menunggu.</p></div></div>
+        <div class="classroom-welcome-note"><span class="welcome-note-icon">👋</span><div><strong id="classroomWelcomeTitle">Kelas anda</strong><p id="classroomWelcomeText">Cikgu Aus sedia membimbing pelajaran anda.</p></div></div>
         <div class="classroom-actions">
           <button type="button" class="classroom-secondary-action" onclick="window.app.openClassroomSubjects()"><span>📚</span><span id="classroomSubjectsAction">Rak buku · Subjek</span></button>
           <button type="button" class="classroom-primary-action" onclick="window.app.startClassLesson()"><span>✨</span><span id="classroomStartAction">Mula belajar</span><b>→</b></button>
@@ -239,47 +224,6 @@
       <!-- 1. Gamification & Motivation Welcome Banner -->
       <section id="studentStatsBanner">
         <!-- Populated dynamically by app.js -->
-      </section>
-
-      <!-- 🎮 Featured EduGame Arcade & Duel Banner -->
-      <section class="home-game-promo bg-gradient-to-r from-purple-950 via-indigo-950 to-slate-900 rounded-3xl p-5 sm:p-6 border-2 border-purple-500/40 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 card-3d-tilt">
-        <!-- Decorative Glow -->
-        <div class="absolute -right-8 -top-8 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl pointer-events-none"></div>
-        <div class="absolute -left-8 -bottom-8 w-40 h-40 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
-
-        <div class="max-w-xl z-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 text-xs font-black mb-2">
-            <span>🎮</span> Zon Permainan Interaktif Silibus (BARU)
-          </div>
-          <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
-            Belajar Sambil Bertarung: EduDuel & Padanan 3D!
-          </h3>
-          <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
-            Hilangkan rasa bosan! Cabar <strong>Bot Pintar AI</strong> atau rakan anda dalam pertarungan kuiz 1-lawan-1 berpemasa atau uji memori dengan pusingan kad 3D. Menang ganjaran XP, trofi dan lencana kebangsaan!
-          </p>
-          <div class="mt-4 flex flex-wrap items-center gap-3">
-            <button 
-              onclick="window.eduGame.openGameModal(window.app?.getCurrentSubject())" 
-              class="px-5 py-2.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-xs sm:text-sm rounded-2xl shadow-lg shadow-amber-500/30 transition-all flex items-center gap-2 transform hover:scale-105"
-            >
-              <span>⚔️</span> Mula Main Sekarang →
-            </button>
-            <span class="text-xs text-purple-300 font-semibold">• Soalan Relevan Darjah 1 hingga Tingkatan 5</span>
-          </div>
-        </div>
-
-        <div class="shrink-0 flex items-center gap-3 z-10">
-          <div class="w-20 h-24 rounded-3xl bg-purple-900/60 border border-purple-500/40 flex flex-col items-center justify-center text-center p-2 shadow-inner hover:scale-105 transition-transform cursor-pointer" onclick="window.eduGame.selectGameMode('duel'); window.eduGame.openGameModal(window.app?.getCurrentSubject());">
-            <span class="text-3xl animate-bounce">⚔️</span>
-            <span class="text-[10px] font-black text-purple-200 mt-1 uppercase">EduDuel</span>
-            <span class="text-[9px] text-amber-300 font-bold">1-Lawan-1</span>
-          </div>
-          <div class="w-20 h-24 rounded-3xl bg-indigo-900/60 border border-indigo-500/40 flex flex-col items-center justify-center text-center p-2 shadow-inner hover:scale-105 transition-transform cursor-pointer" onclick="window.eduGame.selectGameMode('memory'); window.eduGame.openGameModal(window.app?.getCurrentSubject());">
-            <span class="text-3xl animate-pulse">🧠</span>
-            <span class="text-[10px] font-black text-indigo-200 mt-1 uppercase">Memori 3D</span>
-            <span class="text-[9px] text-amber-300 font-bold">Padanan</span>
-          </div>
-        </div>
       </section>
 
       <!-- 2. Primary / Secondary Level Toggle Switch -->
@@ -300,10 +244,10 @@
       <section>
         <div class="flex items-center justify-between mb-4">
           <div>
-            <h3 class="text-lg font-black text-white flex items-center gap-2">
+          <h3 class="text-lg font-black text-white flex items-center gap-2">
               <span>📚</span> Pilih Mata Pelajaran
             </h3>
-            <p class="text-xs text-slate-400">Klik mana-mana subjek untuk membuka <strong>Arena Pembelajaran Interaktif 3D</strong></p>
+            <p class="text-xs text-slate-400">Pilih subjek untuk melihat nota, visual dan latihan.</p>
           </div>
           <span class="text-xs bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 px-3 py-1 rounded-full font-bold hidden sm:inline-block">
             ✨ Klik untuk Terokai Modul
@@ -312,45 +256,6 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="subjectsGridContainer">
           <!-- Populated dynamically by app.js -->
-        </div>
-      </section>
-
-      <!-- 5. Feature Highlights -->
-      <section class="home-feature-highlights grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-800">
-        <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-3xl border border-slate-800 shadow-md flex items-start gap-4 card-3d-tilt">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl shrink-0">
-            📖
-          </div>
-          <div>
-            <h4 class="font-extrabold text-sm text-white">100% Format Rasmi KPM</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Diselaraskan mengikut standard DSKP KSSR Semakan (Tahun 1–6) dan KSSM (Tingkatan 1–5).
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-3xl border border-slate-800 shadow-md flex items-start gap-4 card-3d-tilt">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-2xl shrink-0">
-            🎮
-          </div>
-          <div>
-            <h4 class="font-extrabold text-sm text-white">Interaktif 3D & Kad Imbasan</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Visual 3D Three.js yang boleh diputar dengan tetikus, kad imbasan berbalik 3D, dan audio gamifikasi.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-3xl border border-slate-800 shadow-md flex items-start gap-4 card-3d-tilt">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center text-2xl shrink-0">
-            ⚡
-          </div>
-          <div>
-            <h4 class="font-extrabold text-sm text-white">UASA & SPM Ready</h4>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Kuiz masa nyata berpemasa dengan ulasan jawapan terperinci dan pengiraan markah automatik.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -381,42 +286,6 @@
           </div>
         </div>
 
-        <!-- 3D Model Switcher Pill Group -->
-        <div class="flex items-center gap-1.5 bg-slate-950 p-1.5 rounded-2xl border border-slate-800">
-          <button onclick="window.edu3D.buildLabModel('atom')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-indigo-300 hover:bg-slate-800 transition-colors" title="Lihat Model Atom 3D">
-            🔬 Atom 3D
-          </button>
-          <button onclick="window.edu3D.buildLabModel('geometry')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-amber-300 hover:bg-slate-800 transition-colors" title="Lihat Bentuk Geometri 3D">
-            📐 Geometri 3D
-          </button>
-          <button onclick="window.edu3D.buildLabModel('compass')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-300 hover:bg-slate-800 transition-colors" title="Lihat Trofi Kejayaan 3D">
-            🏆 Trofi 3D
-          </button>
-        </div>
-      </div>
-
-      <!-- 3D Interactive Lab Stage Banner -->
-      <div class="bg-gradient-to-r from-slate-900 via-indigo-950/80 to-slate-900 rounded-3xl p-5 sm:p-6 border border-indigo-500/30 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="max-w-lg z-10">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 text-xs font-bold mb-2">
-            <span>🎮</span> Makmal Visual 3D Interaktif Three.js
-          </span>
-          <h3 class="text-xl sm:text-2xl font-black text-white">Terokai Konsep Sains & Matematik dalam 3D!</h3>
-          <p class="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
-            Klik dan seret (drag) model 3D di sebelah kanan untuk memutarkannya 360°. Pembelajaran menjadi lebih seronok dan mudah difahami!
-          </p>
-          <div class="mt-4 flex items-center gap-3">
-            <span class="text-xs text-amber-400 font-bold flex items-center gap-1">
-              <span>🖱️</span> Putar dengan tetikus / sentuhan
-            </span>
-            <span class="text-xs text-slate-400 font-semibold">• Grafik WebGL Masa-Nyata</span>
-          </div>
-        </div>
-
-        <!-- 3D Canvas Container -->
-        <div class="w-full md:w-80 h-56 bg-slate-950/60 rounded-3xl border border-indigo-500/20 shadow-inner overflow-hidden relative flex items-center justify-center shrink-0" id="lab3dContainer">
-          <!-- 3D Engine injects interactive canvas here -->
-        </div>
       </div>
 
       <!-- Chapter Quest Roadmap (Peta Misi Pembelajaran) -->
@@ -670,21 +539,20 @@
   </div>
 
   <!-- Core JavaScript Modules -->
-  <script defer src="js/audio-fx.js"></script>
-  <script defer src="js/3d-engine.js"></script>
-  <script defer src="js/syllabus-data.js"></script>
-  <script defer src="js/secondary-math-curriculum.js"></script>
-  <script defer src="js/localization.js?v=2d-world-20261013"></script>
-  <script defer src="js/gamification.js"></script>
-  <script defer src="js/auth.js"></script>
-  <script defer src="js/quiz-engine.js"></script>
-  <script defer src="js/edu-game.js"></script>
-  <script defer src="js/visual-graphics.js"></script>
-  <script defer src="js/cikgu-aus.js"></script>
-  <script defer src="js/math-lab.js"></script>
-  <script defer src="js/lesson-engine.js"></script>
-  <script defer src="js/app.js?v=2d-world-20261013"></script>
-  <script defer src="js/classroom-world.js"></script>
+  <script defer src="js/audio-fx.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/syllabus-data.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/primary-curriculum.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/secondary-math-curriculum.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/localization.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/gamification.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/auth.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/quiz-engine.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/edu-game.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/visual-graphics.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/cikgu-aus.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/math-lab.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/lesson-engine.js?v=primary-launch-20261013a"></script>
+  <script defer src="js/app.js?v=primary-launch-20261013a"></script>
 
 </body>
 </html>

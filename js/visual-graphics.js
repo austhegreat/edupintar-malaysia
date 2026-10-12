@@ -9,8 +9,14 @@ class VisualGraphicsEngine {
     this.activeGraphicState = {};
   }
 
-  getChapterGraphic(chapterId, language = "bm") {
+  getChapterGraphic(chapterId, language = "bm", chapter = null) {
     const isEn = language === "en";
+    if (chapter?.primaryVisual) {
+      const html = this.renderPrimaryVisual(chapter, isEn);
+      if (chapter.primaryVisual === "gravity") setTimeout(() => this.drawPrimaryGravity(0), 0);
+      if (chapter.primaryVisual === "fraction3d") setTimeout(() => this.updatePrimaryFraction(), 0);
+      return html;
+    }
 
     // 1. Bab 1: Fungsi & Persamaan Kuadratik
     if (chapterId && chapterId.includes("mt-c1")) {
@@ -67,6 +73,8 @@ class VisualGraphicsEngine {
     if (!facts.length) facts.push(clean(section?.content) || clean(chapter?.summary) || sectionTitle);
     this.activeTopicFacts = facts;
 
+    if (chapter?.primaryVisual) return "";
+
     const header = `<div class="topic-visual rounded-2xl border border-indigo-100 bg-indigo-50/70 p-4 sm:p-5" aria-label="${isEn ? 'Interactive visual' : 'Visual interaktif'}"><div class="mb-3 flex items-center gap-2"><span class="grid h-9 w-9 place-items-center rounded-xl bg-white text-xl shadow-sm">${this.topicIcon(context)}</span><div><p class="text-[10px] font-bold uppercase tracking-wider text-indigo-600">${isEn ? 'Explore this idea' : 'Teroka konsep ini'}</p><h4 class="font-bold text-slate-900">${sectionTitle}</h4></div></div>`;
     const footer = `</div>`;
 
@@ -86,6 +94,149 @@ class VisualGraphicsEngine {
       return header + this.renderSubtopicFactMap(facts, isEn, "timeline") + footer;
     }
     return header + this.renderSubtopicFactMap(facts, isEn, "concept") + footer;
+  }
+
+  renderPrimaryVisual(chapter, isEn) {
+    const label = isEn ? "Try it" : "Cuba sendiri";
+    const title = isEn ? (chapter.titleEn || chapter.title) : chapter.title;
+    const header = `<section class="primary-visual" aria-label="${isEn ? 'Interactive learning activity' : 'Aktiviti pembelajaran interaktif'}"><div class="primary-visual-heading"><span aria-hidden="true">${chapter.primaryVisual === 'gravity' ? '🪂' : chapter.primaryVisual === 'fraction3d' ? '🧊' : chapter.primaryVisual === 'word-builder' ? '🔤' : chapter.primaryVisual === 'timeline' ? '🕰️' : '🔎'}</span><div><p>${label}</p><h3>${title}</h3></div></div>`;
+    let body = "";
+    if (chapter.primaryVisual === "gravity") body = this.renderGravityActivity(isEn);
+    else if (chapter.primaryVisual === "fraction3d") body = this.renderFractionSlicer(isEn);
+    else if (chapter.primaryVisual === "geometry3d") body = this.renderGeometryModel(isEn);
+    else if (chapter.primaryVisual === "money") body = this.renderMoneyActivity(isEn);
+    else if (chapter.primaryVisual === "measure") body = this.renderMeasureActivity(isEn);
+    else if (chapter.primaryVisual === "data") body = this.renderDataActivity(isEn);
+    else if (["senses", "animals", "plants"].includes(chapter.primaryVisual)) body = this.renderScienceActivity(chapter.primaryVisual, isEn);
+    else if (chapter.primaryVisual === "word-builder") body = this.renderWordBuilder(isEn);
+    else if (chapter.primaryVisual === "timeline") body = this.renderHistoryMethod(isEn);
+    else if (chapter.primaryVisual === "number-line") body = this.renderNumberLine(isEn);
+    else body = this.renderObservationActivity(isEn);
+    return header + body + `</section>`;
+  }
+
+  renderGravityActivity(isEn) {
+    const g = isEn ? "Gravity" : "Graviti";
+    return `<div class="primary-activity-grid"><canvas id="primaryGravityCanvas" width="480" height="210" role="img" aria-label="${isEn ? 'Object falling under gravity' : 'Objek jatuh akibat graviti'}"></canvas><div class="primary-activity-controls"><label for="primaryGravityRange">${isEn ? 'Gravity strength' : 'Kekuatan graviti'} <output id="primaryGravityValue">9.8</output></label><input id="primaryGravityRange" type="range" min="2" max="16" value="9.8" step="0.2" oninput="window.visualGraphics.updatePrimaryGravity(this.value)"><button type="button" onclick="window.visualGraphics.dropPrimaryObject()">${isEn ? 'Drop object' : 'Lepaskan objek'}</button><p id="primaryGravityHint">${isEn ? 'Change gravity, then drop the ball. The canvas shows its position as time passes.' : 'Ubah graviti, kemudian lepaskan bola. Kanvas menunjukkan kedudukannya mengikut masa.'}</p></div></div><p class="primary-visual-note">${isEn ? `${g} causes an object's downward speed to increase while it falls. This model ignores air resistance.` : `${g} menyebabkan kelajuan objek ke bawah bertambah semasa jatuh. Model ini mengabaikan rintangan udara.`}</p>`;
+  }
+
+  renderFractionSlicer(isEn) {
+    return `<div class="primary-activity-grid"><div class="fraction-stage"><button type="button" id="primaryFractionShape" class="fraction-shape" onclick="window.visualGraphics.rotatePrimaryFraction()" aria-label="${isEn ? 'Rotate the three-dimensional fraction model' : 'Putarkan model pecahan tiga dimensi'}"></button><div class="fraction-caption" id="primaryFractionLabel">2 / 4</div></div><div class="primary-activity-controls"><label for="primaryFractionDenominator">${isEn ? 'Equal parts' : 'Bahagian sama besar'}</label><input id="primaryFractionDenominator" type="range" min="2" max="12" value="4" oninput="window.visualGraphics.updatePrimaryFraction()"><label for="primaryFractionNumerator">${isEn ? 'Parts selected' : 'Bahagian dipilih'}</label><input id="primaryFractionNumerator" type="range" min="0" max="4" value="2" oninput="window.visualGraphics.updatePrimaryFraction()"><p id="primaryFractionHint">${isEn ? 'Change the sliders. Rotate the model to inspect the shaded share.' : 'Laraskan gelangsar. Putarkan model untuk melihat bahagian berlorek.'}</p></div></div><p class="primary-visual-note">${isEn ? 'The shaded part is the numerator; the total equal parts are the denominator.' : 'Bahagian berlorek ialah pembilang; jumlah bahagian sama besar ialah penyebut.'}</p>`;
+  }
+
+  renderGeometryModel(isEn) {
+    return `<div class="geometry-activity"><button type="button" class="geometry-cube" id="primaryGeometryCube" onclick="this.classList.toggle('turned')" aria-label="${isEn ? 'Rotate a cube model' : 'Putarkan model kubus'}"><span class="cube-face front">${isEn ? 'Front' : 'Depan'}</span><span class="cube-face back">${isEn ? 'Back' : 'Belakang'}</span><span class="cube-face right">${isEn ? 'Side' : 'Sisi'}</span><span class="cube-face left"></span><span class="cube-face top"></span><span class="cube-face bottom"></span></button><div class="geometry-facts"><strong>${isEn ? 'Cube' : 'Kubus'}</strong><span>${isEn ? '6 square faces' : '6 permukaan segi empat sama'}</span><span>${isEn ? '12 edges · 8 vertices' : '12 sisi · 8 bucu'}</span><small>${isEn ? 'Select the model to turn it.' : 'Pilih model untuk memutarkannya.'}</small></div></div>`;
+  }
+
+  renderMoneyActivity(isEn) {
+    return `<div class="primary-activity-grid"><div class="money-visual"><span>RM</span><strong id="primaryMoneyTotal">5.00</strong><small>${isEn ? 'total' : 'jumlah'}</small></div><div class="primary-activity-controls"><label for="primaryMoneyA">${isEn ? 'First amount (RM)' : 'Nilai pertama (RM)'}</label><input id="primaryMoneyA" type="range" min="0" max="20" value="2" oninput="window.visualGraphics.updatePrimaryMoney()"><label for="primaryMoneyB">${isEn ? 'Second amount (RM)' : 'Nilai kedua (RM)'}</label><input id="primaryMoneyB" type="range" min="0" max="20" value="3" oninput="window.visualGraphics.updatePrimaryMoney()"><p id="primaryMoneyEquation">RM2 + RM3 = RM5</p></div></div><p class="primary-visual-note">${isEn ? 'Combine the two amounts. Estimate first, then check the total.' : 'Gabungkan dua nilai. Buat anggaran dahulu, kemudian semak jumlah.'}</p>`;
+  }
+
+  renderMeasureActivity(isEn) {
+    return `<div class="measure-activity"><label for="primaryMeasureRange">${isEn ? 'Measured length (cm)' : 'Panjang yang diukur (cm)'}</label><input id="primaryMeasureRange" type="range" min="1" max="12" value="6" oninput="window.visualGraphics.updatePrimaryMeasure(this.value)"><div class="measure-ruler"><span id="primaryMeasureBar" style="width:50%"></span><div>${Array.from({length:13},(_,i)=>`<i>${i}</i>`).join("")}</div></div><p id="primaryMeasureValue" aria-live="polite">6 cm</p><p class="primary-visual-note">${isEn ? 'Read the scale from zero and include the unit in your answer.' : 'Baca skala bermula dari sifar dan sertakan unit dalam jawapan.'}</p></div>`;
+  }
+
+  renderDataActivity(isEn) {
+    return `<div class="data-activity"><label for="primaryDataRange">${isEn ? 'Change the number of learners who chose football' : 'Ubah bilangan murid yang memilih bola sepak'}</label><input id="primaryDataRange" type="range" min="0" max="10" value="6" oninput="window.visualGraphics.updatePrimaryData(this.value)"><div class="data-bars"><span>${isEn ? 'Football' : 'Bola sepak'}<b id="primaryDataBar" style="height:60%"></b><small id="primaryDataCount">6</small></span><span>${isEn ? 'Badminton' : 'Badminton'}<b style="height:40%"></b><small>4</small></span></div><p id="primaryDataHint" aria-live="polite">${isEn ? 'Football is the most popular choice.' : 'Bola sepak ialah pilihan paling popular.'}</p></div>`;
+  }
+
+  renderScienceActivity(type, isEn) {
+    if (type === "senses") return `<div class="science-choice"><p>${isEn ? 'Select a sense organ to explore its role.' : 'Pilih organ deria untuk melihat fungsinya.'}</p><div>${[["👁️","Mata","Eye","Melihat warna, bentuk dan cahaya.","Detects light, colour and shape."],["👂","Telinga","Ear","Mengesan bunyi di sekeliling.","Detects sounds around us."],["👃","Hidung","Nose","Mengesan bau melalui udara.","Detects smells in the air."],["👅","Lidah","Tongue","Mengesan rasa makanan.","Detects the taste of food."],["✋","Kulit","Skin","Mengesan sentuhan dan suhu.","Detects touch and temperature."]].map((a,i)=>`<button type="button" onclick="window.visualGraphics.selectSense(${i})">${a[0]} ${isEn?a[2]:a[1]}</button>`).join("")}</div><p id="primaryScienceHint" aria-live="polite">${isEn?'Select an organ.':'Pilih satu organ.'}</p></div>`;
+    if (type === "animals") return `<div class="science-choice"><p>${isEn ? 'Choose a group to compare a key feature.' : 'Pilih kumpulan untuk membandingkan satu ciri utama.'}</p><div><button type="button" onclick="window.visualGraphics.selectAnimalGroup(0)">${isEn?'Vertebrates':'Vertebrata'}</button><button type="button" onclick="window.visualGraphics.selectAnimalGroup(1)">${isEn?'Invertebrates':'Invertebrata'}</button></div><p id="primaryScienceHint" aria-live="polite">${isEn?'Vertebrates have a backbone; invertebrates do not.':'Vertebrata mempunyai tulang belakang; invertebrata tidak.'}</p></div>`;
+    return `<div class="science-choice"><label for="primaryPlantStage">${isEn ? 'Explore a plant life cycle' : 'Teroka kitar hidup tumbuhan'}</label><input id="primaryPlantStage" type="range" min="0" max="3" value="0" oninput="window.visualGraphics.updatePlantStage(this.value)"><div class="plant-stage" id="primaryPlantStageIcon">🌰</div><p id="primaryScienceHint" aria-live="polite">${isEn?'Seed: growth begins when the conditions are suitable.':'Biji benih: pertumbuhan bermula apabila keadaannya sesuai.'}</p></div>`;
+  }
+
+  renderWordBuilder(isEn) {
+    const words = isEn ? ["The", "small", "bird", "can", "fly."] : ["Burung", "kecil", "itu", "boleh", "terbang."];
+    const order = isEn ? ["The", "small", "bird", "can", "fly."].join(" ") : ["Burung", "kecil", "itu", "boleh", "terbang."].join(" ");
+    return `<p class="primary-visual-note">${isEn ? 'Select the word tiles in order to build a complete sentence.' : 'Pilih jubin perkataan mengikut urutan untuk membina ayat yang lengkap.'}</p><div class="word-builder"><div class="word-tray" id="primaryWordTray">${words.map((word, i) => `<button type="button" draggable="true" data-word="${word}" onclick="window.visualGraphics.addPrimaryWord(this)" ondragstart="window.visualGraphics.dragPrimaryWord(event)">${word}</button>`).join("")}</div><div class="word-drop-zone" id="primaryWordDrop" ondragover="event.preventDefault()" ondrop="window.visualGraphics.dropPrimaryWord(event)" aria-label="${isEn ? 'Sentence building area' : 'Ruang membina ayat'}">${isEn ? 'Select or drag words here' : 'Pilih atau seret perkataan ke sini'}</div><div class="word-builder-actions"><button type="button" onclick="window.visualGraphics.checkPrimarySentence()">${isEn ? 'Check sentence' : 'Semak ayat'}</button><button type="button" class="secondary" onclick="window.visualGraphics.resetPrimarySentence()">${isEn ? 'Reset' : 'Mula semula'}</button></div><p id="primaryWordFeedback" aria-live="polite"></p></div>`;
+  }
+
+  renderHistoryMethod(isEn) {
+    return `<p class="primary-visual-note">${isEn ? 'Explore a historical question using a simple evidence trail.' : 'Teroka satu persoalan sejarah melalui langkah bukti yang mudah.'}</p><div class="history-trail"><button type="button" aria-pressed="true" onclick="window.visualGraphics.selectHistoryStep(0)"><b>1</b>${isEn ? 'Ask' : 'Tanya'}</button><button type="button" aria-pressed="false" onclick="window.visualGraphics.selectHistoryStep(1)"><b>2</b>${isEn ? 'Inspect a source' : 'Teliti sumber'}</button><button type="button" aria-pressed="false" onclick="window.visualGraphics.selectHistoryStep(2)"><b>3</b>${isEn ? 'Explain with evidence' : 'Huraikan dengan bukti'}</button></div><p id="primaryHistoryHint" class="primary-visual-note">${isEn ? 'Start with a question about the people, place or event in this lesson.' : 'Mulakan dengan soalan tentang tokoh, tempat atau peristiwa dalam pelajaran ini.'}</p>`;
+  }
+
+  renderNumberLine(isEn) {
+    return `<div class="number-line-activity"><label for="primaryNumberRange">${isEn ? 'Move the marker' : 'Gerakkan penanda'}</label><input id="primaryNumberRange" type="range" min="0" max="20" value="8" oninput="window.visualGraphics.updatePrimaryNumber(this.value)"><div class="number-line-track"><span id="primaryNumberMarker" style="left:40%"></span></div><p id="primaryNumberHint" aria-live="polite">${isEn ? 'Number 8' : 'Nombor 8'}</p><p class="primary-visual-note">${isEn ? 'Use the number line to compare values and describe how far apart they are.' : 'Gunakan garis nombor untuk membandingkan nilai dan menerangkan jarak antara nombor.'}</p></div>`;
+  }
+
+  renderObservationActivity(isEn) {
+    return `<div class="observation-activity"><p>${isEn ? 'Choose a step in a fair investigation.' : 'Pilih langkah dalam penyiasatan yang adil.'}</p><div><button type="button" onclick="window.visualGraphics.setObservationStep(0)">${isEn ? 'Predict' : 'Ramalkan'}</button><button type="button" onclick="window.visualGraphics.setObservationStep(1)">${isEn ? 'Test one change' : 'Uji satu perubahan'}</button><button type="button" onclick="window.visualGraphics.setObservationStep(2)">${isEn ? 'Record evidence' : 'Catat bukti'}</button></div><p id="primaryObservationHint" aria-live="polite">${isEn ? 'A good investigation changes one factor and records what happens.' : 'Penyiasatan yang baik mengubah satu faktor dan merekodkan hasilnya.'}</p></div>`;
+  }
+
+  updatePrimaryGravity(value) {
+    const val = Number(value); const label = document.getElementById("primaryGravityValue"); if (label) label.textContent = val.toFixed(1);
+    this.drawPrimaryGravity(0);
+  }
+
+  drawPrimaryGravity(progress = 0) {
+    const canvas = document.getElementById("primaryGravityCanvas"); if (!canvas) return;
+    const ctx = canvas.getContext("2d"); if (!ctx) return;
+    const w = canvas.width, h = canvas.height, gravity = Number(document.getElementById("primaryGravityRange")?.value || 9.8);
+    ctx.clearRect(0, 0, w, h); ctx.fillStyle = "#eff6ff"; ctx.fillRect(0, 0, w, h);
+    ctx.strokeStyle = "#94a3b8"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(24, h - 28); ctx.lineTo(w - 20, h - 28); ctx.stroke();
+    ctx.fillStyle = "#4f46e5"; ctx.beginPath(); ctx.arc(w / 2, 26 + Math.min(h - 72, progress * progress * gravity * 0.38), 14, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#475569"; ctx.font = "14px system-ui"; ctx.fillText(`${gravity.toFixed(1)} m/s²`, 28, 26);
+    ctx.fillText(`${Math.min(progress, 3).toFixed(1)} s`, w - 76, 26);
+  }
+
+  dropPrimaryObject() {
+    let start = null; const draw = time => { if (start === null) start = time; const t = Math.min(3, (time - start) / 1000); this.drawPrimaryGravity(t); if (t < 3) requestAnimationFrame(draw); };
+    this.drawPrimaryGravity(0); requestAnimationFrame(draw);
+  }
+
+  updatePrimaryFraction() {
+    const denominator = Number(document.getElementById("primaryFractionDenominator")?.value || 4);
+    const numerator = document.getElementById("primaryFractionNumerator"); if (!numerator) return;
+    numerator.max = String(denominator); if (Number(numerator.value) > denominator) numerator.value = String(denominator);
+    const n = Number(numerator.value), shape = document.getElementById("primaryFractionShape");
+    if (shape) {
+      const step = 360 / denominator, boundary = `repeating-conic-gradient(transparent 0deg ${Math.max(0, step - 1.5)}deg,#fff ${Math.max(0, step - 1.5)}deg ${step}deg)`;
+      shape.style.background = `${boundary}, conic-gradient(#4f46e5 0 ${100 * n / denominator}%, #e2e8f0 ${100 * n / denominator}% 100%)`;
+    }
+    const label = document.getElementById("primaryFractionLabel"); if (label) label.textContent = `${n} / ${denominator}`;
+  }
+
+  rotatePrimaryFraction() { const shape = document.getElementById("primaryFractionShape"); if (shape) shape.classList.toggle("turned"); }
+  updatePrimaryMoney() {
+    const a=Number(document.getElementById("primaryMoneyA")?.value||0), b=Number(document.getElementById("primaryMoneyB")?.value||0), total=a+b;
+    const label=document.getElementById("primaryMoneyTotal"), equation=document.getElementById("primaryMoneyEquation");
+    if(label)label.textContent=total.toFixed(2); if(equation)equation.textContent=`RM${a} + RM${b} = RM${total}`;
+  }
+  updatePrimaryMeasure(value) { const bar=document.getElementById("primaryMeasureBar"),label=document.getElementById("primaryMeasureValue");if(bar)bar.style.width=`${Number(value)/12*100}%`;if(label)label.textContent=`${value} cm`; }
+  updatePrimaryData(value) { const bar=document.getElementById("primaryDataBar"),count=document.getElementById("primaryDataCount"),hint=document.getElementById("primaryDataHint");if(bar)bar.style.height=`${Number(value)*10}%`;if(count)count.textContent=value;if(hint){const en=window.app?.currentLanguage==='en';hint.textContent=Number(value)>4?(en?'Football is the most popular choice.':'Bola sepak ialah pilihan paling popular.'):Number(value)<4?(en?'Badminton is the most popular choice.':'Badminton ialah pilihan paling popular.'):(en?'Both choices have the same number of votes.':'Kedua-dua pilihan mendapat bilangan undi yang sama.');} }
+  selectSense(index) { const en=window.app?.currentLanguage==='en';const items=en?["The eye detects light, colour and shape.","The ear detects sounds around us.","The nose detects smells in the air.","The tongue detects tastes in food.","The skin detects touch and temperature."]:["Mata mengesan cahaya, warna dan bentuk.","Telinga mengesan bunyi di sekeliling.","Hidung mengesan bau melalui udara.","Lidah mengesan rasa makanan.","Kulit mengesan sentuhan dan suhu."];const hint=document.getElementById('primaryScienceHint');if(hint)hint.textContent=items[index]||items[0]; }
+  selectAnimalGroup(index) { const en=window.app?.currentLanguage==='en';const hint=document.getElementById('primaryScienceHint');if(hint)hint.textContent=index?(en?'Invertebrates do not have a backbone; examples include butterflies and earthworms.':'Invertebrata tidak mempunyai tulang belakang; contohnya rama-rama dan cacing tanah.'):(en?'Vertebrates have a backbone; examples include fish and birds.':'Vertebrata mempunyai tulang belakang; contohnya ikan dan burung.'); }
+  updatePlantStage(value) { const en=window.app?.currentLanguage==='en';const stages=en?[["🌰","Seed: growth begins when conditions are suitable."],["🌱","Germination: a root and shoot begin to grow."],["🪴","Seedling: leaves develop and the plant grows."],["🌼","Mature plant: it can flower and produce seeds." ]]:[["🌰","Biji benih: pertumbuhan bermula apabila keadaannya sesuai."],["🌱","Percambahan: akar dan pucuk mula tumbuh."],["🪴","Anak pokok: daun berkembang dan pokok membesar."],["🌼","Pokok matang: pokok boleh berbunga dan menghasilkan biji benih."]];const stage=stages[Number(value)]||stages[0],icon=document.getElementById('primaryPlantStageIcon'),hint=document.getElementById('primaryScienceHint');if(icon)icon.textContent=stage[0];if(hint)hint.textContent=stage[1]; }
+
+  addPrimaryWord(button) { const target = document.getElementById("primaryWordDrop"); if (target && button?.dataset.word) this.appendPrimaryWord(button.dataset.word); }
+  dragPrimaryWord(event) { event.dataTransfer?.setData("text/plain", event.currentTarget?.dataset.word || ""); }
+  dropPrimaryWord(event) { event.preventDefault(); this.appendPrimaryWord(event.dataTransfer?.getData("text/plain")); }
+  appendPrimaryWord(word) {
+    if (!word) return; const target = document.getElementById("primaryWordDrop"); if (!target) return;
+    const words = target.dataset.words ? JSON.parse(target.dataset.words) : []; words.push(word); target.dataset.words = JSON.stringify(words); target.textContent = words.join(" ");
+  }
+  checkPrimarySentence() {
+    const target = document.getElementById("primaryWordDrop"), feedback = document.getElementById("primaryWordFeedback"); if (!target || !feedback) return;
+    const expected = this.activeWordSentence || null;
+    const words = target.dataset.words ? JSON.parse(target.dataset.words) : [];
+    const isEn = window.app?.currentLanguage === "en";
+    const correct = words.join(" ") === (isEn ? "The small bird can fly." : "Burung kecil itu boleh terbang.");
+    feedback.textContent = correct ? (isEn ? "Correct. The sentence is in a clear order." : "Betul. Susunan ayat ini jelas.") : (isEn ? "Check the word order, then try again." : "Semak susunan perkataan, kemudian cuba lagi.");
+    feedback.className = correct ? "is-correct" : "";
+  }
+  resetPrimarySentence() { const target = document.getElementById("primaryWordDrop"), feedback = document.getElementById("primaryWordFeedback"); if (target) { target.dataset.words = "[]"; target.textContent = window.app?.currentLanguage === "en" ? "Select or drag words here" : "Pilih atau seret perkataan ke sini"; } if (feedback) feedback.textContent = ""; }
+  selectHistoryStep(step) {
+    const isEn = window.app?.currentLanguage === "en";
+    const hints = isEn ? ["Start with a question about the people, place or event in this lesson.", "Check who made the source, when it was made and what it can show.", "Use details from the source to support a careful explanation."] : ["Mulakan dengan soalan tentang tokoh, tempat atau peristiwa dalam pelajaran ini.", "Semak siapa menghasilkan sumber, bila ia dihasilkan dan perkara yang dapat ditunjukkan.", "Gunakan butiran sumber untuk menyokong huraian yang teliti."];
+    const hint = document.getElementById("primaryHistoryHint"); if (hint) hint.textContent = hints[step] || hints[0];
+    document.querySelectorAll(".history-trail button").forEach((button, index) => button.setAttribute("aria-pressed", String(index === step)));
+  }
+  updatePrimaryNumber(value) { const marker = document.getElementById("primaryNumberMarker"), hint = document.getElementById("primaryNumberHint"); if (marker) marker.style.left = `${Number(value) / 20 * 100}%`; if (hint) hint.textContent = `${window.app?.currentLanguage === "en" ? "Number" : "Nombor"} ${value}`; }
+  setObservationStep(step) {
+    const isEn = window.app?.currentLanguage === "en";
+    const hints = isEn ? ["Write what you think will happen before you test.", "Change one factor and keep the other conditions the same.", "Record what you observe, then compare it with your prediction."] : ["Catat ramalan sebelum menjalankan ujian.", "Ubah satu faktor dan kekalkan keadaan lain.", "Catat pemerhatian, kemudian bandingkan dengan ramalan."];
+    const hint = document.getElementById("primaryObservationHint"); if (hint) hint.textContent = hints[step] || hints[0];
   }
 
   topicIcon(context) {

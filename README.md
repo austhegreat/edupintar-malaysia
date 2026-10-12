@@ -18,17 +18,21 @@ Versi ini menggunakan Supabase Auth dan Postgres untuk akaun, nama pengguna, gam
 - Untuk projek Supabase yang sudah disediakan, jalankan `supabase-grade-profile-upgrade.sql` sekali dalam SQL Editor sebelum deploy versi ini. Projek baharu boleh gunakan `supabase-setup.sql` yang terkini.
 - Selepas log masuk pertama, murid memilih sekolah rendah/menengah dan Tahun/Tingkatan. Pilihan ini disimpan pada profil; carian, subjek, bab, kuiz dan senarai papan pendahulu ditapis kepada kelas tersebut.
 - Murid boleh menukar kelas melalui butang **Tukar kelas** atau profil. XP keseluruhan kekal pada akaun, manakala papan pendahulu mengira XP yang diperoleh dalam kelas semasa sahaja. Untuk pertandingan yang memerlukan pencegahan penipuan, skor masih perlu disahkan di pelayan.
-- Dalam modul nota, setiap bahagian nota dipaparkan sebagai subtopik berasingan dengan visual yang boleh diterokai. Entri yang masih menggunakan teks templat atau belum mempunyai nota ditandakan sebagai draf; cabaran dan ganjarannya disembunyikan sehingga kandungan disahkan.
-- Data sekolah menengah kini mempunyai 260 entri bab; 145 masih draf dan disembunyikan daripada aktiviti. Matematik Tingkatan 1–3 kini merangkumi 35 bab KSSM dengan dua atau tiga subtopik nota bagi setiap bab. Nota yang diterbitkan setakat ini ialah BM; kuiz dan terjemahan DLP belum lengkap. Rujukan kurikulum dan status liputan direkodkan dalam `CURRICULUM-SOURCES.md`. Kandungan subjek lain dan Matematik Tingkatan 4–5 masih perlu dikarang dan disemak mengikut DSKP/buku teks sebelum liputan sekolah menengah dianggap lengkap.
+- Sekolah rendah kini mempunyai laluan pembelajaran khusus Tahun 1–6 bagi Matematik, Sains, Bahasa Melayu dan English. Sejarah dipaparkan untuk Tahun 4–6 mengikut kurikulum KSSR Semakan 2017 yang sedang digunakan.
+- Setiap pelajaran sekolah rendah yang diterbitkan mempunyai subtopik, nota ringkas, latihan dan aktiviti interaktif berkaitan topik. Visual merangkumi model pecahan dan kubus CSS 3D, simulasi jatuh bebas, alat ukur, carta data, pembina ayat dan penerokaan sumber sejarah.
+- 329 bab templat generik telah dibuang daripada fail silibus. Bab lain yang belum mempunyai kandungan substantif juga tidak dipaparkan sebagai pelajaran.
+- Bahan sekolah rendah ialah bantuan pembelajaran yang dikarang untuk EduPintar; liputannya bukan pengganti DSKP penuh. Semak rujukan dan nota peralihan kurikulum dalam `CURRICULUM-SOURCES.md`.
+- Liputan sekolah menengah masih belum lengkap. Kandungan Matematik Tingkatan 1–3 mempunyai nota BM; mata pelajaran dan bahasa lain perlu disemak sebelum dianggap lengkap.
 
 Kemajuan disimpan pada profil akaun. Papan pendahulu hanya memaparkan pengguna yang memilih untuk menyertainya, menggunakan nama pengguna, gambar dan XP sahaja. Nama sebenar, sekolah dan e-mel tidak diminta atau dipaparkan.
 
-### Antara muka EduWorld dan bahasa
+### Antara muka, bahasa dan prestasi
 
-- Antara muka utama kini menggunakan peta dunia pembelajaran, zon subjek berwarna, kemajuan ringkas dan avatar pelajar. Elemen promosi serta paparan 3D hiasan yang mengganggu fokus disembunyikan.
+- Bilik darjah menggunakan ilustrasi CSS 3D yang ringan. Pergerakan avatar 2D dan muat turun Three.js semasa permulaan telah dibuang.
 - Butang `BM` / `EN` menukar bahasa antara Bahasa Malaysia dan English dan menyimpan pilihan dalam pelayar pada peranti itu.
-- Label navigasi, akaun dan kelas serta nama subjek yang mempunyai terjemahan akan bertukar bahasa. Kandungan nota hanya dipaparkan dalam English apabila terjemahan English memang tersedia; banyak nota masih dalam Bahasa Malaysia.
-- Bilik belajar bersama dan misi berbilang pemain masih idea untuk fasa seterusnya. Kad pada lobi menerangkan rancangan ini; ia belum menyambungkan pemain secara langsung.
+- Aktiviti matematik dan sains menggunakan CSS, SVG atau Canvas tempatan; tiada imej besar atau enjin 3D luaran diperlukan untuk aktiviti itu.
+- Fail CSS dan JavaScript tempatan menggunakan kunci versi pada URL. `index.html` tidak disimpan dalam cache jangka panjang supaya deployment baharu lebih mudah dimuatkan.
+- Antara muka dan pelajaran sekolah rendah yang baharu tersedia dalam BM dan English. Tiada rentetan antara muka bahasa Cina dalam keluaran ini.
 
 **Nota integriti skor:** XP masih dikira dalam pelayar. Untuk pertandingan berhadiah atau papan pendahulu kompetitif, pindahkan pengiraan ganjaran ke fungsi pelayan yang mengesahkan keputusan kuiz sebelum menganggap XP sebagai anti-penipuan.
 
@@ -62,50 +66,13 @@ EduPintar Malaysia menggunakan konfigurasi [`render.yaml`](render.yaml) dan pela
 
 ---
 
-## 🌟 Ciri-Ciri Utama (Core Features)
+## Ciri-ciri keluaran ini
 
-1. **Struktur Silibus Rasmi KPM (Kementerian Pendidikan Malaysia)**
-   - **Sekolah Rendah (KSSR Semakan):** Tahap 1 (Tahun 1–3) dan Tahap 2 (Tahun 4–6 / UASA).
-     - **Tahun 4 Sains (Unit 2):** Organ Pernafasan Manusia, Perkumuhan vs Penyahtinjaan & Kadar Pernafasan.
-     - **Tahun 5 Sains (Unit 2):** Sistem Peredaran Darah & Sistem Rangka Manusia.
-     - **Tahun 6 Matematik (Unit 2):** Pecahan, Perpuluhan & Peratusan.
-   - **Sekolah Menengah (KSSM / SPM):**
-     - **Tingkatan 4 Sejarah SPM (Bab 2):** Kebangkitan Nasionalisme, Akhbar Kaum Muda, MPSI & Tokoh Pejuang.
-     - **Tingkatan 4 Matematik SPM (Bab 1):** Fungsi & Persamaan Kuadratik dalam Satu Pemboleh Ubah.
-     - **Tingkatan 4 Fizik SPM (DLP - Bab 2):** Daya & Gerakan I, Graf Gerakan Linear, Inersia, Momentum & 4 Persamaan Kinematik.
-     - **Tingkatan 4 Kimia SPM (DLP - Bab 2):** Jirim & Struktur Atom, Keluk Pemanasan/Penyejukan, Model Atom Dalton-Chadwick & Isotop.
-     - **Tingkatan 4 Bahasa Melayu SPM (Kertas 1 & 2):** Sistem & Aplikasi Bahasa, Morfologi, Sintaksis, Peribahasa & Formula Karangan Cemerlang IMBaKUP.
-     - **Tingkatan 5 Sejarah SPM (Bab 1):** Kedaulatan Negara, Formula TMUA & Ciri-ciri Negara Berdaulat.
-
-2. **Papan Pendahulu Kebangsaan & Profil Pelajar/Guru (National Leaderboard)**
-   - Paparan 10 Murid Paling Cemerlang di seluruh Malaysia.
-   - Murid boleh menamakan profil, memasukkan sekolah & negeri mereka.
-   - Mod pilihan Pelajar atau Guru.
-   - Skor dan kemajuan profil disimpan dalam Supabase; papan pendahulu menyenaraikan pengguna yang memilih untuk menyertainya.
-
-3. **Nota Padat & Konsep Penting (Bite-sized Notes)**
-   - Rumusan padat mengikut subtopik DSKP.
-   - **Akronim & Mnemonik Pintar** (contoh: Formula TMUA Kedaulatan, Formula IMBaKUP BM, D-T-R-B-C Model Atom).
-   - **Tip Peperiksaan SPM & UASA** (Panduan menjawab Kertas 1, Kertas 2 KBAT).
-
-4. **Kuiz Interaktif Berformat Peperiksaan (Interactive Quizzes)**
-   - Pemasa undur masa (*Countdown Timer*) format SPM / UASA.
-   - Pengiraan skor masa-nyata & gred lulus.
-   - **Ulasan Terperinci Jawapan:** Penjelasan konsep dan pembongkaran perangkap soalan peperiksaan.
-
-5. **Sistem Gamifikasi & Kemajuan Murid (Gamification Engine)**
-   - **Mata Ganjaran (XP):** +50 XP pembacaan nota, +100-150 XP kuiz selesai, bonus skor 100%.
-   - **Streak Harian (Daily Streak):** Mengira hari berturut-turut murid mengulang kaji pelajaran.
-   - **Pangkat Murid (Level 1–6):** *Murid Permulaan* ➔ *Penuntut Bersemangat* ➔ *Bintang Kelas* ➔ *Wira Ilmuwan* ➔ *Jaguh Harapan* ➔ *Cendekiawan Pintar*.
-   - **9 Lencana Pencapaian:** *Langkah Pertama*, *Juara Kuiz*, *Jaguh SPM*, *Wira Sains Cilik*, *Pakar Fizik Kuantum*, *Ahli Kimia Pintar*, *Pujangga Melayu*, *Rajin Berterusan*, *Skor Sempurna 100%*.
-
-6. **Video Pembelajaran & Lembaran Kerja PDF**
-   - Paparan pemain video kuliah interaktif dengan penanda masa (*timestamps*).
-   - Butang **Cetak / Simpan PDF** dengan templat reka letak khas (`print.css`).
-
-7. **Antara Muka Sedia Aplikasi Mudah Alih (Mobile-Ready UI)**
-   - Bar navigasi bawah khas (*Bottom Navigation Bar*) untuk paparan telefon pintar.
-   - Fail `manifest.json` disediakan untuk pemasangan segera sebagai **PWA** di telefon.
+- Akaun pelajar, profil, pemilihan Tahun/Tingkatan dan kemajuan disimpan melalui Supabase.
+- Laluan sekolah rendah untuk Matematik, Sains, Bahasa Melayu dan English (Tahun 1–6), serta Sejarah (Tahun 4–6 dalam KSSR Semakan 2017).
+- Nota berbahagi subtopik, kuiz asas dan aktiviti visual yang sesuai dengan tajuk. Aktiviti 3D menggunakan CSS; simulasi graviti menggunakan Canvas.
+- Kawalan bahasa BM/EN, susun atur responsif, cetakan nota dan manifest PWA.
+- Papan pendahulu kekal pilihan. XP dikira pada pelayar dan belum sesuai untuk pertandingan yang memerlukan skor kalis manipulasi.
 
 ---
 
@@ -123,19 +90,18 @@ edupintar-malaysia/
 │   ├── style.css            # Penggayaan visual moden, font, animasi & mobile bottom nav
 │   └── print.css            # Penggayaan khas cetakan nota & eksport ke PDF
 ├── js/
-│   ├── classroom-world.js   # Dunia kelas 2D Canvas, avatar, pergerakan & interaksi objek
-│   ├── app.js               # Pengawal aplikasi (Routing, carian topik, Leaderboard sync)
-│   ├── syllabus-data.js     # Pangkalan data silibus KSSR Semakan & KSSM
+│   ├── app.js               # Pengawal aplikasi, routing dan paparan pelajaran
+│   ├── syllabus-data.js     # Data KSSR Semakan & KSSM yang diterbitkan
+│   ├── primary-curriculum.js # Laluan sekolah rendah Tahun 1–6
+│   ├── visual-graphics.js   # Aktiviti SVG, CSS 3D dan Canvas
 │   ├── quiz-engine.js       # Enjin kuiz interaktif, pemasa & analisis jawapan
 │   └── gamification.js      # Enjin XP, streak, tahap murid & 9 lencana pencapaian
 └── README.md                # Dokumentasi panduan penggunaan & pelancaran ke Render
 ```
 
-## 🌍 Dunia Kelas 2D
+## Bilik darjah dan aktiviti visual
 
-Selepas murid memilih Tahun/Tingkatan, aplikasi membuka bilik darjah 2D yang dilukis pada HTML Canvas tanpa library permainan tambahan. Avatar boleh digerakkan dengan **WASD**, kekunci anak panah, kawalan sentuh, atau klik untuk berjalan. Dekati atau klik Cikgu Aus untuk memulakan pelajaran; dekati papan/rak buku untuk membuka pemilih subjek dalam dunia.
-
-`js/classroom-world.js` mengurus lukisan, pergerakan dan interaksi. `js/app.js` menghubungkan objek itu kepada kelas/subjek dan pelajaran sedia ada. Rakan sekelas ialah watak contoh sahaja; sesi berbilang pemain langsung belum disambungkan.
+Selepas murid memilih kelas, aplikasi memaparkan ilustrasi bilik darjah CSS 3D dengan Cikgu Aus. Pergerakan 2D dan muat turun enjin Three.js tidak digunakan. Visual bab dimuatkan bersama kandungan dan menggunakan kawalan HTML, CSS atau Canvas ringan; kandungan nota kekal boleh dibaca tanpa visual.
 
 ---
 

@@ -91,6 +91,14 @@ class EduPintarApp {
     this.setLanguage(this.currentLanguage === "bm" ? "en" : "bm");
   }
 
+  gradeName(grade) {
+    return this.currentLanguage === "en" && grade?.nameEn ? grade.nameEn : (grade?.name || "");
+  }
+
+  subjectName(subject) {
+    return this.currentLanguage === "en" && subject?.nameEn ? subject.nameEn : (subject?.name || "");
+  }
+
   setLanguage(lang) {
     if (window.eduAudio) window.eduAudio.playClick();
     this.currentLanguage = lang === "en" ? "en" : "bm";
@@ -175,38 +183,26 @@ class EduPintarApp {
     const grade = SYLLABUS_DATA[profile.studyLevel]?.grades.find(item => item.id === profile.studyGrade);
     const safe = value => String(value || "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
     const name = safe(profile.username || (this.currentLanguage === "en" ? "learner" : "murid"));
-    const avatar = profile.avatarUrl
-      ? `<img src="${safe(profile.avatarUrl)}" alt="" class="h-full w-full object-cover">`
-      : `<span aria-hidden="true">🧑‍🚀</span>`;
     const nextSubject = (SYLLABUS_DATA[this.currentLevel]?.subjects[this.currentGradeId] || [])[0];
     const nextChapter = nextSubject?.chapters?.find(ch => !this.isPlaceholderChapter(ch));
     const isEn = this.currentLanguage === "en";
     banner.innerHTML = `
-      <section class="world-hero">
-        <div class="world-hero-copy">
-          <p class="world-kicker">${isEn ? "YOUR LEARNING WORLD" : "DUNIA PEMBELAJARAN ANDA"}<span>${grade ? ` · ${safe(grade.name)}` : ""}</span></p>
-          <h2>${isEn ? "Ready for your next quest," : "Sedia untuk misi seterusnya,"}<br><span>${name}?</span> <span aria-hidden="true">✨</span></h2>
-          <p class="world-intro">${isEn ? "Explore your class worlds, collect knowledge, and grow your avatar as you learn." : "Terokai dunia kelas, kumpul ilmu dan kembangkan avatar anda sambil belajar."}</p>
-          <div class="world-actions">
-            <button type="button" class="world-primary-action" onclick="window.app.enterSubjectArena('${safe(nextSubject?.id || this.currentSubjectId || "")}')">${isEn ? "Continue learning" : "Sambung belajar"}<span aria-hidden="true">↗</span></button>
-            <button type="button" class="world-secondary-action" onclick="window.app.openProfileModal()">${isEn ? "Customize avatar" : "Ubah avatar"}</button>
-          </div>
-          <div class="world-stats" aria-label="${isEn ? "Your progress" : "Kemajuan anda"}">
-            <div><strong>${profile.xp}</strong><span>XP</span></div>
-            <div><strong>${profile.streak}</strong><span>${isEn ? "day streak" : "hari berturut"}</span></div>
-            <div><strong>${unlockedBadgesCount}</strong><span>${isEn ? "badges" : "lencana"}</span></div>
+      <section class="study-home-card">
+        <div class="study-home-copy">
+          <p class="study-home-eyebrow">${isEn ? "YOUR CLASS" : "KELAS ANDA"}${grade ? ` · ${safe(this.gradeName(grade))}` : ""}</p>
+          <h2>${isEn ? "Welcome back," : "Selamat kembali,"} <span>${name}</span></h2>
+          <p>${nextSubject && nextChapter ? `${isEn ? "Continue with" : "Sambung belajar"} ${safe(this.subjectName(nextSubject))} · ${safe(isEn ? (nextChapter.titleEn || nextChapter.title) : nextChapter.title)}.` : (isEn ? "Choose a subject to see available lessons." : "Pilih mata pelajaran untuk melihat pelajaran yang tersedia.")}</p>
+          <div class="study-home-actions">
+            ${nextSubject ? `<button type="button" onclick="window.app.enterSubjectArena('${safe(nextSubject.id)}')">${isEn ? "Continue learning" : "Sambung belajar"} <span aria-hidden="true">→</span></button>` : ""}
+            <button type="button" class="secondary" onclick="window.app.openProfileModal()">${isEn ? "Profile" : "Profil"}</button>
           </div>
         </div>
-        <div class="world-scene" aria-label="${isEn ? "Illustrated learning world" : "Ilustrasi dunia pembelajaran"}">
-          <span class="world-sun" aria-hidden="true"></span><span class="world-cloud cloud-one" aria-hidden="true"></span><span class="world-cloud cloud-two" aria-hidden="true"></span>
-          <div class="world-island island-back"><span>📚</span></div><div class="world-island island-front"><span>🧪</span></div>
-          <svg class="world-path" viewBox="0 0 440 250" aria-hidden="true"><path d="M70 192 C112 122 179 232 225 148 S331 72 374 126" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 15"/></svg>
-          <span class="world-star star-one" aria-hidden="true">✦</span><span class="world-star star-two" aria-hidden="true">✦</span>
-          <div class="world-player-avatar" title="${name}">${avatar}</div>
-          <div class="world-scene-caption"><span class="online-dot"></span>${isEn ? "Your next chapter is waiting" : "Bab seterusnya menanti"}</div>
+        <div class="study-home-stats" aria-label="${isEn ? "Your progress" : "Kemajuan anda"}">
+          <div><strong>${profile.xp}</strong><span>XP</span></div>
+          <div><strong>${profile.streak}</strong><span>${isEn ? "day streak" : "hari berturut"}</span></div>
+          <div><strong>${unlockedBadgesCount}</strong><span>${isEn ? "badges" : "lencana"}</span></div>
         </div>
       </section>
-      <div class="world-social-note"><span class="social-note-icon">🫶</span><div><strong>${isEn ? "A world to learn together" : "Dunia untuk belajar bersama"}</strong><p>${isEn ? "Co-op study rooms and safe multiplayer quests are part of the next world update." : "Bilik belajar berkumpulan dan misi berbilang pemain yang selamat dirancang untuk kemas kini seterusnya."}</p></div><span class="coming-soon-pill">${isEn ? "COMING SOON" : "AKAN DATANG"}</span></div>
     `;
   }
 
@@ -215,7 +211,7 @@ class EduPintarApp {
     const selectedLevel = profile.studyLevel || this.currentLevel;
     const selectedGrade = SYLLABUS_DATA[selectedLevel]?.grades.find(item => item.id === (profile.studyGrade || this.currentGradeId));
     const label = document.getElementById("studyPlacementLabel");
-    if (label) label.textContent = selectedGrade ? `${selectedGrade.name} · ${SYLLABUS_DATA[selectedLevel].curriculum}` : "Pilih tahun atau tingkatan untuk mula";
+    if (label) label.textContent = selectedGrade ? `${this.gradeName(selectedGrade)} · ${SYLLABUS_DATA[selectedLevel].curriculum}` : (this.currentLanguage === "en" ? "Choose a year or form to begin" : "Pilih tahun atau tingkatan untuk mula");
   }
 
   openGradeSetupModal(required = false) {
@@ -237,7 +233,7 @@ class EduPintarApp {
     const select = document.getElementById("studyPlacementGrade");
     if (!select) return;
     const grades = SYLLABUS_DATA[level]?.grades || [];
-    select.innerHTML = grades.map(item => `<option value="${item.id}">${item.name}</option>`).join("");
+    select.innerHTML = grades.map(item => `<option value="${item.id}">${this.gradeName(item)}</option>`).join("");
     if (grades.some(item => item.id === selectedGrade)) select.value = selectedGrade;
   }
 
@@ -261,7 +257,7 @@ class EduPintarApp {
     if (placementChanged) this.currentSubtopicIndex = 0;
     const placement = SYLLABUS_DATA[level].grades.find(item => item.id === grade);
     const placementLabel = document.getElementById("profileStudyPlacement");
-    if (placementLabel) placementLabel.textContent = `${placement.name} · ${SYLLABUS_DATA[level].curriculum}`;
+    if (placementLabel) placementLabel.textContent = `${this.gradeName(placement)} · ${SYLLABUS_DATA[level].curriculum}`;
     this.renderLevelSelector();
     this.renderGradePills();
     this.renderSubjectsGrid();
@@ -280,28 +276,22 @@ class EduPintarApp {
     const heading = document.getElementById("classroomHeading");
     if (heading) heading.textContent = isEn ? `Welcome to class, ${name}!` : `Selamat datang ke kelas, ${name}!`;
     const gradeLabel = document.getElementById("classroomGradeLabel");
-    if (gradeLabel) gradeLabel.textContent = `${grade?.name || ""} · ${curriculum}`;
+    if (gradeLabel) gradeLabel.textContent = `${this.gradeName(grade)} · ${curriculum}`;
     const values = {
       classroomCurriculumLabel: isEn ? "YOUR LEARNING CLASSROOM" : "BILIK DARJAH PEMBELAJARAN ANDA",
       classroomWelcomeTitle: isEn ? "Class is ready!" : "Kelas sudah bermula!",
-      classroomWelcomeText: isEn ? "Meet your classmates and explore the room." : "Temui rakan sekelas dan teroka bilik darjah.",
-      classroomSubjectsAction: isEn ? "Bookshelf · Subjects" : "Rak buku · Subjek",
+      classroomWelcomeText: isEn ? "Cikgu Aus is ready to guide your next lesson." : "Cikgu Aus sedia membimbing pelajaran anda.",
+      classroomSubjectsAction: isEn ? "Browse subjects" : "Lihat mata pelajaran",
       classroomStartAction: isEn ? "Start learning" : "Mula belajar",
-      classroomWorldHelpText: isEn ? "Move: WASD / arrows · Click to walk · Approach an object to interact" : "Bergerak: WASD / anak panah · Klik untuk berjalan · Dekati objek untuk berinteraksi",
       classroomRoomName: isEn ? "CLASSROOM" : "BILIK DARJAH",
-      classroomDemoNote: isEn ? "Classmates are sample characters for now. Live classrooms will come in a future update." : "Rakan sekelas ialah watak contoh buat masa ini. Kelas langsung akan datang kemudian."
+      classroomBoardGrade: this.gradeName(grade).toUpperCase() || (isEn ? "YOUR CLASS" : "KELAS ANDA"),
+      classroomDemoNote: isEn ? "A lightweight classroom illustration. Choose a subject to open your lessons." : "Ilustrasi bilik darjah yang ringan. Pilih mata pelajaran untuk membuka pelajaran anda."
     };
     Object.entries(values).forEach(([id, value]) => {
       const element = document.getElementById(id);
       if (element) element.textContent = value;
     });
 
-    window.classroomWorld?.updateStudent({
-      name,
-      avatarUrl: profile.avatarUrl || "",
-      language: this.currentLanguage,
-      grade: grade?.name || ""
-    });
   }
 
   enterClassroom() {
@@ -313,7 +303,6 @@ class EduPintarApp {
     const room = document.getElementById("classroomView");
     room?.classList.remove("hidden");
     this.renderClassroomScene();
-    window.classroomWorld?.start();
     room?.scrollIntoView({ behavior: "smooth", block: "start" });
     this.saveSessionState();
   }
@@ -334,15 +323,15 @@ class EduPintarApp {
     const overlay = document.getElementById("classroomSubjectsOverlay");
     const copy = {
       classroomSubjectsEyebrow: isEn ? "CLASS MISSION BOARD" : "PAPAN MISI KELAS",
-      classroomSubjectsHeading: isEn ? "Choose a subject world" : "Pilih dunia subjek",
-      classroomSubjectsDescription: isEn ? "Choose a door to enter your next learning mission." : "Pilih satu pintu untuk masuk ke misi pembelajaran anda."
+      classroomSubjectsHeading: isEn ? "Choose a subject" : "Pilih mata pelajaran",
+      classroomSubjectsDescription: isEn ? "Choose a subject to see its lessons and practice." : "Pilih mata pelajaran untuk melihat pelajaran dan latihan."
     };
     Object.entries(copy).forEach(([id, value]) => { const el = document.getElementById(id); if (el) el.textContent = value; });
     if (list) {
       list.innerHTML = subjects.length ? subjects.map(subject => `
         <button type="button" class="world-subject-card" onclick="window.app.enterSubjectArena('${subject.id}')">
           <span class="world-subject-icon">${subject.icon || "📘"}</span>
-          <span><strong>${subject.name}</strong><small>${subject.chapters?.length || 0} ${isEn ? "missions" : "misi"}</small></span>
+          <span><strong>${this.subjectName(subject)}</strong><small>${subject.chapters?.length || 0} ${isEn ? "lessons" : "pelajaran"}</small></span>
           <b aria-hidden="true">↗</b>
         </button>
       `).join("") : `<p class="world-subject-empty">${isEn ? "Subject worlds for this class are being prepared." : "Dunia subjek untuk kelas ini sedang disediakan."}</p>`;
@@ -411,39 +400,33 @@ class EduPintarApp {
       container.innerHTML = `
         <div class="col-span-full py-8 text-center bg-white rounded-3xl border border-slate-200">
           <p class="text-3xl mb-2">📚</p>
-          <h4 class="font-bold text-slate-800">Modul Tambahan Sedang Dikemaskini</h4>
-          <p class="text-xs text-slate-500 mt-1">Sukatan pelajaran rasmi KPM sedang dimasukkan ke dalam pangkalan data EduPintar.</p>
-          <button onclick="window.app.setGrade('${this.currentLevel === "primary" ? "t5" : "f4"}')" class="mt-4 px-4 py-2 bg-indigo-600 text-white text-xs font-bold rounded-xl">
-            Lihat Modul Contoh Lengkap
-          </button>
+          <h4 class="font-bold text-slate-800">${this.currentLanguage === "en" ? "No lessons are available for this class yet" : "Belum ada pelajaran untuk kelas ini"}</h4>
+          <p class="text-xs text-slate-500 mt-1">${this.currentLanguage === "en" ? "Choose another class or return later." : "Pilih kelas lain atau cuba lagi kemudian."}</p>
         </div>
       `;
       return;
     }
 
     const isEn = this.currentLanguage === "en";
-    const zoneNames = isEn ? ["Knowledge Grove", "Discovery Lab", "Story Island", "Puzzle Peak"] : ["Hutan Ilmu", "Makmal Ciptaan", "Pulau Cerita", "Puncak Teka-teki"];
+    const zoneNames = isEn ? ["Core skills", "Explore", "Language", "Practice"] : ["Asas", "Penerokaan", "Bahasa", "Latihan"];
     container.innerHTML = subjects.map((subj, index) => {
       const isSelected = subj.id === this.currentSubjectId;
       const hasChapters = subj.chapters && subj.chapters.length > 0;
       const readyChapters = (subj.chapters || []).filter(chapter => !this.isPlaceholderChapter(chapter) && chapter.notes?.sections?.length).length;
       const draftChapters = Math.max(0, (subj.chapters || []).length - readyChapters);
       return `
-        <button type="button" onclick="window.app.enterSubjectArena('${subj.id}')" class="learning-zone-card zone-${index % 4} ${isSelected ? "is-selected" : ""}" aria-label="${isEn ? "Explore" : "Terokai"} ${subj.name}">
+        <button type="button" onclick="window.app.enterSubjectArena('${subj.id}')" class="learning-zone-card zone-${index % 4} ${isSelected ? "is-selected" : ""}" aria-label="${isEn ? "Explore" : "Terokai"} ${this.subjectName(subj)}">
           <span class="zone-orbit orbit-a" aria-hidden="true"></span><span class="zone-orbit orbit-b" aria-hidden="true"></span>
           <div class="zone-card-top"><span class="zone-icon">${subj.icon}</span><span class="zone-level">${subj.code}</span></div>
           <span class="zone-world-name">${zoneNames[index % zoneNames.length]}</span>
-          <strong class="zone-title">${subj.name}</strong>
-          <span class="zone-description">${subj.description}</span>
+          <strong class="zone-title">${this.subjectName(subj)}</strong>
+          <span class="zone-description">${isEn ? (subj.descriptionEn || subj.description || "") : (subj.description || "")}</span>
           <span class="zone-progress"><span style="width:${Math.max(8, Math.round(readyChapters / Math.max(1, subj.chapters?.length || 1) * 100))}%"></span></span>
-          <span class="zone-card-footer"><span>${hasChapters ? `${readyChapters} ${isEn ? "lessons ready" : "bab tersedia"}${draftChapters ? ` · ${draftChapters} ${isEn ? "in progress" : "draf"}` : ""}` : (isEn ? "Coming soon" : "Akan datang")}</span><span class="zone-enter" aria-hidden="true">↗</span></span>
+          <span class="zone-card-footer"><span>${hasChapters ? `${readyChapters} ${isEn ? "lessons" : "pelajaran"}${draftChapters ? ` · ${draftChapters} ${isEn ? "being prepared" : "sedang disediakan"}` : ""}` : (isEn ? "No lessons yet" : "Belum ada pelajaran")}</span><span class="zone-enter" aria-hidden="true">↗</span></span>
         </button>
       `;
     }).join("");
 
-    if (window.edu3D) {
-      setTimeout(() => window.edu3D.setupCard3DTilt(), 50);
-    }
   }
 
   enterSubjectArena(subjectId, resetChapter = true) {
@@ -482,7 +465,7 @@ class EduPintarApp {
     if (iconEl) iconEl.textContent = subj.icon;
 
     const titleEl = document.getElementById("arenaSubjectTitle");
-    if (titleEl) titleEl.textContent = subj.name;
+    if (titleEl) titleEl.textContent = this.subjectName(subj);
 
     const codeEl = document.getElementById("arenaSubjectCode");
     if (codeEl) codeEl.textContent = subj.code;
@@ -490,7 +473,7 @@ class EduPintarApp {
     const gradeObj = SYLLABUS_DATA[this.currentLevel].grades.find(g => g.id === this.currentGradeId);
     const gradeEl = document.getElementById("arenaSubjectGrade");
     if (gradeEl) {
-      gradeEl.textContent = `${gradeObj ? gradeObj.name : ''} • ${SYLLABUS_DATA[this.currentLevel].name}`;
+      gradeEl.textContent = `${this.gradeName(gradeObj)} • ${SYLLABUS_DATA[this.currentLevel].name}`;
     }
 
     const countEl = document.getElementById("arenaChaptersCount");
@@ -504,25 +487,6 @@ class EduPintarApp {
     this.renderChapterDetail();
     this.saveSessionState();
 
-    // Initialize 3D Lab safely with subject-appropriate model
-    try {
-      if (window.edu3D) {
-        let modelType = "compass";
-        const lowerName = (subj.name || "").toLowerCase();
-        if (lowerName.includes("sains") || lowerName.includes("kimia") || lowerName.includes("fizik") || lowerName.includes("biologi")) {
-          modelType = "atom";
-        } else if (lowerName.includes("matematik")) {
-          modelType = "geometry";
-        }
-        setTimeout(() => {
-          window.edu3D.initSubjectLabCanvas("lab3dContainer", modelType);
-        }, 40);
-      }
-    } catch (e) {
-      console.warn("3D Lab init error:", e);
-    }
-
-    if (window.edu3D) window.edu3D.setupCard3DTilt();
   }
 
   exitSubjectArena() {
@@ -538,7 +502,7 @@ class EduPintarApp {
     const subj = this.getCurrentSubject();
     if (!subj || !subj.chapters || subj.chapters.length === 0) {
       container.innerHTML = `
-        <div class="py-4 text-slate-400 text-xs">${isEn ? 'All KPM curriculum topics for this subject are ready to explore.' : 'Semua topik sukatan KPM bagi subjek ini sedia untuk diterokai.'}</div>
+        <div class="py-4 text-slate-400 text-xs">${isEn ? 'Choose a lesson to view its notes, activity and practice questions.' : 'Pilih pelajaran untuk melihat nota, aktiviti dan soalan latihan.'}</div>
       `;
       return;
     }
@@ -652,7 +616,7 @@ class EduPintarApp {
                 ${chNumber}
               </span>
               <span class="text-slate-400 text-xs font-medium">
-                ${subject.name} • ${SYLLABUS_DATA[this.currentLevel].grades.find(g => g.id === this.currentGradeId)?.name}
+                ${this.subjectName(subject)} • ${this.gradeName(SYLLABUS_DATA[this.currentLevel].grades.find(g => g.id === this.currentGradeId))}
               </span>
             </div>
             
@@ -721,8 +685,7 @@ class EduPintarApp {
                 : 'border-transparent text-slate-600 hover:text-slate-900'
             }"
           >
-            <span>🎓</span> ${isEn ? 'AI Classroom: Cikgu Aus' : 'Bilik Kuliah AI: Cikgu Aus'}
-            <span class="bg-indigo-100 text-indigo-800 text-[10px] px-1.5 py-0.5 rounded-full font-black">AI ASLI</span>
+            <span>🎓</span> ${isEn ? 'Visual lesson: Cikgu Aus' : 'Pelajaran visual: Cikgu Aus'}
           </button>
 
           ${chapter.quiz && !isDraftChapter ? `
@@ -810,19 +773,20 @@ class EduPintarApp {
 
   renderGameTab(chapter) {
     const subject = this.getCurrentSubject();
+    const isEn = this.currentLanguage === "en";
     return `
       <div class="space-y-6 animate-fade-in">
         <!-- Interactive Game Stage Banner -->
         <div class="bg-gradient-to-r from-purple-950 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white border-2 border-purple-500/40 shadow-2xl relative overflow-hidden">
           <div class="max-w-2xl z-10 relative">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 text-xs font-black mb-3">
-              <span>🎮</span> Zon Permainan Silibus: ${subject?.name || 'Mata Pelajaran'}
+              <span>🎮</span> ${isEn ? 'Practice activity' : 'Aktiviti latihan'}: ${subject?.name || 'Mata Pelajaran'}
             </span>
             <h3 class="text-xl sm:text-2xl font-black text-white">
-              Cabar Diri Anda: Belajar Sambil Bermain!
+              ${isEn ? "Practice this topic" : "Berlatih topik ini"}
             </h3>
             <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-              Mainkan permainan interaktif yang berorientasikan tajuk <strong>${chapter.title}</strong>. Jawab soalan secara pantas untuk menewaskan Bot Pintar AI atau uji kepantasan memori konsep anda.
+              ${isEn ? `Answer a short timed set about <strong>${chapter.titleEn || chapter.title}</strong>, or practise recalling key ideas with a memory match.` : `Jawab latihan berpemasa tentang <strong>${chapter.title}</strong> atau uji ingatan dengan aktiviti padanan.`}
             </p>
 
             <div class="mt-6 flex flex-wrap items-center gap-3">
@@ -830,37 +794,19 @@ class EduPintarApp {
                 onclick="window.eduGame.selectGameMode('duel'); window.eduGame.openGameModal(window.app.getCurrentSubject());" 
                 class="px-6 py-3 bg-gradient-to-r from-purple-600 via-indigo-600 to-indigo-700 hover:from-purple-500 hover:to-indigo-600 text-white font-black text-xs sm:text-sm rounded-2xl shadow-lg shadow-purple-500/30 transition-all flex items-center gap-2 transform hover:scale-105"
               >
-                <span>⚔️</span> Mula EduDuel 1-Lawan-1 Topik Ini
+                <span>⚡</span> ${isEn ? 'Timed topic practice' : 'Latihan topik berpemasa'}
               </button>
 
               <button 
                 onclick="window.eduGame.selectGameMode('memory'); window.eduGame.openGameModal(window.app.getCurrentSubject());" 
                 class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 font-bold text-xs sm:text-sm rounded-2xl transition-all flex items-center gap-2"
               >
-                <span>🧠</span> Padanan Memori 3D
+                <span>🧠</span> ${isEn ? 'Memory match' : 'Padanan memori'}
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 3 Feature Highlight Badges -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="p-5 rounded-3xl bg-slate-900/80 border border-slate-800 text-center">
-            <span class="text-3xl mb-2 block">⚡</span>
-            <h5 class="font-black text-sm text-white">Masa Pantas, Skor Tinggi</h5>
-            <p class="text-xs text-slate-400 mt-1">15 saat setiap soalan. Jawab berturut-turut untuk cetus Kombo Berapi x3.0!</p>
-          </div>
-          <div class="p-5 rounded-3xl bg-slate-900/80 border border-slate-800 text-center">
-            <span class="text-3xl mb-2 block">🏆</span>
-            <h5 class="font-black text-sm text-amber-400">+150 XP & Lencana Duel</h5>
-            <p class="text-xs text-slate-400 mt-1">Mata ganjaran kemenangan dimasukkan terus ke Papan Pendahulu Kebangsaan.</p>
-          </div>
-          <div class="p-5 rounded-3xl bg-slate-900/80 border border-slate-800 text-center">
-            <span class="text-3xl mb-2 block">🤖</span>
-            <h5 class="font-black text-sm text-purple-300">3 Tahap Lawan Bot AI</h5>
-            <p class="text-xs text-slate-400 mt-1">Pilih lawan Santai, Pintar, atau tahap Jaguh Peperiksaan SPM.</p>
-          </div>
-        </div>
       </div>
     `;
   }
@@ -916,7 +862,7 @@ class EduPintarApp {
 
         <!-- Chapter Visual Graphics & Interactive Simulation (A-Z) -->
         <div id="chapterGraphicContainer" class="animate-fade-in">
-          ${window.visualGraphics ? window.visualGraphics.getChapterGraphic(chapter.id, this.currentLanguage) : ''}
+          ${window.visualGraphics ? window.visualGraphics.getChapterGraphic(chapter.id, this.currentLanguage, chapter) : ''}
         </div>
 
         <section class="subtopic-study-card rounded-2xl border border-slate-200 bg-white p-4 sm:p-5" aria-label="Subtopik bab">
@@ -1097,8 +1043,8 @@ class EduPintarApp {
       <div id="lessonPlayerContainer" class="w-full">
         <div class="p-10 sm:p-14 text-center bg-slate-950 rounded-3xl text-white border-2 border-indigo-500/30">
           <div class="inline-block animate-bounce text-4xl mb-3">🎓</div>
-          <h3 class="font-black text-lg text-indigo-300">Menyediakan Bilik Kuliah AI Cikgu Aus...</h3>
-          <p class="text-xs text-slate-400 mt-1">Menyusun lakaran animasi papan putih, penceritaan suara, dan Makmal Matematik Interaktif.</p>
+          <h3 class="font-black text-lg text-indigo-300">${isEn ? 'Preparing Cikgu Aus’s visual lesson…' : 'Menyediakan pelajaran visual Cikgu Aus…'}</h3>
+          <p class="text-xs text-slate-400 mt-1">${isEn ? 'This lesson includes an explanation, worked examples and an activity.' : 'Pelajaran ini mengandungi penerangan, contoh dan aktiviti.'}</p>
         </div>
       </div>
     `;
@@ -1118,7 +1064,7 @@ class EduPintarApp {
         <span class="text-5xl">⚡</span>
         <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-3">${quizTitle}</h3>
         <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-md mx-auto">
-          ${isEn ? 'Test your understanding following official KPM exam standards. Score high to earn XP and unlock badges!' : 'Uji kefahaman anda mengikut format peperiksaan sebenar. Dapatkan markah tinggi untuk kumpul XP dan lencana!'}
+          ${isEn ? 'Answer the questions to check what you have understood. Your score is saved to your profile.' : 'Jawab soalan untuk menyemak kefahaman anda. Markah disimpan dalam profil anda.'}
         </p>
 
         <!-- Quiz Details Pill Grid -->
@@ -1231,7 +1177,7 @@ class EduPintarApp {
     if (usernameInput) usernameInput.value = profile.username || "";
     const placement = SYLLABUS_DATA[profile.studyLevel]?.grades.find(item => item.id === profile.studyGrade);
     const placementLabel = document.getElementById("profileStudyPlacement");
-    if (placementLabel) placementLabel.textContent = placement ? `${placement.name} · ${SYLLABUS_DATA[profile.studyLevel].curriculum}` : "Belum dipilih";
+    if (placementLabel) placementLabel.textContent = placement ? `${this.gradeName(placement)} · ${SYLLABUS_DATA[profile.studyLevel].curriculum}` : (this.currentLanguage === "en" ? "Not selected" : "Belum dipilih");
     const publicToggle = document.getElementById("profileLeaderboardOptIn");
     if (publicToggle) publicToggle.checked = !!profile.publicLeaderboard;
 
@@ -1273,7 +1219,7 @@ class EduPintarApp {
     const profile = window.gamification.profile;
     const grade = SYLLABUS_DATA[profile.studyLevel]?.grades.find(item => item.id === profile.studyGrade);
     const subtitle = document.getElementById("leaderboardSubtitle");
-    if (subtitle) subtitle.textContent = grade ? `Kedudukan murid ${grade.name} yang memilih untuk menyertai` : "Pilih kelas anda untuk melihat kedudukan";
+    if (subtitle) subtitle.textContent = grade ? (this.currentLanguage === "en" ? `Leaderboard for learners in ${this.gradeName(grade)} who choose to participate` : `Kedudukan murid ${this.gradeName(grade)} yang memilih untuk menyertai`) : (this.currentLanguage === "en" ? "Choose your class to view the leaderboard" : "Pilih kelas anda untuk melihat kedudukan");
     modal.classList.remove("hidden");
     this.fetchLeaderboard();
   }
@@ -1377,7 +1323,7 @@ class EduPintarApp {
           <span>${m.level === 'primary' ? 'Sekolah Rendah (KSSR)' : 'Sekolah Menengah (KSSM)'}</span>
           <span class="bg-indigo-50 px-2 py-0.5 rounded-full">${m.subj.code}</span>
         </div>
-        <h4 class="font-extrabold text-sm text-slate-900">${m.subj.name}</h4>
+        <h4 class="font-extrabold text-sm text-slate-900">${this.subjectName(m.subj)}</h4>
         ${m.chapter ? `
           <p class="text-xs text-slate-700 font-semibold mt-1">📌 ${m.chapter.number}: ${m.chapter.title}</p>
         ` : ''}

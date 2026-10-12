@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "node test_acceptance_criteria.js"
+    "test": "node test_acceptance_criteria.js && node test_platform_stability.js"
   },
   "keywords": [
     "malaysia",
