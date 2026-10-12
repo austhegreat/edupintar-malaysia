@@ -219,6 +219,7 @@ class EduPintarAuth {
     window.gamification.saveProfile();
     window.app?.applyStudentPlacement(level, grade);
     document.getElementById("studyPlacementModal")?.classList.add("hidden");
+    document.getElementById("profileModal")?.classList.add("hidden");
     this.setMessage("Pilihan kelas berjaya disimpan.", false, "profileMessage");
   }
 

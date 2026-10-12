@@ -69,7 +69,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-4">
       
       <!-- Logo & Brand -->
-      <div class="flex items-center gap-3 cursor-pointer" onclick="window.app.exitSubjectArena()">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="window.app.enterClassroom()">
         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-indigo-500 via-indigo-600 to-amber-400 flex items-center justify-center text-white text-xl sm:text-2xl font-black shadow-lg shadow-indigo-500/20 shrink-0 transform hover:rotate-6 transition-transform">
           🎓
         </div>
@@ -187,6 +187,43 @@
 
   <!-- Main App Layout Container -->
   <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 relative z-10">
+
+    <!-- VIEW 0: STUDENT CLASSROOM -->
+    <section id="classroomView" class="classroom-view hidden" aria-labelledby="classroomHeading">
+      <div class="classroom-topline">
+        <div>
+          <p class="classroom-eyebrow" id="classroomCurriculumLabel">EDUPINTAR CLASSROOM</p>
+          <h1 id="classroomHeading">Selamat datang ke kelas anda!</h1>
+          <p id="classroomGradeLabel" class="classroom-grade-label"></p>
+        </div>
+        <button class="classroom-change-button" type="button" onclick="window.app.openGradeSetupModal(false)">Tukar kelas</button>
+      </div>
+      <div class="classroom-scene">
+        <div class="classroom-window window-left"><span>☀️</span></div>
+        <div class="classroom-window window-right"><span>🌿</span></div>
+        <div class="classroom-board-wrap">
+          <div class="classroom-board">
+            <span class="board-label" id="classroomBoardLabel">PAPAN KELAS</span>
+            <h2 id="classroomBoardTitle">Selamat datang, murid!</h2>
+            <p id="classroomBoardText">Pilih satu misi pembelajaran dan kita mulakan bersama.</p>
+            <div class="board-chalk-row"><span>✦</span><span>Belajar</span><span>•</span><span>Berlatih</span><span>•</span><span>Berjaya</span></div>
+          </div>
+          <div class="classroom-teacher-desk" aria-hidden="true"></div>
+          <div class="classroom-teacher" id="classroomTeacherArt" aria-label="Doodle Cikgu Aus"></div>
+          <div class="teacher-nameplate"><span>✏️</span><span>Cikgu Aus</span><small id="classroomTeacherRole">GURU KELAS</small></div>
+        </div>
+        <div class="classroom-students" id="classroomStudents" aria-label="Rakan sekelas contoh"></div>
+        <div class="classroom-floor" aria-hidden="true"></div>
+      </div>
+      <div class="classroom-bottom-row">
+        <div class="classroom-welcome-note"><span class="welcome-note-icon">👋</span><div><strong id="classroomWelcomeTitle">Kelas sudah bermula!</strong><p id="classroomWelcomeText">Cikgu Aus dan rakan sekelas contoh anda sedang menunggu.</p></div></div>
+        <div class="classroom-actions">
+          <button type="button" class="classroom-secondary-action" onclick="window.app.openLearningLobby()"><span>📚</span><span id="classroomSubjectsAction">Lihat semua subjek</span></button>
+          <button type="button" class="classroom-primary-action" onclick="window.app.startClassLesson()"><span>✨</span><span id="classroomStartAction">Mula belajar</span><b>→</b></button>
+        </div>
+      </div>
+      <p class="classroom-demo-note" id="classroomDemoNote">Rakan sekelas yang dipaparkan ialah watak contoh. Ciri kelas langsung akan ditambah kemudian.</p>
+    </section>
 
     <!-- VIEW 1: MAIN LOBBY INTERFACE -->
     <div id="mainLobbyView" class="space-y-6">
@@ -404,11 +441,11 @@
 
   <!-- Mobile Bottom Navigation Bar (Screens < 768px) -->
   <nav class="mobile-bottom-nav">
-    <a href="#" onclick="window.app.exitSubjectArena(); window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="mobile-nav-item active">
+    <a href="#classroomView" onclick="window.app.enterClassroom(); return false;" class="mobile-nav-item active">
       <span class="icon">🏠</span>
       <span>Lobi</span>
     </a>
-    <a href="#gradePillsContainer" onclick="window.app.exitSubjectArena();" class="mobile-nav-item">
+    <a href="#mainLobbyView" onclick="window.app.openLearningLobby(); return false;" class="mobile-nav-item">
       <span class="icon">📚</span>
       <span>Silibus</span>
     </a>

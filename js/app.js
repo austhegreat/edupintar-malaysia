@@ -67,7 +67,7 @@ class EduPintarApp {
         chapterId: this.currentChapterId,
         subtopicIndex: this.currentSubtopicIndex || 0,
         activeTab: this.activeContentTab,
-        view: isArena ? "arena" : "lobby",
+        view: isArena ? "arena" : (!document.getElementById("classroomView")?.classList.contains("hidden") ? "classroom" : "lobby"),
         language: this.currentLanguage || "bm",
         timestamp: Date.now()
       };
@@ -100,6 +100,7 @@ class EduPintarApp {
     this.renderSubjectsGrid();
     this.renderStatsBanner();
     this.renderArenaQuestRoadmap();
+    if (!document.getElementById("classroomView")?.classList.contains("hidden")) this.renderClassroomScene();
     this.renderChapterDetail();
     this.saveSessionState();
   }
@@ -266,7 +267,81 @@ class EduPintarApp {
     this.renderStatsBanner();
     this.renderChapterDetail();
     this.renderArenaQuestRoadmap();
+    this.enterClassroom();
+  }
+
+  renderClassroomScene() {
+    const isEn = this.currentLanguage === "en";
+    const grade = SYLLABUS_DATA[this.currentLevel]?.grades.find(item => item.id === this.currentGradeId);
+    const profile = window.gamification?.profile || {};
+    const name = profile.username || profile.name || (isEn ? "student" : "murid");
+    const curriculum = SYLLABUS_DATA[this.currentLevel]?.curriculum || "KSSM";
+    const heading = document.getElementById("classroomHeading");
+    if (heading) heading.textContent = isEn ? `Welcome to class, ${name}!` : `Selamat datang ke kelas, ${name}!`;
+    const gradeLabel = document.getElementById("classroomGradeLabel");
+    if (gradeLabel) gradeLabel.textContent = `${grade?.name || ""} · ${curriculum}`;
+    const values = {
+      classroomCurriculumLabel: isEn ? "YOUR LEARNING CLASSROOM" : "BILIK DARJAH PEMBELAJARAN ANDA",
+      classroomBoardLabel: isEn ? "TODAY'S CLASS" : "KELAS HARI INI",
+      classroomBoardTitle: isEn ? "Welcome, learners!" : "Selamat datang, murid-murid!",
+      classroomBoardText: isEn ? "Choose a learning mission and let's get started together." : "Pilih satu misi pembelajaran dan kita mulakan bersama.",
+      classroomTeacherRole: isEn ? "YOUR TEACHER" : "CIKGU KELAS",
+      classroomWelcomeTitle: isEn ? "Class is ready!" : "Kelas sudah bermula!",
+      classroomWelcomeText: isEn ? "Cikgu Aus and your example classmates are waiting." : "Cikgu Aus dan rakan sekelas contoh anda sedang menunggu.",
+      classroomSubjectsAction: isEn ? "Explore subjects" : "Lihat semua subjek",
+      classroomStartAction: isEn ? "Start learning" : "Mula belajar",
+      classroomDemoNote: isEn ? "These classmates are examples. Live classrooms and real-time interaction will come in a future update." : "Rakan sekelas yang dipaparkan ialah watak contoh. Ciri kelas langsung akan ditambah kemudian."
+    };
+    Object.entries(values).forEach(([id, value]) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    });
+
+    const teacher = document.getElementById("classroomTeacherArt");
+    if (teacher && window.cikguAus?.generateSvg) teacher.innerHTML = window.cikguAus.generateSvg("waving");
+    const classmates = [
+      { name: "Aisyah", avatar: "👧🏻", color: "rose" },
+      { name: "Amir", avatar: "👦🏽", color: "sky" },
+      { name: "Mei Ling", avatar: "👧🏻", color: "amber" },
+      { name: "Kumar", avatar: "👦🏾", color: "emerald" },
+      { name: "Sofia", avatar: "👧🏽", color: "violet" },
+      { name: "Adam", avatar: "👦🏻", color: "orange" }
+    ];
+    const roster = document.getElementById("classroomStudents");
+    if (roster) roster.innerHTML = classmates.map((student, index) => `
+      <div class="classmate-seat seat-${index + 1}">
+        <div class="classmate-avatar avatar-${student.color}" aria-hidden="true">${student.avatar}</div>
+        <div class="classmate-desk" aria-hidden="true"></div>
+        <span class="classmate-name">${student.name}</span>
+      </div>
+    `).join("");
+  }
+
+  enterClassroom() {
+    if (window.eduAudio) window.eduAudio.playClick();
+    document.getElementById("classroomView")?.classList.add("hidden");
+    document.getElementById("mainLobbyView")?.classList.add("hidden");
+    document.getElementById("subjectArenaView")?.classList.add("hidden");
+    const room = document.getElementById("classroomView");
+    room?.classList.remove("hidden");
+    this.renderClassroomScene();
+    room?.scrollIntoView({ behavior: "smooth", block: "start" });
     this.saveSessionState();
+  }
+
+  openLearningLobby() {
+    document.getElementById("classroomView")?.classList.add("hidden");
+    document.getElementById("subjectArenaView")?.classList.add("hidden");
+    document.getElementById("mainLobbyView")?.classList.remove("hidden");
+    document.getElementById("mainLobbyView")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    this.saveSessionState();
+  }
+
+  startClassLesson() {
+    const subjects = SYLLABUS_DATA[this.currentLevel]?.subjects[this.currentGradeId] || [];
+    const subject = subjects.find(item => item.id === this.currentSubjectId) || subjects[0];
+    if (subject) this.enterSubjectArena(subject.id);
+    else this.openLearningLobby();
   }
 
   setLevel(level) {
@@ -374,7 +449,8 @@ class EduPintarApp {
       }
     }
 
-    // Hide Main Lobby, Show Subject Arena
+    // Hide the classroom and lobby, then show the subject arena.
+    document.getElementById("classroomView")?.classList.add("hidden");
     document.getElementById("mainLobbyView")?.classList.add("hidden");
     const arenaEl = document.getElementById("subjectArenaView");
     if (arenaEl) {
@@ -435,6 +511,7 @@ class EduPintarApp {
     if (window.cikguAus) window.cikguAus.stopSpeaking();
     document.getElementById("subjectArenaView")?.classList.add("hidden");
     document.getElementById("mainLobbyView")?.classList.remove("hidden");
+    document.getElementById("classroomView")?.classList.add("hidden");
     document.getElementById("gradePillsContainer")?.scrollIntoView({ behavior: "smooth" });
     this.saveSessionState();
     if (window.edu3D) window.edu3D.setupCard3DTilt();
