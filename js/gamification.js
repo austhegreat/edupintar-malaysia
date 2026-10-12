@@ -103,19 +103,23 @@ class GamificationEngine {
   getDefaultProfile() {
     return {
       name: "Murid Pintar",
+      username: "",
+      avatarUrl: "",
+      publicLeaderboard: false,
       schoolLevel: "secondary", // 'primary' or 'secondary'
-      xp: 120, // Give some starter XP so it feels rewarding immediately
-      streak: 1,
-      lastActiveDate: new Date().toISOString().split("T")[0],
+      xp: 0,
+      streak: 0,
+      lastActiveDate: null,
       completedNotes: [],
       completedQuizzes: {}, // { quizId: { score: 100, date: ... } }
-      unlockedBadges: ["first_step"]
+      unlockedBadges: []
     };
   }
 
   loadProfile() {
     try {
-      const data = localStorage.getItem(GAMIFICATION_STORAGE_KEY);
+      const userId = window.eduAuth?.user?.id;
+      const data = localStorage.getItem(userId ? `${GAMIFICATION_STORAGE_KEY}:${userId}` : GAMIFICATION_STORAGE_KEY);
       if (data) {
         return { ...this.getDefaultProfile(), ...JSON.parse(data) };
       }
@@ -127,11 +131,14 @@ class GamificationEngine {
 
   saveProfile() {
     try {
-      localStorage.setItem(GAMIFICATION_STORAGE_KEY, JSON.stringify(this.profile));
+      const userId = window.eduAuth?.user?.id;
+      if (userId) localStorage.setItem(`${GAMIFICATION_STORAGE_KEY}:${userId}`, JSON.stringify(this.profile));
+      else localStorage.setItem(GAMIFICATION_STORAGE_KEY, JSON.stringify(this.profile));
     } catch (e) {
       console.warn("Storage save error:", e);
     }
     this.notifyStateChanged();
+    window.eduAuth?.scheduleSave();
   }
 
   notifyStateChanged() {
@@ -139,7 +146,9 @@ class GamificationEngine {
   }
 
   checkDailyStreak() {
-    const today = new Date().toISOString().split("T")[0];
+    const today = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Kuala_Lumpur", year: "numeric", month: "2-digit", day: "2-digit"
+    }).format(new Date());
     const lastDate = this.profile.lastActiveDate;
 
     if (!lastDate) {
@@ -154,9 +163,8 @@ class GamificationEngine {
       return;
     }
 
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split("T")[0];
+    const [year, month, day] = today.split("-").map(Number);
+    const yesterdayStr = new Date(Date.UTC(year, month - 1, day - 1)).toISOString().split("T")[0];
 
     if (lastDate === yesterdayStr) {
       this.profile.streak += 1;

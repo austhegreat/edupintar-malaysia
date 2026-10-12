@@ -144,6 +144,7 @@ class EduPintarApp {
     if (levelBadgeEl) {
       levelBadgeEl.innerHTML = `${levelInfo.icon} Tahap ${levelInfo.level}: ${levelInfo.title}`;
     }
+    window.eduAuth?.renderAvatar();
   }
 
   renderStatsBanner() {
@@ -1133,17 +1134,14 @@ class EduPintarApp {
 
     document.getElementById("modalProfileName").textContent = profile.name;
     document.getElementById("modalProfileLevel").textContent = `Tahap ${levelInfo.level}: ${levelInfo.title}`;
-    const schoolEl = document.getElementById("modalProfileSchool");
-    if (schoolEl) schoolEl.textContent = profile.school || "Sekolah Rendah / Menengah Malaysia";
+    document.getElementById("modalProfileUsername").textContent = profile.username ? `@${profile.username}` : "";
+    window.eduAuth?.renderAvatar();
 
-    const nameInput = document.getElementById("inputProfileName");
-    if (nameInput) nameInput.value = profile.name || "Murid Pintar";
+    const usernameInput = document.getElementById("inputProfileUsername");
+    if (usernameInput) usernameInput.value = profile.username || "";
+    const publicToggle = document.getElementById("profileLeaderboardOptIn");
+    if (publicToggle) publicToggle.checked = !!profile.publicLeaderboard;
 
-    const schoolInput = document.getElementById("inputProfileSchool");
-    if (schoolInput) schoolInput.value = profile.school || "";
-
-    const roleSelect = document.getElementById("selectProfileRole");
-    if (roleSelect) roleSelect.value = profile.role || "student";
 
     document.getElementById("modalProfileXp").textContent = `${profile.xp} XP`;
     document.getElementById("modalProfileStreak").textContent = `${profile.streak} Hari Berturut-turut`;
@@ -1172,48 +1170,8 @@ class EduPintarApp {
     modal.classList.remove("hidden");
   }
 
-  saveProfileChanges() {
-    const nameInput = document.getElementById("inputProfileName");
-    const schoolInput = document.getElementById("inputProfileSchool");
-    const roleSelect = document.getElementById("selectProfileRole");
-
-    if (nameInput && nameInput.value.trim()) {
-      window.gamification.profile.name = nameInput.value.trim();
-    }
-    if (schoolInput && schoolInput.value.trim()) {
-      window.gamification.profile.school = schoolInput.value.trim();
-    }
-    if (roleSelect) {
-      window.gamification.profile.role = roleSelect.value;
-    }
-
-    window.gamification.saveProfile();
-    this.updateHeaderProfile();
-    this.renderStatsBanner();
-    this.syncScoreToCloud();
-
-    window.gamification.showXpToast(0, "Maklumat Profil Berjaya Dikemaskini! ✓");
-  }
-
   async syncScoreToCloud() {
-    try {
-      const profile = window.gamification.profile;
-      const levelInfo = window.gamification.getCurrentLevel();
-      await fetch("/api/leaderboard", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: profile.name,
-          school: profile.school || "Sekolah Malaysia",
-          level: levelInfo.title,
-          xp: profile.xp,
-          badges: profile.unlockedBadges.length
-        })
-      });
-    } catch (e) {
-      // Offline mode or file:// protocol fallback
-      console.log("Local offline mode active, syncing skipped.");
-    }
+    window.eduAuth?.scheduleSave();
   }
 
   openLeaderboardModal() {
@@ -1231,57 +1189,27 @@ class EduPintarApp {
   async fetchLeaderboard() {
     const container = document.getElementById("leaderboardListContainer");
     if (!container) return;
-
-    // Fallback data in case server is not running yet
-    const fallbackList = [
-      { rank: 1, name: "Nur Aisyah Binti Zulkifli", school: "SMK Aminuddin Baki, KL", level: "Cendekiawan Pintar", xp: 2450, badges: 9 },
-      { rank: 2, name: "Tan Wei Hong", school: "SMJK Chung Ling, Pulau Pinang", level: "Jaguh Harapan", xp: 2180, badges: 8 },
-      { rank: 3, name: "Muhammad Harith Danish", school: "Kolej Melayu Kuala Kangsar (MCKK)", level: "Jaguh Harapan", xp: 1920, badges: 7 },
-      { rank: 4, name: "Siti Sarah Qistina", school: "SBP Integrasi Gopeng, Perak", level: "Wira Ilmuwan", xp: 1650, badges: 6 },
-      { rank: 5, name: "Darren Lee Jia Jun", school: "SMK Catholic, Petaling Jaya", level: "Wira Ilmuwan", xp: 1420, badges: 6 },
-      { rank: 6, name: "Kavitha A/P Muthusamy", school: "SMK Sultan Ismail, Johor Bahru", level: "Bintang Kelas", xp: 1250, badges: 5 },
-      { rank: 7, name: "Mohd Adam Rayyan", school: "SK Taman Tun Dr Ismail (1), KL", level: "Bintang Kelas", xp: 980, badges: 5 },
-      { rank: 8, name: "Alyssa Wong Xin Yi", school: "SJK(C) Puay Chai 2, Selangor", level: "Penuntut Bersemangat", xp: 750, badges: 4 }
-    ];
-
-    let list = fallbackList;
-
-    try {
-      const res = await fetch("/api/leaderboard");
-      if (res.ok) {
-        list = await res.json();
-      }
-    } catch (e) {
-      console.log("Serving offline leaderboard list");
+    container.replaceChildren();
+    const { data, error } = await window.eduAuth.fetchLeaderboard();
+    if (error) {
+      container.textContent = "Papan pendahulu belum tersedia. Sediakan sambungan akaun dan pangkalan data dahulu.";
+      return;
     }
-
-    container.innerHTML = list.map((item, index) => {
-      let rankBadge = `<span class="w-7 h-7 rounded-full bg-slate-100 text-slate-700 font-black text-xs flex items-center justify-center">${item.rank || index + 1}</span>`;
-      if (index === 0) rankBadge = `<span class="text-2xl">🥇</span>`;
-      if (index === 1) rankBadge = `<span class="text-2xl">🥈</span>`;
-      if (index === 2) rankBadge = `<span class="text-2xl">🥉</span>`;
-
-      return `
-        <div class="flex items-center justify-between p-3.5 rounded-2xl border transition-all ${
-          index < 3 ? 'bg-amber-50/60 border-amber-200 shadow-sm' : 'bg-white border-slate-200'
-        }">
-          <div class="flex items-center gap-3">
-            <div class="shrink-0 flex items-center justify-center w-8">${rankBadge}</div>
-            <div>
-              <div class="font-black text-slate-900 text-xs sm:text-sm flex items-center gap-1.5">
-                <span>${item.name}</span>
-                <span class="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full font-bold">${item.level}</span>
-              </div>
-              <div class="text-[11px] text-slate-500 font-medium">${item.school || 'Sekolah Malaysia'}</div>
-            </div>
-          </div>
-          <div class="text-right shrink-0">
-            <span class="font-black text-amber-600 text-xs sm:text-sm">${item.xp} XP</span>
-            <span class="block text-[10px] text-slate-400 font-semibold">${item.badges || 0} Lencana</span>
-          </div>
-        </div>
-      `;
-    }).join("");
+    if (!data?.length) {
+      container.textContent = "Belum ada pemain yang memilih untuk muncul pada papan pendahulu.";
+      return;
+    }
+    data.forEach((item, index) => {
+      const row = document.createElement("div");
+      row.className = `flex items-center justify-between p-3.5 rounded-2xl border ${index < 3 ? "bg-amber-50/60 border-amber-200" : "bg-white border-slate-200"}`;
+      const left = document.createElement("div"); left.className = "flex items-center gap-3 min-w-0";
+      const rank = document.createElement("span"); rank.className = "w-8 text-center text-xl"; rank.textContent = ["🥇", "🥈", "🥉"][index] || String(index + 1);
+      const avatar = document.createElement("img"); avatar.className = "w-9 h-9 rounded-full object-cover bg-slate-200"; avatar.alt = ""; avatar.src = item.avatar_url || "";
+      const username = document.createElement("span"); username.className = "font-black text-slate-900 text-sm truncate"; username.textContent = `@${item.username}`;
+      left.append(rank, avatar, username);
+      const score = document.createElement("span"); score.className = "font-black text-amber-700 text-sm shrink-0"; score.textContent = `${item.xp || 0} XP`;
+      row.append(left, score); container.append(row);
+    });
   }
 
   closeProfileModal() {

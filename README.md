@@ -3,11 +3,25 @@
 > **Platform Web Pembelajaran Silibus Sekolah Rendah & Sekolah Menengah Malaysia (KSSR Semakan & KSSM / SPM)**  
 > Dibina dengan seni bina modular (Website-First), responsif untuk telefon pintar, dan sedia untuk dilancarkan secara langsung di **Render.com**.
 
+## Akaun, profil dan simpanan kemajuan
+
+Versi ini menggunakan Supabase Auth dan Postgres untuk akaun, nama pengguna, gambar profil dan kemajuan merentas peranti.
+
+1. Cipta projek Supabase dan buka **SQL Editor**.
+2. Jalankan keseluruhan fail `supabase-setup.sql` sekali. Ia menyediakan jadual profil, kawalan akses baris (RLS), paparan papan pendahulu dan storan gambar.
+3. Dalam Supabase **Authentication → URL Configuration**, tetapkan Site URL kepada URL Render anda dan tambah URL itu ke Redirect URLs. Tetapkan pengesahan e-mel mengikut keperluan anda.
+4. Dalam Render, buka **Environment** untuk web service dan tetapkan `SUPABASE_URL` kepada Project URL serta `SUPABASE_ANON_KEY` kepada anon/publishable key projek tersebut. Jangan gunakan atau dedahkan service-role key.
+5. Deploy semula. Pelajar boleh mencipta akaun menggunakan e-mel dan kata laluan, memilih nama pengguna unik, memuat naik gambar, dan mengaktifkan paparan pada papan pendahulu secara pilihan.
+
+Kemajuan disimpan pada profil akaun. Papan pendahulu hanya memaparkan pengguna yang memilih untuk menyertainya, menggunakan nama pengguna, gambar dan XP sahaja. Nama sebenar, sekolah dan e-mel tidak diminta atau dipaparkan.
+
+**Nota integriti skor:** XP masih dikira dalam pelayar. Untuk pertandingan berhadiah atau papan pendahulu kompetitif, pindahkan pengiraan ganjaran ke fungsi pelayan yang mengesahkan keputusan kuiz sebelum menganggap XP sebagai anti-penipuan.
+
 ---
 
 ## 🌐 Cara Pelancaran Langsung ke Render.com (Go Live Online)
 
-EduPintar Malaysia kini dilengkapi dengan fail konfigurasi [`render.yaml`](file:///C:/Users/User/.gemini/antigravity/scratch/edupintar-malaysia/render.yaml) dan pelayan pengeluaran [`server.js`](file:///C:/Users/User/.gemini/antigravity/scratch/edupintar-malaysia/server.js). Anda boleh menjadikannya boleh diakses oleh semua murid dan guru di seluruh Malaysia secara percuma dalam masa 2 minit!
+EduPintar Malaysia menggunakan konfigurasi [`render.yaml`](render.yaml) dan pelayan pengeluaran [`server.js`](server.js). Sebelum mengaktifkan akaun di Render, ikut langkah Supabase di atas dan masukkan pemboleh ubah persekitaran yang diperlukan.
 
 ### Langkah 1: Muat Naik Kod ke GitHub
 1. Buka [GitHub.com](https://github.com) dan cipta repositori baharu bernama `edupintar-malaysia`.
@@ -52,7 +66,7 @@ EduPintar Malaysia kini dilengkapi dengan fail konfigurasi [`render.yaml`](file:
    - Paparan 10 Murid Paling Cemerlang di seluruh Malaysia.
    - Murid boleh menamakan profil, memasukkan sekolah & negeri mereka.
    - Mod pilihan Pelajar atau Guru.
-   - Skor XP disegerakkan secara langsung ke pelayan Render melalui endpoint `/api/leaderboard`.
+   - Skor dan kemajuan profil disimpan dalam Supabase; papan pendahulu menyenaraikan pengguna yang memilih untuk menyertainya.
 
 3. **Nota Padat & Konsep Penting (Bite-sized Notes)**
    - Rumusan padat mengikut subtopik DSKP.
