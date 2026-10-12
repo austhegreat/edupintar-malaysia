@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#4f46e5">
+  <meta name="theme-color" content="#f8fafc">
   <title>EduPintar Malaysia - Portal Pembelajaran KSSR Semakan & KSSM SPM</title>
   <meta name="description" content="Portal Pembelajaran Interaktif 3D Silibus Sekolah Rendah dan Menengah Malaysia. Nota padat, kad imbasan 3D, video kuliah, kuiz UASA & SPM, dan gamifikasi pembelajaran.">
   
@@ -45,10 +45,10 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/print.css" media="print">
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white relative">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white relative study-shell">
 
   <!-- Background Interactive 3D WebGL Canvas -->
-  <canvas id="bg3dCanvas"></canvas>
+  <canvas id="bg3dCanvas" aria-hidden="true"></canvas>
 
   <!-- Print-Only Header -->
   <div class="print-only border-b-2 border-slate-900 pb-4 mb-6">
@@ -65,7 +65,7 @@
   </div>
 
   <!-- Top Navigation Header -->
-  <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-xl border-b border-slate-800 transition-all shadow-xl">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 transition-all shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-4">
       
       <!-- Logo & Brand -->
@@ -75,10 +75,10 @@
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <span class="text-lg sm:text-xl font-black tracking-tight text-white">EduPintar</span>
+            <span class="text-lg sm:text-xl font-black tracking-tight text-slate-900">EduPintar</span>
             <span class="bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">MY 3D</span>
           </div>
-          <p class="text-[10px] sm:text-xs text-slate-400 font-medium hidden sm:block">Silibus Sekolah Rendah & Menengah Malaysia</p>
+          <p class="text-[10px] sm:text-xs text-slate-500 font-medium hidden sm:block">Ruang belajar peribadi anda</p>
         </div>
       </div>
 
@@ -89,7 +89,7 @@
             type="text" 
             id="syllabusSearchInput"
             placeholder="Cari subjek, bab atau konsep... (cth: Sejarah, Fizik, Kuadratik, Darah)" 
-            class="w-full bg-slate-800/80 hover:bg-slate-800 focus:bg-slate-900 text-white text-xs sm:text-sm rounded-2xl pl-10 pr-4 py-2.5 border border-slate-700 focus:border-indigo-500 focus:outline-none transition-all shadow-inner"
+            class="w-full bg-slate-50 hover:bg-white focus:bg-white text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-2xl pl-10 pr-4 py-2.5 border border-slate-200 focus:border-indigo-500 focus:outline-none transition-all"
           >
           <span class="absolute left-3.5 top-2.5 text-slate-400 text-sm">🔍</span>
         </div>
@@ -197,7 +197,7 @@
       </section>
 
       <!-- 🎮 Featured EduGame Arcade & Duel Banner -->
-      <section class="bg-gradient-to-r from-purple-950 via-indigo-950 to-slate-900 rounded-3xl p-5 sm:p-6 border-2 border-purple-500/40 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 card-3d-tilt">
+      <section class="home-game-promo bg-gradient-to-r from-purple-950 via-indigo-950 to-slate-900 rounded-3xl p-5 sm:p-6 border-2 border-purple-500/40 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 card-3d-tilt">
         <!-- Decorative Glow -->
         <div class="absolute -right-8 -top-8 w-40 h-40 bg-purple-500/20 rounded-full blur-2xl pointer-events-none"></div>
         <div class="absolute -left-8 -bottom-8 w-40 h-40 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
@@ -238,28 +238,16 @@
       </section>
 
       <!-- 2. Primary / Secondary Level Toggle Switch -->
-      <section class="bg-slate-900/80 backdrop-blur-md p-2 rounded-3xl border border-slate-800 shadow-xl flex items-center gap-2">
-        <button 
-          id="tabLevelPrimary" 
-          onclick="window.app.setLevel('primary')" 
-          class="flex-1 py-3 px-4 rounded-2xl font-bold text-sm bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 transition-all flex items-center justify-center gap-2 card-3d-tilt"
-        >
-          <span class="text-xl">🎒</span>
-          <span>Sekolah Rendah (KSSR Semakan)</span>
-        </button>
-
-        <button 
-          id="tabLevelSecondary" 
-          onclick="window.app.setLevel('secondary')" 
-          class="flex-1 py-3 px-4 rounded-2xl font-bold text-sm bg-indigo-600 text-white shadow-lg shadow-indigo-500/25 transition-all flex items-center justify-center gap-2 card-3d-tilt"
-        >
-          <span class="text-xl">🏫</span>
-          <span>Sekolah Menengah (KSSM / SPM)</span>
-        </button>
+      <section id="studyPlacementSummary" class="rounded-2xl border border-indigo-100 bg-indigo-50 px-4 py-3 flex items-center justify-between gap-3">
+        <div>
+          <p class="text-[11px] uppercase tracking-wide font-bold text-indigo-500">Kelas pembelajaran anda</p>
+          <p id="studyPlacementLabel" class="text-sm font-bold text-slate-800">Tetapkan tahun atau tingkatan</p>
+        </div>
+        <button onclick="window.app.openGradeSetupModal(false)" class="shrink-0 rounded-xl border border-indigo-200 bg-white px-3 py-2 text-xs font-bold text-indigo-700 hover:bg-indigo-100">Tukar kelas</button>
       </section>
 
       <!-- 3. Grade Selection Pills (Tahun 1-6 / Tingkatan 1-5) -->
-      <section class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="gradePillsContainer">
+      <section class="hidden flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="gradePillsContainer">
         <!-- Populated dynamically by app.js -->
       </section>
 
@@ -283,7 +271,7 @@
       </section>
 
       <!-- 5. Feature Highlights -->
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-800">
+      <section class="home-feature-highlights grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-slate-800">
         <div class="bg-slate-900/80 backdrop-blur-md p-5 rounded-3xl border border-slate-800 shadow-md flex items-start gap-4 card-3d-tilt">
           <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl shrink-0">
             📖
@@ -483,6 +471,25 @@
     </div>
   </section>
 
+  <section id="studyPlacementModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="studyPlacementHeading">
+    <div class="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl">
+      <div class="mb-5 text-center">
+        <div class="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-indigo-100 text-2xl">🎒</div>
+        <h2 id="studyPlacementHeading" class="text-xl font-black text-slate-900">Pilih kelas anda</h2>
+        <p class="mt-2 text-sm text-slate-600">Kami akan tunjukkan subjek, bab dan cabaran untuk kelas ini sahaja. Anda boleh mengubahnya kemudian melalui profil.</p>
+      </div>
+      <label for="studyPlacementLevel" class="mb-1 block text-xs font-bold text-slate-700">Tahap sekolah</label>
+      <select id="studyPlacementLevel" onchange="window.app.updateStudyGradeOptions()" class="mb-4 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none">
+        <option value="primary">Sekolah Rendah (KSSR)</option>
+        <option value="secondary">Sekolah Menengah (KSSM)</option>
+      </select>
+      <label for="studyPlacementGrade" class="mb-1 block text-xs font-bold text-slate-700">Tahun / Tingkatan</label>
+      <select id="studyPlacementGrade" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:outline-none"></select>
+      <p id="studyPlacementMessage" class="mt-3 text-xs" role="status" aria-live="polite"></p>
+      <button onclick="window.app.saveStudentPlacement()" class="mt-4 w-full rounded-xl bg-indigo-600 px-4 py-3 text-sm font-bold text-white hover:bg-indigo-700">Simpan kelas saya</button>
+    </div>
+  </section>
+
   <!-- Quiz Interactive Modal -->
   <div id="quizModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 hidden animate-fade-in">
     <div class="bg-slate-900 rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-700 text-white overflow-hidden relative" id="quizModalBody">
@@ -518,6 +525,10 @@
             <label class="font-bold text-slate-300 block mb-1" for="inputProfileUsername">Nama pengguna unik:</label>
             <input type="text" id="inputProfileUsername" minlength="3" maxlength="20" pattern="[a-z0-9_]{3,20}" autocomplete="username" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3 py-1.5 focus:border-indigo-500 focus:outline-none" placeholder="contoh: aisyah_5">
           </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between gap-3 rounded-xl border border-slate-700 bg-slate-900/70 p-3">
+          <div><p class="text-[10px] text-slate-400">Tahun / Tingkatan</p><p id="profileStudyPlacement" class="mt-0.5 font-bold text-slate-100">Belum dipilih</p></div>
+          <button onclick="window.app.openGradeSetupModal(false)" class="rounded-lg bg-indigo-600 px-3 py-2 text-[11px] font-bold text-white">Tukar</button>
         </div>
         <div class="mt-3 flex items-center justify-end">
           <button 
@@ -586,7 +597,7 @@
         </button>
         <span class="text-5xl block mb-2">🏆</span>
         <h3 class="text-xl font-black">Papan Pendahulu Kebangsaan Malaysia</h3>
-        <p class="text-xs text-amber-100 mt-1">Kedudukan 10 Murid Paling Cemerlang Mengumpul XP Silibus</p>
+        <p id="leaderboardSubtitle" class="text-xs text-amber-100 mt-1">Kedudukan murid dalam kelas anda</p>
       </div>
 
       <!-- Leaderboard List -->

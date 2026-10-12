@@ -56,6 +56,119 @@ class VisualGraphicsEngine {
     return this.renderGenericScienceGraphic(chapterId, isEn);
   }
 
+  getSubtopicGraphic(chapter, section, sectionIndex = 0, language = "bm") {
+    const isEn = language === "en";
+    const clean = value => String(value || "").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+    const chapterTitle = clean(chapter?.title);
+    const sectionTitle = clean(section?.heading || chapterTitle);
+    const context = `${chapterTitle} ${sectionTitle} ${clean(chapter?.summary)} ${clean(section?.content)}`.toLowerCase();
+    const facts = (section?.bulletPoints || section?.bulletPointsEn || [])
+      .map(clean).filter(Boolean).slice(0, 4);
+    if (!facts.length) facts.push(clean(section?.content) || clean(chapter?.summary) || sectionTitle);
+    this.activeTopicFacts = facts;
+
+    const header = `<div class="topic-visual rounded-2xl border border-indigo-100 bg-indigo-50/70 p-4 sm:p-5" aria-label="${isEn ? 'Interactive visual' : 'Visual interaktif'}"><div class="mb-3 flex items-center gap-2"><span class="grid h-9 w-9 place-items-center rounded-xl bg-white text-xl shadow-sm">${this.topicIcon(context)}</span><div><p class="text-[10px] font-bold uppercase tracking-wider text-indigo-600">${isEn ? 'Explore this idea' : 'Teroka konsep ini'}</p><h4 class="font-bold text-slate-900">${sectionTitle}</h4></div></div>`;
+    const footer = `</div>`;
+
+    if (/kuadratik|quadratic|parabola/.test(context)) {
+      return header + this.renderSubtopicParabola(isEn) + footer;
+    }
+    if (/pecahan|fraction/.test(context)) {
+      return header + this.renderSubtopicFraction(isEn) + footer;
+    }
+    if (/garis lurus|linear graph|kecerunan|slope|y\s*=\s*mx/.test(context)) {
+      return header + this.renderSubtopicLine(isEn) + footer;
+    }
+    if (/sudut|angle|segi tiga|triangle|poligon|polygon/.test(context)) {
+      return header + this.renderSubtopicAngle(isEn) + footer;
+    }
+    if (/sejarah|nasionalis|kemerdekaan|kedaulatan|history|independence/.test(context)) {
+      return header + this.renderSubtopicFactMap(facts, isEn, "timeline") + footer;
+    }
+    return header + this.renderSubtopicFactMap(facts, isEn, "concept") + footer;
+  }
+
+  topicIcon(context) {
+    if (/kuadratik|quadratic|parabola/.test(context)) return "📈";
+    if (/pecahan|fraction/.test(context)) return "🍰";
+    if (/sejarah|nasionalis|kemerdekaan|kedaulatan|history/.test(context)) return "🕰️";
+    if (/atom|kimia|chemistry/.test(context)) return "⚛️";
+    if (/darah|jantung|heart|peredaran/.test(context)) return "🫀";
+    if (/sudut|angle|segi tiga|triangle|geometri/.test(context)) return "📐";
+    if (/tumbuhan|plant|ekosistem|ecosystem|sains|science/.test(context)) return "🔬";
+    if (/bahasa|tatabahasa|grammar|ayat|sentence/.test(context)) return "📝";
+    return "💡";
+  }
+
+  renderSubtopicParabola(isEn) {
+    return `<div class="grid gap-4 md:grid-cols-[1.5fr_1fr] md:items-center"><svg viewBox="0 0 420 190" role="img" aria-label="${isEn ? 'Quadratic curve' : 'Graf kuadratik'}" class="w-full rounded-xl bg-white"><path d="M35 95H385M210 18V172" stroke="#cbd5e1"/><path id="subtopicParabolaPath" d="M35 30 Q210 178 385 30" fill="none" stroke="#4f46e5" stroke-width="4"/><circle cx="210" cy="95" r="4" fill="#f59e0b"/><text x="370" y="88" fill="#64748b" font-size="12">x</text><text x="218" y="26" fill="#64748b" font-size="12">y</text></svg><div><label for="subtopicParabolaA" class="text-xs font-semibold text-slate-700">${isEn ? 'Change a (curve direction)' : 'Ubah nilai a (arah lengkung)'}</label><input id="subtopicParabolaA" type="range" min="-3" max="3" step="1" value="-1" class="mt-2 w-full accent-indigo-600" oninput="window.visualGraphics.updateSubtopicParabola(this.value)"><p id="subtopicParabolaHint" class="mt-2 text-sm text-slate-700">${isEn ? 'a < 0: the curve opens down.' : 'a < 0: lengkung membuka ke bawah.'}</p><p class="mt-2 text-xs text-slate-500">${isEn ? 'Try positive, negative and zero values.' : 'Cuba nilai positif, negatif dan sifar.'}</p></div></div>`;
+  }
+
+  updateSubtopicParabola(value) {
+    const a = Number(value);
+    const path = document.getElementById("subtopicParabolaPath");
+    if (path) {
+      const pts = [];
+      for (let i = 0; i <= 40; i++) {
+        const x = -4 + i * 0.2;
+        const y = a * x * x;
+        const sx = 210 + x * 38;
+        const sy = 95 - y * 6;
+        pts.push(`${i ? "L" : "M"}${sx.toFixed(1)} ${Math.max(18, Math.min(172, sy)).toFixed(1)}`);
+      }
+      path.setAttribute("d", pts.join(" "));
+    }
+    const hint = document.getElementById("subtopicParabolaHint");
+    if (hint) hint.textContent = a > 0 ? "a > 0: lengkung membuka ke atas." : a < 0 ? "a < 0: lengkung membuka ke bawah." : "a = 0: tiada lengkung kuadratik.";
+  }
+
+  renderSubtopicFraction(isEn) {
+    return `<div class="grid gap-4 md:grid-cols-[1fr_1fr] md:items-center"><div class="h-10 overflow-hidden rounded-xl border border-slate-200 bg-white"><div id="subtopicFractionFill" class="h-full bg-indigo-500 transition-all" style="width:40%"></div></div><div><label for="subtopicFractionRange" class="text-xs font-semibold text-slate-700">${isEn ? 'Change the numerator (out of 10)' : 'Ubah pembilang (daripada 10)'}</label><input id="subtopicFractionRange" type="range" min="0" max="10" value="4" class="mt-2 w-full accent-indigo-600" oninput="window.visualGraphics.updateSubtopicFraction(this.value)"><p id="subtopicFractionLabel" class="text-sm font-bold text-indigo-700">4 / 10 = 40%</p></div></div>`;
+  }
+
+  updateSubtopicFraction(value) {
+    const n = Number(value), fill = document.getElementById("subtopicFractionFill"), label = document.getElementById("subtopicFractionLabel");
+    if (fill) fill.style.width = `${n * 10}%`;
+    if (label) label.textContent = `${n} / 10 = ${n * 10}%`;
+  }
+
+  renderSubtopicLine(isEn) {
+    return `<div class="grid gap-4 md:grid-cols-[1.5fr_1fr] md:items-center"><svg viewBox="0 0 420 190" class="w-full rounded-xl bg-white" role="img" aria-label="${isEn ? 'Linear graph' : 'Graf garis lurus'}"><path d="M35 95H385M210 18V172" stroke="#cbd5e1"/><path id="subtopicLinePath" d="M60 155L360 35" stroke="#4f46e5" stroke-width="4"/><circle cx="210" cy="95" r="4" fill="#f59e0b"/></svg><div><label for="subtopicLineSlope" class="text-xs font-semibold text-slate-700">${isEn ? 'Change the gradient' : 'Ubah kecerunan garis'}</label><input id="subtopicLineSlope" type="range" min="-3" max="3" value="1" class="mt-2 w-full accent-indigo-600" oninput="window.visualGraphics.updateSubtopicLine(this.value)"><p id="subtopicLineHint" class="mt-2 text-sm text-slate-700">m = 1</p></div></div>`;
+  }
+
+  updateSubtopicLine(value) {
+    const m = Number(value), path = document.getElementById("subtopicLinePath"), hint = document.getElementById("subtopicLineHint");
+    if (path) path.setAttribute("d", `M60 ${95 + m * 30}L360 ${95 - m * 30}`);
+    if (hint) hint.textContent = `m = ${m} · ${m > 0 ? "garis menaik" : m < 0 ? "garis menurun" : "garis mendatar"}`;
+  }
+
+  renderSubtopicAngle(isEn) {
+    return `<div class="grid gap-4 md:grid-cols-[1fr_1fr] md:items-center"><svg viewBox="0 0 240 150" class="w-full rounded-xl bg-white" role="img" aria-label="${isEn ? 'Angle diagram' : 'Rajah sudut'}"><path d="M35 125H205M35 125L145 25" stroke="#4f46e5" stroke-width="5"/><path id="subtopicAngleArc" d="M75 125 A40 40 0 0 0 67 99" fill="none" stroke="#f59e0b" stroke-width="4"/><text id="subtopicAngleLabel" x="82" y="108" fill="#334155" font-size="13">45°</text></svg><div><label for="subtopicAngleRange" class="text-xs font-semibold text-slate-700">${isEn ? 'Adjust the angle' : 'Laraskan sudut'}</label><input id="subtopicAngleRange" type="range" min="10" max="170" value="45" class="mt-2 w-full accent-indigo-600" oninput="window.visualGraphics.updateSubtopicAngle(this.value)"><p class="text-xs text-slate-500">${isEn ? 'Observe how the angle opens.' : 'Perhatikan perubahan bukaan sudut.'}</p></div></div>`;
+  }
+
+  updateSubtopicAngle(value) {
+    const angle = Number(value), arc = document.getElementById("subtopicAngleArc"), label = document.getElementById("subtopicAngleLabel");
+    const rad = angle * Math.PI / 180, x = 35 + 40 * Math.cos(rad), y = 125 - 40 * Math.sin(rad);
+    if (arc) arc.setAttribute("d", `M75 125 A40 40 0 ${angle > 180 ? 1 : 0} 0 ${x.toFixed(1)} ${y.toFixed(1)}`);
+    if (label) label.textContent = `${angle}°`;
+  }
+
+  renderSubtopicFactMap(facts, isEn, mode) {
+    const safeFacts = facts.slice(0, 4);
+    return `<div class="grid gap-3 md:grid-cols-[1fr_1.3fr] md:items-center"><div class="relative grid min-h-32 grid-cols-2 gap-2 sm:grid-cols-4">${safeFacts.map((fact, index) => `<button type="button" onclick="window.visualGraphics.selectTopicFact(${index})" aria-pressed="${index === 0}" class="topic-fact-node rounded-xl border border-indigo-100 bg-white p-3 text-left text-xs font-semibold text-slate-700 hover:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-400" data-topic-index="${index}">${mode === 'timeline' ? `◉ ${index + 1}` : `✦ ${index + 1}`}<span class="mt-1 block text-[10px] font-normal text-slate-500">${fact.slice(0, 70)}${fact.length > 70 ? '…' : ''}</span></button>`).join("")}</div><div id="topicFactDetail" class="min-h-24 rounded-xl bg-white p-4 text-sm leading-6 text-slate-700">${safeFacts[0] || (isEn ? 'Select a point to explore this idea.' : 'Pilih satu titik untuk meneroka konsep ini.')}</div></div><p class="mt-2 text-[11px] text-slate-500">${isEn ? 'Select a point to focus on that part of the lesson.' : 'Pilih satu titik untuk fokus pada bahagian pelajaran itu.'}</p>`;
+  }
+
+  selectTopicFact(index) {
+    const fact = this.activeTopicFacts?.[index];
+    const detail = document.getElementById("topicFactDetail");
+    if (detail && fact) detail.textContent = fact;
+    document.querySelectorAll(".topic-fact-node").forEach((button, i) => {
+      button.setAttribute("aria-pressed", String(i === index));
+      button.classList.toggle("ring-2", i === index);
+      button.classList.toggle("ring-indigo-400", i === index);
+    });
+  }
+
   // GRAPHIC 1: QUADRATIC FUNCTIONS & BASKETBALL PARABOLA
   renderQuadraticGraphic(isEn) {
     return `

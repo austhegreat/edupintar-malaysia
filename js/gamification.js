@@ -107,6 +107,9 @@ class GamificationEngine {
       avatarUrl: "",
       publicLeaderboard: false,
       schoolLevel: "secondary", // 'primary' or 'secondary'
+      studyLevel: "",
+      studyGrade: "",
+      gradeXp: {},
       xp: 0,
       streak: 0,
       lastActiveDate: null,
@@ -182,11 +185,17 @@ class GamificationEngine {
 
   addXP(amount, reason = "") {
     const oldLevel = this.getCurrentLevel();
-    this.profile.xp += amount;
+    const points = Math.max(0, Number(amount) || 0);
+    this.profile.xp += points;
+    if (this.profile.studyLevel && this.profile.studyGrade) {
+      const gradeKey = `${this.profile.studyLevel}:${this.profile.studyGrade}`;
+      this.profile.gradeXp ||= {};
+      this.profile.gradeXp[gradeKey] = (Number(this.profile.gradeXp[gradeKey]) || 0) + points;
+    }
     this.saveProfile();
 
     const newLevel = this.getCurrentLevel();
-    this.showXpToast(amount, reason);
+    this.showXpToast(points, reason);
 
     if (newLevel.level > oldLevel.level) {
       this.showLevelUpModal(newLevel);
@@ -286,6 +295,7 @@ class GamificationEngine {
     this.profile.xp = 0;
     this.profile.streak = 1;
     this.profile.unlockedBadges = [];
+    this.profile.gradeXp = {};
     this.saveProfile();
   }
 

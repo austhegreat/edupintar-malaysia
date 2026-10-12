@@ -101,6 +101,7 @@ class EduPintarAuth {
       const old = window.gamification.profile;
       const created = await this.client.from("profiles").insert({
         id: this.user.id, username,
+        study_level: null, study_grade: null,
         xp: Number(old.xp) || 0, streak: Number(old.streak) || 0,
         completed_notes: old.completedNotes || [], completed_quizzes: old.completedQuizzes || {},
         unlocked_badges: old.unlockedBadges || [], last_active_date: old.lastActiveDate || null
@@ -114,6 +115,11 @@ class EduPintarAuth {
     this.applyProfile(profile);
     document.getElementById("authGate").classList.add("hidden");
     document.getElementById("authSignOut")?.classList.remove("hidden");
+    if (profile.study_level && profile.study_grade) {
+      window.app?.applyStudentPlacement(profile.study_level, profile.study_grade);
+    } else {
+      window.app?.openGradeSetupModal(true);
+    }
     window.app?.updateHeaderProfile();
     window.app?.renderStatsBanner();
   }
@@ -125,6 +131,9 @@ class EduPintarAuth {
       name: row.username,
       username: row.username,
       avatarUrl: row.avatar_url || "",
+      studyLevel: row.study_level || "",
+      studyGrade: row.study_grade || "",
+      gradeXp: row.grade_xp || {},
       publicLeaderboard: !!row.public_leaderboard,
       xp: row.xp || 0,
       streak: row.streak || 0,
@@ -151,6 +160,9 @@ class EduPintarAuth {
       id: this.user.id,
       username: p.username || this.profile?.username || this.user.user_metadata?.username,
       avatar_url: p.avatarUrl || null,
+      study_level: p.studyLevel || null,
+      study_grade: p.studyGrade || null,
+      grade_xp: p.gradeXp || {},
       public_leaderboard: !!p.publicLeaderboard,
       xp: p.xp || 0,
       streak: p.streak || 0,
@@ -179,6 +191,35 @@ class EduPintarAuth {
     window.gamification.saveProfile();
     window.app.updateHeaderProfile();
     this.setMessage("Profil berjaya disimpan.", false, "profileMessage");
+  }
+
+  async saveStudyPlacement(level, grade) {
+    const validGrades = SYLLABUS_DATA[level]?.grades || [];
+    if (!this.user || !this.client || !validGrades.some(item => item.id === grade)) {
+      return this.setMessage("Pilih tahap dan tingkatan yang sah.", true, "studyPlacementMessage");
+    }
+    const gradeXp = { ...(window.gamification.profile.gradeXp || {}) };
+    if (!this.profile?.study_level && !this.profile?.study_grade) {
+      const gradeKey = `${level}:${grade}`;
+      gradeXp[gradeKey] = Math.max(Number(gradeXp[gradeKey]) || 0, Number(window.gamification.profile.xp) || 0);
+    }
+    const { error } = await this.client.from("profiles")
+      .update({ study_level: level, study_grade: grade, grade_xp: gradeXp })
+      .eq("id", this.user.id);
+    if (error) {
+      const schemaHint = /study_level|study_grade|column/i.test(error.message)
+        ? " Jalankan fail supabase-grade-profile-upgrade.sql dalam Supabase SQL Editor dahulu."
+        : "";
+      return this.setMessage(`Tidak dapat menyimpan pilihan darjah/tingkatan: ${error.message}.${schemaHint}`, true, "studyPlacementMessage");
+    }
+    this.profile = { ...this.profile, study_level: level, study_grade: grade, grade_xp: gradeXp };
+    window.gamification.profile.studyLevel = level;
+    window.gamification.profile.studyGrade = grade;
+    window.gamification.profile.gradeXp = gradeXp;
+    window.gamification.saveProfile();
+    window.app?.applyStudentPlacement(level, grade);
+    document.getElementById("studyPlacementModal")?.classList.add("hidden");
+    this.setMessage("Pilihan kelas berjaya disimpan.", false, "profileMessage");
   }
 
   async uploadAvatar(event) {
@@ -212,7 +253,13 @@ class EduPintarAuth {
 
   async fetchLeaderboard() {
     if (!this.client) return { data: [], error: new Error("Sambungan akaun belum disediakan.") };
-    return this.client.from("public_leaderboard").select("username,avatar_url,xp,badges").order("xp", { ascending: false }).limit(10);
+    const profile = window.gamification.profile;
+    if (!profile.studyLevel || !profile.studyGrade) return { data: [], error: new Error("Tetapkan kelas anda dahulu.") };
+    return this.client.from("public_leaderboard")
+      .select("username,avatar_url,xp,badges,study_level,study_grade")
+      .eq("study_level", profile.studyLevel)
+      .eq("study_grade", profile.studyGrade)
+      .order("xp", { ascending: false }).limit(10);
   }
 
   async signOut() {
@@ -238,7 +285,12 @@ class EduPintarAuth {
 
   setMessage(message, isError = false, targetId = "authMessage") {
     const node = document.getElementById(targetId);
-    if (node) { node.textContent = message; node.className = `text-sm ${isError ? "text-rose-300" : "text-emerald-300"}`; }
+    if (node) {
+      const lightTarget = targetId === "studyPlacementMessage";
+      const color = isError ? (lightTarget ? "text-rose-600" : "text-rose-300") : (lightTarget ? "text-emerald-700" : "text-emerald-300");
+      node.textContent = message;
+      node.className = `text-sm ${color}`;
+    }
   }
 }
 

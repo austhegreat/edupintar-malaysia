@@ -3,6 +3,9 @@ create table if not exists public.profiles (
   id uuid primary key references auth.users(id) on delete cascade,
   username text not null unique check (username ~ '^[a-z0-9_]{3,20}$'),
   avatar_url text,
+  study_level text check (study_level in ('primary', 'secondary')),
+  study_grade text,
+  grade_xp jsonb not null default '{}'::jsonb,
   public_leaderboard boolean not null default false,
   xp integer not null default 0 check (xp >= 0),
   streak integer not null default 0 check (streak >= 0),
@@ -16,6 +19,20 @@ create table if not exists public.profiles (
 
 create unique index if not exists profiles_username_lower_unique
   on public.profiles (lower(username));
+
+alter table public.profiles add column if not exists study_level text;
+alter table public.profiles add column if not exists study_grade text;
+alter table public.profiles add column if not exists grade_xp jsonb not null default '{}'::jsonb;
+alter table public.profiles drop constraint if exists profiles_study_level_check;
+alter table public.profiles add constraint profiles_study_level_check
+  check (study_level is null or study_level in ('primary', 'secondary'));
+alter table public.profiles drop constraint if exists profiles_study_grade_check;
+alter table public.profiles add constraint profiles_study_grade_check
+  check (
+    study_grade is null or
+    (study_level = 'primary' and study_grade in ('t1', 't2', 't3', 't4', 't5', 't6')) or
+    (study_level = 'secondary' and study_grade in ('f1', 'f2', 'f3', 'f4', 'f5'))
+  );
 
 alter table public.profiles enable row level security;
 grant select, insert, update on public.profiles to authenticated;
@@ -40,10 +57,14 @@ drop view if exists public.public_leaderboard;
 -- The view intentionally exposes only the opt-in leaderboard fields. Its owner
 -- can read the source table; direct table reads remain limited to each user row.
 create view public.public_leaderboard as
-  select username, avatar_url, xp,
+  select username, avatar_url,
+    coalesce((grade_xp ->> (study_level || ':' || study_grade))::integer, 0) as xp,
+    study_level, study_grade,
     jsonb_array_length(unlocked_badges) as badges
   from public.profiles
-  where public_leaderboard = true;
+  where public_leaderboard = true
+    and study_level is not null
+    and study_grade is not null;
 
 grant select on public.public_leaderboard to anon, authenticated;
 

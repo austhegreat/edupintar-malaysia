@@ -7,6 +7,47 @@
   --mono-font: 'JetBrains Mono', monospace;
 }
 
+/* Quiet study layout: retain the useful lesson interactions without visual noise. */
+.study-shell { background: #f8fafc !important; color: #334155 !important; }
+.study-shell #bg3dCanvas { display: none !important; }
+.study-shell .home-game-promo,
+.study-shell .home-feature-highlights,
+.study-shell #chapterFlashcards { display: none !important; }
+.study-shell header { background: rgba(255,255,255,.96) !important; border-color: #e2e8f0 !important; box-shadow: 0 1px 3px rgba(15,23,42,.06) !important; }
+.study-shell header #languageToggleBtn,
+.study-shell header #soundToggleBtn,
+.study-shell header button[onclick*="openGameModal"],
+.study-shell header button[onclick*="openLeaderboardModal"] { border-color: #e2e8f0 !important; background: #fff !important; color: #475569 !important; box-shadow: none !important; }
+.study-shell header [title="Streak Belajar Harian"],
+.study-shell header [title="Mata Ganjaran XP"] { display: none !important; }
+.study-shell #studentStatsBanner > div { border-radius: 1rem !important; box-shadow: 0 1px 3px rgba(15,23,42,.06) !important; }
+.study-shell #subjectsGridContainer > div { border-color: #e2e8f0 !important; background: #fff !important; box-shadow: 0 1px 3px rgba(15,23,42,.05) !important; }
+.study-shell #subjectsGridContainer > div:hover { border-color: #a5b4fc !important; box-shadow: 0 8px 24px rgba(79,70,229,.09) !important; }
+.study-shell #subjectsGridContainer :is(.text-white,.text-slate-300) { color: #1e293b !important; }
+.study-shell #subjectsGridContainer .text-slate-400 { color: #64748b !important; }
+.study-shell #subjectsGridContainer :is(.bg-slate-800,.bg-slate-800\/90) { background: #f1f5f9 !important; }
+.study-shell #subjectsGridContainer :is(.border-slate-800,.border-slate-700,.border-slate-700\/80) { border-color: #e2e8f0 !important; }
+.study-shell #studyPlacementSummary { box-shadow: 0 1px 3px rgba(15,23,42,.04); }
+.study-shell #chapterGraphicContainer { margin-block: 1rem; }
+.study-shell #chapterGraphicContainer,
+.study-shell #chapterFlashcards,
+.study-shell #subjectArenaView > div:nth-child(2) { display: none !important; }
+.study-shell #subjectArenaView > div:first-child,
+.study-shell #subjectArenaView > section { background: #fff !important; border-color: #e2e8f0 !important; box-shadow: 0 1px 3px rgba(15,23,42,.05) !important; }
+.study-shell #subjectArenaView > div:first-child h2,
+.study-shell #subjectArenaView > section h3 { color: #0f172a !important; }
+.study-shell #arenaQuestRoadmapContainer .quest-node { border-width: 1px !important; border-color: #e2e8f0 !important; background: #fff !important; box-shadow: none !important; }
+.study-shell #arenaQuestRoadmapContainer .quest-node h5 { color: #334155 !important; }
+.study-shell footer { background: #fff !important; border-color: #e2e8f0 !important; }
+.study-shell footer :is(.text-white,.text-slate-400) { color: #475569 !important; }
+.study-shell header button[onclick*="openProfileModal"] { background: #f8fafc !important; border-color: #e2e8f0 !important; }
+.study-shell .subtopic-study-card { box-shadow: 0 1px 3px rgba(15,23,42,.05); }
+.study-shell .topic-visual { color: #334155; }
+.study-shell .mobile-bottom-nav { background: rgba(255,255,255,.97) !important; border-color: #e2e8f0 !important; }
+@media (prefers-reduced-motion: reduce) {
+  .study-shell *, .study-shell *::before, .study-shell *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
 body {
   font-family: var(--primary-font);
   -webkit-font-smoothing: antialiased;

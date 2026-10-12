@@ -13,6 +13,14 @@ Versi ini menggunakan Supabase Auth dan Postgres untuk akaun, nama pengguna, gam
 4. Dalam Render, buka **Environment** untuk web service dan tetapkan `SUPABASE_URL` kepada Project URL serta `SUPABASE_ANON_KEY` kepada anon/publishable key projek tersebut. Jangan gunakan atau dedahkan service-role key.
 5. Deploy semula. Pelajar boleh mencipta akaun menggunakan e-mel dan kata laluan, memilih nama pengguna unik, memuat naik gambar, dan mengaktifkan paparan pada papan pendahulu secara pilihan.
 
+### Pilihan kelas dan kandungan ikut tingkatan
+
+- Untuk projek Supabase yang sudah disediakan, jalankan `supabase-grade-profile-upgrade.sql` sekali dalam SQL Editor sebelum deploy versi ini. Projek baharu boleh gunakan `supabase-setup.sql` yang terkini.
+- Selepas log masuk pertama, murid memilih sekolah rendah/menengah dan Tahun/Tingkatan. Pilihan ini disimpan pada profil; carian, subjek, bab, kuiz dan senarai papan pendahulu ditapis kepada kelas tersebut.
+- Murid boleh menukar kelas melalui butang **Tukar kelas** atau profil. XP keseluruhan kekal pada akaun, manakala papan pendahulu mengira XP yang diperoleh dalam kelas semasa sahaja. Untuk pertandingan yang memerlukan pencegahan penipuan, skor masih perlu disahkan di pelayan.
+- Dalam modul nota, setiap bahagian nota dipaparkan sebagai subtopik berasingan dengan visual yang boleh diterokai. Entri yang masih menggunakan teks templat atau belum mempunyai nota ditandakan sebagai draf; cabaran dan ganjarannya disembunyikan sehingga kandungan disahkan.
+- Data semasa sekolah menengah mengandungi 243 entri bab; 160 daripadanya masih menggunakan teks templat. Entri draf disembunyikan daripada aktiviti supaya ia tidak disalah anggap sebagai bahan KSSM yang lengkap. Kandungan ini perlu dikarang dan disemak mengikut DSKP/buku teks sebelum menandakan kerja silibus sekolah menengah selesai.
+
 Kemajuan disimpan pada profil akaun. Papan pendahulu hanya memaparkan pengguna yang memilih untuk menyertainya, menggunakan nama pengguna, gambar dan XP sahaja. Nama sebenar, sekolah dan e-mel tidak diminta atau dipaparkan.
 
 **Nota integriti skor:** XP masih dikira dalam pelayar. Untuk pertandingan berhadiah atau papan pendahulu kompetitif, pindahkan pengiraan ganjaran ke fungsi pelayan yang mengesahkan keputusan kuiz sebelum menganggap XP sebagai anti-penipuan.
