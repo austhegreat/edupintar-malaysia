@@ -33,10 +33,7 @@ class Edu3DEngine {
       return;
     }
 
-    this.setupBackgroundCosmos();
-    this.setupMouseTracking();
-    this.setupCard3DTilt();
-    this.animate();
+    // Keep the lobby lightweight. Build WebGL only when a learner opens a 3D lab.
   }
 
   setupBackgroundCosmos() {
@@ -231,6 +228,7 @@ class Edu3DEngine {
 
       this.buildLabModel(this.currentModelType);
       this.attachLabInteractions(this.labRenderer.domElement);
+      this.animate();
     } catch (e) {
       console.warn("3D Lab WebGL fallback active:", e);
       this.renderFallbackLab(container);
@@ -382,32 +380,12 @@ class Edu3DEngine {
   }
 
   animate() {
+    if (!this.labScene || !this.labCamera || !this.labRenderer || !this.labModelGroup) return;
     requestAnimationFrame(() => this.animate());
 
     // Smooth mouse lerp
     this.mouseX += (this.targetMouseX - this.mouseX) * 0.05;
     this.mouseY += (this.targetMouseY - this.mouseY) * 0.05;
-
-    // Render background cosmos
-    if (this.bgScene && this.bgCamera && this.bgRenderer) {
-      if (this.bgParticles) {
-        this.bgParticles.rotation.y += 0.0006;
-        this.bgParticles.rotation.x = this.mouseY * 0.12;
-        this.bgParticles.rotation.y += this.mouseX * 0.002;
-      }
-
-      this.bgShapes.forEach((shape, idx) => {
-        shape.rotation.x += shape.userData.rotSpeedX;
-        shape.rotation.y += shape.userData.rotSpeedY;
-        shape.position.y = shape.userData.initialY + Math.sin(Date.now() * 0.001 + idx) * 3;
-      });
-
-      this.bgCamera.position.x = this.mouseX * 6;
-      this.bgCamera.position.y = -this.mouseY * 4;
-      this.bgCamera.lookAt(this.bgScene.position);
-
-      this.bgRenderer.render(this.bgScene, this.bgCamera);
-    }
 
     // Render Subject 3D Lab
     if (this.labScene && this.labCamera && this.labRenderer && this.labModelGroup) {

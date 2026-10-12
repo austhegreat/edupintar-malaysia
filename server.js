@@ -5,14 +5,48 @@
 
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
+const zlib = require('zlib');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// The curriculum bundle is the largest first-load asset. Serve a cached gzip
+// version to browsers that support it, without adding a runtime dependency.
+let compressedCurriculum = null;
+app.get('/js/syllabus-data.js', async (req, res, next) => {
+  if (!/\bgzip\b/.test(req.get('accept-encoding') || '')) {
+    return res.sendFile(path.join(__dirname, 'js', 'syllabus-data.js'));
+  }
+  try {
+    if (!compressedCurriculum) {
+      const source = await fs.promises.readFile(path.join(__dirname, 'js', 'syllabus-data.js'));
+      compressedCurriculum = await new Promise((resolve, reject) =>
+        zlib.gzip(source, { level: zlib.constants.Z_BEST_SPEED }, (error, result) =>
+          error ? reject(error) : resolve(result)
+        )
+      );
+    }
+    res.set({
+      'Content-Type': 'application/javascript; charset=utf-8',
+      'Content-Encoding': 'gzip',
+      'Cache-Control': 'public, max-age=3600',
+      'Vary': 'Accept-Encoding'
+    }).send(compressedCurriculum);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // Serve static frontend files
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname), {
+  maxAge: '1h',
+  setHeaders(res, filePath) {
+    if (path.basename(filePath) === 'index.html') res.setHeader('Cache-Control', 'no-cache');
+  }
+}));
 
 // Health check endpoint for Render monitoring
 app.get('/api/health', (req, res) => {

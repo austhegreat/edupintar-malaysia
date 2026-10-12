@@ -148,7 +148,11 @@
       const source = originalText.get(node);
       if (language === "en") {
         const translated = englishFor(source);
-        if (translated !== null) node.nodeValue = source.replace(source.trim(), translated);
+        if (translated !== null) {
+          const nextValue = source.replace(source.trim(), translated);
+          // Prevent redundant writes from retriggering the characterData observer.
+          if (node.nodeValue !== nextValue) node.nodeValue = nextValue;
+        }
       } else if (source !== node.nodeValue) node.nodeValue = source;
       return;
     }
@@ -159,8 +163,8 @@
       if (!originals) { originals = {}; originalAttrs.set(node, originals); }
       if (!(attribute in originals)) originals[attribute] = node.getAttribute(attribute);
       const source = originals[attribute];
-      if (language === "en") node.setAttribute(attribute, englishFor(source) || source);
-      else node.setAttribute(attribute, source);
+      const nextValue = language === "en" ? (englishFor(source) || source) : source;
+      if (node.getAttribute(attribute) !== nextValue) node.setAttribute(attribute, nextValue);
     }
     for (const child of node.childNodes) translateNode(child);
   }
